@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE article SYSTEM "http://www.atmos-chem-phys.net/inc/acp/copernicus.dtd">
+<article language="en">
+	<journal>
+		<journal_title>Atmospheric Chemistry and Physics</journal_title>
+		<journal_url>www.atmos-chem-phys.net</journal_url>
+		<issn>1680-7316</issn>
+		<eissn>1680-7324</eissn>
+		<volume_number>6</volume_number>
+		<issue_number>9</issue_number>
+		<publication_year>2006</publication_year>
+	</journal>
+	<doi>10.5194/acp-6-2711-2006</doi>
+	<article_url>http://www.atmos-chem-phys.net/6/2711/2006/</article_url>
+	<abstract_html>http://www.atmos-chem-phys.net/6/2711/2006/acp-6-2711-2006.html</abstract_html>
+	<fulltext_pdf>http://www.atmos-chem-phys.net/6/2711/2006/acp-6-2711-2006.pdf</fulltext_pdf>
+	<start_page>2711</start_page>
+	<end_page>2726</end_page>
+	<publication_date>2006-07-06</publication_date>
+	<article_title content_type="html">Ambient formaldehyde measurements made at a remote marine boundary layer  site during the NAMBLEX campaign &amp;ndash; a comparison of data from  chromatographic and modified Hantzsch techniques</article_title>
+	<authors>
+		<author numeration="1" affiliations="1">
+			<name>T. J. Still</name>
+		</author>
+		<author numeration="2" affiliations="1">
+			<name>S. Al-Haider</name>
+		</author>
+		<author numeration="3" affiliations="1">
+			<name>P. W. Seakins</name>
+			<email>p.w.seakins@chem.leeds.ac.uk</email>
+		</author>
+		<author numeration="4" affiliations="1">
+			<name>R. Sommariva</name>
+		</author>
+		<author numeration="5" affiliations="1">
+			<name>J. C. Stanton</name>
+		</author>
+		<author numeration="6" affiliations="2">
+			<name>G. Mills</name>
+		</author>
+		<author numeration="7" affiliations="2">
+			<name>S. A. Penkett</name>
+		</author>
+	</authors>
+	<affiliations>
+		<affiliation numeration="1" content_type="html">School of Chemistry, University of Leeds, Leeds, LS2 9JT, UK</affiliation>
+		<affiliation numeration="2" content_type="html">School of Environmental Sciences, University of East Anglia, Norwich, NR4 7TJ, UK</affiliation>
+	</affiliations>
+	<abstract content_type="html">Ambient formaldehyde concentrations are reported from the North Atlantic
+Marine Boundary Layer Experiment (NAMBLEX) campaign at Mace Head on the west
+coast of Eire during August 2002. The results from two techniques, using
+direct determination via gas chromatography and the Hantzsch technique, show
+similar trends but a significant off set in concentrations. For westerly air
+flows characteristic of the marine boundary layer, formaldehyde
+concentrations from the gas chromatographic and Hantzsch technique ranged
+from 0.78&amp;ndash;1.15 ppb and 0.13&amp;ndash;0.43 ppb, respectively. Possible reasons
+for the discrepancy have been investigated and are discussed, however, no
+satisfactory explanation has yet been found. In a subsequent laboratory
+intercomparison the two techniques were in good agreement.
+
+The observed concentrations have been compared with previous formaldehyde
+measurements in the North Atlantic marine boundary layer and with other
+measurements from the NAMBLEX campaign. The measurements from the Hantzsch
+technique and the GC results lie at the lower and upper ends respectively of
+previous measurements. In contrast to some previous measurements, both
+techniques show distinct diurnal profiles with day maxima and with an
+amplitude of approximately 0.15 ppb. Strong correlations were observed with
+ethanal concentrations measured during NAMBLEX and the ratio of ethanal to
+formaldehyde determined by the gas chromatographic technique is in good
+agreement with previous measurements.
+
+Some simple box modelling has been undertaken to investigate possible
+sources of formaldehyde. Such models are not able to predict absolute
+formaldehyde concentrations as they do not include transport processes, but
+the results show that oxygenated VOCs such as ethanal and methanol are very
+significant sources of formaldehyde in the air masses reaching Mace Head.</abstract>
+	<references>
+		<reference numeration="1" content_type="text"> Ayers, G. P., Gillett, R. W., DeServes, C., and Cox, R. A.: Formaldehyde production in clean marine air, Geophys. Res. Lett., 24, 401&amp;ndash;404, 1997. </reference>
+		<reference numeration="2" content_type="text"> Cardenas, L. M., Brassington, D. J., Allan, B. J., Coe, H., Alicke, B., Platt, U., Wilson, K. M., Plane, J. M. C., and Penkett, S. A.: Intercomparison of formaldehyde measurements in clean and polluted atmospheres., J. Atmos. Chem., 37, 53&amp;ndash;80, 2000. </reference>
+		<reference numeration="3" content_type="text"> Carslaw, N., Creasey, D. J., Heard, D. E., Jacobs, P. J., Lee, J. D., Lewis, A. C., McQuaid, J. B., Bauguitte, S., Pilling, M. J., Penkett, S. A., Monks, P. S., and Salisbury, G.: Comparisons of model concentrations of OH, HO$_2$ and RO$_2$ with measurements during EASE 97, J. Geophys. Res., 107(D14), 4190, doi:10.1029/2001JD001568, 2002. </reference>
+		<reference numeration="4" content_type="text"> Fried, A., Crawford, J., Olsen, J., Walega, J., Potter, W., Wert, B., Jordan, C., Anderson, B., Shetter, R., Lefer, B., Blake, D. R., Blake, N. J., Meinardi, S., Heikes, B., O&apos;Sullivan, D., Snow, J., Fuelberg, H., Kiley, C. M., Sandholm, S., Tan, D., Sachse, G. W., Singh, H. B., Faloona, I., Harward, C. N., and Carmichael, G. R.: Airbourne tuneable diode laser measurements of formaldehyde during TRACE-P. Distributions and model comparisons., J. Geophys. Res., 108(D20), 8798, doi:10.1029/2003JD003451, 2003. </reference>
+		<reference numeration="5" content_type="text"> Fried, A., Lee, Y.-N., Frost, G., Wert, B., Henry, B., Drummond, J. R., Hubler, G., and Jobson, T.: Airborne formaldehyde measurements over the North Atlantic during the 1997 NARE campaign: Instrument comparisons and distributions., J. Geophys. Res., 107, 4039, doi:10.1029/2000JD260, 2002. </reference>
+		<reference numeration="6" content_type="text"> Fried, A., Wang, Y., Cantrell, C., Wert, B., Walega, J., Ridley, B., Atlas, E., Shetter, R., Lefer, B., Coffey, M. T., Hannigan, J., Blake, D. R., Blake, N. J., Meinardi, S., Talbot, R., Dibb, J., Scheuer, E., Wingenter, O., Snow, J., Heikes, B., and Ehhalt, D.: Tunable diode laser measurements of formaldehyde during the TOPSE 2000 study: Distribution, trends and model comparisons, J. Geophys. Res., 108(D4), 8365, doi:10.1029/2002JD002208, 2003. </reference>
+		<reference numeration="7" content_type="text"> Frost, G. J., Fried, A., Lee, Y.-N., Wert, B., Henry, B., Drummond, J. R., Evans, M. J., Fehsenfeld, F. C., Goldan, P. D., Holloway, J. S., Hubler, G., Jakoubek, R., Jobson, B. T., Knapp, K., Kuster, W. C., Roberts, J., Rudolph, J., Ryerson, T. B., Stohl, A., Stroud, C., Sueper, D. T., Trainer, M., and Williams, J.: Comparisons of box model calculations and measurements of formaldehyde from the 1997 North Atlantic Regional Experiment, J. Geophys. Res., 107(D8), 4060, doi:10.1029/2001JD000896, 2002. </reference>
+		<reference numeration="8" content_type="text"> Gilpin, T., Apel, E., Fried, A., Wert, B., Calvert, J. G., Zhang, G. F., Dasgupta, P., Harder, J. W., Heikes, B., Hopkins, B., Westberg, H., Kleindienst, T., Lee, Y. N., Zhou, X. L., Lonneman, W., and Sewell, S.: Intercomparison of six ambient formaldehyde measurement techniques, J. Geophys. Res., 102(D17), 21 161&amp;ndash;21 188, 1997. </reference>
+		<reference numeration="9" content_type="text"> Grossmann, D., Moortgat, G. K., Kibler, M., Schlomski, S., Bachmann, K., Alicke, B., Geyer, A., Platt, U., Hammer, M.-U., Vogel, B., Mihelcic, D., Hofzumahaus, A., Holland, F., and Volz-Thomas, A.: Hydrogen peroxide, organic peroxides, carbonyl compounds and organic acids measured at Pabstthum during BERLIOZ, J. Geophys. Res., 108(D4), 8250, doi:10.1029/2001JD001096, 2003. </reference>
+		<reference numeration="10" content_type="text"> Hak, C., Pundt, I., Trick, S., Kern, C., Platt, U., Dommen, J., Ordonez, C., Prevot, A. S. H., Junkermann, W., Astorga-Llorens, C., Larson, B. R., Mellqvist, J., Strandberg, A., Yu, Y., Galle, B., Kleffman, J., Lorzer, J. C., Braathen, G. O., and Volkamer, R.: Intercomparison of four different in-situ techniques for ambient formaldehyde measurements in urban air, Atmos. Chem. Phys., 5, 2897&amp;ndash;2945, 2005. </reference>
+		<reference numeration="11" content_type="text"> Harris, G. W., Klemp, D., Zenker, T., and Burrows, J. P.: Tuneable diode laser measurements of trace gases during the 1988 \textitPolarstern cruise., J. Atmos. Chem., 15, 315&amp;ndash;326, 1992. </reference>
+		<reference numeration="12" content_type="text"> Heard, D. E., Carpenter, L. J., Creasey, D. J., Hopkins, J. R., Lee, J. D., Lewis, A. C., Pilling, M. J., Seakins, P. W., Carslaw, N., and Emmerson, K. M.: High levels of the hydroxyl radical in the winter urban troposphere, Geophys. Res. Lett., 31(18), L18112, doi:10.1029/2004GL020544, 2004. </reference>
+		<reference numeration="13" content_type="text"> Heard, D. E., Read, K. A., Methven, J., et al.: The North Atlantic Marine Boundary Layer Experiment (NAMBLEX), Mace Head, summer 2002, campaign overview, Atmos. Chem. Phys., 6 2241&amp;ndash;2272, 2006. </reference>
+		<reference numeration="14" content_type="text"> Hopkins, J. R., Lewis, A. C., and Read, K. A.: A two-column method for long-term monitoring of non-methane hydrocarbons and oxygenated volatile organic compounds, J. Environ. Monit., 5, 8&amp;ndash;13, 2003. </reference>
+		<reference numeration="15" content_type="text"> Hopkins, J. R., Still, T., Al-Haider, S., Fisher, I. R., Lewis, A. C., and Seakins, P. W.: A Simplified Apparatus for Ambient Formaldehyde Detection via GC-pHID, Atmos. Environ., 37, 2557&amp;ndash;2563, 2003. </reference>
+		<reference numeration="16" content_type="text"> Hunter, M. C., Bartle, K. D., Lewis, A. C., McQuaid, J. B., Myers, P., Seakins, P. W., and Van Tilburg, C.: The use of the Helium Ionization Detector for Gas Chromatographic Monitoring of Trace Atmospheric Components, J. High Res. Chrom., 21, 75&amp;ndash;78, 1998. </reference>
+		<reference numeration="17" content_type="text"> Hunter, M. C., Bartle, K. D., Seakins, P. W., and Lewis, A. C.: Direct measurement of atmospheric formaldehyde using gas chromatography-pulsed discharge ionisation detection, Analytical Communications, 36, 101&amp;ndash;104, 1999. </reference>
+		<reference numeration="18" content_type="text"> Jacob, D. J., Heikes, B., Fan, S. M., Logan, J. A., Mauzerall, D. L., Bradshaw, J. D., Singh, H. B., Gregory, G. L., Talbot, R., Blake, D. R., and Sachse, G. W.: Origin of ozone and NO$_\rm x$ in the tropical troposphere: A photochemical analysis of aircraft observations over the South Atlantic basin, J. Geophys. Res., 101(D19), 24 235&amp;ndash;24 250, 1996. </reference>
+		<reference numeration="19" content_type="text"> Lewis, A. C., Hopkins, J. R., Carpenter, L. J., Stanton, J. C., Read, K. A., and Pilling, M. J.: Sources and sinks of acetone, methanol, and acetaldehyde in North Atlantic air, Atmos. Chem. Phys., 5, 1963&amp;ndash;1974, 2005. </reference>
+		<reference numeration="20" content_type="text"> Liu, S. C., Trainer, M., Carrol, M. A., Hubler, G., Montzka, S. A., Norton, R. B., Ridley, B., Walega, J., Atlas, E., Heikes, B., Huebert, B. J., and Warren, W.: A study of the photochemistry and ozone budget during the Mauna Loa Observatory Photochemistry Experiment, J. Geophys. Res., 97(D10), 10 463&amp;ndash;10 471, 1992. </reference>
+		<reference numeration="21" content_type="text"> Norton, E. G., Vaughan, G., Methven, J., Coe, H., Brooks, D., Gallagher, M., and Longley, I.: Boundary layer structure and decoupling from synoptic scale flow during NAMBLEX, Atmos. Chem. Phys., 6, 433&amp;ndash;445, 2006.  </reference>
+		<reference numeration="22" content_type="text"> Pope, F. D., Smith, C. A., Davis, P. R., Shallcross, D. E., Ashfold, M. N. R., and Orr-Ewing, A. J.: Photochemistry of formaldehyde under tropospheric conditions, Faraday Discuss., 130, 59&amp;ndash;73, doi:10.1039/b419227c, 2005. </reference>
+		<reference numeration="23" content_type="text"> Qian, H. B., Turton, D., Seakins, P. W., and Pilling, M. J.: A Laser Flash Photolysis/IR Diode Laser Absorption Study of the Reaction of Chlorine Atoms with Selected Alkanes, Int. J. Chemical Kinetics, 34, 86&amp;ndash;94, 2002. </reference>
+		<reference numeration="24" content_type="text"> Ramacher, B., Rudolph, J., and Koppmann, R.: Hydrocarbon measurements during tropsopheric ozone depletion events: Evidence for halogen chemistry., J. Geophys. Res., 104, 3633&amp;ndash;3653, 1999. </reference>
+		<reference numeration="25" content_type="text"> Saunders, S. M., Jenkin, M. E., Derwent, R. G., and Pilling, M. J.: Protocol for the development of the Master Chemical Mechanism, MCM v3: Tropospheric degradation of non-aromatic VOC., Atmos. Chem. Phys., 3, 161&amp;ndash;180, 2003. </reference>
+		<reference numeration="26" content_type="text"> Seakins, P. W., Orlando, J. J., and Tyndall, G. S.: The Rate Coefficients and Fraction of Vibrationally Excited HCl from the Reactions of Chlorine Atoms with Methanol, Ethanol, Acetaldehyde and Formaldehyde., Phys. Chem. Chem. Phys., 6, 2224&amp;ndash;2229, 2004. </reference>
+		<reference numeration="27" content_type="text"> Solberg, S., Dye, C., Schmidbauer, N., Herzog, A., and Gehrig, R.: Carbonyls and nonmethane hydrocarbons at rural European sites from the Mediterranean to the Arctic, J. Atmos. Chem., 25, 33&amp;ndash;66, 1996. </reference>
+		<reference numeration="28" content_type="text"> Sommariva, R.: Understanding Field Measurements through a Master Chemical Mechanism, School of Chemistry, Leeds, University of Leeds, 2004. </reference>
+		<reference numeration="29" content_type="text"> Sommariva, R., Haggerstone, A. L., Carpenter, L. J., Carslaw, N., Creasey, D. J., Heard, D. E., Lee, J. D., Lewis, A. C., Pilling, M. J., and Zador, J.: OH and HO$_2$ chemistry in clean marine air during SOAPEX-2, Atmos. Chem. Phys., 4, 839&amp;ndash;856, 2004. </reference>
+		<reference numeration="30" content_type="text"> Tanner, R. L., Zielinska, B., Uberna, E., Harsfield, G., and McNichol, A. P.: Concentrations of carbonyl compounds and the carbon isotopy of formaldehyde at a coastal site in Nova Scotia during the NARE summer intensive, J. Geophys. Res., 101(D22), 28 961&amp;ndash;28 970, 1996. </reference>
+		<reference numeration="31" content_type="text"> Wagner, V., Schiller, C., and Fischer, H.: Formaldehyde measurements in the marine boundary layer of the Indian Ocean during the 1999 INDOEX cruise, J. Geophys. Res., 106(D22), 28 529&amp;ndash;28 538, 2001. </reference>
+		<reference numeration="32" content_type="text"> Wagner, V., von Glasow, R., Fischer, H., and Crutzen, P. J.: Are formaldehyde measurements in the marine boundary layer suitable for testing the current understanding of CH$_4$ photooxidation?, J. Geophys. Res., 107(D3), 4029, doi:10.1029/2001JD000722, 2002. </reference>
+		<reference numeration="33" content_type="text"> Weller, R., Schrems, O., Boddenberg, A., Gab, S., and Gautrois, M.: Meridional distribution of hydroperoxides and formaldehyde in the marine boundary layer of the Atlantic (48$^\circ$ N&amp;ndash;35$^\circ$ S) measured during the Albatross campaign, J. Geophys. Res., 105, 14 401&amp;ndash;14 412, 2000. </reference>
+		<reference numeration="34" content_type="text"> Zhou, X. L., Lee, Y.-N., Newman, L., Chen, X. H., and Mopper, K.: Tropospheric formaldehyde concentration at the Mauna Loa observatory during MLOPEX 2, J. Geophys. Res., 101(D9), 14 711&amp;ndash;14 719, 1996. </reference>
+	</references>
+</article>
