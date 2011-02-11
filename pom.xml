@@ -3,4 +3,11 @@
   <groupId>ACPGeo</groupId>
   <artifactId>ACPGeo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  	<dependency>
+  		<groupId>chemicalTagger</groupId>
+  		<artifactId>chemicalTagger</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>
