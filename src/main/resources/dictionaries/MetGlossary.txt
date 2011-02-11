@@ -1,3 +1,4 @@
+# Source: http://www.erh.noaa.gov/er/box/glossary.htm on date: 11ii11
 Ablation:: The process of being removed. Snow ablation usually refers to removal by melting
 Absolute Humidity:: The density of water vapor.  It is the mass of the water vapor divided by the volume that it occupies.
 Accretion:: Growth of precipitation particles by collision of ice crystals with supercooled liquid droplets which freeze on impact
