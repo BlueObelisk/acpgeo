@@ -2,6 +2,6 @@ glob:.classpath
 glob:.deployment
 glob:.project
 glob:*.settings*
-glob:.target
+glob:*target*
 glob:bin
 
