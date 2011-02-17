@@ -3,11 +3,9 @@ package uk.ac.cam.ch.wwmm.acpgeo;
 import java.util.HashMap;
 import java.util.List;
 
-import uk.ac.cam.ch.wwmm.chemicaltagger.OpenNLPTagger;
-import uk.ac.cam.ch.wwmm.chemicaltagger.OscarTagger;
+import uk.ac.cam.ch.wwmm.chemicaltagger.ChemistryPOSTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.PostProcessTags;
-import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 import uk.ac.cam.ch.wwmm.chemicaltagger.WWMMTag;
 
 public class ACPTagger {
@@ -16,12 +14,11 @@ public class ACPTagger {
 		private static final ACPTagger INSTANCE = new ACPTagger();
 	}
 
-	public OscarTagger oscarTagger;
-	public OpenNLPTagger openNLPTagger;
+	public ChemistryPOSTagger posTagger;
 
 	private ACPTagger() {
-		oscarTagger = new OscarTagger();
-		openNLPTagger = OpenNLPTagger.getInstance();
+		posTagger =  ChemistryPOSTagger.getInstance();		
+
 	}
 
 	public static ACPTagger getInstance() {
@@ -30,17 +27,14 @@ public class ACPTagger {
 
 	public POSContainer runTaggers(String inputSentence) {
 
-		POSContainer posContainer = new POSContainer();
+		
 		DictionaryLoader dictLoader = new DictionaryLoader();
 
 		HashMap<String,String> acpMap = dictLoader.loadDictionary();
 
-		inputSentence = Utils.formatSentence(inputSentence);
-
-		posContainer = oscarTagger.runTagger(posContainer, inputSentence);
-		posContainer = openNLPTagger.runTagger(posContainer);
-
-		posContainer.combineTaggers();
+		POSContainer posContainer = posTagger.runTaggers(inputSentence);
+		
+		
 		List<String> tokenlist = posContainer.getTokenList();
 		int count = 0;
 		for (String token : tokenlist) {
