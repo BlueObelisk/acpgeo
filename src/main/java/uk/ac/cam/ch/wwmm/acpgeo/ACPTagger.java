@@ -10,15 +10,27 @@ import uk.ac.cam.ch.wwmm.chemicaltagger.WWMMTag;
 
 public class ACPTagger {
 
+	private static String ACP_DICTIONARY = "dictionaries/MetGlossary.txt";
+	private static String COUNTRIES_DICTIONARY = "dictionaries/Countries.txt";
+	private static String STATION_COORDS_FILE = "dictionaries/StationCoords.csv";
+
 	private static class TaggerHolder {
 		private static final ACPTagger INSTANCE = new ACPTagger();
 	}
 
 	public ChemistryPOSTagger posTagger;
+	private HashMap<String, String> acpGlossaryMap;
+	private HashMap<String, String> acpCountriesMap;
+	private ACPRegexTagger acpRegexTagger;
+	private CoordinatesLoader gawCoordinates;
 
 	private ACPTagger() {
-		posTagger =  ChemistryPOSTagger.getInstance();		
-
+		DictionaryLoader dictLoader = new DictionaryLoader();
+		acpRegexTagger = new ACPRegexTagger();
+		posTagger = ChemistryPOSTagger.getInstance();
+		acpGlossaryMap = dictLoader.loadDictionary(ACP_DICTIONARY, true);
+		acpCountriesMap = dictLoader.loadDictionary(COUNTRIES_DICTIONARY);
+        gawCoordinates = new CoordinatesLoader(STATION_COORDS_FILE);
 	}
 
 	public static ACPTagger getInstance() {
@@ -27,29 +39,34 @@ public class ACPTagger {
 
 	public POSContainer runTaggers(String inputSentence) {
 
-		
-		DictionaryLoader dictLoader = new DictionaryLoader();
-
-		HashMap<String,String> acpMap = dictLoader.loadDictionary();
-
+		acpRegexTagger.addDictionaryMapWithSufficesToRegex(acpCountriesMap,
+				"JJ-COUNTRY", "n|an|ian");
+		acpRegexTagger.addDictionaryMapToRegex(gawCoordinates.getSiteCoordsMap().keySet(),
+				"NNP-STATION");
+		posTagger.setRegexTagger(acpRegexTagger);
 		POSContainer posContainer = posTagger.runTaggers(inputSentence);
-		
-		
 		List<String> tokenlist = posContainer.getTokenList();
 		int count = 0;
 		for (String token : tokenlist) {
-			if (acpMap.containsKey(token.toLowerCase())) {
-				String currentTag =posContainer.getCombinedTagsList().get(count).getPOS(); 
-				posContainer.getCombinedTagsList().set(
-						count, new WWMMTag(currentTag+"-ACP"));
+			if (acpGlossaryMap.containsKey(token.toLowerCase())) {
+				String currentTag = posContainer.getCombinedTagsList()
+						.get(count).getPOS();
+				if (currentTag.contains("-") && !currentTag.startsWith("-")) {
+					currentTag = currentTag.split("-")[0];
+				}
+				posContainer.getCombinedTagsList().set(count,
+						new WWMMTag(currentTag + "-ACP"));
 			}
+			if (acpCountriesMap.containsKey(token)) {
+				posContainer.getCombinedTagsList().set(count,
+						new WWMMTag("NN-COUNTRY"));
+			}
+
 			count++;
 		}
 		posContainer = new PostProcessTags()
 				.correctCombinedTagsList(posContainer);
-		// posContainer.printOutTags();
-		// LOG.info("Tag Token Tuple: " +
-		// posContainer.getTokenTagTupleAsString());
+
 		return posContainer;
 	}
 

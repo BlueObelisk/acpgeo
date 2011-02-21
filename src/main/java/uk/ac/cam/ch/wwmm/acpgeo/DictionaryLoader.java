@@ -12,18 +12,22 @@ import org.apache.commons.lang.StringUtils;
 public class DictionaryLoader {
 
 	
-	public static String ACP_DICTIONARY  = "dictionaries/MetGlossary.txt";
 	public DictionaryLoader(){
 		
 	}
 	
-	public HashMap<String,String> loadDictionary(){
+	
+	public HashMap<String,String> loadDictionary(String ACP_Dictionary){
+		return loadDictionary(ACP_Dictionary,false);
+	}
+	
+	public HashMap<String,String> loadDictionary(String ACP_Dictionary,boolean lowerCaseFlag){
 		try {
 
             HashMap<String, String> acpMap = new HashMap<String, String>();
             String line = "";
 			InputStream is = this.getClass().getClassLoader()
-					.getResourceAsStream(ACP_DICTIONARY);
+					.getResourceAsStream(ACP_Dictionary);
 			BufferedReader in = new BufferedReader(new InputStreamReader(is,
 					Charset.forName("UTF-8")));
 
@@ -34,9 +38,16 @@ public class DictionaryLoader {
 			while ((line = in.readLine()) != null) {
 				if (!line.startsWith("#") && !StringUtils.isEmpty(line)) {
 					String[] lineTokens = line.split("::");
-					if (lineTokens.length > 1) {
-						acpMap.put(lineTokens[0].toLowerCase(), lineTokens[1]);
+					String mapKey = "";
+					if (lineTokens.length >0) {
+						if (lowerCaseFlag) mapKey = lineTokens[0].toLowerCase(); 
+						else mapKey = lineTokens[0];	
 					}
+					if (lineTokens.length > 1) 
+						acpMap.put(mapKey, lineTokens[1]);
+					
+					else if (lineTokens.length == 1)
+						acpMap.put(mapKey, "");
 
 				}
 
