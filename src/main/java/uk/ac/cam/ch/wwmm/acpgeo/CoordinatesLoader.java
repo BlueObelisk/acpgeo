@@ -52,7 +52,7 @@ public class CoordinatesLoader {
 			siteGawIdMap.put(row[1], row[2]);
         	}
 		}
-         System.out.println(siteCoordsMap.keySet());
+         
 	}
 
 }

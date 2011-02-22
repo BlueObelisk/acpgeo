@@ -1,11 +1,10 @@
 #Tags---Pattern---Description
 
 #Nouns
-NNP-MONTH---March---Months of a year;
-NNP-MONTH---(January|February|March|April|May|June|July|August|September|October|November|December)$---Months of a year;
-NNP-DIRECTION---(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)+---Directions;
-NN-STATION---(s|S)tation$---Field stations;
-NN-MEASUREMENT---(M|m)easurement(s)?$---Measurement;
+NNP-MONTH---January|February|March|April|May|June|July|August|September|October|November|December---Months of a year;
+NNP-DIRECTION---^(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)$+---Directions;
+NN-STATION---station$---Field stations;
+NN-MEASUREMENT---measurement(s)?$---Measurement;
 
 #CD
 CD-DEGREES---(\d+°)

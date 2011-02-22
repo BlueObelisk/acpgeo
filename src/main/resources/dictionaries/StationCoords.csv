@@ -6,12 +6,12 @@
 "Algeria","Assekrem","ASK","Global","full operation","23.27°N 5.63°E ",2710
 "Algeria","Columb-Béchar","BEC","Regional","closed","31.63°N 2.25°W ",806
 "Algeria","Tamanrasset","TAM","Global","full operation","22.78°N 5.52°E ",1377
-"Benin, R. of","Cotonou","COT","Regional","closed","6.21°N 2.23°E ",10
+"Benin","Cotonou","COT","Regional","closed","6.21°N 2.23°E ",10
 "Botswana","Maun","DMS","Regional","intermittent operation","19.98°S 23.43°E ",928
 "Cape Verde","Cape Verde Atmospheric Observatory","CVO","Global","full operation","16.85°N 24.87°W ",10
 "Congo","Brazzaville","BZV","Regional","closed","4.28°S 15.25°E ",314
-"Congo, D. R. of the","Bunia","BNI","Regional","closed","1.50°N 30.22°E ",1239
-"Congo, D. R. of the","Leopoldville/Kinshasa","LEO","Regional","closed","4.30°S 15.55°E ",450
+"Congo","Bunia","BNI","Regional","closed","1.50°N 30.22°E ",1239
+"Congo","Leopoldville/Kinshasa","LEO","Regional","closed","4.30°S 15.55°E ",450
 "Côte d’Ivoire","Lamto","LTO","Regional","full operation","6.22°N 5.03°W ",155
 "Egypt","Aswan","ASW","Regional","full operation","23.97°N 32.78°E ",194
 "Egypt","Cairo","CAI","Regional","full operation","30.08°N 31.28°E ",35
@@ -84,9 +84,9 @@
 "India","Trivandrum","TVM","Regional","full operation","8.48°N 76.95°E ",60
 "India","Varanasi/Banaras","VNS","Regional","full operation","25.30°N 83.02°E ",76
 "India","Vishakhapatnam","VSK","Regional","full operation","17.68°N 83.30°E ",72
-"Iran, Islamic R. of","Esfahan",,"Regional","unknown","32.48°N 51.43°E ",1550
-"Iran, Islamic R. of","Mt. Aminabad","MAM","Regional","full operation","35.70°N 52.59°E ",2986
-"Iran, Islamic R. of","Tehran University",,"Regional","unknown","35.45°N 51.23°E ",1419
+"Iran","Esfahan",,"Regional","unknown","32.48°N 51.43°E ",1550
+"Iran","Mt. Aminabad","MAM","Regional","full operation","35.70°N 52.59°E ",2986
+"Iran","Tehran University",,"Regional","unknown","35.45°N 51.23°E ",1419
 "Iraq","Hawr al Habbaniyah / Ar Ramadi",,"Regional","closed","33.37°N 43.57°E ",44
 "Japan","Cape Ochiishi","COI","Contributing","full operation","43.17°N 145.5°E ",49
 "Japan","Hamamatsu","HMM","Contributing","unknown","34.72°N 137.7°E ",29
@@ -121,12 +121,12 @@
 "Kazakhstan","Sary Taukum","KZD","Regional","full operation","44.45°N 77.57°E ",412
 "Kazakhstan","Semipalatinsk",,"Regional","full operation","50.25°N 80.18°E ",196
 "Kiribati","Tarawa","TAW","Contributing","closed","1.40°N 172.9°E ",0
-"Korea, R. of","Anmyeon-do","AMY","Regional","full operation","36.54°N 126.3°E ",46
-"Korea, R. of","Cheju",,"Regional","unknown","33.50°N 126.5°E ",300
-"Korea, R. of","Gosan","GSN","Regional","full operation","33.28°N 126.2°E ",72
-"Korea, R. of","Pohang",,"Regional","full operation","36.03°N 129.4°E ",6
-"Korea, R. of","Seoul",,"Regional","full operation","37.57°N 127.0°E ",84
-"Korea, R. of","Tae-ahn Peninsula","TAP","Regional","full operation","36.73°N 126.1°E ",20
+"Korea","Anmyeon-do","AMY","Regional","full operation","36.54°N 126.3°E ",46
+"Korea","Cheju",,"Regional","unknown","33.50°N 126.5°E ",300
+"Korea","Gosan","GSN","Regional","full operation","33.28°N 126.2°E ",72
+"Korea","Pohang",,"Regional","full operation","36.03°N 129.4°E ",6
+"Korea","Seoul",,"Regional","full operation","37.57°N 127.0°E ",84
+"Korea","Tae-ahn Peninsula","TAP","Regional","full operation","36.73°N 126.1°E ",20
 "Kyrgyzstan","Issyk-Kul","ISK","Regional","full operation","42.62°N 76.98°E ",1640
 "Maldives","Gan (Addu Atoll)","GAN","Regional","closed","0.68°S 73.15°E ",2
 "Maldives","Kaashidhoo (Male Atoll)","KCO","Regional","closed","4.97°N 73.47°E ",1
@@ -506,9 +506,9 @@
 "Austria","Sulzberg",,"Contributing","full operation","47.52°N 9.87°E ",1020
 "Austria","Zillertalen Alpen",,"Contributing","full operation","47.13°N 11.87°E ",1970
 "Austria","Zoebelboden",,"Contributing","full operation","47.83°N 14.43°E ",899
-"Belarus, R. of","Berezinsky Reserve","BRS","Regional","full operation","54.73°N 28.35°E ",174
-"Belarus, R. of","Minsk","MAS","Regional","full operation","53.83°N 27.47°E ",222
-"Belarus, R. of","Vysokoe",,"Contributing","closed","55.33°N 23.43°E ",163
+"Belarus","Berezinsky Reserve","BRS","Regional","full operation","54.73°N 28.35°E ",174
+"Belarus","Minsk","MAS","Regional","full operation","53.83°N 27.47°E ",222
+"Belarus","Vysokoe",,"Contributing","closed","55.33°N 23.43°E ",163
 "Belgium","Eupen",,"Contributing","full operation","50.63°N 6.00°E ",295
 "Belgium","Offagne",,"Contributing","full operation","49.88°N 5.20°E ",420
 "Belgium","Uccle","RMI","Regional","full operation","50.80°N 4.35°E ",100
@@ -675,7 +675,7 @@
 "Macedonia, FYRO","Lazaropole","LZP","Regional","intermittent operation","41.32°N 20.42°E ",1332
 "Malta","Dwejra Point","GOZ","Regional","closed","36.05°N 14.18°E ",30
 "Malta","Giordan Lighthouse","GLH","Regional","full operation","36.07°N 14.22°E ",167
-"Moldova, R. of","Chisinau","ARG","Regional","full operation","47.00°N 28.82°E ",205
+"Moldova","Chisinau","ARG","Regional","full operation","47.00°N 28.82°E ",205
 "Montenegro","Zabljak","ZBL","Regional","closed","43.15°N 19.13°E ",1450
 "Netherlands","Bilthoven",,"Contributing","closed","52.12°N 5.20°E ",5
 "Netherlands","Cesar (Cabauw)","CES","Regional","full operation","51.97°N 4.93°E ",-1
@@ -885,7 +885,7 @@
 "India","Maitri","MTR","Regional","full operation","70.46°S 11.45°E ",330
 "Japan","Mizuho","MZH","Contributing","closed","70.70°S 44.30°E ",2230
 "Japan","Syowa","SYO","Regional","full operation","69.00°S 39.58°E ",21
-"Korea, R. of","King Sejong","KSG","Regional","full operation","62.22°S 58.78°W ",0
+"Korea","King Sejong","KSG","Regional","full operation","62.22°S 58.78°W ",0
 "New Zealand","Arrival Heights","ARH","Regional","full operation","77.83°S 166.7°E ",184
 "New Zealand","Hallett",,"Regional","closed","72.32°S 170.2°E ",5
 "New Zealand","Scott Base","SBS","Regional","full operation","77.85°S 166.8°E ",16
