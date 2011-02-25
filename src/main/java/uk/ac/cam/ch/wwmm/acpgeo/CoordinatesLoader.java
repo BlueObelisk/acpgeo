@@ -1,9 +1,12 @@
 package uk.ac.cam.ch.wwmm.acpgeo;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,12 +34,13 @@ public class CoordinatesLoader {
 	private HashMap<String,String> siteGawIdMap = new HashMap<String,String>();
 	public CoordinatesLoader(String coordsFile) {
 		
-		 try {
-			reader = new CSVReader(new FileReader(ClassLoader.getSystemClassLoader().getResource(coordsFile).getFile()));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		 InputStream is = this.getClass().getClassLoader()
+			.getResourceAsStream(coordsFile);
+BufferedReader in = new BufferedReader(new InputStreamReader(is,
+			Charset.forName("UTF-8")));
+
+
+		reader = new CSVReader(in);
 		List<String[]> gawRows = new ArrayList<String[]>();
 		try {
 			gawRows = reader.readAll();
