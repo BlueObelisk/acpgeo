@@ -14,9 +14,11 @@ DissolvePhrase;
 VerbPhrase;
 RATIO;
 ACRONYM;
+LOCATION;
 PrepPhrase;
 TimePhrase;
 RolePrepPhrase;
+AcronymPhrase;
 AtmospherePhrase;
 TempPhrase;
 AMOUNT;
@@ -86,8 +88,12 @@ number : cd|oscarcd|oscarcpr|cddegrees;
 clause	:	wdt|wp_poss|wpo|wpo|wps|wql|wrb|ex|pdt;
 noun 	:	nounStructure (dash nounStructure)*;
 
-nounStructure :  acpNoun|prp|prp_poss|molecule|unnamedmolecule|nnyield|nnstate|nn|nns|nnp|nnadd|nnexample|oscarcpr|range|amount|nntime|nnatmosphere|tmunicode|nneq|quantity|nnchementity|measurements|nntemp|nnflash|nngeneral|nnmethod|nnamount|nnpressure|nncolumn|nnchromatography|nnvacuum|nncycle|nntimes|nnconcentrate|nnvol|nnpurify|wdt|wp_poss|wpo|wps|nnsynthesize|nnmixture|oscaront|nndry|number|oscarCompound|nnextract|nnfilter|nnprecipitate|nnremove|fw|fwin|sym|clause;
-acpNoun	:	acronym|nnpstation|nnstation|nnpmonth|nnpcountry|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection;
+//nounStructure : acpNoun|prp|prp_poss|molecule|unnamedmolecule|nnyield|nnstate|nn|nns|nnp|nnadd|nnexample|oscarcpr|range|amount|nntime|nnatmosphere|tmunicode|nneq|quantity|nnchementity|measurements|nntemp|nnflash|nngeneral|nnmethod|nnamount|nnpressure|nncolumn|nnchromatography|nnvacuum|nncycle|nntimes|nnconcentrate|nnvol|nnpurify|wdt|wp_poss|wpo|wps|nnsynthesize|nnmixture|oscaront|nndry|number|oscarCompound|nnextract|nnfilter|nnprecipitate|nnremove|fw|fwin|sym|clause;
+//acpNoun	: nnpstation|nnstation|nnpmonth|nnpcountry|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection;
+//location|acronymPhrase|acronym|
+nounStructure : acpNoun|prp|prp_poss|molecule|unnamedmolecule|nnyield|nnstate|nn|nns|nnp|nnadd|nnexample|oscarcpr|range|amount|nntime|nnatmosphere|tmunicode|nneq|quantity|nnchementity|measurements|nntemp|nnflash|nngeneral|nnmethod|nnamount|nnpressure|nncolumn|nnchromatography|nnvacuum|nncycle|nntimes|nnconcentrate|nnvol|nnpurify|wdt|wp_poss|wpo|wps|nnsynthesize|nnmixture|oscaront|nndry|number|oscarCompound|nnextract|nnfilter|nnprecipitate|nnremove|fw|fwin|sym|clause;
+acpNoun	:	location|acronymPhrase|acronym|nnpstation|nnstation|nnpmonth|nnpcountry|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection;
+
 range: number dash number;
 
 adj	:	jj|jjr|jjs|jjt|oscarcj|jjchem|oscarrn|jjcountry|jjacp;
@@ -147,15 +153,11 @@ oscarCompound4 :	lrb  oscarcm rrb -> ^(OSCARCM  lrb  oscarcm  rrb );
 oscarCompound3 :	oscarCompound3Structure -> ^(OSCARCM   oscarCompound3Structure );
 oscarCompound2 :	oscarCompound2Structure -> ^(OSCARCM   oscarCompound2Structure );
 oscarCompound1 :	oscarcm oscarcm+ -> ^(OSCARCM  oscarcm oscarcm+);
-
-
 oscarCompound3Structure 
 	:  oscarcm (dash|apost)+;	 
 oscarCompound2Structure 
 	:  oscarcm (dash oscarcm)+  dash?;	 
-//oscarCompound1 :	oscarcm oscarcm -> ^(OSCARCM  oscarcm oscarcm);
-//moleculeamount1
-//	:measurements (quantity|mixture)? inof oscarCompound;	
+
 moleculeamount1
 	:(quantity)+ inof oscarCompound;	
 
@@ -167,27 +169,9 @@ moleculeamount : moleculeamount1 | moleculeamount2 ;
 molecule          
 	:  moleculeamount-> ^(MOLECULE  moleculeamount );	
 
-//unnamedmoleculeamount1
-//	:measurements quantity? inof (oscarcd|cd);	
-
-oscarcdType	:  lrb (oscarcd|cd) rrb;	
-unnamedmoleculeamount1
-	: quantity inof (oscarcd|cd);
-unnamedmoleculeamount2
-	:(oscarcd|oscarcdType) quantity*;	
-		
-//unnamedmoleculeamount3
-//	:measurements quantity? inof (jj? noun)+;	
-
-unnamedmoleculeamount3
-	:quantity inof (jj? noun)+;	
-
-
-unnamedmoleculeamount4
-	:quantity nnchementity;	
-unnamedmoleculeamount
-	:(unnamedmoleculeamount1 | unnamedmoleculeamount2 | unnamedmoleculeamount3|unnamedmoleculeamount4) ;	
-
+	
+unnamedmoleculeamount	:
+          jjcomp nnchementity oscarcd? quantity* ;	
 
 unnamedmolecule 
 	: unnamedmoleculeamount -> ^(UNNAMEDMOLECULE unnamedmoleculeamount);	
@@ -203,8 +187,17 @@ quantity2
 
 
 //ACP Rules:
-acronym	: lrb noun+ rrb ->^(ACRONYM  lrb noun+ rrb)	;
+acronymPhrase
+	:acronymPhraseStructure -> ^(AcronymPhrase acronymPhraseStructure)	;
+	
+acronymPhraseStructure
+	: (nnpstation|nnstation|nnpmonth|nnpcountry|nnacp|nnpacp|nnmeasurement|acronymContent)+ ((cc|inAll)(nnpstation|nnstation|nnpmonth|nnpcountry|nnacp|nnpacp|nnmeasurement|acronymContent)+)? acronym;	
 
+location	: lrb nnpcountry rrb ->^(LOCATION  lrb nnpcountry rrb)	;
+
+//locationStructure : (nnpcountry|cddegrees)+(nnpcountry|cddegrees|oscarcm|oscaracp|nnp|cd)*; 
+acronym	: lrb noun rrb ->^(ACRONYM  lrb noun rrb)	;
+acronymContent	: (nnp|nn|nns)	;
 //ACP Tags
 nnpstation
 	: 'NNP-STATION' TOKEN -> ^('NNP-STATION' TOKEN)	;
@@ -243,6 +236,9 @@ jjcountry
 	: 'JJ-COUNTRY' TOKEN -> ^('JJ-COUNTRY' TOKEN)	;
 
 jjacp	:'JJ-ACP' TOKEN -> ^('JJ-ACP' TOKEN);
+
+
+jjcomp	:'JJ-COMPOUND' TOKEN -> ^('JJ-COMPOUND' TOKEN);
 
 cddegrees
 	: 'CD-DEGREES' TOKEN -> ^('CD-DEGREES' TOKEN)	;
