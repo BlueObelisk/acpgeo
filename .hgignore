@@ -5,3 +5,5 @@ glob:*.settings*
 glob:*target*
 glob:bin
 glob:*~*
+glob:*DS_Store*
+glob:.metadata
