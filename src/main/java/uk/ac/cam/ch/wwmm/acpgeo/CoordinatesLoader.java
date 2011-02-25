@@ -36,7 +36,7 @@ public class CoordinatesLoader {
 		
 		 InputStream is = this.getClass().getClassLoader()
 			.getResourceAsStream(coordsFile);
-BufferedReader in = new BufferedReader(new InputStreamReader(is,
+         BufferedReader in = new BufferedReader(new InputStreamReader(is,
 			Charset.forName("UTF-8")));
 
 

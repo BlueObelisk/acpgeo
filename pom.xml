@@ -34,4 +34,36 @@
 			<version>2.1</version>
 		</dependency>
 	</dependencies>
+	<profiles>
+		<profile>
+			<id>rebuildGrammar</id>
+			
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.antlr</groupId>
+						<artifactId>antlr3-maven-plugin</artifactId>
+						<version>3.2</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>antlr</goal>
+								</goals>
+								<configuration>
+									<sourceDirectory>src/main/antlr3/</sourceDirectory>
+									<conversionTimeout>10000</conversionTimeout>
+									<libDirectory>src/main/antlr3/</libDirectory>
+									<messageFormat>antlr</messageFormat>
+									<outputDirectory>src/main/java/</outputDirectory>
+									<verbose>true</verbose>
+									<grammars>*.g</grammars>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
