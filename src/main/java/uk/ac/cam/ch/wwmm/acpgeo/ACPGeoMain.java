@@ -37,6 +37,7 @@ public class ACPGeoMain {
 		
 		Document doc = new Builder().build(in,"UTF-8");
 		InputStream xmlInputStream = IOUtils.toInputStream(doc.toXML(),"UTF-8");
+		// changed on 28th Feb 2011
 		AbstractReader abReader = new AbstractReader(xmlInputStream);
 		System.out.println(abReader.getAbstractString());
        
