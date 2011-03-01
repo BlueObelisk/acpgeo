@@ -35,8 +35,8 @@ public class ACPGeoMain {
 	  for (File file : files) {
 		 BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8")); 
 		
-		Document doc = new Builder().build(in);
-		InputStream xmlInputStream = IOUtils.toInputStream(doc.toXML());
+		Document doc = new Builder().build(in,"UTF-8");
+		InputStream xmlInputStream = IOUtils.toInputStream(doc.toXML(),"UTF-8");
 		AbstractReader abReader = new AbstractReader(xmlInputStream);
 		System.out.println(abReader.getAbstractString());
        
@@ -49,3 +49,4 @@ public class ACPGeoMain {
 	}
 
 }
+ 
