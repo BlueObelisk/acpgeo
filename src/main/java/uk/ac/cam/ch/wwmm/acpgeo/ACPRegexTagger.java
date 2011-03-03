@@ -44,7 +44,7 @@ public class ACPRegexTagger extends RegexTagger {
 				if (!line.startsWith("#") && !StringUtils.isEmpty(line)) {
 					String[] lineTokens = line.split("---");
 					if (lineTokens.length > 1) {
-						rules.add(new Rule(lineTokens[0], lineTokens[1]));
+						rules.add(new Rule(lineTokens[0], lineTokens[1],false));
 					}
 
 				}
