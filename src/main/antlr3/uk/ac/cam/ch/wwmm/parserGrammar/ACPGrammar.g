@@ -78,11 +78,12 @@ verbphraseStructure :  dt? to? inAll? inafter? (md* rbconj? adv* adj? verb+ md* 
 verb : vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange;
 
 number : cd|oscarcd|oscarcpr|cddegrees;	
-noun 	:	nounStructure (dash nounStructure)*;
+noun1 :	nounStructure (dash nounStructure)*;
+noun2	:	acronymPhrase|acronym|expression;
+noun	:	noun1;
 
-nounStructure : expression|acpNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|quantityNoun|experimentNoun|actionNoun|clauseNoun|fwSymbolNoun;
-acpNoun:location|nnpcountry|acronymPhrase|acronym;
-
+nounStructure : acpNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|quantityNoun|experimentNoun|actionNoun|clauseNoun|fwSymbolNoun;
+acpNoun:location|nnpcountry;
 conditionNoun : nntime|nnatmosphere|nntemp;
 experimentNoun : nnflash|nngeneral|nnmethod|nnpressure|nncolumn|nnchromatography|nnvacuum|nncycle|nntimes|nnmixture|nnexample;
 quantityNoun:amount|quantity|measurements|nnvol|nnamount;
