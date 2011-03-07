@@ -82,7 +82,7 @@ number : cd|oscarcd|oscarcpr|cddegrees;
 noun 	:	nounStructure (dash nounStructure)*;
 
 
-nounStructure : acpNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|quantityNoun|experimentNoun|actionNoun|clauseNoun|fwSymbolNoun;
+nounStructure : expression|acpNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|quantityNoun|experimentNoun|actionNoun|clauseNoun|fwSymbolNoun;
 acpNoun:location|nnpcountry|acronymPhrase;
 
 conditionNoun : nntime|nnatmosphere|nntemp;
@@ -107,11 +107,11 @@ adv	:	rb|rbr|rbt|rp|rbs|wrb;
 prepphrase 
 	: 	neg? (prepphraseAtmosphere|prepphraseTime|prepphraseTemp|prepphraseIN|prepphraseRole|prepphraseOther)  ;
 
-//expression 
-//	:lrb expressionContent  rrb->^(EXPRESSION  lrb expressionContent  rrb)	;
+expression 
+	:lrb expressionContent  rrb->^(EXPRESSION  lrb expressionContent  rrb)	;
 
-//expressionContent 
-//	:nn sym cd prepphrase? verb* nnpdirection? prepphrase?;
+expressionContent 
+	:nn sym cd prepphrase? verb* nnpdirection? prepphrase?;
 
 advAdj   
 	:adv|adj;	
