@@ -8,11 +8,8 @@ options {
 }
 tokens{
 Sentence;
-Unmatched;
 NounPhrase;
-DissolvePhrase;
 VerbPhrase;
-RATIO;
 ACRONYM;
 LOCATION;
 PrepPhrase;
@@ -26,7 +23,6 @@ MASS;
 PERCENT;
 VOLUME;
 MOLAR;
-MULTIPLE;
 OSCARCM;
 MOLECULE;
 QUANTITY;
@@ -62,12 +58,19 @@ sentenceStructure:  (nounphrase|verbphrase|prepphrase)+ (advAdj|colon) * (conjun
 
 
 
+//ACP Rules:
+acronymPhrase
+	:acronymPhraseStructure -> ^(AcronymPhrase acronymPhraseStructure)	;
+	
+acronymPhraseStructure
+	: (advAdj|properNoun|moleculeNoun)+ ((cc|inAll)(advAdj|properNoun|moleculeNoun)+)? acronym;	
+
 nounphrase
 	:	nounphraseStructure ->  ^(NounPhrase  nounphraseStructure);	
 	
 
-nounphraseStructure 
-	:	dtTHE? dt? advAdj*  noun+    (conjunction* advAdj* noun)*   ((prepphraseOf| prepphraseIN) )*  ;
+nounphraseStructure
+	:	dtTHE? dt?    noun+    (conjunction*  noun)*   ((prepphraseOf| prepphraseIN) )*  ;
 
 
 conjunction 
@@ -75,15 +78,15 @@ conjunction
 
 verbphrase
 	:	verbphraseStructure ->  ^(VerbPhrase  verbphraseStructure);
-verbphraseStructure :  dt? to? inAll? inafter? (md* rbconj? adv* adj? verb+ md* adv* adj? neg? )+ inoff? (cc? comma? prepphrase)*   ;
+verbphraseStructure :  dt? to? inAll? inafter? (md* rbconj? advAdj* verb+ md* advAdj* neg? )+ inoff? (cc? comma? prepphrase)*   ;
 verb : vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange;
 
 number : cd|oscarcd|oscarcpr|cddegrees;	
-noun 	:	nounStructure (dash nounStructure)*;
-
+noun1 	:	advAdj* nounStructure (dash nounStructure)*;
+noun	:	(acronymPhrase|noun1);
 
 nounStructure : expression|acpNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|quantityNoun|experimentNoun|actionNoun|clauseNoun|fwSymbolNoun;
-acpNoun:location|nnpcountry|acronymPhrase;
+acpNoun:location|nnpcountry;
 
 conditionNoun : nntime|nnatmosphere|nntemp;
 experimentNoun : nnflash|nngeneral|nnmethod|nnpressure|nncolumn|nnchromatography|nnvacuum|nncycle|nntimes|nnmixture|nnexample;
@@ -96,14 +99,13 @@ properNoun
 	:	nnpstation|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nn|nns|nnp;
 prpNoun :	prp|prp_poss;
 moleculeNoun
-	:	molecule|nnchementity|oscarCompound;
+	:	molecule|nnchementity;
 	
 range: number dash number;
 
 adj	:	jj|jjr|jjs|jjt|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjcomp;
 adv	:	rb|rbr|rbt|rp|rbs|wrb;
 // Different PrepPhrases
-
 prepphrase 
 	: 	neg? (prepphraseAtmosphere|prepphraseTime|prepphraseTemp|prepphraseIN|prepphraseRole|prepphraseOther)  ;
 
@@ -150,8 +152,7 @@ volume	: cd+ nnvol -> ^(VOLUME   cd+ nnvol );
 molar	: cd* nnmolar -> ^(MOLAR   cd* nnmolar );
 
 measurements
-	:(cd nn)? (multiple|measurementtypes)    dt?;
-multiple	: cd cdunicode measurementtypes? -> ^(MULTIPLE   cd cdunicode measurementtypes? );		
+	:(cd nn)? measurementtypes    dt?;
 measurementtypes
 	: molar|amount|mass|percent|volume ;	
 
@@ -177,49 +178,32 @@ molecule
 	:  moleculeamount-> ^(MOLECULE  moleculeamount );	
 
 
-quantity 	:  (quantity1|quantity2) ->   ^(QUANTITY  quantity1? quantity2?);
+quantity 	:  quantity1 ->   ^(QUANTITY  quantity1);
+
 
 quantity1
-	: lrb measurements (comma  measurements)* comma * stop *  rrb;	 
-
-quantity2
 	:  measurements (comma  measurements)*  ;
 
 
-
-//ACP Rules:
-acronymPhrase
-	:acronymPhraseStructure -> ^(AcronymPhrase acronymPhraseStructure)	;
-	
-acronymPhraseStructure
-	: (nnpstation|nnstation|nnpmonth|nnpcountry|nnacp|nnpacp|nnmeasurement|acronymContent)+ ((cc|inAll)(nnpstation|nnstation|nnpmonth|nnpcountry|nnacp|nnpacp|nnmeasurement|acronymContent)+)? acronym;	
 
 location	: lrb nnpcountry rrb ->^(LOCATION  lrb nnpcountry rrb)	;
 
 //locationStructure : (nnpcountry|cddegrees)+(nnpcountry|cddegrees|oscarcm|oscaracp|nnp|cd)*; 
 acronym	: lrb properNoun rrb ->^(ACRONYM  lrb properNoun rrb)	;
-acronymContent	: (nnp|nn|nns|moleculeNoun)	;
+acronymContent	: (nnp|nn|nns|nnchementity)	;
 //ACP Tags
 nnpstation
 	: 'NNP-STATION' TOKEN -> ^('NNP-STATION' TOKEN)	;
-
 nnstation
 	: 'NN-STATION' TOKEN -> ^('NN-STATION' TOKEN)	;
-	
 nnpcountry
 	: 'NNP-COUNTRY' TOKEN -> ^('NNP-COUNTRY' TOKEN)	;
-
 nnpmonth
 	: 'NNP-MONTH' TOKEN -> ^('NNP-MONTH' TOKEN)	;
-
 nnpacp
 	: 'NNP-ACP' TOKEN -> ^('NNP-ACP' TOKEN)	;
-
-
 nnpdirection
 	: 'NNP-DIRECTION' TOKEN -> ^('NNP-DIRECTION' TOKEN)	;
-	
-	
 nnptechnique
 	: 'NNP-TECHNIQUE' TOKEN -> ^('NNP-TECHNIQUE' TOKEN)	;
 nnacp
