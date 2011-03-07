@@ -29,10 +29,10 @@ MOLAR;
 MULTIPLE;
 OSCARCM;
 MOLECULE;
-UNNAMEDMOLECULE;
 QUANTITY;
 EXPRESSION;
 }
+
 	
 @header {
     package uk.ac.cam.ch.wwmm.parserGrammar;
@@ -61,6 +61,7 @@ sentences:  sentenceStructure+    (comma|stop)*;
 sentenceStructure:  (nounphrase|verbphrase|prepphrase)+ (advAdj|colon) * (conjunction|rbconj)*;
 
 
+
 nounphrase
 	:	nounphraseStructure ->  ^(NounPhrase  nounphraseStructure);	
 	
@@ -78,12 +79,12 @@ verbphraseStructure :  dt? to? inAll? inafter? (md* rbconj? adv* adj? verb+ md* 
 verb : vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange;
 
 number : cd|oscarcd|oscarcpr|cddegrees;	
-noun1 :	nounStructure (dash nounStructure)*;
-noun2	:	acronymPhrase|acronym|expression;
-noun	:	noun1;
+noun 	:	nounStructure (dash nounStructure)*;
+
 
 nounStructure : acpNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|quantityNoun|experimentNoun|actionNoun|clauseNoun|fwSymbolNoun;
-acpNoun:location|nnpcountry;
+acpNoun:location|nnpcountry|acronymPhrase;
+
 conditionNoun : nntime|nnatmosphere|nntemp;
 experimentNoun : nnflash|nngeneral|nnmethod|nnpressure|nncolumn|nnchromatography|nnvacuum|nncycle|nntimes|nnmixture|nnexample;
 quantityNoun:amount|quantity|measurements|nnvol|nnamount;
@@ -92,19 +93,25 @@ fwSymbolNoun : fw|fwin|sym|tmunicode;
 clauseNoun:wdt|wp_poss|wpo|wps|wql|wrb|ex|pdt;
 
 properNoun
-	:	nnpstation|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nn|nns|nnp|oscaracp;
+	:	nnpstation|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nn|nns|nnp;
 prpNoun :	prp|prp_poss;
 moleculeNoun
-	:	molecule|nnchementity|oscarcpr|oscarCompound;
+	:	molecule|nnchementity|oscarCompound;
 	
 range: number dash number;
 
-adj	:	jj|jjr|jjs|jjt|oscarcj|jjchem|oscarrn|jjcountry|jjacp;
+adj	:	jj|jjr|jjs|jjt|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjcomp;
 adv	:	rb|rbr|rbt|rp|rbs|wrb;
 // Different PrepPhrases
 
 prepphrase 
 	: 	neg? (prepphraseAtmosphere|prepphraseTime|prepphraseTemp|prepphraseIN|prepphraseRole|prepphraseOther)  ;
+
+//expression 
+//	:lrb expressionContent  rrb->^(EXPRESSION  lrb expressionContent  rrb)	;
+
+//expressionContent 
+//	:nn sym cd prepphrase? verb* nnpdirection? prepphrase?;
 
 advAdj   
 	:adv|adj;	
@@ -154,10 +161,9 @@ oscarCompound :  adj* (oscarCompound1|oscarCompound2|oscarCompound4|oscarcm|osca
 oscarCompound4 :	lrb  oscarcm rrb -> ^(OSCARCM  lrb  oscarcm  rrb );
 oscarCompound2 :	oscarCompound2Structure -> ^(OSCARCM   oscarCompound2Structure );
 oscarCompound1 :	oscarcm oscarcm+ -> ^(OSCARCM  oscarcm oscarcm+);
- 
+
 oscarCompound2Structure 
 	:  oscarcm (dash oscarcm)+  dash?;	 
-
 
 moleculeamount1
 	:(quantity)+ inof oscarCompound;	
@@ -166,11 +172,11 @@ moleculeamount2
 	:(quantity)* oscarCompound+  quantity* ;	
 
 
-moleculeamount : moleculeamount1| moleculeamount2 ;	
+moleculeamount : moleculeamount1 | moleculeamount2 ;	
 molecule          
 	:  moleculeamount-> ^(MOLECULE  moleculeamount );	
 
-	
+
 quantity 	:  (quantity1|quantity2) ->   ^(QUANTITY  quantity1? quantity2?);
 
 quantity1
@@ -186,18 +192,13 @@ acronymPhrase
 	:acronymPhraseStructure -> ^(AcronymPhrase acronymPhraseStructure)	;
 	
 acronymPhraseStructure
-	: (nnpstation|nnstation|nnpmonth|nnpcountry|nnacp|nnpacp|nnmeasurement|acronymContent|adj)+ ((cc|inAll)(adj|nnpstation|nnstation|nnpmonth|nnpcountry|nnacp|nnpacp|nnmeasurement|acronymContent)+)? acronym;	
+	: (nnpstation|nnstation|nnpmonth|nnpcountry|nnacp|nnpacp|nnmeasurement|acronymContent)+ ((cc|inAll)(nnpstation|nnstation|nnpmonth|nnpcountry|nnacp|nnpacp|nnmeasurement|acronymContent)+)? acronym;	
 
 location	: lrb nnpcountry rrb ->^(LOCATION  lrb nnpcountry rrb)	;
 
 //locationStructure : (nnpcountry|cddegrees)+(nnpcountry|cddegrees|oscarcm|oscaracp|nnp|cd)*; 
 acronym	: lrb properNoun rrb ->^(ACRONYM  lrb properNoun rrb)	;
-acronymContent	: (nnp|nn|nns|moleculeNoun) ;
-expression 
-	:lrb expressionContent  rrb->^(EXPRESSION  lrb expressionContent  rrb)	;
-
-expressionContent 
-	:nn sym cd prepphrase? verb* nnpdirection? prepphrase?;
+acronymContent	: (nnp|nn|nns)	;
 //ACP Tags
 nnpstation
 	: 'NNP-STATION' TOKEN -> ^('NNP-STATION' TOKEN)	;
@@ -247,6 +248,7 @@ oscarcd:'OSCAR-CD' TOKEN -> ^('OSCAR-CD' TOKEN);
 oscarcj:'OSCAR-CJ' TOKEN -> ^('OSCAR-CJ' TOKEN);
 oscarrn:'OSCAR-RN' TOKEN -> ^('OSCAR-RN' TOKEN);
 oscarcpr:'OSCAR-CPR' TOKEN -> ^('OSCAR-CPR' TOKEN);
+oscaront:'OSCAR-ONT' TOKEN -> ^('OSCAR-ONT' TOKEN);
 tmunicode:'TM-UNICODE' TOKEN -> ^('TM-UNICODE' TOKEN);
 cdunicode:'CD-UNICODE' TOKEN -> ^('CD-UNICODE' TOKEN);
 jjchem:'JJ-CHEM' TOKEN -> ^('JJ-CHEM' TOKEN);
