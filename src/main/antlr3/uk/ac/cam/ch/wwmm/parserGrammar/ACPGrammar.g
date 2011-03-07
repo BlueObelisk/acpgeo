@@ -85,7 +85,7 @@ number : cd|oscarcd|oscarcpr|cddegrees;
 noun1 	:	advAdj* nounStructure (dash nounStructure)*;
 noun	:	(acronymPhrase|noun1);
 
-nounStructure : expression|acpNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|quantityNoun|experimentNoun|actionNoun|clauseNoun|fwSymbolNoun;
+nounStructure : expression|acpNoun|quantityNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|fwSymbolNoun;
 acpNoun:location|nnpcountry;
 
 conditionNoun : nntime|nnatmosphere|nntemp;
@@ -147,13 +147,11 @@ prepphraseTempContent
 			
 amount	: cd+ nnamount -> ^(AMOUNT   cd+ nnamount );
 mass	: cd+ nnmass-> ^(MASS   cd+ nnmass ); 
-percent	: number nn? nnpercent -> ^(PERCENT   number nn? nnpercent );
+percent	: number  nnpercent -> ^(PERCENT   number nnpercent );
 volume	: cd+ nnvol -> ^(VOLUME   cd+ nnvol );
 molar	: cd* nnmolar -> ^(MOLAR   cd* nnmolar );
 
 measurements
-	:(cd nn)? measurementtypes    dt?;
-measurementtypes
 	: molar|amount|mass|percent|volume ;	
 
 // The RRB at the end is for leftover brackets from chemicals that didn't parse properly

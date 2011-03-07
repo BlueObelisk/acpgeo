@@ -37,6 +37,13 @@ public class ACPTaggerTest {
 		Utils.writeXMLToFile(sentenceParser.getDocument(), "target/file2.xml");
 		System.out.println(posContainer.getTokenTagTupleAsString());
 
+		sentence = "73% of the O3 variability measured in the Arctic marine boundary layer could be related to sea ice exposure. ";
+		posContainer = acpTagger.runTaggers(sentence);
 
+		System.out.println(posContainer.getTokenTagTupleAsString());
+		sentenceParser = new SentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.getDocument(), "target/file3.xml");
+		System.out.println(posContainer.getTokenTagTupleAsString());
 	}
 }

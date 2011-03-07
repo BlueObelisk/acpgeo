@@ -7,4 +7,5 @@ NN-STATION---station$---Field stations;
 NN-MEASUREMENT---measurement(s)?$---Measurement;
 NNP---^([A-Z][A-Z][A-Z]+(s)?)$---Acronyms
 #CD
-CD-DEGREES---(\d+°)
+CD-DEGREES---(\d+°)---Degrees
+JJ---^(t|T)hat$---demonstrative adjective
