@@ -198,7 +198,7 @@ location	: lrb nnpcountry rrb ->^(LOCATION  lrb nnpcountry rrb)	;
 
 //locationStructure : (nnpcountry|cddegrees)+(nnpcountry|cddegrees|oscarcm|oscaracp|nnp|cd)*; 
 acronym	: lrb properNoun rrb ->^(ACRONYM  lrb properNoun rrb)	;
-acronymContent	: (nnp|nn|nns)	;
+acronymContent	: (nnp|nn|nns|moleculeNoun)	;
 //ACP Tags
 nnpstation
 	: 'NNP-STATION' TOKEN -> ^('NNP-STATION' TOKEN)	;
