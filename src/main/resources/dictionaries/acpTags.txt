@@ -6,7 +6,7 @@ NNP-DIRECTION---^(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)$+---Directions;
 NN-STATION---station$---Field stations;
 NN-MEASUREMENT---measurement(s)?$---Measurement;
 NNP-ACRONYM---^([A-Z][A-Z][A-Z]+(s)?)$---Acronyms
-NPS---^([A-Z][a-z]+(s))$---Plural Proper Nouns
 #CD
 CD-DEGREES---(\d+°)---Degrees
+CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year
 JJ---^(t|T)hat$---demonstrative adjective
