@@ -5,7 +5,8 @@ NNP-MONTH---January|February|March|April|May|June|July|August|September|October|
 NNP-DIRECTION---^(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)$+---Directions;
 NN-STATION---station$---Field stations;
 NN-MEASUREMENT---measurement(s)?$---Measurement;
-NNP---^([A-Z][A-Z][A-Z]+(s)?)$---Acronyms
+NNP-ACRONYM---^([A-Z][A-Z][A-Z]+(s)?)$---Acronyms
+NPS---^([A-Z][a-z]+(s))$---Plural Proper Nouns
 #CD
 CD-DEGREES---(\d+°)---Degrees
 JJ---^(t|T)hat$---demonstrative adjective

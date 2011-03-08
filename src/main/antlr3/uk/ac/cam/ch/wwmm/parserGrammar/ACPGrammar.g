@@ -85,7 +85,7 @@ number : cd|oscarcd|oscarcpr|cddegrees;
 noun1 	:	advAdj* nounStructure (dash nounStructure)*;
 noun	:	(acronymPhrase|noun1);
 
-nounStructure : expression|acpNoun|quantityNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|fwSymbolNoun;
+nounStructure : nn|nns|expression|acpNoun|quantityNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun;
 acpNoun:location|nnpcountry;
 
 conditionNoun : nntime|nnatmosphere|nntemp;
@@ -96,7 +96,7 @@ fwSymbolNoun : fw|fwin|sym|tmunicode;
 clauseNoun:wdt|wp_poss|wpo|wps|wql|wrb|ex|pdt;
 
 properNoun
-	:	nnpstation|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nn|nns|nnp;
+	:	nnpstation|nps|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun;
 prpNoun :	prp|prp_poss;
 moleculeNoun
 	:	molecule|nnchementity;
@@ -206,6 +206,9 @@ nnptechnique
 	: 'NNP-TECHNIQUE' TOKEN -> ^('NNP-TECHNIQUE' TOKEN)	;
 nnacp
 	: 'NN-ACP' TOKEN -> ^('NN-ACP' TOKEN)	;
+
+nnpacronym
+	: 'NNP-ACRONYM' TOKEN -> ^('NNP-ACRONYM' TOKEN)	;
 
 //ACP Tags
 oscaracp
