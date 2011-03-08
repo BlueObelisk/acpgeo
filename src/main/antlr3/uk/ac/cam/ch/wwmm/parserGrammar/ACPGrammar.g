@@ -184,11 +184,11 @@ quantity1
 
 
 
-location	: lrb nnpcountry rrb ->^(LOCATION  lrb nnpcountry rrb)	;
+location	: locationStructure+  ->^(LOCATION  locationStructure+)	;
 
-//locationStructure : (nnpcountry|cddegrees)+(nnpcountry|cddegrees|oscarcm|oscaracp|nnp|cd)*; 
-acronym	: lrb properNoun rrb ->^(ACRONYM  lrb properNoun rrb)	;
-acronymContent	: (nnp|nn|nns|nnchementity)	;
+locationStructure : (locationContent+|lrb locationContent+ rrb) ; 
+locationContent: (nnpcountry|cddegrees nnpdirection|nnpdirection nnp|nnpstation nnstation?); 
+acronym	: lrb (nn|properNoun) rrb ->^(ACRONYM  lrb nn? properNoun? rrb)	;
 //ACP Tags
 nnpstation
 	: 'NNP-STATION' TOKEN -> ^('NNP-STATION' TOKEN)	;
