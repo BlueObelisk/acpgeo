@@ -27,6 +27,7 @@ OSCARCM;
 MOLECULE;
 QUANTITY;
 EXPRESSION;
+ParentheticalPhrase;
 }
 
 	
@@ -46,7 +47,7 @@ fragment DIGIT	: ('0'..'9');
 fragment UNICODE	:  '\u00A0'..'\ufffe';
 
 //TOKEN	:	(ACHAR|DIGIT|UNICODE)+;
-TOKEN : (ACHAR|'?'|';'| '_'|',' |'.'|')'|'('|'/'|'-'|'='|':'|'%'|'\''|'{'|'}'|'['|']'|'>'|'<'|'@'|'+'|'|'|DIGIT|UNICODE)+;
+TOKEN : (ACHAR|'?'|';'|'~'| '_'|',' |'.'|')'|'('|'/'|'-'|'='|':'|'%'|'\''|'{'|'}'|'['|']'|'>'|'<'|'@'|'+'|'|'|DIGIT|UNICODE)+;
 
 
 
@@ -54,8 +55,7 @@ document: sentences+-> ^(Sentence  sentences )+ ;
 
 sentences:  sentenceStructure+    (comma|stop)*;
 
-sentenceStructure:  (nounphrase|verbphrase|prepphrase)+ (advAdj|colon) * (conjunction|rbconj)*;
-
+sentenceStructure:  (nounphrase|verbphrase|prepphrase)+ (conjunction|rbconj)* (advAdj|colon) * (conjunction|rbconj)*;
 
 
 //ACP Rules:
@@ -63,7 +63,7 @@ acronymPhrase
 	:acronymPhraseStructure -> ^(AcronymPhrase acronymPhraseStructure)	;
 	
 acronymPhraseStructure
-	: (advAdj|properNoun|moleculeNoun)+ ((cc|inAll)(advAdj|properNoun|moleculeNoun)+)? acronym;	
+	: (advAdj|properNoun|moleculeNoun|oscarcd|cd)+ ((cc|inAll)(advAdj|properNoun|moleculeNoun|oscarcd|cd)+)? acronym;	
 
 nounphrase
 	:	nounphraseStructure ->  ^(NounPhrase  nounphraseStructure);	
@@ -85,7 +85,7 @@ number : cd|oscarcd|oscarcpr|cddegrees;
 noun1 	:	advAdj* nounStructure (dash nounStructure)*;
 noun	:	(acronymPhrase|noun1);
 
-nounStructure : nn|nns|expression|acpNoun|quantityNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun;
+nounStructure : nn|nns|expression|acpNoun|quantityNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase;
 acpNoun:location|nnpcountry;
 
 conditionNoun : nntime|nnatmosphere|nntemp;
@@ -120,7 +120,8 @@ advAdj
 prepphraseOther
 	: advAdj* inAll+  nounphrase ->  ^(PrepPhrase  advAdj* inAll+  nounphrase);
 prepphraseOf 
-	: inof  nounphrase->  ^(PrepPhrase  inof  nounphrase);
+	: inof   advAdj* to? nounphrase->  ^(PrepPhrase  inof  advAdj* to?  nounphrase);
+	
 
 prepphraseTime 
 	:prepPhraseTimeStructure ->  ^(TimePhrase  prepPhraseTimeStructure);
@@ -136,15 +137,18 @@ prepphraseAtmosphere
 	: prepphraseAtmosphereContent ->  ^(AtmospherePhrase  prepphraseAtmosphereContent ) ;
 prepphraseAtmosphereContent
 	:inunder  dt? advAdj* molecule nnatmosphere?	;
-	
+
+parentheticalPhrase
+	: lrb parentheticalContent+  rrb ->^(ParentheticalPhrase lrb parentheticalContent+ rrb);
+parentheticalContent
+	: (advAdj|nounStructure|verb|inAll)  conjunction?;			
 
 inAll	: in|inafter|inas|inbefore|inby|infor|infrom|inin|ininto|inof|inoff|inon|inover|inunder|invia|inwith|inwithout|to;
 prepphraseTemp:  prepphraseTempContent ->  ^(TempPhrase   prepphraseTempContent);
 
 prepphraseTempContent
 	:  advAdj? inAll? dt? advAdj? cd? nntemp+;	
-	
-			
+		
 amount	: cd+ nnamount -> ^(AMOUNT   cd+ nnamount );
 mass	: cd+ nnmass-> ^(MASS   cd+ nnmass ); 
 percent	: number  nnpercent -> ^(PERCENT   number nnpercent );
@@ -165,7 +169,7 @@ oscarCompound2Structure
 	:  oscarcm (dash oscarcm)+  dash?;	 
 
 moleculeamount1
-	:(quantity)+ inof oscarCompound;	
+	: oscarCompound to oscarCompound nn?;	
 
 moleculeamount2
 	:(quantity)* oscarCompound+  quantity* ;	

@@ -55,7 +55,7 @@ public class AbstractReader {
 	}
 
 	private void loadDocument() {
-		abstractString = xmlDoc.query("//abstract").get(0).getValue();
+		abstractString =xmlDoc.query("//abstract").get(0).getValue();
 		titleString = xmlDoc.query("//article_title").get(0).getValue();
 		references = xmlDoc.query("//reference");
 		authors = xmlDoc.query("//author");

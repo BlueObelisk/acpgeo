@@ -1,7 +1,6 @@
 package uk.ac.cam.ch.wwmm.acpgeo;
 
-import junit.framework.Assert;
-
+import org.apache.commons.lang.StringEscapeUtils;
 import org.junit.Test;
 
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
@@ -40,6 +39,21 @@ public class ACPTaggerTest {
 		sentence = "73% of the O3 variability measured in the Arctic marine boundary layer could be related to sea ice exposure. ";
 		posContainer = acpTagger.runTaggers(sentence);
 
+
+	}
+	@Test
+
+	public void testSentence2(){
+		ACPTagger acpTagger = ACPTagger.getInstance();	
+		String sentence = "We present a simple method to perform degradation correction to Global Ozone Monitoring Experiment (GOME) reflectance spectra by comparing the average reflectance for 60&deg; N&ndash;60&deg; S with that at the beginning of GOME observations (July&ndash;December 1995) after removing the dependences on solar zenith angle and seasonal variation. The results indicate positive biases of up to ~15&ndash;25% in the wavelength range 289&ndash;370 nm during 2000&ndash;2002; the degradation also exhibits significant dependence on wavelength and viewing zenith angle. These results are consistent with previous studies using radiative transfer models and ozone observations. The degradation causes retrieval biases of up to ~3% (10 DU, 1 DU=2.69&times;10<sup>16</sup> molecules cm<sup>&minus;2</sup>), 30% (10 DU), 10%, and 40% in total column ozone, tropospheric column ozone, stratospheric ozone and tropospheric ozone, respectively, from our GOME ozone profile retrieval algorithm. In addition, retrieval biases due to degradation vary significantly with latitude. The application of this degradation correction improves the retrievals relative to Dobson and ozonesonde measurements at Hohenpeißenberg station during 2000&ndash;2003 and improves the spatiotemporal consistency of retrieval quality during 1996&ndash;2003. However, because this method assumes that the deseasonalized globally-averaged reflectance does not change much with time, retrievals with this correction may be inadequate for trend analysis. In addition, it does not correct for instrument biases that have occurred since launch.";
+		sentence = StringEscapeUtils.unescapeHtml(sentence);
+		System.out.println(sentence);
+		
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+
+		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.getDocument(), "target/file3.xml");
 
 	}
 }
