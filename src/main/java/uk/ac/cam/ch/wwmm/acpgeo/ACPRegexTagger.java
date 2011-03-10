@@ -7,7 +7,6 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -22,8 +21,13 @@ public class ACPRegexTagger extends RegexTagger {
 
 	public ACPRegexTagger() {
 		super();
+		List<Rule> superrules = super.rules;
+		rules = new ArrayList<RegexTagger.Rule>();
 		appendRules();
-		this.rules = super.rules;
+		
+		rules.addAll(superrules);
+
+	
 	}
 
 	private void appendRules() {
