@@ -52,7 +52,7 @@ public class ACPGeoMain {
 
 			SentenceParser sentenceParser = new SentenceParser(posContainer);
 			sentenceParser.parseTags();
-			Utils.writeXMLToFile(sentenceParser.getDocument(),
+			Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
 					"target/" + file.getName());
 		}
 	}

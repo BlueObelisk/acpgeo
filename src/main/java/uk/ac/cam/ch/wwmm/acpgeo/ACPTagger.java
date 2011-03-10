@@ -77,14 +77,14 @@ public class ACPTagger {
 		System.out.println(posContainer.getTokenTagTupleAsString());
 		SentenceParser sentenceParser = new SentenceParser(posContainer);
 		sentenceParser.parseTags();
-		Utils.writeXMLToFile(sentenceParser.getDocument(), "target/file1.xml");
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(), "target/file1.xml");
 		
 		sentence = "The influence of halogen oxidation on the variabilities of ozone (O3) and volatile organic compounds (VOCs) within the Arctic and sub-Arctic atmospheric boundary layer was investigated using field measurements from multiple campaigns conducted in March and April 2008 as part of the POLARCAT project. For the ship-based measurements, a high degree of correlation (r = 0.98 for 544 data points collected north of 68° N) was observed between the acetylene to benzene ratio, used as a marker for chlorine and bromine oxidation, and O3 signifying the vast influence of halogen oxidation throughout the ice-free regions of the North Atlantic . Concurrent airborne and ground-based measurements in the Alaskan Arctic substantiated this correlation and were used to demonstrate that halogen oxidation influenced O3 variability throughout the Arctic boundary layer during these springtime studies. Measurements aboard the R/V Knorr in the North Atlantic and Arctic Oceans provided a unique view of the transport of O3-poor air masses from the Arctic Basin to latitudes as far south as 52° N. FLEXPART, a Lagrangian transport model, was used to quantitatively determine the exposure of air masses encountered by the ship to first-year ice (FYI), multi-year ice (MYI), and total ICE (FYI+MYI). O3 anti-correlated with the modeled total ICE tracer (r = −0.86) indicating that up to 73% of the O3 variability measured in the Arctic marine boundary layer could be related to sea ice exposure. ";
 		posContainer = posTagger.runTaggers(sentence);
 		System.out.println(posContainer.getTokenTagTupleAsString());
 		sentenceParser = new SentenceParser(posContainer);
 		sentenceParser.parseTags();
-		Utils.writeXMLToFile(sentenceParser.getDocument(), "target/file2.xml");
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(), "target/file2.xml");
 		System.out.println(posContainer.getTokenTagTupleAsString());
 
 	}

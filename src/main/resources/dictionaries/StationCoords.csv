@@ -1,4 +1,4 @@
-## Scraped from http://gaw.empa.ch/gawsis/StationList.asp
+"## Scraped from http://gaw.empa.ch/gawsis/StationList.asp",,,,,,
 "WMO RA / Country","Station","GAWID","Station Type","Operating Status","Coordinates","Elevation"
 ,,,,,,"(m a.s.l.)"
 "Mexico","Mex High Altitude Global Climate Observation Cente","MEX","Non-GAW (international)","full operation","19.98°N 97.17°W ",4560
@@ -600,6 +600,7 @@
 "Germany","Falkenberg",,"Contributing","full operation","52.17°N 14.12°E ",73
 "Germany","Garmisch-Partenkirchen","GAR","Contributing","full operation","47.47°N 11.07°E ",740
 "Germany","Hof",,"Contributing","closed","50.32°N 11.88°E ",568
+"Germany","Hohenpeißenberg","HPB","Global","full operation","47.80°N 11.02°E ",985
 "Germany","Hohenpeissenberg","HPB","Global","full operation","47.80°N 11.02°E ",985
 "Germany","Hohenwestedt",,"Contributing","closed","54.10°N 9.67°E ",75
 "Germany","Karlsruhe",,"Contributing","full operation","49.10°N 8.44°E ",111

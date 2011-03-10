@@ -3,6 +3,8 @@ package uk.ac.cam.ch.wwmm.acpgeo;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Nodes;
@@ -53,12 +55,21 @@ public class AbstractReader {
 		}
         loadDocument();		
 	}
+	public AbstractReader(){
+		
+	}
 
 	private void loadDocument() {
-		abstractString =xmlDoc.query("//abstract").get(0).getValue();
+		abstractString =clearnAbstract(xmlDoc.query("//abstract").get(0).getValue());
 		titleString = xmlDoc.query("//article_title").get(0).getValue();
 		references = xmlDoc.query("//reference");
 		authors = xmlDoc.query("//author");
+	}
+
+	public String clearnAbstract(String paragraph) {
+		paragraph = StringEscapeUtils.unescapeHtml(paragraph);
+        
+		return paragraph.replace("<sub>","").replace("</sub>","").replace("<sup>","").replace("</sup>","");
 	}
 
 	
