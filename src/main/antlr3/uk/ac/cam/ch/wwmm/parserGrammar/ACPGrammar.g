@@ -17,16 +17,21 @@ TimePhrase;
 RolePrepPhrase;
 AcronymPhrase;
 AtmospherePhrase;
+PressurePhrase;
 TempPhrase;
 AMOUNT;
 MASS;
 PERCENT;
 VOLUME;
 MOLAR;
+MASSVOLUME;
 OSCARCM;
 MOLECULE;
 QUANTITY;
 EXPRESSION;
+APPARATUS;
+YEARS;
+MONTHS;
 ParentheticalPhrase;
 }
 
@@ -85,7 +90,7 @@ number : cd|oscarcd|oscarcpr|cddegrees;
 noun1 	:	advAdj* nounStructure (dash nounStructure)*;
 noun	:	(acronymPhrase|noun1);
 
-nounStructure : nn|nns|expression|acpNoun|quantityNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase;
+nounStructure : apparatus|nn|nns|expression|time|acpNoun|quantityNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase;
 acpNoun:location|nnpcountry;
 
 conditionNoun : nntime|nnatmosphere|nntemp;
@@ -105,9 +110,19 @@ range: number dash number;
 
 adj	:	jj|jjr|jjs|jjt|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjcomp;
 adv	:	rb|rbr|rbt|rp|rbs|wrb;
+
+
+apparatus
+	:	dt? preapparatus* nnApp+-> ^(APPARATUS   dt? preapparatus* nnApp+ );
+
+nnApp 
+	:	nnapparatus+ (dash nnapparatus)*;
+preapparatus
+	:    (quantity|adj|nnpressure|nnadd|molecule|nnchementity|nnstate|nn)+ ;
+	
 // Different PrepPhrases
 prepphrase 
-	: 	neg? (prepphraseAtmosphere|prepphraseTime|prepphraseTemp|prepphraseIN|prepphraseRole|prepphraseOther)  ;
+	: 	neg? (prepphrasePressure|prepphraseAtmosphere|prepphraseTime|prepphraseTemp|prepphraseIN|prepphraseRole|prepphraseOther)  ;
 
 expression 
 	:lrb expressionContent  rrb->^(EXPRESSION  lrb expressionContent  rrb)	;
@@ -126,7 +141,7 @@ prepphraseOf
 prepphraseTime 
 	:prepPhraseTimeStructure ->  ^(TimePhrase  prepPhraseTimeStructure);
 prepPhraseTimeStructure
-	:advAdj* inAll?  dt? advAdj* cd? nntime+	;
+	:advAdj* inAll?  dt? advAdj* cd? (timeMonth|timeYear)+	;
 	
 prepphraseIN 
 	:inin molecule ->  ^(PrepPhrase  inin  molecule);
@@ -138,6 +153,12 @@ prepphraseAtmosphere
 prepphraseAtmosphereContent
 	:inunder  dt? advAdj* molecule nnatmosphere?	;
 
+
+
+prepphrasePressure 
+	: prepphrasePressureContent  ->  ^(PressurePhrase  prepphrasePressureContent ) ;
+prepphrasePressureContent
+	:inAll  dt? advAdj* cd nnpressure;
 parentheticalPhrase
 	: lrb parentheticalContent+  rrb ->^(ParentheticalPhrase lrb parentheticalContent+ rrb);
 parentheticalContent
@@ -151,13 +172,26 @@ prepphraseTempContent
 		
 amount	: cd+ nnamount -> ^(AMOUNT   cd+ nnamount );
 mass	: cd+ nnmass-> ^(MASS   cd+ nnmass ); 
+massVolume	: cd+ nnmass nnvol -> ^(MASSVOLUME   cd+ nnmass nnvol ); 
 percent	: number  nnpercent -> ^(PERCENT   number nnpercent );
 volume	: cd+ nnvol -> ^(VOLUME   cd+ nnvol );
 molar	: cd* nnmolar -> ^(MOLAR   cd* nnmolar );
 
 measurements
-	: molar|amount|mass|percent|volume ;	
+	: massVolume|molar|amount|mass|percent|volume ;	
 
+time 	:	 timeStructure ->^(TimePhrase timeStructure);
+
+timeStructure
+	:	(timeMonth|timeYear)+	;
+
+timeMonth	:	monthStructure+ -> ^(MONTHS monthStructure+);
+monthStructure 
+	:	nnpmonth (cc nnpmonth)*;
+	
+timeYear	:	 yearStructure+ -> ^(YEARS yearStructure+);
+yearStructure 
+	:	(cdyear|cdyearRange) (cc (cdyear|cdyearRange))*;
 // The RRB at the end is for leftover brackets from chemicals that didn't parse properly
 oscarCompound :  adj* (oscarCompound1|oscarCompound2|oscarCompound4|oscarcm|oscaracp) adj? ;
 
@@ -232,6 +266,11 @@ jjcomp	:'JJ-COMPOUND' TOKEN -> ^('JJ-COMPOUND' TOKEN);
 
 cddegrees
 	: 'CD-DEGREES' TOKEN -> ^('CD-DEGREES' TOKEN)	;
+
+cdyear
+	: 'CD-YEAR' TOKEN -> ^('CD-YEAR' TOKEN)	;
+cdyearRange
+	: 'CD-YEAR-RANGE' TOKEN -> ^('CD-YEAR-RANGE' TOKEN)	;
 //Tags---Pattern---Description
 oscarcd:'OSCAR-CD' TOKEN -> ^('OSCAR-CD' TOKEN);
 oscarcj:'OSCAR-CJ' TOKEN -> ^('OSCAR-CJ' TOKEN);

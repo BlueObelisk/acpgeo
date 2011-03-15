@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE article SYSTEM "http://www.atmos-chem-phys.net/inc/acp/copernicus.dtd">
+<article language="en">
+	<journal>
+		<journal_title>Atmospheric Chemistry and Physics</journal_title>
+		<journal_url>www.atmos-chem-phys.net</journal_url>
+		<issn>1680-7316</issn>
+		<eissn>1680-7324</eissn>
+		<volume_number>9</volume_number>
+		<issue_number>17</issue_number>
+		<publication_year>2009</publication_year>
+	</journal>
+	<doi>10.5194/acp-9-6453-2009</doi>
+	<article_url>http://www.atmos-chem-phys.net/9/6453/2009/</article_url>
+	<abstract_html>http://www.atmos-chem-phys.net/9/6453/2009/acp-9-6453-2009.html</abstract_html>
+	<fulltext_pdf>http://www.atmos-chem-phys.net/9/6453/2009/acp-9-6453-2009.pdf</fulltext_pdf>
+	<start_page>6453</start_page>
+	<end_page>6458</end_page>
+	<publication_date>2009-09-08</publication_date>
+	<article_title content_type="html">IASI temperature and water vapor retrievals – error assessment and validation</article_title>
+	<authors>
+		<author numeration="1" affiliations="1">
+			<name>N. Pougatchev</name>
+			<email>nikita.pougatchev@sdl.usu.edu</email>
+		</author>
+		<author numeration="2" affiliations="2">
+			<name>T. August</name>
+		</author>
+		<author numeration="3" affiliations="2">
+			<name>X. Calbet</name>
+		</author>
+		<author numeration="4" affiliations="2">
+			<name>T. Hultberg</name>
+		</author>
+		<author numeration="5" affiliations="2">
+			<name>O. Oduleye</name>
+		</author>
+		<author numeration="6" affiliations="2">
+			<name>P. Schlüssel</name>
+		</author>
+		<author numeration="7" affiliations="3">
+			<name>B. Stiller</name>
+		</author>
+		<author numeration="8" affiliations="4">
+			<name>K. St. Germain</name>
+		</author>
+		<author numeration="9" affiliations="1">
+			<name>G. Bingham</name>
+		</author>
+	</authors>
+	<affiliations>
+		<affiliation numeration="1" content_type="html">Space Dynamics Laboratory, North Logan, Utah, USA</affiliation>
+		<affiliation numeration="2" content_type="html">EUMETSAT, Darmstadt, Germany</affiliation>
+		<affiliation numeration="3" content_type="html">German Meteorological Service, Meteorological Observatory, Lindenberg, Germany</affiliation>
+		<affiliation numeration="4" content_type="html">Integrated Project Office, Silver Spring, Maryland, USA</affiliation>
+	</affiliations>
+	<abstract content_type="html">The METOP-A satellite Infrared Atmospheric Sounding Interferometer (IASI)
+Level 2 products comprise retrievals of vertical profiles of temperature and
+water vapor. The error covariance matrices and biases of the most recent
+version (4.3.1) of the L2 data were assessed, and the assessment was
+validated using radiosonde data for reference. The radiosonde data set
+includes dedicated and synoptic time launches at the Lindenberg station in
+Germany. For optimal validation, the linear statistical Validation
+Assessment Model (VAM) was used. The VAM uses radiosonde profiles as input
+and provides optimal estimate of the nominal IASI retrieval by utilizing
+IASI averaging kernels and statistical characteristics of the ensembles of
+the reference radiosondes. For temperatures above 900 mb and water
+retrievals above 700 mb, level expected and assessed errors are in good
+agreement. Below those levels, noticeable excess in assessed error is
+observed, possibly due to inaccurate surface parameters and undetected
+clouds/haze.</abstract>
+	<references>
+		<reference numeration="1" content_type="text"> Barret, B., De Maziere, M., and Mahieu, M: Ground-based FTIR measurements of CO from Jungfraujoch: characterization and comparison with in situ surface and MOPITT data, Atmos. Chem. Phys., 3, 4857–4878, 2003. </reference>
+		<reference numeration="2" content_type="text"> Calbet, X., Schlüssel, P., Hultberg, T., Phillips, P., and August, T.: &quot;Validation of the operational IASI level 2 processor using AIRS and ECMWF data&quot;, Adv. Space Res., 37, 2299–2305, 2006. </reference>
+		<reference numeration="3" content_type="text"> Eyre, J. R.: Variational assimilation of remotely-sensed observations of the atmosphere, J. Meteor. Soc., 75(1B), 331–338, 1997. </reference>
+		<reference numeration="4" content_type="text"> Global Space-based Inter-Calibration System (GSICS): http://www.orbit.nesdis.noaa.gov/smcd/spb/calibration/icvs/GSICS/index.html, last access: 2008. </reference>
+		<reference numeration="5" content_type="text"> Larar, A. M., Smith, W. L., Zhou, D. K., Liu, X., Revercomb, H., Taylor, J. P., Newman, S. M., and Schlüssel, P.: IASI spectral radiance performance validation: case study assessment from the JAIVEx field campaign, Atmos. Chem. Phys. Discuss., 9, 10193–10234, 2009. </reference>
+		<reference numeration="6" content_type="text"> Lary, D. J. and Lait, L.: Using Probability Distribution Functions for Satellite Validation, Geoscience and Remote Sensing, IEEE T., 44(\refeq5), 1359–1366, 2006. </reference>
+		<reference numeration="7" content_type="text"> Liu, X., Zhou, D. K., Larar, A. M., Smith, W. L., Schlüssel, P., Newman, S. M., Taylor, J. P., and Wu, W.: Retrieval of C478 Atmospheric Profiles and Cloud Properties from IASI Spectra Using Super-Channels, Atmos. Chem. Phys. Discuss., 9, 8683–8736, 2009. </reference>
+		<reference numeration="8" content_type="text"> Migliorini, S., Piccolo, C., and Rodgers, C. D.: Intercomparison of direct and indirect measurements: Michelson Interferometer for Passive Atmospheric Sounding (MIPAS) versus sonde ozone profiles, J. Geophys. Res., 109, D19316, doi:10.1029/2004JD004988, 2004. </reference>
+		<reference numeration="9" content_type="text"> Pougatchev, N. S.: Validation of atmospheric sounders by correlative measurements, Appl. Opt., 47,,4739–4748, 2008. </reference>
+		<reference numeration="10" content_type="text"> Rodgers, C. D. and Connor, B. J.: Intercomparison of remote sounding instruments,&quot; J. Geophys. Res., 108(D3), 4116, doi:10.1029/2002JD002299, 2003. </reference>
+		<reference numeration="11" content_type="text"> Rodgers, C. D.: Retrieval of Atmospheric Temperature and Composition From Remote Measurements of Thermal Radiation, Rev. Geophys. Space Phys., 14, 609–624, 1976. </reference>
+		<reference numeration="12" content_type="text"> Rodgers, C. D.: Characterization and error analysis of profiles retrieved from remote sounding measurements, J Geophys Res., 95, 5587–5595, 1990. </reference>
+		<reference numeration="13" content_type="text"> Rodgers, C. D.: Inverse Methods for Atmospheric Sounding: Theory and Practice, World Scientific Publishing Co. Pte. Ltd., London, UK, 2000.. </reference>
+		<reference numeration="14" content_type="text"> Schlüssel, P., Hultberg, T. H., Phillips, P. L., August, T., and Calbet, X.: The operational IASI Level 2 Processor, Adv. in Space Res., 36(12), 2299–2305, 2005. </reference>
+		<reference numeration="15" content_type="text"> Smith Sr., W. L., Zhou, D. K., Larar, A. M., Mango, S. A., Howell, H. B., Knuteson, R. O., Revercomb, H. E., and Smith Jr., W. L.: The NOESS Sounding Testbed Interferometer – Remotely Sensed surface and atmospheric conditions during CLAMS, J. Atmos. Sci., 62, 1118–1134, 2005. </reference>
+		<reference numeration="16" content_type="text"> Tobin, D. C., Revercomb, H. E., Knuteson, R. O., Lesht, B., Strow, L. L., Hannon, S. E., Feltz, W. F., Moy, L., Fetzer, E. J., and Cress, T: Atmospheric Radiation Measurement site atmospheric state best estimates for Atmospheric Infrared Sounder temperature and water vapor retrieval validation, J. Geophys. Res., 111, D09S14, doi:10.1029/2005JD006103, 2006. </reference>
+		<reference numeration="17" content_type="text"> Vaisala Radiosonde RS92-SGP brochure: http://www.vaisala.com/files/Vaisala%20Radiosonde%20RS92-SGP%20brochure%202005.pdf, last access: 2009. </reference>
+		<reference numeration="18" content_type="text"> Zhou, D. K., Smith, W. L., Larar, A. M., Liu, X., Taylor, J. P., Schlüssel, P., Strow, L. L., and Mango, S. A.: All weather IASI single field-of-view retrievals: case study – validation with JAIVEx data, Atmos. Chem. Phys., 9, 2241–2255, 2009. </reference>
+	</references>
+</article>
