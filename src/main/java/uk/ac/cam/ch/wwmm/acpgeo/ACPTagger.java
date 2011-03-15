@@ -11,7 +11,7 @@ import uk.ac.cam.ch.wwmm.chemicaltagger.WWMMTag;
 
 public class ACPTagger {
 
-	private static String ACP_DICTIONARY = "dictionaries/MetGlossary.txt";
+	private static String ACP_DICTIONARY = "dictionaries/atmChemMetGlossary.txt";
 	private static String STATION_COORDS_FILE = "dictionaries/StationCoords.csv";
 
 	private static class TaggerHolder {
