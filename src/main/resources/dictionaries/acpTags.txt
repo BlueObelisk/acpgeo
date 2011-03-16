@@ -12,5 +12,11 @@ CD-DEGREES---(\d+°)---Degrees;
 CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;
 CD-YEAR-RANGE---^(1|2)(0|9)\d\d\-(1|2)(0|9)\d\d$---Valid Year;
 JJ---^(t|T)hat$---demonstrative adjective;
-NN-VOL---(L−1|L\-1)---volume;
+NN-VOL---(L−1|L\-1)---volume
 NN-PRESSURE---(k|m)b---pressure bar unit
+VB-ANALYSE---^analy(s|z)(ed|e)$---analysis verbs
+VB-MEASURE---^measur(ed|e)$---measurement verbs
+VB-DETERMINE---^(determin|identif)(ed|e|y|ied)$---determine verbs
+VB-OBSERVE---^observ(e|ed)$---observation verbs
+VB-INVESTIGATE---^investigat(e|ed)$---investigate verbs
+VB-INDICATE---^(indicat|investigat|highlight|signify)(ed|in)$---indication verbs

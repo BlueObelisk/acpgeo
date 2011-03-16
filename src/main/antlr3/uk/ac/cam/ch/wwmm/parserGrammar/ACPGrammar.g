@@ -75,7 +75,7 @@ nounphrase
 	
 
 nounphraseStructure
-	:	dtTHE? dt?    noun+    (conjunction*  noun)*   ((prepphraseOf| prepphraseIN) )*  ;
+	:	dtTHE? dt?    noun+    (conjunction*  noun)*   ((prepphraseOf| prepphraseIN|prepphraseAtmosphere|prepphraseTemp|prepphraseTime) )*  ;
 
 
 conjunction 
@@ -84,7 +84,7 @@ conjunction
 verbphrase
 	:	verbphraseStructure ->  ^(VerbPhrase  verbphraseStructure);
 verbphraseStructure :  dt? to? inAll? inafter? (md* rbconj? advAdj* verb+ md* advAdj* neg? )+ inoff? (cc? comma? prepphrase)*   ;
-verb : vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange;
+verb : vbindicate|vbmeasure|vbdetermine|vbanalyse|vbobserve|vbinvestigate|vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange;
 
 number : cd|oscarcd|oscarcpr|cddegrees;	
 noun1 	:	advAdj* nounStructure (dash nounStructure)*;
@@ -160,6 +160,13 @@ prepphrasePressure
 prepphrasePressureContent
 	:inAll  dt? advAdj* cd nnpressure;
 parentheticalPhrase
+: parentheticalPhraseBrackets|parentheticalPhraseComma;
+
+parentheticalPhraseComma
+ : comma nounStructure  comma ->^(ParentheticalPhrase comma nounStructure comma);
+ 
+
+parentheticalPhraseBrackets
 	: lrb parentheticalContent+  rrb ->^(ParentheticalPhrase lrb parentheticalContent+ rrb);
 parentheticalContent
 	: (advAdj|nounStructure|verb|inAll)  conjunction?;			
@@ -207,8 +214,7 @@ moleculeamount1
 
 moleculeamount2
 	:(quantity)* oscarCompound+  quantity* ;	
-
-
+	
 moleculeamount : moleculeamount1 | moleculeamount2 ;	
 molecule          
 	:  moleculeamount-> ^(MOLECULE  moleculeamount );	
@@ -271,6 +277,25 @@ cdyear
 	: 'CD-YEAR' TOKEN -> ^('CD-YEAR' TOKEN)	;
 cdyearRange
 	: 'CD-YEAR-RANGE' TOKEN -> ^('CD-YEAR-RANGE' TOKEN)	;
+	
+	
+//ACP verbs
+
+vbmeasure
+	: 'VB-MEASURE' TOKEN -> ^('VB-MEASURE' TOKEN)	;
+
+vbdetermine
+	: 'VB-DETERMINE' TOKEN -> ^('VB-DETERMINE' TOKEN)	;
+
+vbanalyse
+	: 'VB-ANALYSE' TOKEN -> ^('VB-ANALYSE' TOKEN)	;
+vbobserve
+	: 'VB-OBSERVE' TOKEN -> ^('VB-OBSERVE' TOKEN)	;
+vbinvestigate
+	: 'VB-INVESTIGATE' TOKEN -> ^('VB-INVESTIGATE' TOKEN)	;
+vbindicate
+	: 'VB-INDICATE' TOKEN -> ^('VB-INDICATE' TOKEN)	;
+	
 //Tags---Pattern---Description
 oscarcd:'OSCAR-CD' TOKEN -> ^('OSCAR-CD' TOKEN);
 oscarcj:'OSCAR-CJ' TOKEN -> ^('OSCAR-CJ' TOKEN);

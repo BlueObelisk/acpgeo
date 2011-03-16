@@ -2,10 +2,9 @@ package uk.ac.cam.ch.wwmm.acpgeo;
 
 import java.io.InputStream;
 
-import junit.framework.Assert;
-
 import org.junit.Test;
 
+import junit.framework.Assert;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 
