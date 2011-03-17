@@ -61,4 +61,20 @@ public class ACPTaggerTest {
 				"target/file3.xml");
 
 	}
-}
+	@Test
+	public void testSentence4() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+//		String sentence = "We report upper limits of IO and OIO in the tropical upper troposphere and stratosphere inferred from solar occultation spectra recorded by the LPMA/DOAS (Limb Profile Monitor of the Atmosphere/Differential Optical Absorption Spectroscopy) payload during two stratospheric balloon flights from a station in Northern Brazil (5.1&deg; S, 42.9&deg; W). In the tropical upper troposphere and lower stratosphere, upper limits for both, IO and OIO, are below 0.1 ppt. Photochemical modelling is used to estimate the compatible upper limits for the total gaseous inorganic iodine burden (I<sub>y</sub>) amounting to 0.09 to 0.16 (+0.10/&minus;0.04) ppt in the tropical lower stratosphere (21.0 km to 16.5 km) and 0.17 to 0.35 (+0.20/&minus;0.08) ppt in the tropical upper troposphere (16.5 km to 13.5 km). In the middle stratosphere, upper limits increase with altitude as sampling sensitivity decreases. Our findings imply that the amount of gaseous iodine transported into the stratosphere through the tropical tropopause layer is small. Thus, iodine-mediated ozone loss plays a minor role for contemporary stratospheric photochemistry but might become significant in the future if source gas emissions or injection efficiency into the upper atmosphere are enhanced. However, photochemical modelling uncertainties are large and iodine might be transported into the stratosphere in particulate form.";
+		String sentence = "from a station in Northern Brazil ( 42.9&deg; W, 5.1&deg; S, 42.9&deg; W, 42.9&deg; W). ";
+		sentence = new AbstractReader().clearnAbstract(sentence);
+		System.out.println(sentence);
+
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+
+		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+				"target/file4.xml");
+
+	}
+	}
