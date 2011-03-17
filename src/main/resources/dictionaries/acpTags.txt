@@ -2,18 +2,19 @@
 
 #Nouns
 NNP-MONTH---January|February|March|April|May|June|July|August|September|October|November|December---Months of a year;
-NNP-DIRECTION---^(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)$+---Directions;
+NNP-DIRECTION---^(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)(ern|-)?(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)?(ern)?$+---Directions;
 NN-APPARATUS---^(s|S)atellite(s)?$---Apparatus Equipment;
 NN-STATION---station$---Field stations;
 NN-MEASUREMENT---measurement(s)?$---Measurement;
 NNP-ACRONYM---^([A-Z][A-Z](\-)?[A-Z]+(s)?)$---Acronyms
+NN-VOL---(L−1|L\-1)---volume
+NN-PRESSURE---(k|m)b---pressure bar unit
+NN-CAMPAIGN---^((p|P)re)?((C|c)ampaign|(p|P)roject)$---Campaigns
 #CD
 CD-DEGREES---(\d+°)---Degrees;
 CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;
 CD-YEAR-RANGE---^(1|2)(0|9)\d\d\-(1|2)(0|9)\d\d$---Valid Year;
 JJ---^(t|T)hat$---demonstrative adjective;
-NN-VOL---(L−1|L\-1)---volume
-NN-PRESSURE---(k|m)b---pressure bar unit
 VB-ANALYSE---^analy(s|z)(ed|e)$---analysis verbs
 VB-MEASURE---^measur(ed|e)$---measurement verbs
 VB-DETERMINE---^(determin|identif)(ed|e|y|ied)$---determine verbs

@@ -33,6 +33,7 @@ APPARATUS;
 YEARS;
 MONTHS;
 ParentheticalPhrase;
+CAMPAIGN;
 }
 
 	
@@ -84,13 +85,13 @@ conjunction
 verbphrase
 	:	verbphraseStructure ->  ^(VerbPhrase  verbphraseStructure);
 verbphraseStructure :  dt? to? inAll? inafter? (md* rbconj? advAdj* verb+ md* advAdj* neg? )+ inoff? (cc? comma? prepphrase)*   ;
-verb : vbindicate|vbmeasure|vbdetermine|vbanalyse|vbobserve|vbinvestigate|vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange;
+verb : vbindicate|vbmeasure|vbacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange;
 
 number : cd|oscarcd|oscarcpr|cddegrees;	
 noun1 	:	advAdj* nounStructure (dash nounStructure)*;
 noun	:	(acronymPhrase|noun1);
 
-nounStructure : apparatus|nn|nns|expression|time|acpNoun|quantityNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase;
+nounStructure : apparatus|nn|nns|campaign|expression|time|acpNoun|quantityNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase;
 acpNoun:location|nnpcountry;
 
 conditionNoun : nntime|nnatmosphere|nntemp;
@@ -101,7 +102,7 @@ fwSymbolNoun : fw|fwin|sym|tmunicode;
 clauseNoun:wdt|wp_poss|wpo|wps|wql|wrb|ex|pdt;
 
 properNoun
-	:	nnpstation|nps|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun;
+	:	nnpstation|nps|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp;
 prpNoun :	prp|prp_poss;
 moleculeNoun
 	:	molecule|nnchementity;
@@ -129,6 +130,8 @@ expression
 
 expressionContent 
 	:nn sym cd prepphrase? verb* nnpdirection? prepphrase?;
+	
+campaign:	nnp nncampaign	->^(CAMPAIGN nnp nncampaign);
 
 advAdj   
 	:adv|adj;	
@@ -169,7 +172,7 @@ parentheticalPhraseComma
 parentheticalPhraseBrackets
 	: lrb parentheticalContent+  rrb ->^(ParentheticalPhrase lrb parentheticalContent+ rrb);
 parentheticalContent
-	: (advAdj|nounStructure|verb|inAll)  conjunction?;			
+	: (advAdj|nounStructure|verb|inAll)  conjunction? stop?;			
 
 inAll	: in|inafter|inas|inbefore|inby|infor|infrom|inin|ininto|inof|inoff|inon|inover|inunder|invia|inwith|inwithout|to;
 prepphraseTemp:  prepphraseTempContent ->  ^(TempPhrase   prepphraseTempContent);
@@ -231,7 +234,7 @@ quantity1
 location	: locationStructure+  ->^(LOCATION  locationStructure+)	;
 
 locationStructure : (locationContent+|lrb locationContent+ rrb) ; 
-locationContent: (nnpcountry|cddegrees nnpdirection|nnpdirection nnp|nnpstation nnstation?); 
+locationContent: (nnpcountry|cddegrees apost? nnpdirection|nnpdirection nnp|nnpstation nnstation?|nnp nnstation|nnstation nnp); 
 acronym	: lrb (nn|properNoun) rrb ->^(ACRONYM  lrb nn? properNoun? rrb)	;
 //ACP Tags
 nnpstation
@@ -251,6 +254,11 @@ nnptechnique
 nnacp
 	: 'NN-ACP' TOKEN -> ^('NN-ACP' TOKEN)	;
 
+nnsacp
+	: 'NNS-ACP' TOKEN -> ^('NNS-ACP' TOKEN)	;
+
+nncampaign
+	: 'NN-CAMPAIGN' TOKEN -> ^('NN-CAMPAIGN' TOKEN)	;	
 nnpacronym
 	: 'NNP-ACRONYM' TOKEN -> ^('NNP-ACRONYM' TOKEN)	;
 
@@ -295,6 +303,9 @@ vbinvestigate
 	: 'VB-INVESTIGATE' TOKEN -> ^('VB-INVESTIGATE' TOKEN)	;
 vbindicate
 	: 'VB-INDICATE' TOKEN -> ^('VB-INDICATE' TOKEN)	;
+	
+vbacp
+	: 'VB-ACP' TOKEN -> ^('VB-ACP' TOKEN)	;
 	
 //Tags---Pattern---Description
 oscarcd:'OSCAR-CD' TOKEN -> ^('OSCAR-CD' TOKEN);
