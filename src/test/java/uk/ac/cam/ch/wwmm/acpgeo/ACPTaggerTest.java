@@ -14,7 +14,7 @@ public class ACPTaggerTest {
 	public void testSentence1() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "Samples of freshly fallen snow were collected at the high alpine research station Jungfraujoch in February and March 2006 and 2007.";
-		String expected = "NNS Samples IN-OF of RB freshly JJ fallen NN-CHEMENTITY snow VBD were VB-RECOVER collected IN at DT-THE the JJ-ACP high JJ alpine NN research NN-STATION station NNP-STATION Jungfraujoch IN-IN in NNP-MONTH February CC and NNP-MONTH March CD-YEAR 2006 CC and CD-YEAR 2007 STOP .";
+		String expected = "NNS Samples IN-OF of RB freshly JJ fallen NN-ACP snow VBD were VB-RECOVER collected IN at DT-THE the JJ-ACP high JJ alpine NN research NN-STATION station NNP-STATION Jungfraujoch IN-IN in NNP-MONTH February CC and NNP-MONTH March CD-YEAR 2006 CC and CD-YEAR 2007 STOP .";
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		
 		Assert.assertEquals(expected, posContainer.getTokenTagTupleAsString());
@@ -60,7 +60,10 @@ public class ACPTaggerTest {
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
 				"target/file3.xml");
+		Assert.assertTrue("Error-free parse",!sentenceParser.getParseTree().toStringTree().contains("<error"));
 
+
+		
 	}
 	@Ignore
 	@Test
@@ -79,7 +82,6 @@ public class ACPTaggerTest {
 				"target/file4.xml");
 		
 	  }
-	@Ignore
 	@Test
 	public void testFaultyPhrase1() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
@@ -98,7 +100,7 @@ public class ACPTaggerTest {
 
 		
 	  }
-@Ignore
+
 	@Test
 	public void testFaultyPhrase2() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
@@ -117,12 +119,11 @@ public class ACPTaggerTest {
 
 		
 	  }
-@Ignore
 	@Test
 	public void testFaultyPhrase3() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "Global total water vapour columns have been derived from measurements of the Global Ozone Monitoring Experiment 2 (GOME-2) on MetOp. For this purpose, the Air Mass Corrected Differential Optical Absorption Spectroscopy (AMC-DOAS) method has been adapted, having previously been applied successfully to GOME (on ERS-2) and SCIAMACHY (SCanning Imaging Absorption spectroMeter for Atmospheric CHartographY, on ENVISAT) data. Comparisons between the derived GOME-2 and SCIAMACHY water vapour columns show a good overall agreement. This gives confidence that the temporal series of water vapour columns from GOME-type instruments (GOME/ERS-2, SCIAMACHY/ENVISAT), which began in 1995, is successfully continued by the MetOp instrumentation until at least 2020. The enhanced temporal and spatial resolution of GOME-2 enables the analysis of diurnal variations in the polar regions. This is especially important because atmospheric data sources in the polar regions are generally sparse. As an exemplary application, daily water vapour total columns over the polar research station Ny Ålesund (78°55'19\" N/11°56'33\" E) are investigated. At this latitude GOME-2 yields about six data points during daylight hours at varying local times. From these data diurnal variations of water vapour have been successfully retrieved.";
-//		
+//		String sentence = "";
+		String sentence = "Global total water vapour columns have been derived from measurements of the Global Ozone Monitoring Experiment 2 (GOME-2) on MetOp. For this purpose, the Air Mass Corrected Differential Optical Absorption Spectroscopy (AMC-DOAS) method has been adapted, having previously been applied successfully to GOME (on ERS-2) and SCIAMACHY (SCanning Imaging Absorption spectroMeter for Atmospheric CHartographY, on ENVISAT) data. Comparisons between the derived GOME-2 and SCIAMACHY water vapour columns show a good overall agreement. This gives confidence that the temporal series of water vapour columns from GOME-type instruments (GOME/ERS-2, SCIAMACHY/ENVISAT), which began in 1995, is successfully continued by the MetOp instrumentation until at least 2020. The enhanced temporal and spatial resolution of GOME-2 enables the analysis of diurnal variations in the polar regions. This is especially important because atmospheric data sources in the polar regions are generally sparse. As an exemplary application, daily water vapour total columns over the polar research station Ny Ålesund (78°55'19\" N/11°56'33\" E) are investigated. At this latitude GOME-2 yields about six data points during daylight hours at varying local times. From these data diurnal variations of water vapour have been successfully retrieved. As an exemplary application, daily water vapour total columns over the polar research station Ny Ålesund (78°55'19\" N/11°56'33\" E) are investigated.";
 		sentence = new AbstractReader().clearnAbstract(sentence);
 	
 

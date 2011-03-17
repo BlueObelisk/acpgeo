@@ -64,8 +64,8 @@ public class ACPTagger {
 		}
 		
 		System.out.println(posContainer.getTokenTagTupleAsString());
-		posContainer = new PostProcessTags()
-				.correctCombinedTagsList(posContainer);
+//		posContainer = new PostProcessTags()
+//				.correctCombinedTagsList(posContainer);
 
 		return posContainer;
 	}

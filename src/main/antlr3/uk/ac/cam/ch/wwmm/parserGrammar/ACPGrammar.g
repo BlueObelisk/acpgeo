@@ -54,16 +54,14 @@ fragment DIGIT	: ('0'..'9');
 fragment UNICODE	:  '\u00A0'..'\ufffe';
 
 //TOKEN	:	(ACHAR|DIGIT|UNICODE)+;
-TOKEN : (ACHAR|'?'|';'|'~'| '_'|',' |'.'|')'|'('|'/'|'-'|'='|':'|'%'|'\''|'{'|'}'|'['|']'|'>'|'<'|'@'|'+'|'|'|DIGIT|UNICODE)+;
-
+TOKEN : (ACHAR|'?'|';'|'~'| '_'|',' |'.'|')'|'('|'/'|'-'|'='|':'|'%'|'\''|'{'|'}'|'['|']'|'>'|'<'|'@'|'+'|'|'|'"'|'`'|DIGIT|UNICODE)+;
 
 
 document: sentences+-> ^(Sentence  sentences )+ ;
 
 sentences:  (sentenceStructure)+    (comma|stop)*;
 
-sentenceStructure:  (nounphrase|verbphrase|prepphrase|transitionalPhrase)+ (conjunction|rbconj)* (advAdj|colon) * (conjunction|rbconj)*;
-
+sentenceStructure:  (nounphrase|verbphrase|prepphrase|transitionalPhrase)+ (conjunction|rbconj|inAll)* (advAdj|colon) * (conjunction|rbconj)*;
 
 //ACP Rules:
 
@@ -95,7 +93,7 @@ verbphraseStructure :  dt? to? inAll? inafter? (md* rbconj? advAdj* verb+ md* ad
 verb : vbindicate|vbmeasure|vbacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange;
 
 number : cd|oscarcd|oscarcpr|cddegrees;	
-noun1 	:	advAdj* nounStructure (dash nounStructure)*;
+noun1 	:	(dtTHE|dt)? advAdj* nounStructure (dash nounStructure)*;
 noun	:	(acronymPhrase|noun1);
 
 nounStructure : apparatus|nn|nns|campaign|expression|time|acpNoun|quantityNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase;
@@ -116,7 +114,8 @@ moleculeNoun
 	
 range: number dash number;
 
-adj	:	jj|jjr|jjs|jjt|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjcomp;
+adj	:	(jj|jjr|jjs|jjt|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjcomp) (cc (jj|jjr|jjs|jjt|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjcomp))*;
+
 adv	:	rb|rbr|rbt|rp|rbs|wrb;
 
 
@@ -140,8 +139,7 @@ expressionContent
 	
 campaign:	nnp nncampaign	->^(CAMPAIGN nnp nncampaign);
 
-advAdj   
-	:adv|adj;	
+advAdj	: adv|adj  ;	
 prepphraseOther
 	: advAdj* inAll+  nounphrase ->  ^(PrepPhrase  advAdj* inAll+  nounphrase);
 prepphraseOf 
@@ -244,7 +242,7 @@ quantity1
 
 location	: locationStructure+  ->^(LOCATION  locationStructure+)	;
 
-locationStructure : (locationContent+|lrb locationContent+ (comma locationContent)* rrb) ; 
+locationStructure : (locationContent+|lrb locationContent (comma? dash? locationContent)* rrb) ; 
 locationContent: (nnpcountry|cddegrees apost? nnpdirection|nnpdirection nnp|nnpstation nnstation?|nnp nnstation|nnstation nnp); 
 acronym	: lrb (nn|properNoun) rrb ->^(ACRONYM  lrb nn? properNoun? rrb)	;
 
