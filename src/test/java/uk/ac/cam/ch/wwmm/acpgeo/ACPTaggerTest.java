@@ -2,6 +2,7 @@ package uk.ac.cam.ch.wwmm.acpgeo;
 
 import junit.framework.Assert;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
@@ -61,13 +62,12 @@ public class ACPTaggerTest {
 				"target/file3.xml");
 
 	}
-	
+	@Ignore
 	@Test
 	public void testDegrees() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-//		String sentence = "We report upper limits of IO and OIO in the tropical upper troposphere and stratosphere inferred from solar occultation spectra recorded by the LPMA/DOAS (Limb Profile Monitor of the Atmosphere/Differential Optical Absorption Spectroscopy) payload during two stratospheric balloon flights from a station in Northern Brazil (5.1&deg; S, 42.9&deg; W). In the tropical upper troposphere and lower stratosphere, upper limits for both, IO and OIO, are below 0.1 ppt. Photochemical modelling is used to estimate the compatible upper limits for the total gaseous inorganic iodine burden (I<sub>y</sub>) amounting to 0.09 to 0.16 (+0.10/&minus;0.04) ppt in the tropical lower stratosphere (21.0 km to 16.5 km) and 0.17 to 0.35 (+0.20/&minus;0.08) ppt in the tropical upper troposphere (16.5 km to 13.5 km). In the middle stratosphere, upper limits increase with altitude as sampling sensitivity decreases. Our findings imply that the amount of gaseous iodine transported into the stratosphere through the tropical tropopause layer is small. Thus, iodine-mediated ozone loss plays a minor role for contemporary stratospheric photochemistry but might become significant in the future if source gas emissions or injection efficiency into the upper atmosphere are enhanced. However, photochemical modelling uncertainties are large and iodine might be transported into the stratosphere in particulate form.";
 		String sentence = "Assekrem (5.1&deg; S, 42.9&deg; W). ";
-		String expected = "NNP-STATION Assekrem -LRB- ( CD-DEGREES 5.1� NNP-DIRECTION S COMMA , CD-DEGREES 42.9� NNP-DIRECTION W -RRB- ) STOP .";
+		String expected = "NNP-STATION Assekrem -LRB- ( CD-DEGREES 5.1� NNP-DIRECTION S COMMA , CD-DEGREES 42.9� NNP-DIRECTION W -RRB- ) STOP .";
 		sentence = new AbstractReader().clearnAbstract(sentence);
 	
 
@@ -79,4 +79,65 @@ public class ACPTaggerTest {
 				"target/file4.xml");
 		
 	  }
+	@Ignore
+	@Test
+	public void testFaultyPhrase1() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = " payload during two stratospheric balloon flights from a station in Northern Brazil (5.1&deg; S, 42.9&deg; W). In the tropical upper troposphere and lower stratosphere, upper limits for both, IO and OIO, are below 0.1 ppt. Photochemical modelling is used to estimate the compatible upper limits for the total gaseous inorganic iodine burden (I<sub>y</sub>) amounting to 0.09 to 0.16 (+0.10/&minus;0.04) ppt in the tropical lower stratosphere (21.0 km to 16.5 km) and 0.17 to 0.35 (+0.20/&minus;0.08) ppt in the tropical upper troposphere (16.5 km to 13.5 km). In the middle stratosphere, upper limits increase with altitude as sampling sensitivity decreases. Our findings imply that the amount of gaseous iodine transported into the stratosphere through the tropical tropopause layer is small. Thus, iodine-mediated ozone loss plays a minor role for contemporary stratospheric photochemistry but might become significant in the future if source gas emissions or injection efficiency into the upper atmosphere are enhanced. However, photochemical modelling uncertainties are large and iodine might be transported into the stratosphere in particulate form.";
+//		
+		sentence = new AbstractReader().clearnAbstract(sentence);
+	
+
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		
+		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+		"target/file5.xml");
+		Assert.assertTrue("Error-free parse",!sentenceParser.getParseTree().toStringTree().contains("<error"));
+
+		
+	  }
+@Ignore
+	@Test
+	public void testFaultyPhrase2() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "We present an assessment of the plane-parallel bias of the shortwave cloud radiative forcing (SWCRF) of liquid and ice clouds at 1 deg scales using global MODIS (Terra and Aqua) cloud optical property retrievals for four months of the year 2005 representative of the meteorological seasons. The (negative) bias is estimated as the difference of SWCRF calculated using the Plane-Parallel Homogeneous (PPH) approximation and the Independent Column Approximation (ICA). PPH calculations use MODIS-derived gridpoint means while ICA calculations use distributions of cloud optical thickness and effective radius. Assisted by a broadband solar radiative transfer algorithm, we find that the absolute value of global SWCRF bias of liquid clouds at the top of the atmosphere is about 6 W m-2 for MODIS overpass times while the SWCRF bias for ice clouds is smaller in absolute terms by about 0.7 W m-2, but with stronger spatial variability. If effective radius variability is neglected and only optical thickness horizontal variations are accounted for, the absolute SWCRF biases increase by about 0.3–0.4 W m-2 on average. Marine clouds of both phases exhibit greater (more negative) SWCRF biases than continental clouds. Finally, morning (Terra)–afternoon (Aqua) differences in SWCRF bias are much more pronounced for ice clouds, up to about 15% (Aqua producing stronger negative bias) on global scales, with virtually all contribution to the difference coming from land areas. The substantial magnitude of the global SWCRF bias, which for clouds of both phases is collectively about 4 W m-2 for diurnal averages, should be considered a strong motivation for global climate modelers to accelerate efforts linking cloud schemes capable of subgrid condensate variability with appropriate radiative transfer schemes.";
+//		
+		sentence = new AbstractReader().clearnAbstract(sentence);
+	
+
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		
+		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+		"target/file6.xml");
+		Assert.assertTrue("Error-free parse",!sentenceParser.getParseTree().toStringTree().contains("<error"));
+
+		
+	  }
+@Ignore
+	@Test
+	public void testFaultyPhrase3() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "Global total water vapour columns have been derived from measurements of the Global Ozone Monitoring Experiment 2 (GOME-2) on MetOp. For this purpose, the Air Mass Corrected Differential Optical Absorption Spectroscopy (AMC-DOAS) method has been adapted, having previously been applied successfully to GOME (on ERS-2) and SCIAMACHY (SCanning Imaging Absorption spectroMeter for Atmospheric CHartographY, on ENVISAT) data. Comparisons between the derived GOME-2 and SCIAMACHY water vapour columns show a good overall agreement. This gives confidence that the temporal series of water vapour columns from GOME-type instruments (GOME/ERS-2, SCIAMACHY/ENVISAT), which began in 1995, is successfully continued by the MetOp instrumentation until at least 2020. The enhanced temporal and spatial resolution of GOME-2 enables the analysis of diurnal variations in the polar regions. This is especially important because atmospheric data sources in the polar regions are generally sparse. As an exemplary application, daily water vapour total columns over the polar research station Ny Ålesund (78°55'19\" N/11°56'33\" E) are investigated. At this latitude GOME-2 yields about six data points during daylight hours at varying local times. From these data diurnal variations of water vapour have been successfully retrieved.";
+//		
+		sentence = new AbstractReader().clearnAbstract(sentence);
+	
+
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		
+		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+		"target/file7.xml");
+		Assert.assertTrue("Error-free parse",!sentenceParser.getParseTree().toStringTree().contains("<error"));
+
+		
+	  }
+
+	
+	
+	
 	}

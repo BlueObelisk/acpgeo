@@ -33,10 +33,11 @@ APPARATUS;
 YEARS;
 MONTHS;
 ParentheticalPhrase;
+ParentheticalPhraseEmpty;
+TransitionPhrase;
 CAMPAIGN;
 }
 
-	
 @header {
     package uk.ac.cam.ch.wwmm.parserGrammar;
  }
@@ -59,12 +60,18 @@ TOKEN : (ACHAR|'?'|';'|'~'| '_'|',' |'.'|')'|'('|'/'|'-'|'='|':'|'%'|'\''|'{'|'}
 
 document: sentences+-> ^(Sentence  sentences )+ ;
 
-sentences:  sentenceStructure+    (comma|stop)*;
+sentences:  (sentenceStructure)+    (comma|stop)*;
 
-sentenceStructure:  (nounphrase|verbphrase|prepphrase)+ (conjunction|rbconj)* (advAdj|colon) * (conjunction|rbconj)*;
+sentenceStructure:  (nounphrase|verbphrase|prepphrase|transitionalPhrase)+ (conjunction|rbconj)* (advAdj|colon) * (conjunction|rbconj)*;
 
 
 //ACP Rules:
+
+transitionalPhrase
+	: transitionalContent+ comma ->^(TransitionPhrase transitionalContent+ comma);
+
+transitionalContent
+	:	(inAll dt| rb)+;		
 acronymPhrase
 	:acronymPhraseStructure -> ^(AcronymPhrase acronymPhraseStructure)	;
 	
@@ -163,7 +170,7 @@ prepphrasePressure
 prepphrasePressureContent
 	:inAll  dt? advAdj* cd nnpressure;
 parentheticalPhrase
-: parentheticalPhraseBrackets|parentheticalPhraseComma;
+: parentheticalPhraseBrackets|parentheticalPhraseComma|parentheticalPhraseEmpty;
 
 parentheticalPhraseComma
  : comma nounStructure  comma ->^(ParentheticalPhrase comma nounStructure comma);
@@ -171,8 +178,12 @@ parentheticalPhraseComma
 
 parentheticalPhraseBrackets
 	: lrb parentheticalContent+  rrb ->^(ParentheticalPhrase lrb parentheticalContent+ rrb);
+
+parentheticalPhraseEmpty
+	: lrb rrb ->^(ParentheticalPhraseEmpty lrb rrb);
+
 parentheticalContent
-	: (advAdj|nounStructure|verb|inAll)  conjunction? stop?;			
+	:  dtTHE? (advAdj|nounStructure|verb|inAll)  conjunction? stop?;			
 
 inAll	: in|inafter|inas|inbefore|inby|infor|infrom|inin|ininto|inof|inoff|inon|inover|inunder|invia|inwith|inwithout|to;
 prepphraseTemp:  prepphraseTempContent ->  ^(TempPhrase   prepphraseTempContent);
@@ -236,6 +247,7 @@ location	: locationStructure+  ->^(LOCATION  locationStructure+)	;
 locationStructure : (locationContent+|lrb locationContent+ (comma locationContent)* rrb) ; 
 locationContent: (nnpcountry|cddegrees apost? nnpdirection|nnpdirection nnp|nnpstation nnstation?|nnp nnstation|nnstation nnp); 
 acronym	: lrb (nn|properNoun) rrb ->^(ACRONYM  lrb nn? properNoun? rrb)	;
+
 //ACP Tags
 nnpstation
 	: 'NNP-STATION' TOKEN -> ^('NNP-STATION' TOKEN)	;
@@ -306,7 +318,9 @@ vbindicate
 	
 vbacp
 	: 'VB-ACP' TOKEN -> ^('VB-ACP' TOKEN)	;
+
 	
+		
 //Tags---Pattern---Description
 oscarcd:'OSCAR-CD' TOKEN -> ^('OSCAR-CD' TOKEN);
 oscarcj:'OSCAR-CJ' TOKEN -> ^('OSCAR-CJ' TOKEN);

@@ -54,6 +54,7 @@ public class ACPTagger {
 				if (currentTag.contains("-") && !currentTag.startsWith("-")) {
 					currentTag = currentTag.split("-")[0];
 				}
+				if (!(currentTag.contains("NN") ||currentTag.contains("VB")||currentTag.contains("JJ"))) currentTag = "NN";
 				posContainer.getCombinedTagsList().set(count,
 						new WWMMTag(currentTag + "-ACP"));
 			}
