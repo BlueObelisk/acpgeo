@@ -69,7 +69,7 @@ acronymPhrase
 	:acronymPhraseStructure -> ^(AcronymPhrase acronymPhraseStructure)	;
 	
 acronymPhraseStructure
-	: (advAdj|properNoun|moleculeNoun|oscarrn||oscarcd|cd)+ ((cc|inAll)(advAdj|oscarrn|properNoun|moleculeNoun|oscarcd|cd)+)? acronym;	
+	: (advAdj|properNoun|moleculeNoun|oscarcd|cd)+ ((cc|inAll)(advAdj|properNoun|moleculeNoun|oscarcd|cd)+)? acronym;	
 
 nounphrase
 	:	nounphraseStructure ->  ^(NounPhrase  nounphraseStructure);	
@@ -233,7 +233,7 @@ quantity1
 
 location	: locationStructure+  ->^(LOCATION  locationStructure+)	;
 
-locationStructure : (locationContent+|lrb locationContent+ rrb) ; 
+locationStructure : (locationContent+|lrb locationContent+ (comma locationContent)* rrb) ; 
 locationContent: (nnpcountry|cddegrees apost? nnpdirection|nnpdirection nnp|nnpstation nnstation?|nnp nnstation|nnstation nnp); 
 acronym	: lrb (nn|properNoun) rrb ->^(ACRONYM  lrb nn? properNoun? rrb)	;
 //ACP Tags
