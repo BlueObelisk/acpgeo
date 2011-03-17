@@ -15,6 +15,7 @@ CD-DEGREES---(\d+°)---Degrees;
 CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;
 CD-YEAR-RANGE---^(1|2)(0|9)\d\d\-(1|2)(0|9)\d\d$---Valid Year;
 JJ---^(t|T)hat$---demonstrative adjective;
+JJ-CHEM---^(i|I)frared$---demonstrative adjective;
 VB-ANALYSE---^analy(s|z)(ed|e)$---analysis verbs
 VB-MEASURE---^measur(ed|e)$---measurement verbs
 VB-DETERMINE---^(determin|identif)(ed|e|y|ied)$---determine verbs

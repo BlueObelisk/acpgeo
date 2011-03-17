@@ -69,7 +69,7 @@ acronymPhrase
 	:acronymPhraseStructure -> ^(AcronymPhrase acronymPhraseStructure)	;
 	
 acronymPhraseStructure
-	: (advAdj|properNoun|moleculeNoun|oscarcd|cd)+ ((cc|inAll)(advAdj|properNoun|moleculeNoun|oscarcd|cd)+)? acronym;	
+	: (advAdj|properNoun|moleculeNoun|oscarrn||oscarcd|cd)+ ((cc|inAll)(advAdj|oscarrn|properNoun|moleculeNoun|oscarcd|cd)+)? acronym;	
 
 nounphrase
 	:	nounphraseStructure ->  ^(NounPhrase  nounphraseStructure);	
