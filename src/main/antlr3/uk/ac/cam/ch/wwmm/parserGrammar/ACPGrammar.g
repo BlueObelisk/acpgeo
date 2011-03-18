@@ -154,7 +154,7 @@ prepphraseOf
 prepphraseTime 
 	:prepPhraseTimeStructure ->  ^(TimePhrase  prepPhraseTimeStructure);
 prepPhraseTimeStructure
-	:advAdj* inAll?  dt? advAdj* cd? (timeMonth|timeYear)+	;
+	:advAdj* inAll?  dt? advAdj* cd? (timeMonth|timeYear|nntime)+ nncampaign?;
 
 	
 prepphraseIN 
@@ -248,8 +248,8 @@ quantity1
 
 location	: locationStructure+  ->^(LOCATION  locationStructure+)	;
 
-locationStructure : (locationContent+|lrb locationContent (comma? dash? locationContent)* rrb) ; 
-locationContent: (nnpcountry|cddegrees apost? nnpdirection|nnpdirection nnp|nnpstation nnstation?|nnp nnstation|nnstation nnp); 
+locationStructure : (locationContent|lrb locationContent (comma? dash? locationContent)* rrb) ; 
+locationContent: (nnpcountry|cddegrees apost? nnpdirection|nnpdirection nnp|nnpstation nnp? nnstation?|nnpacronym nnp? nnstation|nnp nnstation|nnstation nnp); 
 acronym	: lrb (nn|properNoun) rrb ->^(ACRONYM  lrb nn? properNoun? rrb)	;
 
 //ACP Tags
@@ -729,6 +729,7 @@ wp_poss:'WP$' TOKEN -> ^('WP$' TOKEN);
 
 // Objective wh- pronoun (whom, which, that)
 wpo:'WPO' TOKEN -> ^('WPO' TOKEN);
+
 
 // Nominative wh- pronoun (who, which, that)
 wps:'WPS' TOKEN -> ^('WPS' TOKEN);
