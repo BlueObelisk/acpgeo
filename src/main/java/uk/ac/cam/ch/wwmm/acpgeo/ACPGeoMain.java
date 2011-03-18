@@ -3,9 +3,11 @@ package uk.ac.cam.ch.wwmm.acpgeo;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 
 import nu.xom.Builder;
 import nu.xom.Document;
@@ -31,29 +33,58 @@ public class ACPGeoMain {
 			runACPGeo(args[0]);
 	}
 
-	private static void runACPGeo(String directoryName)
-			throws ValidityException, ParsingException, IOException {
+	private static void runACPGeo(String directoryName) {
 		File[] files = new File(directoryName).listFiles();
 		ACPTagger posTagger = ACPTagger.getInstance();
 
 		for (File file : files) {
-			BufferedReader in = new BufferedReader(new InputStreamReader(
-					new FileInputStream(file), "UTF-8"));
+			BufferedReader in = null;
+			try {
+				in = new BufferedReader(new InputStreamReader(
+						new FileInputStream(file), "UTF-8"));
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-			Document doc = new Builder().build(in, "UTF-8");
-			InputStream xmlInputStream = IOUtils.toInputStream(doc.toXML(),
-					"UTF-8");
-			// changed on 28th Feb 2011
-			AbstractReader abReader = new AbstractReader(xmlInputStream);
-			System.out.println(abReader.getAbstractString());
+			Document doc = null;
+			try {
+				doc = new Builder().build(in, "UTF-8");
+			} catch (ValidityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ParsingException e) {
+				System.out.println("Parsing Exception Can't process file "
+						+ file.getAbsolutePath() + "... skipping");
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			InputStream xmlInputStream = null;
+			if (doc != null) {
+				try {
+					xmlInputStream = IOUtils
+							.toInputStream(doc.toXML(), "UTF-8");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				// changed on 28th Feb 2011
+				AbstractReader abReader = new AbstractReader(xmlInputStream);
+				System.out.println(abReader.getAbstractString());
 
-			POSContainer posContainer = posTagger.runTaggers(abReader
-					.getAbstractString());
+				POSContainer posContainer = posTagger.runTaggers(abReader
+						.getAbstractString());
 
-			SentenceParser sentenceParser = new SentenceParser(posContainer);
-			sentenceParser.parseTags();
-			Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
-					"target/" + file.getName());
+				SentenceParser sentenceParser = new SentenceParser(posContainer);
+				sentenceParser.parseTags();
+				Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+						"target/" + file.getName());
+			}
 		}
 	}
 

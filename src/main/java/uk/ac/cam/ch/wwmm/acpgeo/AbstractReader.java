@@ -69,7 +69,7 @@ public class AbstractReader {
 	public String clearnAbstract(String paragraph) {
 		paragraph = StringEscapeUtils.unescapeHtml(paragraph);
         
-		return paragraph.replace("<sub>","").replace("</sub>","").replace("<sup>","").replace("</sup>","").replace("−", "-").replace("+", "+").replace("<br>", "").replace("<i>", "</i>").replace("<b>", "</b>");
+		return paragraph.replace("<sub>","").replace("</sub>","").replace("<sup>","").replace("</sup>","").replace("−", "-").replace("+", "+").replace("<br>", "").replace("<i>", "</i>").replace("<b>", "</b>").replace("<P  style=\"line-height: 20px;\">","");
 	}
 
 	
