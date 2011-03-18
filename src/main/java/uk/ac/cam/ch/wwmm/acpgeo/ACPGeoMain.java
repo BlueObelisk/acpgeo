@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 import nu.xom.Builder;
 import nu.xom.Document;
@@ -36,56 +38,75 @@ public class ACPGeoMain {
 	private static void runACPGeo(String directoryName) {
 		File[] files = new File(directoryName).listFiles();
 		ACPTagger posTagger = ACPTagger.getInstance();
-
+		List<String> doneFiles = getListofFiles(new File("target/").listFiles());
 		for (File file : files) {
-			BufferedReader in = null;
-			try {
-				in = new BufferedReader(new InputStreamReader(
-						new FileInputStream(file), "UTF-8"));
-			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-			Document doc = null;
-			try {
-				doc = new Builder().build(in, "UTF-8");
-			} catch (ValidityException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ParsingException e) {
-				System.out.println("Parsing Exception Can't process file "
-						+ file.getAbsolutePath() + "... skipping");
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			InputStream xmlInputStream = null;
-			if (doc != null) {
+			if (doneFiles.contains(file.getName()))
+				System.out.println("Already done " + file.getName()
+						+ " skipping");
+			else {
+				BufferedReader in = null;
 				try {
-					xmlInputStream = IOUtils
-							.toInputStream(doc.toXML(), "UTF-8");
+					in = new BufferedReader(new InputStreamReader(
+							new FileInputStream(file), "UTF-8"));
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				Document doc = null;
+				try {
+					doc = new Builder().build(in, "UTF-8");
+				} catch (ValidityException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ParsingException e) {
+					System.out.println("Parsing Exception Can't process file "
+							+ file.getAbsolutePath() + "... skipping");
+					e.printStackTrace();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				// changed on 28th Feb 2011
-				AbstractReader abReader = new AbstractReader(xmlInputStream);
-				System.out.println(abReader.getAbstractString());
+				InputStream xmlInputStream = null;
+				if (doc != null) {
+					try {
+						xmlInputStream = IOUtils.toInputStream(doc.toXML(),
+								"UTF-8");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					// changed on 28th Feb 2011
+					AbstractReader abReader = new AbstractReader(xmlInputStream);
+					System.out.println(abReader.getAbstractString());
+                    try{
+					POSContainer posContainer = posTagger.runTaggers(abReader
+							.getAbstractString());
 
-				POSContainer posContainer = posTagger.runTaggers(abReader
-						.getAbstractString());
-
-				SentenceParser sentenceParser = new SentenceParser(posContainer);
-				sentenceParser.parseTags();
-				Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
-						"target/" + file.getName());
+					SentenceParser sentenceParser = new SentenceParser(
+							posContainer);
+					sentenceParser.parseTags();
+					Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+							"target/" + file.getName());
+                    }
+                    catch (Exception e){
+                    	System.err.println("Can't do " + file.getName()
+        						+ " skipping");
+                    }
+				}
 			}
 		}
+	}
+
+	private static List<String> getListofFiles(File[] doneFiles) {
+		List<String> doneStringFiles = new ArrayList<String>();
+		for (File file : doneFiles) {
+			doneStringFiles.add(file.getName());
+		}
+		return doneStringFiles;
 	}
 
 }
