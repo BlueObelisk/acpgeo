@@ -138,7 +138,22 @@ public class ACPTaggerTest {
 		
 	  }
 
+	@Test
+	public void testRecogniseCampaign() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "CHABLIS (Chemistry of the Antarctic Boundary Layer and the Interface with Snow) campaign";
+		sentence = new AbstractReader().clearnAbstract(sentence);
 	
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		System.out.println(posContainer.getTokenTagTupleAsString());
+		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+		"target/file8.xml");
+		Assert.assertTrue("Error-free parse",!sentenceParser.getParseTree().toStringTree().contains("<error"));
+	
+		
+	  }	
 	
 	
 	}

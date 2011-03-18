@@ -72,7 +72,8 @@ transitionalContent
 	:	(inAll dt| rb)+;		
 acronymPhrase
 	:acronymPhraseStructure -> ^(AcronymPhrase acronymPhraseStructure)	;
-	
+
+
 acronymPhraseStructure
 	: (advAdj|properNoun|moleculeNoun|oscarcd|cd)+ ((cc|inAll)(advAdj|properNoun|moleculeNoun|oscarcd|cd)+)? acronym;	
 
@@ -96,7 +97,7 @@ number : cd|oscarcd|oscarcpr|cddegrees;
 noun1 	:	(dtTHE|dt)? advAdj* nounStructure (dash nounStructure)*;
 noun	:	(acronymPhrase|noun1);
 
-nounStructure : apparatus|nn|nns|campaign|expression|time|acpNoun|quantityNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase;
+nounStructure : apparatus|nn|nns|campaign|parentheticalPhraseAcronym|expression|time|acpNoun|quantityNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase;
 acpNoun:location|nnpcountry;
 
 conditionNoun : nntime|nnatmosphere|nntemp;
@@ -137,8 +138,12 @@ expression
 expressionContent 
 	:nn sym cd prepphrase? verb* nnpdirection? prepphrase?;
 	
-campaign:	nnp nncampaign	->^(CAMPAIGN nnp nncampaign);
+campaign:	campaignContent	->^(CAMPAIGN campaignContent);
 
+campaignContent
+	: (parentheticalPhraseAcronym|nnp|acronym)+ nounStructure? nncampaign 	;
+	
+		
 advAdj	: adv|adj  ;	
 prepphraseOther
 	: advAdj* inAll+  nounphrase ->  ^(PrepPhrase  advAdj* inAll+  nounphrase);
@@ -150,6 +155,7 @@ prepphraseTime
 	:prepPhraseTimeStructure ->  ^(TimePhrase  prepPhraseTimeStructure);
 prepPhraseTimeStructure
 	:advAdj* inAll?  dt? advAdj* cd? (timeMonth|timeYear)+	;
+
 	
 prepphraseIN 
 	:inin molecule ->  ^(PrepPhrase  inin  molecule);
@@ -162,7 +168,8 @@ prepphraseAtmosphereContent
 	:inunder  dt? advAdj* molecule nnatmosphere?	;
 
 
-
+parentheticalPhraseAcronym
+	: nnpacronym parentheticalPhrase ->^(AcronymPhrase  nnpacronym  parentheticalPhrase);
 prepphrasePressure 
 	: prepphrasePressureContent  ->  ^(PressurePhrase  prepphrasePressureContent ) ;
 prepphrasePressureContent
@@ -172,8 +179,7 @@ parentheticalPhrase
 
 parentheticalPhraseComma
  : comma nounStructure  comma ->^(ParentheticalPhrase comma nounStructure comma);
- 
-
+ 	
 parentheticalPhraseBrackets
 	: lrb parentheticalContent+  rrb ->^(ParentheticalPhrase lrb parentheticalContent+ rrb);
 
