@@ -249,7 +249,7 @@ quantity1
 location	: locationStructure+  ->^(LOCATION  locationStructure+)	;
 
 locationStructure : (locationContent|lrb locationContent (comma? dash? locationContent)* rrb) ; 
-locationContent: (nnpcountry|cddegrees apost? nnpdirection|nnpdirection nnp|nnpstation nnp? nnstation?|nnpacronym nnp? nnstation|nnp nnstation|nnstation nnp); 
+locationContent: (nnpcountry|cddegrees apost? nnpdirection|nnpdirection nnp|nnpstation nnp? nnstation?|nnpacronym+ nnp? nnstation|nnp nnstation|nnstation nnp); 
 acronym	: lrb (nn|properNoun) rrb ->^(ACRONYM  lrb nn? properNoun? rrb)	;
 
 //ACP Tags
