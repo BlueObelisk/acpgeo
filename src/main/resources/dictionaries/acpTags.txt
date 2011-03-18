@@ -11,7 +11,7 @@ NN-VOL---(L−1|L\-1)---volume
 NN-PRESSURE---(k|m)b---pressure bar unit
 NN-CAMPAIGN---^((p|P)re)?((C|c)ampaign|(p|P)roject)$---Campaigns
 #CD
-CD-DEGREES---(^(\d|-)?\d+\.?\d*°)---Degrees;
+CD-DEGREES---(^(~)?(\d|-)?\d+\.?\d*(°|º))---Degrees;
 CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;
 CD-YEAR-RANGE---^(1|2)(0|9)\d\d\-(1|2)(0|9)\d\d$---Valid Year;
 JJ---^(t|T)hat$---demonstrative adjective;

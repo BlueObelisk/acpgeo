@@ -141,7 +141,7 @@ public class ACPTaggerTest {
 	@Test
 	public void testRecogniseCampaign() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "CHABLIS (Chemistry of the Antarctic Boundary Layer and the Interface with Snow) campaign";
+		String sentence = "CHABLIS (Chemistry of the Antarctic Boundary Layer and the Interface with Snow) campaign ";
 		sentence = new AbstractReader().clearnAbstract(sentence);
 	
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
