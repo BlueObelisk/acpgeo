@@ -2,9 +2,11 @@ package uk.ac.cam.ch.wwmm.acpgeo;
 
 import java.io.InputStream;
 
+import junit.framework.Assert;
+
+import org.junit.Ignore;
 import org.junit.Test;
 
-import junit.framework.Assert;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 
@@ -24,6 +26,7 @@ public class AbstractReaderTest {
 		
 		
 	}
+	@Ignore
 	@Test
 	public void AbstractTestSentence(){
 		ACPTagger acpTagger = ACPTagger.getInstance();

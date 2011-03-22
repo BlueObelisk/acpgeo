@@ -2,7 +2,6 @@ package uk.ac.cam.ch.wwmm.acpgeo;
 
 import junit.framework.Assert;
 
-import org.apache.commons.io.IOUtils;
 import org.junit.Ignore;
 import org.junit.Test;
 
