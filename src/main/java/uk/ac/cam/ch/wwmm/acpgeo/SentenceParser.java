@@ -31,12 +31,12 @@ public class SentenceParser extends ChemistrySentenceParser {
 	public void parseTags() {
 		ACPGrammarLexer lexer = null;
 
-		if (taggedTokenInStream == null)
-			parseTree = null;
+		if (getTaggedTokenInStream() == null)
+			setParseTree(null);
 		else {
 			ANTLRInputStream input;
 			try {
-				input = new ANTLRInputStream(taggedTokenInStream, "UTF-8");
+				input = new ANTLRInputStream(getTaggedTokenInStream(), "UTF-8");
 			} catch (IOException ioexception) {
 				throw new RuntimeException("Antlr input Stream Error: "
 						+ ioexception.getMessage());
@@ -54,8 +54,8 @@ public class SentenceParser extends ChemistrySentenceParser {
 						+ e.getMessage());
 
 			}
-			parseTree = (Tree) result.getTree();
-			System.out.println(parseTree.toStringTree());
+			setParseTree((Tree) result.getTree());
+			System.out.println(getParseTree().toStringTree());
 		}
 	}
 	
@@ -73,7 +73,7 @@ public class SentenceParser extends ChemistrySentenceParser {
 		actionMap.put("MASSVOLUME", "Concentration");
 
 		actionMap.put("VB-INDICATE", "Indication");
-		return new ASTtoXML().convert(parseTree, true,actionMap);
+		return new ASTtoXML().convert(getParseTree(), true,actionMap);
 	}
 
 
