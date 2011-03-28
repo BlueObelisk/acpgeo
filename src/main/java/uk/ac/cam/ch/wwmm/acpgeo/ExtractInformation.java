@@ -75,7 +75,7 @@ public class ExtractInformation {
 //					System.out.println(file.getCanonicalPath()+"\t"+new ExtractFromXML().getStringValue(
 //							element, " "));
 					filewriter.write(file.getCanonicalPath()+"\t"+new ExtractFromXML().getStringValue(
-							element, " "));
+							element, " ")+"\n");
 					filewriter.flush();
 				}
 				} catch (ValidityException e) {
