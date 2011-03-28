@@ -5,7 +5,6 @@ import java.util.List;
 
 import uk.ac.cam.ch.wwmm.chemicaltagger.ChemistryPOSTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
-import uk.ac.cam.ch.wwmm.chemicaltagger.PostProcessTags;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 import uk.ac.cam.ch.wwmm.chemicaltagger.WWMMTag;
 
