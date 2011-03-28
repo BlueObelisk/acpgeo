@@ -9,7 +9,7 @@ NN-MEASUREMENT---measurement(s)?$---Measurement;
 NNP-ACRONYM---^([A-Z][A-Z](\-)?[A-Z]+(s)?)$---Acronyms
 NN-VOL---(L−1|L\-1)---volume
 NN-PRESSURE---(k|m)b---pressure bar unit
-NN-CAMPAIGN---^((p|P)re)?((C|c)ampaign|(p|P)roject|(p|P)rogram|(E|e)xperiment|(S|s)tudy)$---Campaigns
+NN-CAMPAIGN---^((p|P)re)?((C|c)ampaign|(p|P)roject|(p|P)rogram|E(x|X)periment|Study)$---Campaigns
 #CD
 CD-DEGREES---(^(~)?(\d|-)?\d+\.?\d*(°|º))---Degrees;
 CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;
