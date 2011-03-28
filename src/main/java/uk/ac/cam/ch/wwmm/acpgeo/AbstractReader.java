@@ -10,6 +10,7 @@ import nu.xom.ParsingException;
 import nu.xom.ValidityException;
 
 import org.apache.commons.lang.StringEscapeUtils;
+import org.jsoup.Jsoup;
 
 public class AbstractReader {
 
@@ -68,8 +69,9 @@ public class AbstractReader {
 
 	public String clearnAbstract(String paragraph) {
 		paragraph = StringEscapeUtils.unescapeHtml(paragraph);
-        
-		return paragraph.replace("<sub>","").replace("</sub>","").replace("<sup>","").replace("</sup>","").replace("−", "-").replace("+", "+").replace("<br>", "").replace("<i>", "</i>").replace("<b>", "</b>").replace("<P  style=\"line-height: 20px;\">","");
+		paragraph = Jsoup.parse(paragraph).text();
+		return paragraph;
+		//return paragraph.replace("<sub>","").replace("</sub>","").replace("<sup>","").replace("</sup>","").replace("−", "-").replace("+", "+").replace("<br>", "").replace("<i>", "</i>").replace("<b>", "</b>").replace("<P  style=\"line-height: 20px;\">","");
 	}
 
 	
