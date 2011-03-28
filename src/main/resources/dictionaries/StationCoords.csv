@@ -1,905 +1,1215 @@
-"## Scraped from http://gaw.empa.ch/gawsis/StationList.asp",,,,,,
-"##WMO RA / Country","Station","GAWID","Station Type","Operating Status","Coordinates","Elevation"
+"## Scraped from http://gaw.empa.ch/gawsis/StationList.asp and EMEP data added",,,,,,
+"#WMO RA / Country","Station","GAWID","Station Type","Operating Status","Coordinates","Elevation"
 ,,,,,,"(m a.s.l.)"
-"Mexico","Mex High Altitude Global Climate Observation Cente","MEX","Non-GAW (international)","full operation","19.98°N 97.17°W ",4560
-"I - Africa",,,,,,
-"Algeria","Assekrem","ASK","Global","full operation","23.27°N 5.63°E ",2710
-"Algeria","Columb-Béchar","BEC","Regional","closed","31.63°N 2.25°W ",806
-"Algeria","Tamanrasset","TAM","Global","full operation","22.78°N 5.52°E ",1377
-"Benin","Cotonou","COT","Regional","closed","6.21°N 2.23°E ",10
-"Botswana","Maun","DMS","Regional","intermittent operation","19.98°S 23.43°E ",928
-"Cape Verde","Cape Verde Atmospheric Observatory","CVO","Global","full operation","16.85°N 24.87°W ",10
-"Congo","Brazzaville","BZV","Regional","closed","4.28°S 15.25°E ",314
-"Congo","Bunia","BNI","Regional","closed","1.50°N 30.22°E ",1239
-"Congo","Leopoldville/Kinshasa","LEO","Regional","closed","4.30°S 15.55°E ",450
-"Côte d’Ivoire","Lamto","LTO","Regional","full operation","6.22°N 5.03°W ",155
-"Egypt","Aswan","ASW","Regional","full operation","23.97°N 32.78°E ",194
-"Egypt","Cairo","CAI","Regional","full operation","30.08°N 31.28°E ",35
-"Egypt","Farafra","FRF","Regional","full operation","27.06°N 27.99°E ",92
-"Egypt","Hurghada","HUR","Regional","full operation","27.42°N 33.75°E ",7
-"Egypt","Marsa Matrûh","MRS","Regional","full operation","31.33°N 27.22°E ",35
-"Egypt","Sidi-Barrani","SDB","Regional","full operation","31.45°N 25.15°E ",24
-"Egypt","Siwa",,"Regional","closed","29.25°N 25.15°E ",3
-"France","Amsterdam Island","AMS","Global","full operation","37.80°S 77.54°E ",70
-"France","Crozet","CRZ","Regional","full operation","46.43°S 51.83°E ",120
-"France","La Réunion","RUN","Regional","full operation","21.08°S 55.48°E ",80
-"France","Port-aux-Français (Iles Kerguélen)","KER","Regional","full operation","49.35°S 70.28°E ",29
-"Kenya","Malindi","MLD","Regional","closed","2.99°S 40.19°E ",0
-"Kenya","Mt. Kenya","MKN","Global","full operation","0.06°S 37.30°E ",3678
-"Kenya","Nairobi","NRB","Regional","full operation","1.30°S 36.75°E ",1795
-"Malawi","Lilongwe",,"Regional","closed","13.78°S 33.78°E ",1228
-"Morocco","Beni Mellal",,"Regional","intermittent operation","32.37°N 6.40°W ",468
-"Morocco","Casablanca",,"Regional","full operation","33.57°N 7.20°W ",56
-"Morocco","Ifrane",,"Regional","intermittent operation","33.50°N 5.17°W ",1665
-"Mozambique","Maputo",,"Regional","unknown","25.97°S 32.60°E ",70
-"Mozambique","Nampula",,"Regional","unknown","15.10°S 39.28°E ",440
-"Namibia","Etosha Pan",,"Regional","closed","19.20°S 15.90°E ",1100
-"Namibia","Gobabeb","NMB","Regional","full operation","23.57°S 15.03°E ",408
-"Nigeria","Ilorin","ILO","Contributing","intermittent operation","8.53°N 4.57°E ",350
-"Nigeria","Lagos",,"Regional","full operation","6.60°N 3.30°E ",10
-"Nigeria","Oshogbo",,"Regional","intermittent operation","7.80°N 4.50°E ",300
-"Portugal","Funchal (Madeira)","FUN","Regional","full operation","32.65°N 16.88°W ",58
-"Senegal","Bambey","BBY","Regional","closed","14.70°N 16.47°W ",17
-"Seychelles","Mahé","SEY","Regional","full operation","4.67°S 55.52°E ",3
-"South Africa","Cape Point","CPT","Global","full operation","34.35°S 18.49°E ",230
-"South Africa","De Aar","DAA","Regional","intermittent operation","30.66°S 23.99°E ",1287
-"South Africa","Irene","IRE","Regional","full operation","25.25°S 28.22°E ",1524
-"South Africa","Marion Island","MAR","Regional","closed","46.87°S 37.85°E ",20
-"South Africa","Pretoria","PRT","Regional","closed","25.73°S 28.18°E ",1369
-"South Africa","Springbok","SPK","Regional","full operation","29.67°S 17.90°E ",1006
-"Spain","Izaña (Tenerife)","IZO","Global","full operation","28.31°N 16.50°W ",2373
-"Spain","Santa Cruz (Tenerife)","SCO","Regional","full operation","28.47°N 16.25°W ",52
-"Syria","Halab/Aleppo",,"Regional","unknown","36.14°N 37.10°E ",502
-"Tunisia","Thala",,"Regional","intermittent operation","36.55°N 8.68°E ",1091
-"United Kingdom","Ascension Island","ASC","Regional","full operation","7.98°S 14.42°W ",91
-"United Kingdom","St. Helena",,"Regional","closed","15.93°S 5.65°W ",460
-"II - Asia",,,,,,
-"China","Gonghe","GGH","Contributing","closed","36.27°N 100.6°E ",2860
-"China","Hok Tsui / Cape d Aguilar","HKG","Regional","full operation","22.22°N 114.3°E ",60
-"China","Hong Kong Observatory","HKO","Regional","full operation","22.31°N 114.2°E ",65
-"China","Kunming","KUN","Contributing","full operation","25.03°N 102.2°E ",1917
-"China","Lhasa","LHS","Contributing","full operation","29.40°N 91.03°E ",3633
-"China","Linan","LAN","Regional","full operation","30.18°N 119.4°E ",139
-"China","Longfenshan","LFS","Regional","full operation","44.73°N 127.6°E ",331
-"China","Mt. Waliguan","WLG","Global","full operation","36.28°N 100.9°E ",3810
-"China","Shangdianzi","SDZ","Regional","full operation","40.65°N 117.1°E ",287
-"China","Xhianghe","XIA","Contributing","full operation","39.98°N 116.4°E ",80
-"China","Yuen Ng Fun","YNF","Regional","closed","22.38°N 114.3°E ",86
-"India","Ahmadabad","AHM","Regional","full operation","23.02°N 72.65°E ",55
-"India","Allahabad","ALH","Regional","full operation","25.45°N 81.73°E ",98
-"India","Cape Rama","CRI","Contributing","intermittent operation","15.08°N 73.83°E ",60
-"India","Dum Dum","DDM","Regional","full operation","22.65°N 88.45°E ",11
-"India","Hanle","HLE","Non-GAW (international)","full operation","32.78°N 78.96°E ",4517
-"India","Jodhpur","JDP","Regional","full operation","26.30°N 73.02°E ",217
-"India","Kodaikanal","KDK","Regional","full operation","10.00°N 77.47°E ",2343
-"India","Minicoy","MNC","Regional","full operation","8.30°N 73.00°E ",2
-"India","Mohanbari","MHB","Regional","full operation","27.48°N 95.02°E ",111
-"India","Mount Abu","MAB","Regional","closed","24.60°N 72.72°E ",1220
-"India","Mumbai/Bombay","BOM","Regional","full operation","19.12°N 72.85°E ",145
-"India","Nagpur","NGP","Regional","full operation","21.10°N 79.05°E ",310
-"India","New Delhi","NDL","Regional","full operation","28.57°N 77.20°E ",216
-"India","Port-Blair","PBL","Regional","full operation","11.67°N 92.72°E ",79
-"India","Pune","PNA","Regional","full operation","18.53°N 73.85°E ",559
-"India","Srinagar","SRN","Regional","full operation","34.08°N 74.83°E ",1587
-"India","Trivandrum","TVM","Regional","full operation","8.48°N 76.95°E ",60
-"India","Varanasi/Banaras","VNS","Regional","full operation","25.30°N 83.02°E ",76
-"India","Vishakhapatnam","VSK","Regional","full operation","17.68°N 83.30°E ",72
-"Iran","Esfahan",,"Regional","unknown","32.48°N 51.43°E ",1550
-"Iran","Mt. Aminabad","MAM","Regional","full operation","35.70°N 52.59°E ",2986
-"Iran","Tehran University",,"Regional","unknown","35.45°N 51.23°E ",1419
-"Iraq","Hawr al Habbaniyah / Ar Ramadi",,"Regional","closed","33.37°N 43.57°E ",44
-"Japan","Cape Ochiishi","COI","Contributing","full operation","43.17°N 145.5°E ",49
-"Japan","Hamamatsu","HMM","Contributing","unknown","34.72°N 137.7°E ",29
-"Japan","Hateruma Island","HAT","Contributing","full operation","24.05°N 123.8°E ",10
-"Japan","Hedo (Okinawa)","HDO","Contributing","full operation","26.87°N 128.3°E ",60
-"Japan","Kagoshima","KAG","Regional","full operation","31.55°N 130.6°E ",31
-"Japan","Kisai","KIS","Contributing","full operation","36.08°N 139.6°E ",13
-"Japan","Kiso","KSO","Contributing","closed","35.80°N 137.6°E ",
-"Japan","Memanbetsu","MMB","Contributing","closed","43.92°N 144.2°E ",33
-"Japan","Mikawa-Ichinomiya","MKW","Contributing","full operation","34.85°N 137.4°E ",50
-"Japan","Minamitorishima","MNM","Global","full operation","24.29°N 154.0°E ",8
-"Japan","Moshiri","MOS","Contributing","full operation","44.40°N 142.3°E ",200
-"Japan","Mt. Dodaira","DDR","Contributing","full operation","36.00°N 139.2°E ",840
-"Japan","Nagoya","NGY","Contributing","closed","35.15°N 137.0°E ",35
-"Japan","Naha","NAH","Regional","full operation","26.20°N 127.7°E ",27
-"Japan","Rikubetsu","RKB","Contributing","full operation","43.50°N 143.8°E ",370
-"Japan","Ryofu Maru","RYF",,"full operation",,0
-"Japan","Ryori","RYO","Regional","full operation","39.03°N 141.8°E ",260
-"Japan","Sapporo","SAP","Regional","full operation","43.05°N 141.3°E ",26
-"Japan","Suita","SUI","Contributing","closed","34.82°N 135.5°E ",63
-"Japan","Takayama","TKY","Contributing","full operation","36.15°N 137.4°E ",1420
-"Japan","Tateno (Tsukuba)","TKB","Regional","full operation","36.05°N 140.1°E ",31
-"Japan","Torishima","TOR","Contributing","closed","30.48°N 140.3°E ",83
-"Japan","Urawa","URW","Contributing","closed","35.87°N 139.6°E ",10
-"Japan","Yonagunijima","YON","Regional","full operation","24.47°N 123.0°E ",30
-"Kazakhstan","Almaty",,"Regional","full operation","43.14°N 76.56°E ",851
-"Kazakhstan","Aral Sea",,"Regional","full operation","46.47°N 61.39°E ",62
-"Kazakhstan","Atyray",,"Regional","full operation","47.07°N 61.39°E ",-23
-"Kazakhstan","Borovoe","BRV","Regional","full operation","53.12°N 70.28°E ",0
-"Kazakhstan","Karaganda",,"Regional","full operation","49.48°N 73.09°E ",553
-"Kazakhstan","Plateau Assy","KZM","Regional","full operation","43.25°N 77.88°E ",2519
-"Kazakhstan","Sary Taukum","KZD","Regional","full operation","44.45°N 77.57°E ",412
-"Kazakhstan","Semipalatinsk",,"Regional","full operation","50.25°N 80.18°E ",196
-"Kiribati","Tarawa","TAW","Contributing","closed","1.40°N 172.9°E ",0
-"Korea","Anmyeon-do","AMY","Regional","full operation","36.54°N 126.3°E ",46
-"Korea","Cheju",,"Regional","unknown","33.50°N 126.5°E ",300
-"Korea","Gosan","GSN","Regional","full operation","33.28°N 126.2°E ",72
-"Korea","Pohang",,"Regional","full operation","36.03°N 129.4°E ",6
-"Korea","Seoul",,"Regional","full operation","37.57°N 127.0°E ",84
-"Korea","Tae-ahn Peninsula","TAP","Regional","full operation","36.73°N 126.1°E ",20
-"Kyrgyzstan","Issyk-Kul","ISK","Regional","full operation","42.62°N 76.98°E ",1640
-"Maldives","Gan (Addu Atoll)","GAN","Regional","closed","0.68°S 73.15°E ",2
-"Maldives","Kaashidhoo (Male Atoll)","KCO","Regional","closed","4.97°N 73.47°E ",1
-"Mongolia","Sainshand","SSH","Regional","closed","45.00°N 110.0°E ",940
-"Mongolia","Ulaan Uul","UUM","Regional","full operation","44.45°N 111.1°E ",914
-"Nepal","Nepal Climate Observatory - Pyramid","PYR","Global","full operation","27.96°N 86.81°E ",5079
-"Other Pacific Islands","Chenggong","CHG","Regional","full operation","23.10°N 121.4°E ",34
-"Other Pacific Islands","Lulin","LLN","Contributing","full operation","23.47°N 120.9°E ",2862
-"Other Pacific Islands","Taipei","CWB","Regional","full operation","25.02°N 121.5°E ",5
-"Pakistan","Quetta","QTA","Regional","full operation","30.19°N 66.95°E ",1799
-"Russian Federation","Barguzin","BGZ","Regional","full operation","54.20°N 109.5°E ",250
-"Russian Federation","Bering Island","BER","Regional","closed","55.20°N 166.0°E ",13
-"Russian Federation","Bol'shaya Elan","BSH","Regional","full operation","46.92°N 142.7°E ",22
-"Russian Federation","Dikson Island","DXO","Regional","intermittent operation","73.50°N 80.23°E ",18
-"Russian Federation","Hanty Mansijsk","XMS","Regional","full operation","60.97°N 69.07°E ",40
-"Russian Federation","Heiss Island","HEI","Regional","closed","80.62°N 58.10°E ",20
-"Russian Federation","Igarka","IFY","Regional","closed","67.47°N 86.57°E ",20
-"Russian Federation","Irkutsk","IRK","Regional","full operation","52.26°N 104.4°E ",467
-"Russian Federation","Khuzhir","HZR","Regional","full operation","53.20°N 107.3°E ",487
-"Russian Federation","Kotelnyj Island","KOT","Regional","full operation","76.00°N 137.9°E ",5
-"Russian Federation","Krasnoyarsk","KRS","Regional","full operation","56.00°N 92.88°E ",137
-"Russian Federation","Markovo","MRK","Regional","full operation","64.68°N 170.4°E ",22
-"Russian Federation","Nagaevo","NGV","Regional","full operation","59.58°N 150.8°E ",118
-"Russian Federation","Nikolayevsk-na-Amure","NKA","Regional","full operation","53.15°N 140.7°E ",46
-"Russian Federation","Olenek","OLN","Regional","full operation","68.50°N 112.4°E ",127
-"Russian Federation","Omsk","OMS","Regional","full operation","54.93°N 73.40°E ",119
-"Russian Federation","Petropavlovsk-Kamchatskiy","PTK","Regional","full operation","52.97°N 158.8°E ",78
-"Russian Federation","Salekhard","SKD","Contributing","full operation","67.50°N 67.50°E ",419
-"Russian Federation","Sikhote-Alin' Biosphere Reserve (Terney)","SAI","Regional","full operation","45.00°N 136.6°E ",51
-"Russian Federation","Skovorodino","SKV","Regional","closed","54.00°N 124.0°E ",-1
-"Russian Federation","Tiksi","TIK","Regional","full operation","71.58°N 128.9°E ",8
-"Russian Federation","Tura","TUR","Regional","full operation","64.17°N 100.1°E ",
-"Russian Federation","Turukhansk","TRH","Regional","full operation","65.78°N 87.90°E ",38
-"Russian Federation","Ust'-Vym' (Syktyvkar - I)","USV","Regional","full operation","62.23°N 50.40°E ",106
-"Russian Federation","Vitim","VTM","Regional","full operation","59.45°N 112.6°E ",186
-"Russian Federation","Vladivostok","VLB","Regional","full operation","43.12°N 131.9°E ",80
-"Russian Federation","Yakutsk","YAK","Regional","closed","62.08°N 129.8°E ",98
-"Russian Federation","Yekaterinburg / Sverdlovsk","SVR","Regional","full operation","56.80°N 60.63°E ",290
-"Russian Federation","Zhigansk","ZHI","Contributing","full operation","67.20°N 123.4°E ",50
-"Russian Federation","Zvenigorod","ZVG","Contributing","full operation","55.70°N 36.80°E ",184
-"Saudi Arabia","Solar Village (Riyadh)","SVO","Contributing","full operation","24.65°N 48.77°E ",650
-"Tajikistan","Dushanbe",,"Regional","closed","38.57°N 67.77°E ",800
-"Thailand","Bangna Bangkok","BKK","Regional","full operation","13.67°N 100.6°E ",53
-"Thailand","Songkhla","SKH","Regional","full operation","7.20°N 100.6°E ",4
-"Turkmenistan","Ashgabat",,"Regional","closed","37.97°N 58.32°E ",200
-"Turkmenistan","Chardzhev",,"Regional","closed","39.67°N 63.60°E ",191
-"United Arab Emirates","Abu Dhabi","ADB","Regional","full operation","24.45°N 54.32°E ",20
-"United Arab Emirates","Al Safa",,"Regional","unknown","25.19°N 55.24°E ",5
-"United Arab Emirates","Deira",,"Regional","unknown","25.26°N 55.32°E ",5
-"United Arab Emirates","Jebel Ali Port",,"Regional","unknown","25.01°N 55.08°E ",5
-"United Arab Emirates","Jebel Ali Village",,"Regional","unknown","25.04°N 55.11°E ",5
-"United Arab Emirates","Mushrif",,"Regional","unknown","25.21°N 55.45°E ",5
-"Uzbekistan","Chatcal Reserve",,"Regional","unknown","41.10°N 60.50°E ",1250
-"Uzbekistan","Kyzylcha","KYZ","Regional","closed","40.87°N 66.15°E ",340
-"Viet Nam","Hanoi","AAR","Regional","full operation","21.20°N 105.8°E ",25
-"Viet Nam","Tan Son Hoa",,"Contributing","intermittent operation","10.79°N 106.7°E ",13
-"III - South America",,,,,,
-"Argentina","Buenos Aires Observatorio","BSO","Regional","full operation","34.58°S 58.48°W ",25
-"Argentina","Comodoro Rivadavia Aero",,"Regional","full operation","45.78°S 67.50°W ",46
-"Argentina","La Quiaca Observatorio",,"Regional","full operation","22.10°S 65.60°W ",3459
-"Argentina","Pilar Observatorio",,"Regional","intermittent operation","31.67°S 63.88°W ",338
-"Argentina","Rio Gallegos","RGG","Contributing","full operation","51.60°S 69.32°W ",5
-"Argentina","San Julian Aero",,"Regional","full operation","49.30°S 67.82°W ",58
-"Argentina","Tierra del Fuego","TDF","Regional","full operation","54.82°S 68.32°W ",30
-"Argentina","Ushuaia","USH","Global","full operation","54.85°S 68.31°W ",18
-"Bolivia","Chacaltaya","CHC","Regional","intermittent operation","16.20°S 68.10°W ",5320
-"Bolivia","La Paz-Ovejuyo","LPZ","Regional","closed","16.52°S 68.03°W ",3420
-"Brazil","Arembepe","ABP","Global","intermittent operation","12.77°S 38.17°W ",0
-"Brazil","Bauru","BAU","Contributing","full operation","22.30°S 49.00°W ",300
-"Brazil","Brasilia","BRB","Regional","full operation","15.94°S 47.89°W ",1127
-"Brazil","Cachoeira-Paulista",,"Regional","full operation","23.50°S 46.20°W ",792
-"Brazil","Cuiaba",,"Regional","full operation","16.00°S 56.00°W ",600
-"Brazil","Florianopolis","FLO","Contributing","closed","27.53°S 48.52°W ",11
-"Brazil","Manaus","MAO","Contributing","full operation","2.60°S 60.21°W ",45
-"Brazil","Maxaranguape (Natal)",,"Regional","full operation","5.42°S 35.38° ",42
-"Brazil","Natal","NAT","Regional","full operation","6.00°S 35.20°W ",0
-"Brazil","Porto Nacional",,"Regional","unknown","10.80°S 48.40°W ",240
-"Brazil","S.José dos Campos",,"Regional","full operation","23.00°S 46.00°W ",600
-"Chile","Easter Island","EIC","Regional","full operation","27.17°S 109.4°W ",41
-"Chile","Puerto Montt",,"Regional","closed","41.45°S 72.83°W ",5
-"Chile","Punta Arenas","PAR","Contributing","full operation","53.14° 70.88° ",3
-"Chile","Tololo",,"Regional","full operation","30.17°S 70.80°W ",2220
-"Chile","Torres del Paine",,"Regional","closed","51.08°S 72.58°W ",
-"Chile","Valdivia",,"Regional","intermittent operation","39.62°S 73.08°W ",19
-"Colombia","Bogotá","BGT","Regional","full operation","4.60°N 74.08°W ",2541
-"Colombia","Las Gaviotas","LGV","Regional","closed","4.55°N 70.92°W ",171
-"Colombia","Leticia","LTC","Regional","closed","4.20°S 69.94°W ",84
-"Colombia","Pasto","PTO","Regional","full operation","1.23°N 77.28°W ",2560
-"Colombia","Riohacha","RIO","Regional","closed","11.53°N 72.92°W ",4
-"Ecuador","San Cristobal",,"Regional","unknown","0.92°S 89.60°W ",8
-"French Guiana","Kourou",,"Regional","closed","5.33°N 52.65°W ",4
-"Paraguay","San Lorenzo","SNL","Regional","full operation","25.37°S 57.55°W ",133
-"Peru","Chilca","CIC","Regional","closed","12.50°S 76.80°W ",1
-"Peru","Huancayo","HUA","Regional","closed","12.15°S 75.57°W ",4575
-"Peru","Marcapomacocha","MPO","Regional","full operation","11.40°S 76.33°W ",4500
-"Suriname","Paramaribo","PMO","Regional","full operation","5.81°N 55.21°W ",23
-"United Kingdom","Bird Island (South Georgia)","SGI","Regional","full operation","54.01°S 38.05°W ",30
-"United Kingdom","King Edward Point (South Georgia)","KEP","Contributing","full operation","54.28°S 36.49°W ",15
-"United Kingdom","Stanley (Falkland Islands)","STY","Regional","closed","51.70°S 57.87°W ",51
-"Uruguay","Salto Grande","SAG","Regional","full operation","31.38°S 57.95°W ",34
-"IV - North/Central America",,,,,,
-"Antigua and Barbuda","Coolidge Field","CLF","Regional","closed","17.09°N 61.81°W ",10
-"Barbados","Ragged Point","RPB","Regional","full operation","13.17°N 59.43°W ",45
-"Bermuda","Bermuda","BMD","Contributing","full operation","32.27°N 64.67°W ",8
-"Bermuda","St. David's Head","BME","Regional","full operation","32.37°N 64.65°W ",30
-"Canada","Alert","ALT","Global","full operation","82.45°N 62.52°W ",210
-"Canada","Algoma","ALG","Regional","full operation","47.03°N 84.37°W ",411
-"Canada","Asquith",,"Regional","unknown","52.14°N 107.1°W ",519
-"Canada","Bay D Espoir-B",,"Regional","full operation","47.99°N 55.82°W ",190
-"Canada","Bay D'Espoir","BAB","Regional","closed","47.99°N 55.82°W ",190
-"Canada","Bonner Lake","BON","Regional","full operation","49.38°N 82.12°W ",245
-"Canada","Bratt's Lake","BRA","Regional","full operation","50.20°N 104.7°W ",595
-"Canada","Candle Lake","CDL","Regional","full operation","53.87°N 104.7°W ",489
-"Canada","Cape St. James","CSJ","Regional","closed","51.93°N 131.0°W ",89
-"Canada","Chalk River","CHA","Regional","full operation","46.06°N 77.40°W ",184
-"Canada","Chapais","CPS","Regional","full operation","49.82°N 74.98°W ",381
-"Canada","Chibougamau","CHM","Regional","full operation","49.68°N 74.34°W ",393
-"Canada","Churchill","CHL","Regional","full operation","58.75°N 94.07°W ",35
-"Canada","Cold Lake",,"Regional","closed","54.78°N 110.1°W ",702
-"Canada","Cormak",,"Regional","full operation","49.32°N 57.38°W ",168
-"Canada","Dorset",,"Regional","closed","45.22°N 78.93°W ",320
-"Canada","East Trout Lake","ETL","Regional","full operation","54.35°N 105.0°W ",492
-"Canada","Edmonton",,"Regional","full operation","53.55°N 114.1°W ",766
-"Canada","Egbert","EGB","Regional","full operation","44.23°N 79.78°W ",253
-"Canada","Estevan Point","ESP","Regional","full operation","49.38°N 126.6°W ",39
-"Canada","Esther","EST","Regional","intermittent operation","51.67°N 110.2°W ",707
-"Canada","Eureka","EUK","Regional","full operation","80.05°N 86.42°W ",610
-"Canada","Experimental Lakes Area","ELA","Regional","full operation","49.67°N 93.72°W ",369
-"Canada","Fraserdale","FSD","Regional","full operation","49.84°N 81.52°W ",210
-"Canada","Frelighsburg","FRE","Regional","full operation","45.05°N 75.86°W ",203
-"Canada","Gimli",,"Regional","closed","50.63°N 97.05°W ",228
-"Canada","Goose","GSE","Regional","closed","53.31°N 60.37°W ",30
-"Canada","Goose Bay","GOB","Regional","full operation","53.29°N 60.39°W ",39
-"Canada","Halifax",,"Regional","full operation","44.73°N 63.20°W ",31
-"Canada","Harcourt","HCT","Regional","closed","46.48°N 65.26°W ",45
-"Canada","Harcourt B","HAB","Regional","full operation","46.50°N 65.27°W ",37
-"Canada","Iqualuit",,"Regional","unknown","63.75°N 68.55°W ",20
-"Canada","Jackson","JAC","Regional","full operation","45.59°N 63.84°W ",90
-"Canada","Kejimkujik","KEJ","Regional","full operation","44.43°N 65.21°W ",127
-"Canada","Kelowna",,"Regional","unknown","49.97°N 119.4°W ",431
-"Canada","Lac Edouard","LED","Regional","full operation","47.68°N 72.44°W ",243
-"Canada","Lac Labiche (Alberta)","LLB","Regional","full operation","54.95°N 112.5°W ",540
-"Canada","London (Ontario)","LXY","Contributing","closed","43.01°N 81.27°W ",100
-"Canada","Longwoods","LON","Regional","full operation","42.88°N 81.48°W ",239
-"Canada","Mingan","MIN","Regional","intermittent operation","50.27°N 64.22°W ",14
-"Canada","Montreal",,"Regional","full operation","45.48°N 73.60°W ",24
-"Canada","Moosonee",,"Regional","unknown","51.27°N 80.65°W ",10
-"Canada","Mould Bay","MBC","Regional","closed","76.25°N 119.4°W ",58
-"Canada","Nitchequon",,"Regional","closed","53.20°N 70.90°W ",550
-"Canada","Pickle Lake","PKL","Regional","unknown","51.54°N 90.20°W ",370
-"Canada","Resolute","RSL","Regional","full operation","74.72°N 94.98°W ",64
-"Canada","Sable Island","WSA","Regional","full operation","43.93°N 60.02°W ",4
-"Canada","Saskatoon",,"Regional","full operation","52.12°N 106.7°W ",550
-"Canada","Saturna Island","SAT","Regional","full operation","48.78°N 123.1°W ",178
-"Canada","Snare Rapids","SNA","Regional","full operation","63.52°N 116.0°W ",240
-"Canada","Sprucedale","SPR","Regional","full operation","45.42°N 79.49°W ",350
-"Canada","Sutton","SUT","Regional","closed","45.08°N 72.68°W ",243
-"Canada","Toronto","TOT","Regional","full operation","43.78°N 79.47°W ",198
-"Canada","Vanscoy",,"Regional","unknown","52.20°N 107.3°W ",510
-"Canada","Walsingham","WSH","Contributing","full operation","42.60°N 80.60°W ",200
-"Canada","Warsaw Caves","WAR","Regional","full operation","44.43°N 78.13°W ",230
-"Canada","Whistler Mountain","WHI","Regional","full operation","50.06°N 123.0°W ",2182
-"Canada","Winnipeg",,"Regional","full operation","49.90°N 97.23°W ",239
-"Canada","Yarmouth",,"Regional","unknown","43.87°N 66.10°W ",9
-"Canada","Yorkton",,"Regional","closed","51.26°N 102.5°W ",504
-"Colombia","San Andrés","SAS","Regional","closed","12.59°N 81.70°W ",1
-"Costa Rica","Alajuela","ALC","Contributing","intermittent operation","9.98°N 84.21°W ",899
-"Costa Rica","Heredia","HEC","Contributing","full operation","10.00° 84.07° ",1144
-"Cuba","La Habana","LHB","Regional","full operation","23.15°N 82.35°W ",50
-"Cuba","La Palma","PLM","Regional","full operation","22.75°N 83.53°W ",47
-"Mexico","Cerrillos",,"Regional","closed","19.48°N 99.72°W ",2640
-"Mexico","Mexico City","MXC","Regional","full operation","19.32°N 99.17°W ",2268
-"Panama","Albrook","ARK","Regional","closed","8.98°N 79.55°W ",66
-"Panama","David City","DVC","Contributing","full operation","8.40°N 82.42°W ",27
-"Panama","Fort Sherman","FSM","Regional","closed","9.33°N 79.98°W ",57
-"Panama","Santiago City",,"Regional","unknown","8.10°N 80.40°W ",140
-"Panama","University of Panama","UPA","Contributing","full operation","8.98°N 79.53°W ",50
-"Puerto Rico","Cape San Juan","CPR","Contributing","full operation","18.38°N 65.62°W ",65
-"Puerto Rico","San Juan","SJP","Regional","closed","18.48°N 66.13°W ",17
-"United Kingdom","Tudor Hill (Bermuda)","BMW","Regional","full operation","32.27°N 64.88°W ",30
-"United States","Acadia (ME)","ACA","Contributing","full operation","44.38°N 68.26°W ",122
-"United States","Ainsworth Airport (NE)","ANW","Contributing","closed","42.58°N 100.0°W ",789
-"United States","Albuquerque (NM)","ABQ","Regional","full operation","35.04°N 106.6°W ",1617
-"United States","Appalachian State University","APP","Contributing","full operation","36.21°N 81.69°W ",1076
-"United States","Argyle (ME)","AMT","Contributing","full operation","45.03°N 68.68°W ",50
-"United States","Atlanta (GA)","ATL","Contributing","closed","33.75° 84.42° ",315
-"United States","Barrow (AK)","BRW","Global","full operation","71.32°N 156.6°W ",11
-"United States","Baton Rouge (LA)","BTR","Regional","full operation","30.36°N 91.17°W ",7
-"United States","Bedford (LA)","BED","Regional","closed","42.45°N 71.27°W ",80
-"United States","Beltsville (MD)","BEL","Regional","full operation","39.02°N 76.95°W ",34
-"United States","Big Bend (TX)","BBE","Contributing","full operation","29.30° 103.2° ",1052
-"United States","Billings (OK)","BIL","Regional","full operation","36.62°N 97.50°W ",317
-"United States","Bismarck (ND)",,"Regional","full operation","46.77°N 100.8°W ",511
-"United States","Bondville (IL)","BND","Regional","full operation","40.05°N 88.37°W ",213
-"United States","Boulder BSRN (CO)","BOU","Contributing","full operation","40.05°N 106.0°W ",1577
-"United States","Boulder ESRL HQ (CO)","BLD","Regional","full operation","40.02°N 105.3°W ",1634
-"United States","Boulder SURFRAD (CO)","BOS","Contributing","full operation","40.13°N 105.2°W ",1689
-"United States","Bradford Forest (FL)","BFD","Regional","full operation","29.97°N 82.20°W ",44
-"United States","Burlington (VT)","BTV","Regional","full operation","44.53°N 72.86°W ",408
-"United States","Canyonlands (UT)","CAN","Contributing","full operation","38.46° 109.8° ",1814
-"United States","Cape Meares (OR)","CMO","Regional","closed","45.00°N 124.0°W ",30
-"United States","Caribou (ME)","CBM","Regional","full operation","46.87°N 68.01°W ",191
-"United States","Castolon (TX)","CTL","Regional","full operation","29.15°N 103.5°W ",677
-"United States","Chesapeake Lighthouse","CLH","Contributing","full operation","36.90°N 75.70°W ",34
-"United States","Cold Bay (AK)","CBA","Regional","full operation","55.20°N 162.7°W ",25
-"United States","Cottonwood (SD)","CTW","Regional","full operation","43.95°N 101.9°W ",733
-"United States","Dancy (WI)","DNR","Regional","full operation","44.71°N 89.77°W ",381
-"United States","Davis (CA)","DVS","Regional","full operation","38.54°N 121.8°W ",18
-"United States","Denali (AK)","DEN","Contributing","full operation","63.73° 149.0° ",640
-"United States","Denver (CO)","DNV","Regional","closed","39.77°N 104.9°W ",1611
-"United States","Desert Rock (NV)","DRA","Contributing","full operation","38.63°N 116.1°W ",1007
-"United States","Everglades (FL)","EVE","Regional","full operation","25.39°N 80.68°W ",2
-"United States","Fairbanks (AK)","FBK","Regional","closed","64.82°N 147.9°W ",138
-"United States","Fort Collins (CO)","FCL","Regional","closed","40.57°N 105.1°W ",1551
-"United States","Fort Peck (MT)","FPE","Regional","full operation","48.31°N 105.1°W ",634
-"United States","Fort Worth (TX)","FTW","Regional","closed","32.83°N 97.05°W ",176
-"United States","Fresno (CA)","FAT","Regional","closed","36.77°N 119.7°W ",100
-"United States","Gaithersburg (MD)","GAI","Contributing","closed","39.13° 77.22° ",130
-"United States","Geneva (NY)","GNV","Regional","full operation","42.88°N 77.03°W ",218
-"United States","Glacier (MT)","GLR","Contributing","full operation","48.51° 114.0° ",976
-"United States","Goddard (MD)","GSF","Regional","full operation","38.99°N 76.83°W ",100
-"United States","Goodwin Creek (MS)","GCR","Contributing","full operation","34.25°N 89.87°W ",98
-"United States","Grand Rapids (MN)","GPZ","Regional","full operation","47.18°N 93.53°W ",390
-"United States","Great Falls (MT)","GTF","Regional","closed","47.48°N 111.4°W ",1118
-"United States","Great Smokey Mountains (TN)","GRS","Contributing","full operation","35.60° 83.78° ",564
-"United States","Green Bay (WI)","GNB","Regional","closed","44.48°N 88.13°W ",209
-"United States","Greenbelt (MD)","GRB","Contributing","intermittent operation","38.90°N 76.70°W ",50
-"United States","Griffin (GA)","GAS","Regional","full operation","33.18°N 84.41°W ",270
-"United States","Grifton - Georgia Station (NC)","ITN","Regional","closed","35.35°N 77.38°W ",505
-"United States","H.J. Andrews Forest (OR)","HAF","Regional","full operation","44.22°N 122.3°W ",450
-"United States","Hanford (CA)","HNX","Regional","full operation","36.32°N 119.6°W ",73
-"United States","Harvard Forest (MA)","HFM","Regional","full operation","42.90°N 72.30°W ",340
-"United States","Holtville (CA)","HLT","Regional","full operation","32.81°N 115.4°W ",-18
-"United States","Hopi Point, Grand Canyon (AZ)","GRC","Regional","full operation","36.07°N 112.2°W ",2152
-"United States","Houston (TX)","HST","Contributing","full operation","29.72°N 95.40°W ",19
-"United States","Huntsville (AL)","HVA","Regional","full operation","35.28°N 86.58°W ",196
-"United States","Ithaca (NY)","ITC","Regional","full operation","42.40°N 76.72°W ",503
-"United States","JPL",,"Contributing","closed","34.13°N 118.1°W ",227
-"United States","Key Biscane (FL)","KEY","Regional","full operation","25.67°N 80.20°W ",3
-"United States","Kitt Peak (AZ)","KPA","Regional","closed","31.97°N 111.6°W ",2083
-"United States","Konza Prairie (KS)","KZP","Regional","full operation","39.10°N 96.20°W ",350
-"United States","L.B.J. National Grassland (TX)","LBJ","Regional","full operation","33.40°N 97.63°W ",312
-"United States","La Jolla (CA)","SIO","Regional","closed","32.83°N 117.3°W ",14
-"United States","Laramie (WY)","LMI","Contributing","closed","41.32°N 105.7°W ",2218
-"United States","Las Cruces (NM)","LCS","Regional","full operation","32.62°N 106.7°W ",1317
-"United States","Lewes (DE)","LWS","Regional","full operation","38.77°N 75.10°W ",2
-"United States","Logan (UT)","LGN","Regional","full operation","41.65°N 111.9°W ",1370
-"United States","Long View (TX)","LVW","Regional","full operation","32.38°N 94.71°W ",103
-"United States","McDonald Observatory (LA)","MDO","Regional","closed","30.67°N 90.93°W ",2081
-"United States","Mead (NE)","MED","Regional","full operation","41.15°N 96.49°W ",352
-"United States","Midland (TX)","MDX","Regional","closed","31.93°N 102.2°W ",872
-"United States","Moody (TX)","WKT","Regional","full operation","31.32°N 97.62°W ",723
-"United States","Mt. Barcroft (CA)","MBT","Contributing","closed","37.58°N 118.2°W ",3800
-"United States","Narragansett (RI)","NGT","Contributing","full operation","41.49°N 71.42°W ",21
-"United States","Nashville (TN)","BNA","Regional","full operation","36.25°N 86.57°W ",182
-"United States","Niwot Ridge - T-van (CO)","NWR","Regional","full operation","40.05°N 105.6°W ",3523
-"United States","Olympic (WA)","CPO","Contributing","closed","48.14° 123.4° ",2
-"United States","Olympic Peninsula (WA)","OPW","Regional","closed","48.25°N 124.4°W ",488
-"United States","Oxford (OH)","OXF","Regional","full operation","39.52°N 84.72°W ",283
-"United States","Palestine (TX)","PSN","Regional","closed","31.80°N 95.72°W ",121
-"United States","Paradox (NY)","PDX","Contributing","full operation","43.92°N 73.64°W ",284
-"United States","Park Falls (WI)","LEF","Regional","full operation","45.93°N 90.27°W ",868
-"United States","Pawnee/Nunn (CO)","PWN","Regional","full operation","40.81°N 104.8°W ",1641
-"United States","Pellston (MI)","PEL","Regional","full operation","45.56°N 84.67°W ",238
-"United States","Penn State (PA)","PSU","Regional","full operation","40.78°N 77.93°W ",393
-"United States","Point Arena (CA)","PTA","Regional","full operation","38.95°N 123.7°W ",17
-"United States","Poker Flat (AK)","POK","Regional","full operation","65.12°N 147.5°W ",204
-"United States","Presque Isle (ME)","PQI","Regional","full operation","46.68°N 68.04°W ",144
-"United States","Pullman (WA)","PUL","Regional","full operation","46.75°N 117.2°W ",804
-"United States","Raleigh (NC)","RAL","Contributing","full operation","35.73°N 78.68°W ",124
-"United States","Research Triangle Park (NC)","RTP","Contributing","closed","35.89° 78.88° ",134
-"United States","Richland (WA)","RLD","Contributing","closed","46.20°N 119.2°W ",123
-"United States","Riverside (CA)","RVS","Contributing","closed","34.00° 117.3° ",32
-"United States","Rocky Mountain (CO)","RMT","Contributing","closed","40.03° 105.5° ",2891
-"United States","San Diego (CA)","SDO","Regional","closed","32.45°N 117.1°W ",124
-"United States","Seguin (TX)","SEG","Contributing","full operation","29.57°N 97.99°W ",172
-"United States","Sequoia (CA)","SQA","Contributing","closed","36.49° 118.8° ",610
-"United States","Shemya Island","SHM","Regional","full operation","52.72°N 174.1°E ",40
-"United States","Shenandoah (VA)","SHN","Contributing","full operation","38.52° 78.44° ",1074
-"United States","Silver Hill (MD)","SLH","Regional","closed","38.83°N 76.95°W ",89
-"United States","Sioux Falls (SD)","SXF","Regional","full operation","43.73°N 96.62°W ",473
-"United States","Southern Great Plains E13 (OK)","SGP","Contributing","full operation","36.60°N 97.50°W ",318
-"United States","Spokane (WA)","SKN","Regional","closed","47.67°N 117.4°W ",576
-"United States","St. Croix","AVI","Regional","closed","17.75°N 64.75°W ",3
-"United States","Starkville (MS)","STK","Regional","full operation","33.47°N 88.78°W ",85
-"United States","Steamboat Springs (CO)","SPL","Regional","full operation","40.46°N 106.7°W ",3220
-"United States","Sterling/Washington (VA)","SVA","Regional","full operation","38.98°N 77.48°W ",84
-"United States","Table Mountain (CA)","TMF","Regional","full operation","34.23°N 117.4°W ",2286
-"United States","Table Mountain (CO)","TMN","Regional","full operation","40.18°N 105.3°W ",1524
-"United States","Tallahassee (FL)","TAL","Regional","full operation","30.43°N 84.33°W ",53
-"United States","Theodore (ND)","THR","Contributing","full operation","46.90° 103.4° ",870
-"United States","Topeka (KS)","TPK","Contributing","closed","39.07°N 95.63°W ",270
-"United States","Trinidad Head (CA)","THD","Global","full operation","41.05°N 124.2°W ",107
-"United States","Underhill (VT)","UHL","Regional","full operation","44.53°N 72.87°W ",399
-"United States","Valparaiso (IN)","VLP","Contributing","full operation","41.50°N 87.00°W ",240
-"United States","Virgin Islands","VII","Contributing","full operation","18.34° 64.80° ",56
-"United States","Walker Branch Watershed (TN)","WBW","Regional","full operation","35.96°N 84.28°W ",341
-"United States","Wallops Island (VA)","WAI","Regional","full operation","37.93°N 72.48°W ",13
-"United States","Wendover (UT)","UTA","Regional","full operation","39.90°N 113.7°W ",1320
-"United States","West Lafayette (IN)","WLF","Regional","full operation","40.47°N 86.99°W ",215
-"United States","White Sands (NM)","WHS","Regional","closed","32.38°N 106.5°W ",1224
-"United States","Whiteface Mountain (NY)","WFM","Regional","full operation","44.39°N 73.86°W ",610
-"United States","Wye (MD)","WYE","Regional","full operation","38.91°N 76.15°W ",6
-"V - South West Pacific",,,,,,
-,"Pacific Ocean (00N)","POC",,"full operation","0.00°N 155.0°W ",10
-"Australia","Alice Springs","ASP","Contributing","full operation","23.70°S 133.9°E ",547
-"Australia","Aspendale",,"Regional","closed","38.03°S 145.1°E ",1
-"Australia","Brisbane",,"Regional","full operation","27.42°S 153.1°E ",3
-"Australia","Broadmeadows",,"Regional","full operation","37.69°S 145.0°E ",108
-"Australia","Cairns",,"Regional","closed","16.88°S 145.8°E ",3
-"Australia","Cape Ferguson","CFA","Regional","full operation","19.28°S 147.1°E ",2
-"Australia","Cape Grim","CGO","Global","full operation","40.68°S 144.7°E ",94
-"Australia","Coffs Harbour","CHB","Regional","closed","30.32°S 153.1°E ",5
-"Australia","Darwin",,"Regional","full operation","12.42°S 130.9°E ",31
-"Australia","Hobart","HBT","Regional","full operation","42.82°S 147.5°E ",20
-"Australia","Laverton","LVT","Regional","closed","37.86°S 144.8°E ",21
-"Australia","Macquarie Island","MQA","Regional","full operation","54.50°S 158.9°E ",6
-"Australia","Melbourne",,"Regional","full operation","37.67°S 144.8°E ",125
-"Australia","Perth","PTH","Regional","full operation","31.92°S 116.0°E ",5
-"Australia","Salisbury",,"Regional","closed","34.72°S 138.7°E ",1
-"Australia","Wagga Wagga",,"Regional","full operation","36.15°S 147.5°E ",212
-"Australia","Wollongong","WOL","Contributing","full operation","34.41°S 150.9°E ",30
-"Australia","Woomera",,"Regional","closed","30.95°S 136.5°E ",146
-"Fiji","Suva","SUV","Regional","full operation","18.13°S 178.3°E ",6
-"French Polynesia","Papeete (Tahiti)",,"Regional","unknown","18.00°S 149.0°W ",2
-"Indonesia","Bukit Kototabang","BKT","Global","full operation","0.20°S 100.3°E ",864
-"Indonesia","Ciater / Bandung","BAD","Contributing","closed","6.40°S 107.4°E ",
-"Indonesia","Jakarta","JKR","Regional","unknown","6.18°S 106.8°E ",7
-"Indonesia","Watukosek (Java)",,"Contributing","full operation","7.57°S 112.7°E ",50
-"Kiribati","Christmas Island","CHR","Regional","full operation","1.70°N 157.2°W ",3
-"Malaysia","Danum Valley","DMV","Global","full operation","4.98°N 117.8°E ",426
-"Malaysia","Petaling Jaya","PJM","Regional","full operation","3.10°N 101.7°E ",46
-"Malaysia","Sepang Airport","SEP","Regional","full operation","2.73°N 101.7°E ",17
-"Malaysia","Tanah Rata","TAR","Regional","full operation","4.47°N 101.4°E ",1472
-"Marshall Islands","Kwajalein","KWJ","Contributing","full operation","8.72°N 167.7°E ",10
-"Nauru","Nauru","NAU","Contributing","full operation","0.52°S 166.9°E ",7
-"New Zealand","Baring Head","BHD","Regional","full operation","41.41°S 174.9°E ",85
-"New Zealand","Chatham Island","CHI","Regional","closed","43.92°S 176.5°W ",20
-"New Zealand","Christchurch",,"Regional","closed","43.48°S 172.6°E ",34
-"New Zealand","Invercargill","IVC","Regional","closed","46.43°S 168.4°E ",30
-"New Zealand","Kaitorete Spit","NZL","Regional","closed","43.83°S 172.6°E ",3
-"New Zealand","Lauder","LAU","Global","full operation","45.04°S 169.7°E ",370
-"New Zealand","Raratonga (Cook Islands)","RTA","Regional","full operation","21.25°S 159.8°W ",20
-"New Zealand","Wellington",,"Regional","closed","41.28°S 174.7°E ",126
-"Papua New Guinea","Momote","MAN","Contributing","full operation","2.06°S 147.4°E ",6
-"Philippines","Manila",,"Regional","full operation","14.65°N 121.1°E ",63
-"Philippines","Mt. St. Thomas",,"Regional","unknown","16.33°N 120.6°E ",2256
-"Singapore","Singapore","SIN","Regional","full operation","1.32°N 103.9°E ",14
-"United States","Canton Island","CTI","Regional","closed","2.76°S 171.7°W ",3
-"United States","Cape Kumukahi (HI)","KUM","Regional","full operation","19.52°N 154.8°W ",3
-"United States","Guam (Mariana Island)","GMI","Regional","full operation","13.43°N 144.8°E ",2
-"United States","Hilo (HI)","HIH","Regional","full operation","19.58°N 155.1°W ",11
-"United States","Kilauea (HI)","HVT","Contributing","closed","19.42°N 155.3°W ",1243
-"United States","Mauna Kea (HI)","MKO","Contributing","full operation","19.83°N 155.5°W ",4204
-"United States","Mauna Loa (HI)","MLO","Global","full operation","19.54°N 155.6°W ",3397
-"United States","Samoa (Cape Matatula)","SMO","Global","full operation","14.23°S 170.6°W ",77
-"United States","Sand Island","MID","Regional","full operation","28.22°N 177.4°W ",4
-"Viet Nam","SaPa",,"Contributing (prospective)","full operation","22.35°N 103.8°E ",1584
-"VI - Europe",,,,,,
-"Armenia","Amberd","ARM","Regional","full operation","40.38°N 44.25°E ",2070
-"Austria","Dunkelsteinerwald",,"Contributing","full operation","48.37°N 15.55°E ",320
-"Austria","Forsthof",,"Contributing","full operation","48.10°N 15.92°E ",581
-"Austria","Gaenserndorf",,"Contributing","full operation","48.33°N 16.73°E ",161
-"Austria","Gerlitzen",,"Contributing","full operation","46.70°N 13.92°E ",1895
-"Austria","Graz Platte",,"Contributing","full operation","47.12°N 15.47°E ",651
-"Austria","Gross-Enzersdorf","GED","Contributing",,"48.20°N 16.57°E ",156
-"Austria","Haunsberg",,"Contributing","full operation","47.97°N 13.02°E ",730
-"Austria","Heidenreichstein",,"Contributing","full operation","48.88°N 15.05°E ",570
-"Austria","Hohe Warte","HHE","Regional","closed","48.25°N 16.37°E ",202
-"Austria","Illmitz",,"Contributing","full operation","47.77°N 16.77°E ",117
-"Austria","Masenberg",,"Contributing","full operation","47.35°N 15.88°E ",1170
-"Austria","Sonnblick","SNB","Regional","full operation","47.05°N 12.96°E ",3106
-"Austria","St. Koloman",,"Contributing","full operation","47.65°N 13.20°E ",851
-"Austria","Stephansplatz","STP","Regional","closed","48.22°N 16.38°E ",171
-"Austria","Stixneusiedl",,"Contributing","full operation","48.05°N 16.68°E ",240
-"Austria","Stolzalpe",,"Contributing","full operation","47.12°N 14.20°E ",1302
-"Austria","Sulzberg",,"Contributing","full operation","47.52°N 9.87°E ",1020
-"Austria","Zillertalen Alpen",,"Contributing","full operation","47.13°N 11.87°E ",1970
-"Austria","Zoebelboden",,"Contributing","full operation","47.83°N 14.43°E ",899
-"Belarus","Berezinsky Reserve","BRS","Regional","full operation","54.73°N 28.35°E ",174
-"Belarus","Minsk","MAS","Regional","full operation","53.83°N 27.47°E ",222
-"Belarus","Vysokoe",,"Contributing","closed","55.33°N 23.43°E ",163
-"Belgium","Eupen",,"Contributing","full operation","50.63°N 6.00°E ",295
-"Belgium","Offagne",,"Contributing","full operation","49.88°N 5.20°E ",420
-"Belgium","Uccle","RMI","Regional","full operation","50.80°N 4.35°E ",100
-"Belgium","Vezin",,"Contributing","full operation","50.50°N 4.98°E ",160
-"Bosnia and Herzegovina","Ivan Sedlo","IVN","Regional","intermittent operation","43.77°N 18.03°E ",970
-"Bulgaria","BEO Moussala","BEO","Regional","full operation","42.18°N 23.59°E ",2925
-"Bulgaria","Burugas","BUR","Regional","full operation","42.47°N 27.47°E ",16
-"Bulgaria","Kaliakra","KLR","Regional","closed","43.37°N 28.47°E ",59
-"Bulgaria","Pleven","PLV","Regional","full operation","43.42°N 23.60°E ",64
-"Bulgaria","Plovdiv","PLD","Regional","full operation","42.12°N 24.42°E ",304
-"Bulgaria","Primorsko","PMK","Regional","closed","41.27°N 27.75°E ",13
-"Bulgaria","Rojen Peak",,"Contributing","full operation","41.70°N 24.73°E ",1750
-"Bulgaria","Sofia","SOF","Regional","full operation","42.82°N 23.38°E ",588
-"Bulgaria","Varna","VRN","Regional","full operation","43.20°N 27.92°E ",41
-"Croatia","Bilogora",,"Regional","unknown","45.88°N 17.20°E ",262
-"Croatia","Krizevci",,"Regional","unknown","46.03°N 16.55°E ",155
-"Croatia","Ogulin",,"Regional","unknown","45.30°N 15.23°E ",328
-"Croatia","Puntijarka",,"Regional","unknown","45.92°N 15.97°E ",988
-"Croatia","Zadar",,"Regional","unknown","44.13°N 15.22°E ",5
-"Croatia","Zagreb-Cric",,"Regional","unknown","45.82°N 15.98°E ",157
-"Croatia","Zagreb-Maksimir",,"Regional","unknown","45.82°N 16.03°E ",121
-"Croatia","Zavizan",,"Regional","unknown","44.82°N 14.98°E ",1594
-"Croatia","Zavizan",,"Contributing","full operation","44.82°N 14.98°E ",1594
-"Czech Republic","Hradec Králové","HKR","Regional","full operation","50.18°N 15.83°E ",285
-"Czech Republic","Kosetice Observatory","KOS","Regional","full operation","49.58°N 15.08°E ",534
-"Czech Republic","Praha","PRH","Regional","full operation","50.01°N 14.45°E ",302
-"Czech Republic","Svratouch",,"Contributing","full operation","49.73°N 16.03°E ",737
-"Denmark","Anholt",,"Contributing","full operation","56.72°N 11.52°E ",40
-"Denmark","Århus","AHS","Regional","closed","56.17°N 10.20°E ",53
-"Denmark","Faeroerne",,"Contributing","closed","62.30°N 7.07°W ",210
-"Denmark","Faeroerne-Akraber",,"Contributing","closed","61.40°N 6.67°W ",90
-"Denmark","Keldsnor",,"Contributing","full operation","54.73°N 10.73°E ",9
-"Denmark","Lille Valby",,"Contributing","full operation","55.68°N 12.13°E ",10
-"Denmark","Scoresbysund","SCB","Contributing","full operation","70.48°N 21.97°W ",10
-"Denmark","Sepstrup Sande",,"Contributing","full operation","56.08°N 9.60°E ",60
-"Denmark","Site J","GRL","Regional","closed","66.50°N 46.20°W ",2030
-"Denmark","Sondrestrom","SST","Regional","full operation","67.00°N 50.98°W ",150
-"Denmark","Tange",,"Contributing","full operation","56.35°N 9.60°E ",13
-"Denmark","Thule","THU","Regional","full operation","76.52°N 68.77°W ",200
-"Denmark","Ulborg",,"Contributing","full operation","56.28°N 8.43°E ",10
-"Estonia","Lahemaa",,"Contributing","full operation","59.50°N 25.90°E ",32
-"Estonia","Sõrve","SRV","Regional","closed","57.92°N 22.06°E ",2
-"Estonia","Tahkuse","TAH","Regional","closed","58.52°N 24.92°E ",24
-"Estonia","Tallinn","TLN","Regional","closed","59.40°N 24.60°E ",33
-"Estonia","Tartu-Tõravere","TRV","Regional","full operation","58.27°N 26.47°E ",70
-"Estonia","Vilsandi",,"Contributing","full operation","58.38°N 21.82°E ",6
-"Finland","Ähtäri","AHT","Regional","full operation","62.58°N 24.18°E ",180
-"Finland","Hailuoto",,"Contributing","full operation","65.00°N 24.68°E ",4
-"Finland","Hietajärvi",,"Contributing","full operation","63.17°N 30.72°E ",173
-"Finland","Jokioinen","JOK","Regional","full operation","60.82°N 23.50°E ",106
-"Finland","Kotinen",,"Contributing","full operation","61.23°N 25.07°E ",158
-"Finland","Matorova","MAT","Global","full operation","68.00°N 24.24°E ",340
-"Finland","Oulanka","OUX","Regional","full operation","66.32°N 29.40°E ",310
-"Finland","Pallas","PAL","Global","full operation","67.97°N 24.12°E ",560
-"Finland","Sodankylä","SDK","Global","full operation","67.37°N 26.65°E ",180
-"Finland","Utö","UTO","Regional","full operation","59.78°N 21.38°E ",7
-"Finland","Virolahti","VIR","Regional","full operation","60.53°N 27.68°E ",4
-"France","Abbeville","ABB","Regional","closed","50.13°N 1.83°E ",70
-"France","Biscarrosse / SMS","BIS","Regional","full operation","44.38°N 1.23°W ",167
-"France","Bordeaux","BOD","Regional","closed","44.84°N 0.53°W ",73
-"France","Briançon",,"Contributing","closed","44.90°N 6.65°E ",1310
-"France","Carpentras","CAP","Regional","closed","44.08°N 5.05°E ",99
-"France","Gif sur Yvette","GIF","Non-GAW (international)","full operation","48.71°N 2.15°E ",167
-"France","Gourdon","GOU","Regional","closed","44.75°N 1.40°E ",259
-"France","Haute Provence","OHP","Regional","full operation","43.92°N 5.75°E ",580
-"France","Ile Grande","LPO","Non-GAW (international)","full operation","48.80°N 3.58°W ",20
-"France","Lannemezan","LZA","Contributing","full operation","44.13°N 0.49°E ",610
-"France","Magny-les-Hameaux",,"Regional","closed","48.73°N 2.07°E ",165
-"France","Mont Louis",,"Regional","closed","42.50°N 2.13°E ",1650
-"France","Paris-Montsouris",,"Regional","unknown","48.82°N 2.33°E ",76
-"France","Pic du Midi","PDM","Contributing","full operation","42.94°N 0.14°E ",2877
-"France","Plateau de Bure","PDB","Contributing","closed","44.63°N 5.90°E ",2550
-"France","Puy de Dome","PUY","Contributing","full operation","45.77°N 2.97°E ",1465
-"France","Trainou (Orléans)","TRN","Contributing","full operation","47.96°N 2.11°E ",131
-"France","Val Joyeaux",,"Regional","closed","48.49°N 2.02°E ",114
-"France","Villeneuve d'Ascq",,"Contributing","full operation","50.65°N 3.08°E ",70
-"Georgia","Abastumani",,"Regional","closed","41.75°N 42.75°E ",1650
-"Georgia","Tbilisi",,"Regional","closed","41.68°N 44.95°E ",490
-"Georgia","Telavi",,"Regional","closed","41.93°N 45.48°E ",568
-"Germany","Ansbach",,"Contributing","closed","49.30°N 10.57°E ",481
-"Germany","Arkona","AKN","Contributing","closed","54.67°N 13.42°E ",42
-"Germany","Aukrug",,"Contributing","full operation","54.07°N 9.78°E ",
-"Germany","Bassum","BSU","Contributing","closed","52.85°N 8.72°E ",52
-"Germany","Berlin-Tempelhof","BRL","Contributing","closed","52.47°N 13.43°E ",50
-"Germany","Bremen","BEM","Contributing","full operation","53.11°N 8.89°E ",27
-"Germany","Brotjacklriegel","BRT","Contributing","closed","48.82°N 13.22°E ",1016
-"Germany","Deuselbach","DEU","Contributing","closed","49.77°N 7.05°E ",480
-"Germany","Dresden","DRE","Contributing","closed","51.12°N 13.68°E ",246
-"Germany","Falkenberg",,"Contributing","full operation","52.17°N 14.12°E ",73
-"Germany","Garmisch-Partenkirchen","GAR","Contributing","full operation","47.47°N 11.07°E ",740
-"Germany","Hof",,"Contributing","closed","50.32°N 11.88°E ",568
-"Germany","Hohenpeißenberg","HPB","Global","full operation","47.80°N 11.02°E ",985
-"Germany","Hohenpeissenberg","HPB","Global","full operation","47.80°N 11.02°E ",985
-"Germany","Hohenwestedt",,"Contributing","closed","54.10°N 9.67°E ",75
-"Germany","Karlsruhe",,"Contributing","full operation","49.10°N 8.44°E ",111
-"Germany","Lindenberg","LIN","Contributing","full operation","52.22°N 14.12°E ",112
-"Germany","Lückendorf",,"Contributing","full operation","50.83°N 14.77°E ",490
-"Germany","Murnauer Moos",,"Contributing","closed","47.65°N 11.20°E ",622
-"Germany","Neuglobsow","NGL","Regional","full operation","53.14°N 13.03°E ",62
-"Germany","Ochsenkopf","OXK","Contributing","full operation","50.03°N 11.80°E ",1185
-"Germany","Öhringen",,"Contributing","full operation","49.23°N 9.43°E ",283
+"Pacific Ocean (00N)","Pacific Ocean (00N)","POC","ship","full operation","0.00°N 155.00°W",10
+"Algeria","Assekrem","ASK","Global","full operation","23.27°N 5.63°E",2710
+"Algeria","Columb-Béchar","BEC","Regional","closed","31.63°N 2.25°W",806
+"Algeria","Tamanrasset","TAM","Global","full operation","22.78°N 5.52°E",1377
+"Antigua and Barbuda","Coolidge Field","CLF","Regional","closed","17.09°N 61.81°W",10
+"Argentina","Belgrano II",,"Regional","full operation","77.88°S 34.63°W",255
+"Argentina","Buenos Aires Observatorio","BSO","Regional","full operation","34.58°S 58.48°W",25
+"Argentina","Comodoro Rivadavia Aero",,"Regional","full operation","45.78°S 67.50°W",46
+"Argentina","Doctor Sobral",,"Regional","closed","81.07°S 40.50°W",100
+"Argentina","Jubany","JBN","Regional","full operation","62.24°S 58.67°W",15
+"Argentina","La Quiaca Observatorio",,"Regional","full operation","22.10°S 65.60°W",3459
+"Argentina","Marambio","MBI","Regional","full operation","64.24°S 56.62°W",198
+"Argentina","Pilar Observatorio",,"Regional","intermittent operation","31.67°S 63.88°W",338
+"Argentina","Rio Gallegos","RGG","Contributing","full operation","51.60°S 69.32°W",5
+"Argentina","San Julian Aero",,"Regional","full operation","49.30°S 67.82°W",58
+"Argentina","San Martin",,"Regional","full operation","68.13°S 67.10°W",30
+"Argentina","Tierra del Fuego","TDF","Regional","full operation","54.82°S 68.32°W",30
+"Argentina","Ushuaia","USH","Global","full operation","54.85°S 68.31°W",18
+"Armenia","Amberd","AM0001R","EMEP","Operational?","40.38°N 44.25°E",2070
+"Armenia","Amberd","ARM","Regional","full operation","40.38°N 44.25°E",2070
+"Australia","Alice Springs","ASP","Contributing","full operation","23.70°S 133.90°E",547
+"Australia","Aspendale",,"Regional","closed","38.03°S 145.10°E",1
+"Australia","Brisbane",,"Regional","full operation","27.42°S 153.10°E",3
+"Australia","Broadmeadows",,"Regional","full operation","37.69°S 145.00°E",108
+"Australia","Cairns",,"Regional","closed","16.88°S 145.80°E",3
+"Australia","Cape Ferguson","CFA","Regional","full operation","19.28°S 147.10°E",2
+"Australia","Cape Grim","CGO","Global","full operation","40.68°S 144.70°E",94
+"Australia","Casey","CYA","Regional","full operation","66.28°S 110.50°E",51
+"Australia","Coffs Harbour","CHB","Regional","closed","30.32°S 153.10°E",5
+"Australia","Darwin",,"Regional","full operation","12.42°S 130.90°E",31
+"Australia","Davis",,"Regional","full operation","68.58°S 77.47°E",15
+"Australia","Hobart","HBT","Regional","full operation","42.82°S 147.50°E",20
+"Australia","Laverton","LVT","Regional","closed","37.86°S 144.80°E",21
+"Australia","Law Dome","LAD","Regional","unknown","66.73°S 112.80°E",1390
+"Australia","Macquarie Island","MQA","Regional","full operation","54.50°S 158.90°E",6
+"Australia","Mawson","MAA","Regional","unknown","67.60°S 62.87°E",20
+"Australia","Melbourne",,"Regional","full operation","37.67°S 144.80°E",125
+"Australia","Perth","PTH","Regional","full operation","31.92°S 116.00°E",5
+"Australia","Salisbury",,"Regional","closed","34.72°S 138.70°E",1
+"Australia","Wagga Wagga",,"Regional","full operation","36.15°S 147.50°E",212
+"Australia","Wilkes",,"Regional","closed","66.25°S 110.50°E",12
+"Australia","Wollongong","WOL","Contributing","full operation","34.41°S 150.90°E",30
+"Australia","Woomera",,"Regional","closed","30.95°S 136.50°E",146
+"Austria","Achenkirch","AT0003R","EMEP","Operational?","47.55°N 11.72°E",960
+"Austria","Dunkelsteinerwald","AT0045R","EMEP","Operational?","48.37°N 15.55°E",320
+"Austria","Dunkelsteinerwald",,"Contributing","full operation","48.37°N 15.55°E",320
+"Austria","Forsthof","AT0043R","EMEP","Operational?","48.11°N 15.92°E",581
+"Austria","Forsthof",,"Contributing","full operation","48.10°N 15.92°E",581
+"Austria","Gaenserndorf",,"Contributing","full operation","48.33°N 16.73°E",161
+"Austria","Gänserndorf","AT0046R","EMEP","Operational?","48.33°N 16.73°E",161
+"Austria","Gerlitzen","AT0038R","EMEP","Operational?","46.69°N 13.92°E",1895
+"Austria","Gerlitzen",,"Contributing","full operation","46.70°N 13.92°E",1895
+"Austria","Graz Platte","AT0044R","EMEP","Operational?","47.11°N 15.47°E",651
+"Austria","Graz Platte",,"Contributing","full operation","47.12°N 15.47°E",651
+"Austria","Grebenzen bei St. Lamprecht","AT0049R","EMEP","Operational?","47.04°N 14.33°E",1648
+"Austria","Gross-Enzersdorf","GED","Contributing",,"48.20°N 16.57°E",156
+"Austria","Haunsberg","AT0041R","EMEP","Operational?","47.97°N 13.02°E",730
+"Austria","Haunsberg",,"Contributing","full operation","47.97°N 13.02°E",730
+"Austria","Heidenreichstein","AT0042R","EMEP","Operational?","48.88°N 15.05°E",570
+"Austria","Heidenreichstein",,"Contributing","full operation","48.88°N 15.05°E",570
+"Austria","Hohe Warte","HHE","Regional","closed","48.25°N 16.37°E",202
+"Austria","Illmitz","AT0002R","EMEP","Operational?","47.77°N 16.77°E",117
+"Austria","Illmitz",,"Contributing","full operation","47.77°N 16.77°E",117
+"Austria","Masenberg","AT0040R","EMEP","Operational?","47.35°N 15.88°E",1170
+"Austria","Masenberg",,"Contributing","full operation","47.35°N 15.88°E",1170
+"Austria","Pillersdorf bei Retz","AT0030R","EMEP","Operational?","48.72°N 15.94°E",315
+"Austria","Sonnblick","AT0034G","EMEP","Operational?","47.05°N 12.96°E",3106
+"Austria","Sonnblick","SNB","Regional","full operation","47.05°N 12.96°E",3106
+"Austria","St. Koloman","AT0004R","EMEP","Operational?","47.65°N 13.20°E",851
+"Austria","St. Koloman",,"Contributing","full operation","47.65°N 13.20°E",851
+"Austria","Stephansplatz","STP","Regional","closed","48.22°N 16.38°E",171
+"Austria","Stixneusiedl","AT0047R","EMEP","Operational?","48.05°N 16.68°E",240
+"Austria","Stixneusiedl",,"Contributing","full operation","48.05°N 16.68°E",240
+"Austria","Stolzalpe",,"Contributing","full operation","47.12°N 14.20°E",1302
+"Austria","Stolzalpe bei Murau","AT0033R","EMEP","Operational?","47.13°N 14.20°E",1302
+"Austria","Sulzberg","AT0032R","EMEP","Operational?","47.53°N 9.93°E",1020
+"Austria","Sulzberg",,"Contributing","full operation","47.52°N 9.87°E",1020
+"Austria","Vorhegg","AT0005R","EMEP","Operational?","46.68°N 12.97°E",1020
+"Austria","Zillertalen Alpen",,"Contributing","full operation","47.13°N 11.87°E",1970
+"Austria","Zillertaler Alpen","AT0037R","EMEP","Operational?","47.14°N 11.87°E",1970
+"Austria","Zoebelboden","AT0048R","EMEP","Operational?","47.84°N 14.44°E",899
+"Austria","Zoebelboden",,"Contributing","full operation","47.83°N 14.43°E",899
+"Barbados","Ragged Point","RPB","Regional","full operation","13.17°N 59.43°W",45
+"Belarus","Berezinsky Reserve","BRS","Regional","full operation","54.73°N 28.35°E",174
+"Belarus","Minsk","MAS","Regional","full operation","53.83°N 27.47°E",222
+"Belarus","Vysokoe","BY0004R","EMEP","Operational?","55.33°N 23.43°E",163
+"Belarus","Vysokoe",,"Contributing","closed","55.33°N 23.43°E",163
+"Belgium","Base King Baudoin","BKB","Regional","closed","70.43°S 24.32°E",38
+"Belgium","Eupen","BE0032R","EMEP","Operational?","51.46°N 6.00°E",295
+"Belgium","Eupen",,"Contributing","full operation","50.63°N 6.00°E",295
+"Belgium","Offagne","BE0001R","EMEP","Operational?","49.88°N 5.20°E",430
+"Belgium","Offagne",,"Contributing","full operation","49.88°N 5.20°E",420
+"Belgium","Uccle","RMI","Regional","full operation","50.80°N 4.35°E",100
+"Belgium","University of Gent","BE0005R","EMEP","Operational?","51.05°N 3.72°E",0
+"Belgium","Vezin","BE0035R","EMEP","Operational?","50.50°N 4.99°E",160
+"Belgium","Vezin",,"Contributing","full operation","50.50°N 4.98°E",160
+"Benin","Cotonou","COT","Regional","closed","6.21°N 2.23°E",10
+"Bermuda","Bermuda","BMD","Contributing","full operation","32.27°N 64.67°W",8
+"Bermuda","St. David's Head","BME","Regional","full operation","32.37°N 64.65°W",30
+"Bolivia","Chacaltaya","CHC","Regional","intermittent operation","16.20°S 68.10°W",5320
+"Bolivia","La Paz-Ovejuyo","LPZ","Regional","closed","16.52°S 68.03°W",3420
+"Bosnia and Herzegovina","Ivan Sedlo","BA0006R","EMEP","Operational?","43.77°N 18.03°E",970
+"Bosnia and Herzegovina","Ivan Sedlo","IVN","Regional","intermittent operation","43.77°N 18.03°E",970
+"Botswana","Maun","DMS","Regional","intermittent operation","19.98°S 23.43°E",928
+"Brazil","Arembepe","ABP","Global","intermittent operation","12.77°S 38.17°W",0
+"Brazil","Bauru","BAU","Contributing","full operation","22.30°S 49.00°W",300
+"Brazil","Brasilia","BRB","Regional","full operation","15.94°S 47.89°W",1127
+"Brazil","Cachoeira-Paulista",,"Regional","full operation","23.50°S 46.20°W",792
+"Brazil","Cuiaba",,"Regional","full operation","16.00°S 56.00°W",600
+"Brazil","Florianopolis","FLO","Contributing","closed","27.53°S 48.52°W",11
+"Brazil","Manaus","MAO","Contributing","full operation","2.60°S 60.21°W",45
+"Brazil","Maxaranguape (Natal)",,"Regional","full operation","5.42°S 35.38°W",42
+"Brazil","Natal","NAT","Regional","full operation","6.00°S 35.20°W",0
+"Brazil","Porto Nacional",,"Regional","unknown","10.80°S 48.40°W",240
+"Brazil","S.José dos Campos",,"Regional","full operation","23.00°S 46.00°W",600
+"Bulgaria","BEO Moussala","BEO","Regional","full operation","42.18°N 23.59°E",2925
+"Bulgaria","BEO Moussala","BG0001R","EMEP","Operational?","42.17°N 23.58°E",2971
+"Bulgaria","Burugas","BUR","Regional","full operation","42.47°N 27.47°E",16
+"Bulgaria","Kaliakra","KLR","Regional","closed","43.37°N 28.47°E",59
+"Bulgaria","Pleven","PLV","Regional","full operation","43.42°N 23.60°E",64
+"Bulgaria","Plovdiv","PLD","Regional","full operation","42.12°N 24.42°E",304
+"Bulgaria","Primorsko","PMK","Regional","closed","41.27°N 27.75°E",13
+"Bulgaria","Rojen peak","BG0053R","EMEP","Operational?","41.70°N 24.74°E",1750
+"Bulgaria","Rojen Peak",,"Contributing","full operation","41.70°N 24.73°E",1750
+"Bulgaria","Sofia","SOF","Regional","full operation","42.82°N 23.38°E",588
+"Bulgaria","Varna","VRN","Regional","full operation","43.20°N 27.92°E",41
+"Côte d’Ivoire","Lamto","LTO","Regional","full operation","6.22°N 5.03°W",155
+"Canada","Alert","ALT","Global","full operation","82.45°N 62.52°W",210
+"Canada","Algoma","ALG","Regional","full operation","47.03°N 84.37°W",411
+"Canada","Asquith",,"Regional","unknown","52.14°N 107.10°W",519
+"Canada","Bay D'Espoir-B",,"Regional","full operation","47.99°N 55.82°W",190
+"Canada","Bay D'Espoir","BAB","Regional","closed","47.99°N 55.82°W",190
+"Canada","Bonner Lake","BON","Regional","full operation","49.38°N 82.12°W",245
+"Canada","Bratt's Lake","BRA","Regional","full operation","50.20°N 104.70°W",595
+"Canada","Candle Lake","CDL","Regional","full operation","53.87°N 104.70°W",489
+"Canada","Cape St. James","CSJ","Regional","closed","51.93°N 131.00°W",89
+"Canada","Chalk River","CHA","Regional","full operation","46.06°N 77.40°W",184
+"Canada","Chapais","CPS","Regional","full operation","49.82°N 74.98°W",381
+"Canada","Chibougamau","CHM","Regional","full operation","49.68°N 74.34°W",393
+"Canada","Churchill","CHL","Regional","full operation","58.75°N 94.07°W",35
+"Canada","Cold Lake",,"Regional","closed","54.78°N 110.10°W",702
+"Canada","Cormak",,"Regional","full operation","49.32°N 57.38°W",168
+"Canada","Dorset",,"Regional","closed","45.22°N 78.93°W",320
+"Canada","East Trout Lake","ETL","Regional","full operation","54.35°N 105.00°W",492
+"Canada","Edmonton",,"Regional","full operation","53.55°N 114.10°W",766
+"Canada","Egbert","EGB","Regional","full operation","44.23°N 79.78°W",253
+"Canada","Estevan Point","ESP","Regional","full operation","49.38°N 126.60°W",39
+"Canada","Esther","EST","Regional","intermittent operation","51.67°N 110.20°W",707
+"Canada","Eureka","EUK","Regional","full operation","80.05°N 86.42°W",610
+"Canada","Experimental Lakes Area","ELA","Regional","full operation","49.67°N 93.72°W",369
+"Canada","Fraserdale","FSD","Regional","full operation","49.84°N 81.52°W",210
+"Canada","Frelighsburg","FRE","Regional","full operation","45.05°N 75.86°W",203
+"Canada","Gimli",,"Regional","closed","50.63°N 97.05°W",228
+"Canada","Goose","GSE","Regional","closed","53.31°N 60.37°W",30
+"Canada","Goose Bay","GOB","Regional","full operation","53.29°N 60.39°W",39
+"Canada","Halifax",,"Regional","full operation","44.73°N 63.20°W",31
+"Canada","Harcourt","HCT","Regional","closed","46.48°N 65.26°W",45
+"Canada","Harcourt B","HAB","Regional","full operation","46.50°N 65.27°W",37
+"Canada","Iqualuit",,"Regional","unknown","63.75°N 68.55°W",20
+"Canada","Jackson","JAC","Regional","full operation","45.59°N 63.84°W",90
+"Canada","Kejimkujik","KEJ","Regional","full operation","44.43°N 65.21°W",127
+"Canada","Kelowna",,"Regional","unknown","49.97°N 119.40°W",431
+"Canada","Lac Edouard","LED","Regional","full operation","47.68°N 72.44°W",243
+"Canada","Lac Labiche (Alberta)","LLB","Regional","full operation","54.95°N 112.50°W",540
+"Canada","London (Ontario)","LXY","Contributing","closed","43.01°N 81.27°W",100
+"Canada","Longwoods","LON","Regional","full operation","42.88°N 81.48°W",239
+"Canada","Mingan","MIN","Regional","intermittent operation","50.27°N 64.22°W",14
+"Canada","Montreal",,"Regional","full operation","45.48°N 73.60°W",24
+"Canada","Moosonee",,"Regional","unknown","51.27°N 80.65°W",10
+"Canada","Mould Bay","MBC","Regional","closed","76.25°N 119.40°W",58
+"Canada","Nitchequon",,"Regional","closed","53.20°N 70.90°W",550
+"Canada","Pickle Lake","PKL","Regional","unknown","51.54°N 90.20°W",370
+"Canada","Resolute","RSL","Regional","full operation","74.72°N 94.98°W",64
+"Canada","Sable Island","WSA","Regional","full operation","43.93°N 60.02°W",4
+"Canada","Saskatoon",,"Regional","full operation","52.12°N 106.70°W",550
+"Canada","Saturna Island","SAT","Regional","full operation","48.78°N 123.10°W",178
+"Canada","Snare Rapids","SNA","Regional","full operation","63.52°N 116.00°W",240
+"Canada","Sprucedale","SPR","Regional","full operation","45.42°N 79.49°W",350
+"Canada","Sutton","SUT","Regional","closed","45.08°N 72.68°W",243
+"Canada","Toronto","TOT","Regional","full operation","43.78°N 79.47°W",198
+"Canada","Vanscoy",,"Regional","unknown","52.20°N 107.30°W",510
+"Canada","Walsingham","WSH","Contributing","full operation","42.60°N 80.60°W",200
+"Canada","Warsaw Caves","WAR","Regional","full operation","44.43°N 78.13°W",230
+"Canada","Whistler Mountain","WHI","Regional","full operation","50.06°N 123.00°W",2182
+"Canada","Winnipeg",,"Regional","full operation","49.90°N 97.23°W",239
+"Canada","Yarmouth",,"Regional","unknown","43.87°N 66.10°W",9
+"Canada","Yorkton",,"Regional","closed","51.26°N 102.50°W",504
+"Cape Verde","Cape Verde Atmospheric Observatory","CVO","Global","full operation","16.85°N 24.87°W",10
+"Chile","Easter Island","EIC","Regional","full operation","27.17°S 109.40°W",41
+"Chile","Marsh (King George Island)",,"Regional","closed","62.18°S 58.30°W",20
+"Chile","Puerto Montt",,"Regional","closed","41.45°S 72.83°W",5
+"Chile","Punta Arenas","PAR","Contributing","full operation","53.14°S 70.88°W",3
+"Chile","Tololo",,"Regional","full operation","30.17°S 70.80°W",2220
+"Chile","Torres del Paine",,"Regional","closed","51.08°S 72.58°W",
+"Chile","Valdivia",,"Regional","intermittent operation","39.62°S 73.08°W",19
+"China","Gonghe","GGH","Contributing","closed","36.27°N 100.60°E",2860
+"China","Hok Tsui / Cape d Aguilar","HKG","Regional","full operation","22.22°N 114.30°E",60
+"China","Hong Kong Observatory","HKO","Regional","full operation","22.31°N 114.20°E",65
+"China","Kunming","KUN","Contributing","full operation","25.03°N 102.20°E",1917
+"China","Lhasa","LHS","Contributing","full operation","29.40°N 91.03°E",3633
+"China","Linan","LAN","Regional","full operation","30.18°N 119.40°E",139
+"China","Longfenshan","LFS","Regional","full operation","44.73°N 127.60°E",331
+"China","Mt. Waliguan","WLG","Global","full operation","36.28°N 100.90°E",3810
+"China","Shangdianzi","SDZ","Regional","full operation","40.65°N 117.10°E",287
+"China","Xhianghe","XIA","Contributing","full operation","39.98°N 116.40°E",80
+"China","Yuen Ng Fun","YNF","Regional","closed","22.38°N 114.30°E",86
+"China","Zhong Shan","ZOS","Contributing","full operation","69.37°S 76.37°E",71
+"Colombia","Bogotá","BGT","Regional","full operation","4.60°N 74.08°W",2541
+"Colombia","Las Gaviotas","LGV","Regional","closed","4.55°N 70.92°W",171
+"Colombia","Leticia","LTC","Regional","closed","4.20°S 69.94°W",84
+"Colombia","Pasto","PTO","Regional","full operation","1.23°N 77.28°W",2560
+"Colombia","Riohacha","RIO","Regional","closed","11.53°N 72.92°W",4
+"Colombia","San Andrés","SAS","Regional","closed","12.59°N 81.70°W",1
+"Congo","Brazzaville","BZV","Regional","closed","4.28°S 15.25°E",314
+"Congo","Bunia","BNI","Regional","closed","1.50°N 30.22°E",1239
+"Congo","Leopoldville/Kinshasa","LEO","Regional","closed","4.30°S 15.55°E",450
+"Costa Rica","Alajuela","ALC","Contributing","intermittent operation","9.98°N 84.21°W",899
+"Costa Rica","Heredia","HEC","Contributing","full operation","10.00°N 84.07°W",1144
+"Croatia","Bilogora",,"Regional","unknown","45.88°N 17.20°E",262
+"Croatia","Krizevci",,"Regional","unknown","46.03°N 16.55°E",155
+"Croatia","Ogulin",,"Regional","unknown","45.30°N 15.23°E",328
+"Croatia","Puntijarka","HR0002R","EMEP","Operational?","45.90°N 15.97°E",988
+"Croatia","Puntijarka",,"Regional","unknown","45.92°N 15.97°E",988
+"Croatia","Zadar",,"Regional","unknown","44.13°N 15.22°E",5
+"Croatia","Zagreb-Cric",,"Regional","unknown","45.82°N 15.98°E",157
+"Croatia","Zagreb-Maksimir",,"Regional","unknown","45.82°N 16.03°E",121
+"Croatia","Zavizan","HR0004R","EMEP","Operational?","44.82°N 14.98°E",1594
+"Croatia","Zavizan",,"Regional","unknown","44.82°N 14.98°E",1594
+"Croatia","Zavizan",,"Contributing","full operation","44.82°N 14.98°E",1594
+"Cuba","La Habana","LHB","Regional","full operation","23.15°N 82.35°W",50
+"Cuba","La Palma","PLM","Regional","full operation","22.75°N 83.53°W",47
+"Cyprus","Ayia Marina","CY0002R","EMEP","Operational?","35.04°N 33.06°E",532
+"Czech Republic","Hradec Králové","HKR","Regional","full operation","50.18°N 15.83°E",285
+"Czech Republic","Kosetice","CZ0003R","EMEP","Operational?","49.58°N 15.08°E",534
+"Czech Republic","Kosetice Observatory","KOS","Regional","full operation","49.58°N 15.08°E",534
+"Czech Republic","Libus","CZ0099R","EMEP","Operational?","50.15°N 15.07°E",0
+"Czech Republic","Praha","PRH","Regional","full operation","50.01°N 14.45°E",302
+"Czech Republic","Svratouch","CZ0001R","EMEP","Operational?","49.73°N 16.05°E",737
+"Czech Republic","Svratouch",,"Contributing","full operation","49.73°N 16.03°E",737
+"Denmark","Anholt","DK0008R","EMEP","Operational?","56.72°N 11.52°E",40
+"Denmark","Anholt",,"Contributing","full operation","56.72°N 11.52°E",40
+"Denmark","Århus","AHS","Regional","closed","56.17°N 10.20°E",53
+"Denmark","Faeroerne",,"Contributing","closed","62.30°N 7.07°W",210
+"Denmark","Færøerne","DK0001R","EMEP","Operational?","62.03°N 7.07°W",210
+"Denmark","Faeroerne-Akraber",,"Contributing","closed","61.40°N 6.67°W",90
+"Denmark","Færøerne-Akraberg","DK0007R","EMEP","Operational?","61.40°N 6.67°W",90
+"Denmark","Frederiksborg","DK0032R","EMEP","Operational?","55.97°N 12.33°E",10
+"Denmark","Keldsnor","DK0005R","EMEP","Operational?","54.73°N 10.73°E",10
+"Denmark","Keldsnor",,"Contributing","full operation","54.73°N 10.73°E",9
+"Denmark","Lille Valby","DK0041R","EMEP","Operational?","55.69°N 12.13°E",10
+"Denmark","Lille Valby",,"Contributing","full operation","55.68°N 12.13°E",10
+"Denmark","Pedersker","DK0020R","EMEP","Operational?","55.02°N 14.95°E",5
+"Denmark","Scoresbysund","SCB","Contributing","full operation","70.48°N 21.97°W",10
+"Denmark","Sepstrup Sande","DK0022R","EMEP","Operational?","55.08°N 9.60°E",60
+"Denmark","Sepstrup Sande",,"Contributing","full operation","56.08°N 9.60°E",60
+"Denmark","Site J","GRL","Regional","closed","66.50°N 46.20°W",2030
+"Denmark","Sondrestrom","SST","Regional","full operation","67.00°N 50.98°W",150
+"Denmark","Storebaelt","DK0009R","EMEP","Operational?","58.32°N 10.92°E",250
+"Denmark","Tange","DK0003R","EMEP","Operational?","56.35°N 9.60°E",13
+"Denmark","Tange",,"Contributing","full operation","56.35°N 9.60°E",13
+"Denmark","Thule","THU","Regional","full operation","76.52°N 68.77°W",200
+"Denmark","Ulborg","DK0031R","EMEP","Operational?","56.28°N 8.43°E",10
+"Denmark","Ulborg",,"Contributing","full operation","56.28°N 8.43°E",10
+"Ecuador","San Cristobal",,"Regional","unknown","0.92°S 89.60°W",8
+"Egypt","Aswan","ASW","Regional","full operation","23.97°N 32.78°E",194
+"Egypt","Cairo","CAI","Regional","full operation","30.08°N 31.28°E",35
+"Egypt","Farafra","FRF","Regional","full operation","27.06°N 27.99°E",92
+"Egypt","Hurghada","HUR","Regional","full operation","27.42°N 33.75°E",7
+"Egypt","Marsa Matrûh","MRS","Regional","full operation","31.33°N 27.22°E",35
+"Egypt","Sidi-Barrani","SDB","Regional","full operation","31.45°N 25.15°E",24
+"Egypt","Siwa",,"Regional","closed","29.25°N 25.15°E",3
+"Estonia","Lahemaa","EE0009R","EMEP","Operational?","59.50°N 25.90°E",32
+"Estonia","Lahemaa",,"Contributing","full operation","59.50°N 25.90°E",32
+"Estonia","Sõrve","SRV","Regional","closed","57.92°N 22.06°E",2
+"Estonia","Syrve","EE0002R","EMEP","Operational?","57.95°N 22.10°E",2
+"Estonia","Tahkuse","TAH","Regional","closed","58.52°N 24.92°E",24
+"Estonia","Tallinn","TLN","Regional","closed","59.40°N 24.60°E",33
+"Estonia","Tartu-Tõravere","TRV","Regional","full operation","58.27°N 26.47°E",70
+"Estonia","Vilsandi","EE0011R","EMEP","Operational?","58.38°N 21.82°E",6
+"Estonia","Vilsandi",,"Contributing","full operation","58.38°N 21.82°E",6
+"Fiji","Suva","SUV","Regional","full operation","18.13°S 178.30°E",6
+"Finland","Ähtäri","AHT","Regional","full operation","62.58°N 24.18°E",180
+"Finland","Ähtäri","FI0004R","EMEP","Operational?","62.53°N 24.22°E",162
+"Finland","Ähtäri II","FI0037R","EMEP","Operational?","62.58°N 24.18°E",180
+"Finland","Haapasaari","FI0090R","EMEP","Operational?","60.28°N 27.20°E",15
+"Finland","Hailuoto","FI0091R","EMEP","Operational?","65.00°N 24.68°E",4
+"Finland","Hailuoto",,"Contributing","full operation","65.00°N 24.68°E",4
+"Finland","Hailuoto II","FI0053R","EMEP","Operational?","65.00°N 24.69°E",4
+"Finland","Hietajärvi","FI0092R","EMEP","Operational?","63.17°N 30.72°E",173
+"Finland","Hietajärvi",,"Contributing","full operation","63.17°N 30.72°E",173
+"Finland","Hyytiälä","FI0050R","EMEP","Operational?","61.85°N 24.28°E",181
+"Finland","Jokioinen","JOK","Regional","full operation","60.82°N 23.50°E",106
+"Finland","Kevo","FI0008R","EMEP","Operational?","69.75°N 27.00°E",80
+"Finland","Kökar","FI0006R","EMEP","Operational?","59.92°N 20.92°E",10
+"Finland","Kotinen","FI0093R","EMEP","Operational?","61.23°N 25.07°E",158
+"Finland","Kotinen",,"Contributing","full operation","61.23°N 25.07°E",158
+"Finland","Matorova","MAT","Global","full operation","68.00°N 24.24°E",340
+"Finland","Oulanka","FI0022R","EMEP","Operational?","66.32°N 29.40°E",310
+"Finland","Oulanka","OUX","Regional","full operation","66.32°N 29.40°E",310
+"Finland","Pallas","PAL","Global","full operation","67.97°N 24.12°E",560
+"Finland","Pallas (Matorova)","FI0036R","EMEP","Operational?","68.00°N 24.24°E",340
+"Finland","Pallas (Sammaltunturi)","FI0096G","EMEP","Operational?","68.00°N 24.15°E",340
+"Finland","Pesosjärvi","FI0094R","EMEP","Operational?","66.30°N 29.50°E",257
+"Finland","Sodankylä","SDK","Global","full operation","67.37°N 26.65°E",180
+"Finland","Utö","FI0009R","EMEP","Operational?","59.78°N 21.38°E",7
+"Finland","Utö","UTO","Regional","full operation","59.78°N 21.38°E",7
+"Finland","Virolahti","FI0007R","EMEP","Operational?","60.52°N 27.68°E",8
+"Finland","Virolahti","VIR","Regional","full operation","60.53°N 27.68°E",4
+"Finland","Virolahti II","FI0017R","EMEP","Operational?","60.53°N 27.69°E",4
+"Finland","Vuoskojärvi","FI0095R","EMEP","Operational?","69.73°N 26.95°E",147
+"France","Abbeville","ABB","Regional","closed","50.13°N 1.83°E",70
+"France","Amsterdam Island","AMS","Global","full operation","37.80°S 77.54°E",70
+"France","Aubur","FR0031R","EMEP","Operational?","48.22°N 7.18°E",1135
+"France","Biscarrosse / SMS","BIS","Regional","full operation","44.38°N 1.23°W",167
+"France","Bonnevaux","FR0011R","EMEP","Operational?","46.82°N 6.18°E",836
+"France","Bordeaux","BOD","Regional","closed","44.84°N 0.53°W",73
+"France","Brennilis","FR0032R","EMEP","Operational?","48.35°N 3.87°W",220
+"France","Briançon",,"Contributing","closed","44.90°N 6.65°E",1310
+"France","Carpentras","CAP","Regional","closed","44.08°N 5.05°E",99
+"France","Dôme Concordia","DCC","Contributing","full operation","75.10°S 123.30°E",3233
+"France","Crozet","CRZ","Regional","full operation","46.43°S 51.83°E",120
+"France","Donon","FR0008R","EMEP","Operational?","48.50°N 7.13°E",775
+"France","Dumont d'Urville","DDU","Regional","full operation","66.67°S 140.00°E",40
+"France","Gif sur Yvette","GIF","Non-GAW (international)","full operation","48.71°N 2.15°E",167
+"France","Gourdon","GOU","Regional","closed","44.75°N 1.40°E",259
+"France","Haute Provence","OHP","Regional","full operation","43.92°N 5.75°E",580
+"France","Ile Grande","LPO","Non-GAW (international)","full operation","48.80°N 3.58°W",20
+"France","Iraty","FR0012R","EMEP","Operational?","43.03°N 1.08°W",1300
+"France","La Coulonche","FR0018R","EMEP","Operational?","48.63°N 0.45°W",309
+"France","La Crouzille","FR0003R","EMEP","Operational?","46.13°N 1.38°E",497
+"France","La Hague","FR0005R","EMEP","Operational?","49.62°N 1.83°W",133
+"France","La Réunion","RUN","Regional","full operation","21.08°S 55.48°E",80
+"France","La Tardière","FR0015R","EMEP","Operational?","46.65°N 0.75°W",133
+"France","Lannemezan","LZA","Contributing","full operation","44.13°N 0.49°E",610
+"France","Le Casset","FR0016R","EMEP","Operational?","45.00°N 6.47°E",1750
+"France","Lodeve","FR0007R","EMEP","Operational?","43.70°N 3.33°E",252
+"France","Magny-les-Hameaux",,"Regional","closed","48.73°N 2.07°E",165
+"France","Mont Louis",,"Regional","closed","42.50°N 2.13°E",1650
+"France","Montandon","FR0014R","EMEP","Operational?","47.30°N 6.83°E",836
+"France","Montfranc","FR0017R","EMEP","Operational?","45.80°N 2.07°E",810
+"France","Morvan","FR0010R","EMEP","Operational?","47.27°N 4.08°E",620
+"France","Paris-Montsouris",,"Regional","unknown","48.82°N 2.33°E",76
+"France","Peyrusse Vieille","FR0013R","EMEP","Operational?","43.62°N 0.18°E",200
+"France","Pic du Midi","PDM","Contributing","full operation","42.94°N 0.14°E",2877
+"France","Plateau de Bure","PDB","Contributing","closed","44.63°N 5.90°E",2550
+"France","Port-aux-Français (Iles Kerguélen)","KER","Regional","full operation","49.35°S 70.28°E",29
+"France","Puy de Dome","PUY","Contributing","full operation","45.77°N 2.97°E",1465
+"France","Puy de Dôme","FR0030R","EMEP","Operational?","45.77°N 2.95°E",1465
+"France","Revin","FR0009R","EMEP","Operational?","49.90°N 4.63°E",390
+"France","Trainou (Orléans)","TRN","Contributing","full operation","47.96°N 2.11°E",131
+"France","Val Joyeaux",,"Regional","closed","48.49°N 2.02°E",114
+"France","Valduc","FR0006R","EMEP","Operational?","47.58°N 4.87°E",470
+"France","Vert-le-Petit","FR0001R","EMEP","Operational?","48.53°N 2.37°E",64
+"France","Villeneuve d'Ascq",,"Contributing","full operation","50.65°N 3.08°E",70
+"French Guiana","Kourou",,"Regional","closed","5.33°N 52.65°W",4
+"French Polynesia","Papeete (Tahiti)",,"Regional","unknown","18.00°S 149.00°W",2
+"Georgia","Abastumani","GE0001R","EMEP","Operational?","41.76°N 42.83°E",1650
+"Georgia","Abastumani",,"Regional","closed","41.75°N 42.75°E",1650
+"Georgia","Tbilisi",,"Regional","closed","41.68°N 44.95°E",490
+"Georgia","Telavi",,"Regional","closed","41.93°N 45.48°E",568
+"Germany","Ansbach","DE0017R","EMEP","Operational?","49.25°N 10.58°E",481
+"Germany","Ansbach",,"Contributing","closed","49.30°N 10.57°E",481
+"Germany","Arkona","AKN","Contributing","closed","54.67°N 13.42°E",42
+"Germany","Arkona","DE0006R","EMEP","Operational?","54.68°N 13.43°E",42
+"Germany","Aukrug","DE0039R","EMEP","Operational?","54.07°N 9.79°E",15
+"Germany","Aukrug",,"Contributing","full operation","54.07°N 9.78°E",
+"Germany","Bad Kreuznach","DE0016R","EMEP","Operational?","49.83°N 7.87°E",230
+"Germany","Bassum","BSU","Contributing","closed","52.85°N 8.72°E",52
+"Germany","Bassum","DE0012R","EMEP","Operational?","52.85°N 8.70°E",52
+"Germany","Berlin-Tempelhof","BRL","Contributing","closed","52.47°N 13.43°E",50
+"Germany","Bremen","BEM","Contributing","full operation","53.11°N 8.89°E",27
+"Germany","Brotjacklriegel","BRT","Contributing","closed","48.82°N 13.22°E",1016
+"Germany","Brotjacklriegel","DE0005R","EMEP","Operational?","48.82°N 13.22°E",1016
+"Germany","Deuselbach","DE0004R","EMEP","Operational?","49.76°N 7.05°E",480
+"Germany","Deuselbach","DEU","Contributing","closed","49.77°N 7.05°E",480
+"Germany","Dresden","DRE","Contributing","closed","51.12°N 13.68°E",246
+"Germany","Falkenberg","DE0047R","EMEP","Operational?","52.17°N 14.12°E",73
+"Germany","Falkenberg",,"Contributing","full operation","52.17°N 14.12°E",73
+"Germany","Garmisch-Partenkirchen","GAR","Contributing","full operation","47.47°N 11.07°E",740
+"Germany","Hof","DE0020R","EMEP","Operational?","50.32°N 11.88°E",568
+"Germany","Hof",,"Contributing","closed","50.32°N 11.88°E",568
+"Germany","Hohenpeissenberg","DE0043G","EMEP","Operational?","47.80°N 11.02°E",985
+"Germany","Hohenpeissenberg","HPB","Global","full operation","47.80°N 11.02°E",985
+"Germany","Hohenwestedt","DE0011R","EMEP","Operational?","54.10°N 9.67°E",75
+"Germany","Hohenwestedt",,"Contributing","closed","54.10°N 9.67°E",75
+"Germany","Karlsruhe",,"Contributing","full operation","49.10°N 8.44°E",111
+"Germany","Langenbrügge","DE0002R","EMEP","Operational?","52.80°N 10.76°E",74
+"Germany","Lindenberg","LIN","Contributing","full operation","52.22°N 14.12°E",112
+"Germany","Lückendorf","DE0035R","EMEP","Operational?","50.83°N 14.77°E",490
+"Germany","Lückendorf",,"Contributing","full operation","50.83°N 14.77°E",490
+"Germany","Meinerzhagen","DE0014R","EMEP","Operational?","51.12°N 7.63°E",510
+"Germany","Melpitz","DE0044R","EMEP","Operational?","51.53°N 12.93°E",86
+"Germany","Murnauer Moos","DE0038R","EMEP","Operational?","47.65°N 11.20°E",622
+"Germany","Murnauer Moos",,"Contributing","closed","47.65°N 11.20°E",622
+"Germany","Neuglobsow","DE0007R","EMEP","Operational?","53.17°N 13.03°E",62
+"Germany","Neuglobsow","NGL","Regional","full operation","53.14°N 13.03°E",62
+"Germany","Neumayer","NMY","Global","full operation","70.67°S 8.27°W",42
+"Germany","Ochsenkopf","OXK","Contributing","full operation","50.03°N 11.80°E",1185
+"Germany","Öhringen","DE0042R","EMEP","Operational?","49.24°N 9.45°E",283
+"Germany","Öhringen",,"Contributing","full operation","49.23°N 9.43°E",283
 "Germany","Polarstern",,,"full operation",,0
-"Germany","Potsdam","PTD","Contributing","closed","52.35°N 13.07°E ",89
-"Germany","Raisting",,"Contributing","full operation","47.90°N 11.10°E ",552
-"Germany","Rodenberg",,"Contributing","closed","52.32°N 9.37°E ",148
-"Germany","Rottenburg am Neckar","RTB","Contributing","closed","48.48°N 8.93°E ",427
-"Germany","Schauinsland","SSL","Regional","full operation","47.90°N 7.92°E ",1205
-"Germany","Schmuecke","SMU","Contributing","full operation","50.65°N 10.77°E ",937
-"Germany","Schorfheide",,"Contributing","full operation","52.97°N 13.65°E ",70
-"Germany","Starnberg",,"Contributing","closed","48.02°N 11.35°E ",729
-"Germany","Ueckermünde",,"Contributing","full operation","53.75°N 14.67°E ",
-"Germany","Usingen",,"Contributing","closed","50.33°N 8.53°E ",485
-"Germany","Waldhof-Langenbrügge","WAL","Contributing","full operation","52.80°N 10.77°E ",74
-"Germany","Wank","WNK","Contributing","closed","47.52°N 11.15°E ",1780
-"Germany","Weissenau","WEI","Contributing","closed","47.77°N 9.58°E ",445
-"Germany","Westerland","WES","Contributing","full operation","54.93°N 8.32°E ",12
-"Germany","Wiesenburg",,"Contributing","closed","52.12°N 12.47°E ",107
-"Germany","Zingst","ZGT","Contributing","full operation","54.43°N 12.73°E ",1
-"Germany","Zugspitze-Gipfel","ZUG","Global","full operation","47.42°N 10.98°E ",2950
-"Germany","Zugspitze-Schneefernerhaus","ZSF","Global","full operation","47.42°N 10.98°E ",2650
-"Greece","Aliartos",,"Contributing","full operation","38.37°N 23.08°E ",110
-"Greece","Athens","ATH","Regional","full operation","37.98°N 23.73°E ",280
-"Greece","Demokritos Athens","DEM","Regional","full operation","38.00°N 23.82°E ",270
-"Greece","Finokalia","FIK","Contributing","full operation","35.34°N 25.67°E ",150
-"Greece","Thessaloniki","THE","Regional","full operation","40.63°N 22.96°E ",60
-"Greenland","Ivittuut","IVI","Non-GAW (international)","full operation","61.21°N 48.17°W ",10
-"Greenland","Summit","SUM","Regional","full operation","72.58°N 38.48°W ",3238
-"Hungary","Budapest - Lorinc","BPL","Regional","full operation","47.43°N 19.18°E ",139
-"Hungary","Hegyhatsal","HUN","Regional","full operation","46.95°N 16.65°E ",248
-"Hungary","K-Puszta","KPS","Regional","full operation","46.97°N 19.58°E ",125
-"Iceland","Irafoss","IRF","Regional","full operation","64.08°N 21.02°W ",65
-"Iceland","Reykjavik","RKV","Regional","full operation","64.13°N 21.90°W ",52
-"Iceland","Storhofdi","ICE","Regional","full operation","63.40°N 20.28°W ",118
-"Ireland","Adrigole","ADR","Regional","closed","51.68°N 9.73°W ",50
-"Ireland","Mace Head","MHD","Global","full operation","53.33°N 9.90°W ",5
-"Ireland","Valentia","VTO","Regional","full operation","51.94°N 10.25°W ",14
-"Israel","Sede Boker","WIS","Regional","full operation","31.13°N 34.88°E ",400
-"Italy","Aosta","AST","Contributing","full operation","45.74°N 7.36°E ",569
-"Italy","Brindisi",,"Regional","full operation","40.63°N 17.95°E ",5
-"Italy","Cagliari/Elmas",,"Regional","unknown","39.25°N 9.05°E ",4
-"Italy","Ispra","IPR","Regional","full operation","45.80°N 8.63°E ",209
-"Italy","Lampedusa","LMP","Regional","full operation","35.52°N 12.63°E ",45
-"Italy","Messina",,"Regional","full operation","38.20°N 15.55°E ",54
-"Italy","Monte Cimone","CMN","Global","full operation","44.17°N 10.68°E ",2165
-"Italy","Montelibretti",,"Contributing","full operation","42.10°N 12.63°E ",48
-"Italy","Napoli",,"Regional","closed","40.85°N 15.25°E ",45
-"Italy","Plateau Rosa","PRS","Regional","full operation","45.93°N 7.70°E ",3480
-"Italy","Rome University","ROM","Regional","full operation","41.90°N 12.52°E ",75
-"Italy","San Pietro Capofiume",,"Regional","closed","44.65°N 11.62°E ",11
-"Italy","Santa Maria di Leuca",,"Regional","full operation","39.80°N 18.33°E ",104
-"Italy","Sestola",,"Regional","full operation","44.22°N 10.77°E ",1030
-"Italy","Trapani",,"Regional","full operation","37.92°N 12.50°E ",7
-"Italy","Verona",,"Regional","full operation","45.38°N 10.87°E ",67
-"Italy","Vigna di Valle",,"Regional","full operation","42.08°N 12.52°E ",262
-"Italy","Viterbo",,"Regional","full operation","42.43°N 12.05°E ",300
-"Latvia","Aluksne","ALK","Contributing","full operation","57.26°N 27.02°E ",197
-"Latvia","Dobele","DBL","Contributing","full operation","56.37°N 23.19°E ",42
-"Latvia","Riga","RGA","Regional","closed","57.19°N 24.25°E ",7
-"Latvia","Rucava","RCV","Regional","full operation","56.09°N 21.10°E ",18
-"Latvia","Zilani","ZLN","Contributing","full operation","56.31°N 25.55°E ",107
-"Latvia","Zoseni","ZSN","Regional","full operation","57.08°N 25.54°E ",183
-"Lithuania","Kaunas","KAU","Regional","full operation","54.88°N 23.84°E ",77
-"Lithuania","Preila","PLA","Regional","full operation","55.21°N 21.04°E ",5
-"Luxembourg","Diekirch","LCD","Regional","full operation","49.87°N 6.17°E ",218
-"Macedonia, FYRO","Lazaropole","LZP","Regional","intermittent operation","41.32°N 20.42°E ",1332
-"Malta","Dwejra Point","GOZ","Regional","closed","36.05°N 14.18°E ",30
-"Malta","Giordan Lighthouse","GLH","Regional","full operation","36.07°N 14.22°E ",167
-"Moldova","Chisinau","ARG","Regional","full operation","47.00°N 28.82°E ",205
-"Montenegro","Zabljak","ZBL","Regional","closed","43.15°N 19.13°E ",1450
-"Netherlands","Bilthoven",,"Contributing","closed","52.12°N 5.20°E ",5
-"Netherlands","Cesar (Cabauw)","CES","Regional","full operation","51.97°N 4.93°E ",-1
-"Netherlands","De Bilt","DBT","Regional","full operation","52.10°N 5.18°E ",2
-"Netherlands","De Zilk",,"Contributing","full operation","52.30°N 4.50°E ",4
-"Netherlands","Eibergen",,"Contributing","closed","52.08°N 6.57°E ",20
-"Netherlands","Kloosterburen","KTB","Regional","closed","53.40°N 6.42°E ",0
-"Netherlands","Kollumerwaard","KMW","Regional","full operation","53.33°N 6.27°E ",0
-"Netherlands","Moerdijk","MDK","Regional","closed","51.68°N 4.53°E ",0
-"Netherlands","Vreedepeel",,"Contributing","full operation","51.53°N 5.85°E ",5
-"Norway","Andoya","ARR","Contributing","full operation","69.28°N 16.01°E ",360
-"Norway","Birkenes","BIR","Regional","full operation","58.38°N 8.25°E ",190
-"Norway","Bjørnøya",,"Contributing","closed","74.50°N 19.02°E ",
-"Norway","Dombas",,"Regional","unknown","62.10°N 9.10°E ",659
-"Norway","Harestua","HRS","Contributing","full operation","60.20°N 10.80°E ",596
-"Norway","Hornsund (Svalbard)",,"Regional","unknown","77.00°N 15.55°E ",11
-"Norway","Jergul","JGL","Regional","closed","69.40°N 24.60°E ",255
-"Norway","Kårvatn / Kaarvatn",,"Regional","full operation","62.78°N 8.88°E ",210
-"Norway","Longyearbyen",,"Regional","unknown","78.22°N 15.57°E ",0
-"Norway","Murchison Bay",,"Regional","unknown","80.00°N 18.00°E ",-1
-"Norway","Ny Ålesund","NYA","Global","full operation","78.91°N 11.88°E ",0
-"Norway","Osen",,"Regional","unknown","61.25°N 11.78°E ",440
-"Norway","Oslo",,"Regional","full operation","59.90°N 10.73°E ",50
-"Norway","Prestebakke",,"Contributing","full operation","59.00°N 11.53°E ",160
-"Norway","Sandve",,"Contributing","full operation","59.20°N 5.20°E ",40
-"Norway","Skreådalen",,"Regional","closed","58.82°N 6.72°E ",475
-"Norway","Svanvik",,"Contributing","closed","69.45°N 30.03°E ",30
-"Norway","Tromsø",,"Regional","unknown","69.65°N 18.95°E ",100
-"Norway","Tustervatn",,"Regional","full operation","65.83°N 13.92°E ",439
-"Norway","Zeppelin Mountain (Ny Ålesund)","ZEP","Global","full operation","78.91°N 11.88°E ",474
-"Poland","Baltic Sea","BAL","Regional","full operation","55.50°N 16.67°E ",7
-"Poland","Belsk","COG","Regional","full operation","51.84°N 20.79°E ",180
-"Poland","Bialystok",,"Contributing","full operation","53.23°N 23.03°E ",180
-"Poland","Diabla Gora / Puszcza Borecka","DIG","Regional","full operation","54.15°N 22.07°E ",157
-"Poland","Jarczew","JCZ","Regional","full operation","51.82°N 21.98°E ",180
-"Poland","Leba","LEB","Regional","full operation","54.75°N 17.53°E ",2
-"Poland","Legionowo","LEG","Regional","full operation","52.40°N 20.97°E ",96
-"Poland","Sniezka","SNZ","Regional","full operation","50.73°N 15.73°E ",1603
-"Poland","Suwalki","SWL","Regional","closed","54.13°N 22.95°E ",184
-"Portugal","Angra de Heroismo (Açores)","ANG","Regional","full operation","38.67°N 27.22°W ",74
-"Portugal","Beja","BEJ","Regional","closed","38.02°N 7.87°W ",246
-"Portugal","Braganca","BRG","Regional","full operation","41.80°N 6.73°W ",690
-"Portugal","Castelo Branco","CAS","Regional","full operation","39.83°N 7.47°W ",386
-"Portugal","Faro","FAR","Regional","closed","37.02°N 7.97°W ",8
-"Portugal","Lisboa","LIS","Regional","full operation","38.77°N 9.13°W ",105
-"Portugal","Monte Velho","MVH","Regional","full operation","38.08°N 8.80°W ",43
-"Portugal","Penhas Douradas","PEN","Regional","full operation","40.42°N 7.55°W ",1380
-"Portugal","Santa Maria Island (Azores)","SMI","Contributing","closed","36.96°N 25.17°W ",100
-"Portugal","Serreta (Terceira)","AZR","Regional","full operation","38.77°N 27.38°W ",40
-"Portugal","Viana do Castelo","VDC","Regional","full operation","41.70°N 8.80°W ",16
-"Romania","Bucharest","ANM","Regional","full operation","44.48°N 26.13°E ",100
-"Romania","Constanta (Black Sea)","BSC","Regional","full operation","44.17°N 28.68°E ",3
-"Romania","Fundata","FDT","Regional","intermittent operation","45.43°N 25.27°E ",1384
-"Romania","Semenic","SEM","Regional","closed","45.18°N 22.05°E ",1432
-"Romania","Stana de Vale","STN","Regional","closed","46.68°N 22.20°E ",1108
-"Russian Federation","Arkhangel'sk","AHK","Regional","full operation","64.58°N 40.50°E ",13
-"Russian Federation","Astrakhan","ASN","Regional","full operation","45.75°N 47.92°E ",-25
-"Russian Federation","Caucasus","KWZ","Regional","full operation","43.70°N 40.22°E ",400
-"Russian Federation","Central Forest","CLZ","Regional","full operation","56.60°N 32.80°E ",260
-"Russian Federation","Cimljansk","CYM","Regional","full operation","47.73°N 42.25°E ",64
-"Russian Federation","Danki","DAK","Regional","full operation","54.90°N 37.80°E ",140
-"Russian Federation","Janiskoski","JNS","Regional","full operation","68.93°N 28.85°E ",118
-"Russian Federation","Kislovodsk","KSL","Regional","full operation","43.73°N 42.66°E ",2070
-"Russian Federation","Moscow","MSC","Regional","full operation","55.75°N 37.37°E ",187
-"Russian Federation","Mt. Elbrus","ELB","Regional","closed","43.32°N 42.47°E ",2100
-"Russian Federation","Murmansk","MRM","Regional","full operation","68.97°N 33.05°E ",46
-"Russian Federation","Obninsk","OBN","Regional","full operation","55.10°N 36.61°E ",100
-"Russian Federation","Oka-Terrase","OKA","Regional","full operation","54.90°N 37.80°E ",200
-"Russian Federation","Pechora","PCH","Regional","full operation","65.20°N 57.17°E ",56
-"Russian Federation","Pinega","PIN","Regional","full operation","64.70°N 43.40°E ",28
-"Russian Federation","Samara","KSM","Regional","full operation","53.25°N 50.45°E ",139
-"Russian Federation","Shadzhatmaz (Novopyatigorsk)","SDM","Regional","full operation","43.73°N 42.60°E ",2070
-"Russian Federation","Shepeljovo","SHP","Regional","full operation","59.97°N 29.12°E ",4
-"Russian Federation","St. Petersburg","SPB","Regional","full operation","59.97°N 30.30°E ",60
-"Russian Federation","Teriberka","TER","Regional","full operation","69.20°N 35.10°E ",40
-"Russian Federation","Volgograd","VGG","Regional","closed","48.58°N 45.72°E ",60
-"Russian Federation","Voronezh","VOR","Regional","full operation","51.90°N 39.60°E ",145
-"Serbia","Belgrade","PDJ","Contributing","full operation","44.51°N 20.23°E ",103
-"Serbia","Kamenicki-Vis","KAM","Regional","full operation","43.40°N 21.95°E ",813
-"Slovakia","Chopok","CHO","Regional","full operation","48.97°N 19.60°E ",2008
-"Slovakia","Poprad-Ganovce","PPG","Regional","full operation","49.03°N 20.32°E ",706
-"Slovakia","Stara Lesna",,"Contributing","full operation","49.15°N 20.28°E ",808
-"Slovakia","Starina",,"Contributing","full operation","49.05°N 22.27°E ",345
-"Slovakia","Topolniky",,"Contributing","full operation","47.97°N 17.87°E ",113
-"Slovenia","Iskrba","IRB","Regional","full operation","45.33°N 14.51°E ",520
-"Slovenia","Kovk","KVK","Regional","full operation","46.07°N 15.06°E ",600
-"Slovenia","Krvavec","KVV","Regional","full operation","46.18°N 14.32°E ",1720
-"Slovenia","Zavodnje","ZRN","Regional","full operation","46.26°N 15.00°E ",770
-"Spain","Barcarrota",,"Contributing","full operation","38.47°N 6.92°W ",393
-"Spain","Begur","BGU","Non-GAW (international)","full operation","41.97°N 3.23°E ",13
-"Spain","Cabo de Creus",,"Contributing","full operation","42.32°N 3.32°W ",23
-"Spain","Cambisabalos",,"Contributing","full operation","41.27°N 3.13°W ",1360
-"Spain","Doñana","DON","Regional","full operation","37.05°N 6.55°W ",5
-"Spain","El Arenosillo","ARN","Regional","full operation","37.10°N 6.73°W ",41
-"Spain","Els Torms",,"Contributing","full operation","41.38°N 0.72°E ",470
-"Spain","La Cartuja","CAR","Regional","closed","37.20°N 3.60°W ",720
-"Spain","La Coruña","LCO","Regional","full operation","43.33° 8.47° ",62
-"Spain","Logroño","LOG","Regional","closed","42.45°N 2.50°W ",370
-"Spain","Madrid","MAD","Regional","full operation","40.45°N 3.72°W ",680
-"Spain","Mahón","MHN","Regional","full operation","39.87°N 4.32°E ",78
-"Spain","Murcia","MUR","Regional","full operation","38.00°N 1.17°W ",69
-"Spain","Niembro",,"Contributing","full operation","43.43°N 4.85°W ",134
-"Spain","Noia","NIA","Regional","full operation","42.73°N 8.92°W ",685
-"Spain","O Saviñao ",,"Contributing","full operation","42.63°N 7.70°W ",506
-"Spain","Penausende",,"Contributing","full operation","41.28°N 5.87°W ",985
-"Spain","Roquetas","ROQ","Regional","closed","40.82°N 0.48°W ",50
-"Spain","San Pablos de los Montes","SPM","Regional","full operation","39.55°N 4.35°W ",917
-"Spain","Viznar",,"Contributing","full operation","37.23°N 3.47°W ",1230
-"Spain","Zaragoza","ZAR","Contributing","full operation","41.63° 0.91° ",250
-"Spain","Zarra",,"Contributing","full operation","39.08°N 1.10°W ",885
-"Sweden","Arup",,"Contributing","full operation","55.75°N 13.67°E ",157
-"Sweden","Aspvreten","APT","Regional","full operation","58.81°N 17.39°E ",20
-"Sweden","Borlänge","BOR","Regional","full operation","60.49°N 15.43°E ",164
-"Sweden","Bredkälen","BRE","Regional","full operation","63.84°N 15.32°E ",410
-"Sweden","Esrange","ESR","Regional","closed","67.88°N 21.07°E ",475
-"Sweden","Gårdsjön",,"Contributing","full operation","58.05°N 12.02°E ",113
-"Sweden","Göteborg","GBG","Regional","full operation","57.71°N 11.99°E ",30
-"Sweden","Gunnarn","GNN","Regional","closed","64.96°N 17.70°E ",278
-"Sweden","Hoburg","HOB","Regional","unknown","56.92°N 18.15°E ",58
-"Sweden","Karlstad","KAR","Regional","full operation","59.36°N 13.47°E ",46
-"Sweden","Kiruna","KIR","Contributing","full operation","67.84°N 20.41°E ",424
-"Sweden","Luleå","LUL","Regional","full operation","65.54°N 22.11°E ",32
-"Sweden","Lund","LUN","Regional","full operation","55.71°N 13.21°E ",85
-"Sweden","Norra Kvill",,"Contributing","full operation","57.82°N 15.57°E ",261
-"Sweden","Norrköping","NRK","Regional","full operation","58.58°N 16.15°E ",43
-"Sweden","Onsala","ONS","Contributing","full operation","57.40°N 11.93°E ",
-"Sweden","Östersund","OST","Regional","full operation","63.20°N 14.48°E ",374
-"Sweden","Råö",,"Contributing","full operation","57.40°N 11.92°E ",10
-"Sweden","Roervik","ROR","Regional","unknown","57.42°N 11.93°E ",10
-"Sweden","Sjöängen","SJO","Regional","full operation","58.75°N 14.30°E ",128
-"Sweden","Stockholm","STH","Regional","full operation","59.35°N 18.06°E ",30
-"Sweden","Svenska Högarna","SVH","Regional","full operation","59.44°N 19.50°E ",10
-"Sweden","Tarfala","TLA","Regional","full operation","67.91°N 18.61°E ",1144
-"Sweden","Umeå","UME","Regional","full operation","63.81°N 20.24°E ",23
-"Sweden","Uppsala","UPS","Regional","closed","59.85°N 17.52°E ",15
-"Sweden","Vavihill",,"Contributing","full operation","56.02°N 13.15°E ",172
-"Sweden","Växjö","VAX","Regional","full operation","56.93°N 14.73°E ",182
-"Sweden","Vindeln","VDL","Regional","full operation","64.23°N 19.77°E ",225
-"Sweden","Visby","VIS","Regional","full operation","57.67°N 18.35°E ",49
-"Switzerland","Arosa","ARO","Regional","full operation","46.78°N 9.68°E ",1840
-"Switzerland","Bern","BRN","Contributing","full operation","46.95°N 7.45°E ",550
-"Switzerland","Chaumont",,"Contributing","full operation","47.05°N 6.98°E ",1137
-"Switzerland","Davos","DAV","Contributing","full operation","46.82°N 9.85°E ",1590
-"Switzerland","Jungfraujoch","JFJ","Global","full operation","46.55°N 7.99°E ",3580
-"Switzerland","Locarno-Monti","OTL","Contributing","full operation","46.17°N 8.78°E ",366
-"Switzerland","Payerne","PAY","Regional","full operation","46.82°N 6.95°E ",490
-"Switzerland","Rigi","RIG","Regional","full operation","47.07°N 8.45°E ",1031
-"Switzerland","Sion",,"Contributing","full operation","46.22°N 7.34°E ",483
-"Switzerland","Tänikon","TAE","Contributing","full operation","47.48°N 8.90°E ",539
-"Switzerland","Thalwil","THW","Regional","closed","47.29°N 8.56°E ",515
-"Switzerland","Zimmerwald","ZIM","Contributing","full operation","46.88°N 7.46°E ",907
-"Turkey","Ankara","TRA","Regional","full operation","39.95°N 32.88°E ",896
-"Turkey","Cubuk II","TRU","Regional","full operation","40.50°N 33.00°E ",1169
-"Ukraine","Feodosiya","FEO","Regional","full operation","44.55°N 35.12°E ",42
-"Ukraine","Kiev","KIE","Regional","full operation","50.24°N 30.58°E ",121
-"Ukraine","Kyiv-Goloseyev","KGV","Regional","full operation","50.36°N 30.50°E ",206
-"Ukraine","Lvov","LVO","Regional","full operation","49.51°N 24.03°E ",329
-"Ukraine","Odessa","ODE","Regional","full operation","46.26°N 30.46°E ",42
-"United Kingdom","Aberdeen","ABD","Contributing","closed","57.00°N 2.00°W ",
-"United Kingdom","Aberystwyth","AWT","Contributing","full operation","52.00°N 4.00°W ",
-"United Kingdom","Aldergrove",,"Contributing","closed","54.65°N 6.22°W ",72
-"United Kingdom","Aston Hill",,"Contributing","full operation","52.50°N 3.05°W ",370
-"United Kingdom","Barcomb Mills",,"Regional","full operation","50.92°N 0.05°E ",10
-"United Kingdom","Bracknell","BRK","Regional","closed","51.38°N 0.78°W ",70
-"United Kingdom","Bush",,"Contributing","full operation","55.87°N 3.20°W ",180
-"United Kingdom","Camborne","CBR","Regional","full operation","50.22°N 5.32°W ",88
-"United Kingdom","Eskdalemuir","EDM","Regional","full operation","55.20°N 3.20°W ",242
-"United Kingdom","Glen Dye",,"Regional","full operation","56.97°N 2.58°W ",85
-"United Kingdom","Great Dun Fell",,"Contributing","full operation","54.68°N 2.45°W ",847
-"United Kingdom","Harwell",,"Contributing","full operation","51.57°N 1.32°W ",137
-"United Kingdom","Hemsby",,"Contributing","closed","52.68°N 1.68°E ",14
-"United Kingdom","High Muffles",,"Regional","full operation","54.33°N 0.80°W ",267
-"United Kingdom","Ladybower",,"Contributing","full operation","53.40°N 1.75°W ",420
-"United Kingdom","Lerwick","SIS","Regional","full operation","60.13°N 1.18°W ",84
-"United Kingdom","Lough Navar",,"Regional","full operation","54.43°N 7.90°W ",130
-"United Kingdom","Lullington Heath",,"Regional","full operation","52.00°N 0.50°E ",50
-"United Kingdom","Manchester","MCR","Contributing","full operation","53.47°N 2.23°W ",76
-"United Kingdom","Narberth",,"Contributing","full operation","51.78°N 4.70°W ",160
-"United Kingdom","Oxford",,"Regional","closed","51.75°N 1.18°W ",140
-"United Kingdom","Prestwick",,"Contributing","intermittent operation","55.50°N 4.61°W ",
-"United Kingdom","Reading","RDG","Regional","full operation","51.44°N 0.94°W ",66
-"United Kingdom","Sibton",,"Regional","full operation","52.28°N 1.45°E ",46
-"United Kingdom","Somerton",,"Contributing","full operation","51.77°N 3.05°W ",55
-"United Kingdom","Stoke Ferry",,"Regional","full operation","52.57°N 0.50°E ",15
-"United Kingdom","Strath Vaich",,"Regional","full operation","57.73°N 4.78°W ",270
-"United Kingdom","Wicken Fen",,"Contributing","full operation","52.30°N 0.30°W ",5
-"United Kingdom","Yarner Wood",,"Regional","full operation","50.70°N 3.72°W ",119
-"United States","Ocean Station Charlie","STC","Regional","closed","54.00°N 35.00°W ",0
-"United States","Ocean Station M","STM","Regional","full operation","66.00°N 2.00°E ",4
-"VII - Antarctica",,,,,,
-"Argentina","Belgrano II",,"Regional","full operation","77.88°S 34.63°W ",255
-"Argentina","Doctor Sobral",,"Regional","closed","81.07°S 40.50°W ",100
-"Argentina","Jubany","JBN","Regional","full operation","62.24°S 58.67°W ",15
-"Argentina","Marambio","MBI","Regional","full operation","64.24°S 56.62°W ",198
-"Argentina","San Martin",,"Regional","full operation","68.13°S 67.10°W ",30
-"Australia","Casey","CYA","Regional","full operation","66.28°S 110.5°E ",51
-"Australia","Davis",,"Regional","full operation","68.58°S 77.47°E ",15
-"Australia","Law Dome","LAD","Regional","unknown","66.73°S 112.8°E ",1390
-"Australia","Mawson","MAA","Regional","unknown","67.60°S 62.87°E ",20
-"Australia","Wilkes",,"Regional","closed","66.25°S 110.5°E ",12
-"Belgium","Base King Baudoin","BKB","Regional","closed","70.43°S 24.32°E ",38
-"Chile","Marsh (King George Island)",,"Regional","closed","62.18°S 58.30°W ",20
-"China","Zhong Shan","ZOS","Contributing","full operation","69.37°S 76.37°E ",71
-"France","Concordia, Dôme C","DCC","Contributing","full operation","75.10°S 123.3°E ",3233
-"France","Dumont d'Urville","DDU","Regional","full operation","66.67°S 140.0°E ",40
-"Germany","Neumayer","NMY","Global","full operation","70.67°S 8.27°W ",42
-"India","Maitri","MTR","Regional","full operation","70.46°S 11.45°E ",330
-"Japan","Mizuho","MZH","Contributing","closed","70.70°S 44.30°E ",2230
-"Japan","Syowa","SYO","Regional","full operation","69.00°S 39.58°E ",21
-"Korea","King Sejong","KSG","Regional","full operation","62.22°S 58.78°W ",0
-"New Zealand","Arrival Heights","ARH","Regional","full operation","77.83°S 166.7°E ",184
-"New Zealand","Hallett",,"Regional","closed","72.32°S 170.2°E ",5
-"New Zealand","Scott Base","SBS","Regional","full operation","77.85°S 166.8°E ",16
-"Russian Federation","Mirny","MIR","Regional","closed","66.55°S 93.00°E ",30
-"Russian Federation","Novolazarevskaya-Forster","NLZ","Regional","closed","70.77°S 11.87°E ",110
-"Russian Federation","Vostok","VST","Regional","closed","78.27°S 106.5°E ",-1
-"Ukraine","Faraday-Vernadsky","FAD","Regional","full operation","65.15°S 64.16°W ",10
-"United Kingdom","Argentine Islands",,"Regional","full operation","65.25°S 64.27°W ",10
-"United Kingdom","Halley","HBA","Regional","full operation","75.58°S 26.71°W ",30
-"United Kingdom","Rothera","ROT","Contributing","full operation","67.57°S 68.12°W ",30
-"United States","Byrd","BYR","Regional","closed","80.03°S 119.5°W ",1528
-"United States","Little America","LAM","Regional","closed","78.00°S 162.0°W ",44
-"United States","McMurdo","MCM","Regional","full operation","77.83°S 166.6°E ",11
-"United States","Palmer Station","PSA","Regional","full operation","64.92°S 64.00°W ",10
-"United States","South Pole","SPO","Global","full operation","90.00°S 24.80°W ",2841
-"Uruguay","Artigas",,"Regional","full operation","62.18°S 58.90°W ",10
+"Germany","Potsdam","PTD","Contributing","closed","52.35°N 13.07°E",89
+"Germany","Raisting","DE0046R","EMEP","Operational?","47.90°N 11.10°E",552
+"Germany","Raisting",,"Contributing","full operation","47.90°N 11.10°E",552
+"Germany","Rodenberg","DE0013R","EMEP","Operational?","52.32°N 9.37°E",148
+"Germany","Rodenberg",,"Contributing","closed","52.32°N 9.37°E",148
+"Germany","Rottenburg","DE0018R","EMEP","Operational?","48.48°N 8.93°E",427
+"Germany","Rottenburg am Neckar","RTB","Contributing","closed","48.48°N 8.93°E",427
+"Germany","Schauinsland","DE0003R","EMEP","Operational?","47.91°N 7.91°E",1205
+"Germany","Schauinsland","SSL","Regional","full operation","47.90°N 7.92°E",1205
+"Germany","Schmücke","DE0008R","EMEP","Operational?","50.65°N 10.77°E",937
+"Germany","Schmuecke","SMU","Contributing","full operation","50.65°N 10.77°E",937
+"Germany","Schneefernerhaus","DE0054R","EMEP","Operational?","47.42°N 10.98°E",2650
+"Germany","Schorfheide","DE0045R","EMEP","Operational?","52.97°N 13.65°E",70
+"Germany","Schorfheide",,"Contributing","full operation","52.97°N 13.65°E",70
+"Germany","Starnberg","DE0019R","EMEP","Operational?","48.02°N 11.35°E",729
+"Germany","Starnberg",,"Contributing","closed","48.02°N 11.35°E",729
+"Germany","Ueckermünde","DE0026R","EMEP","Operational?","53.75°N 14.07°E",1
+"Germany","Ueckermünde",,"Contributing","full operation","53.75°N 14.67°E",
+"Germany","Usingen","DE0015R","EMEP","Operational?","50.33°N 8.53°E",485
+"Germany","Usingen",,"Contributing","closed","50.33°N 8.53°E",485
+"Germany","Waldhof-Langenbrügge","WAL","Contributing","full operation","52.80°N 10.77°E",74
+"Germany","Wank","WNK","Contributing","closed","47.52°N 11.15°E",1780
+"Germany","Weissenau","WEI","Contributing","closed","47.77°N 9.58°E",445
+"Germany","Westerland","DE0001R","EMEP","Operational?","54.93°N 8.31°E",12
+"Germany","Westerland","WES","Contributing","full operation","54.93°N 8.32°E",12
+"Germany","Wiesenburg","DE0031R","EMEP","Operational?","52.12°N 12.47°E",107
+"Germany","Wiesenburg",,"Contributing","closed","52.12°N 12.47°E",107
+"Germany","Zingst","DE0009R","EMEP","Operational?","54.43°N 12.73°E",1
+"Germany","Zingst","ZGT","Contributing","full operation","54.43°N 12.73°E",1
+"Germany","Zugspitze-Gipfel","ZUG","Global","full operation","47.42°N 10.98°E",2950
+"Germany","Zugspitze-Schneefernerhaus","ZSF","Global","full operation","47.42°N 10.98°E",2650
+"Greece","Aliartos","GR0001R","EMEP","Operational?","38.37°N 23.08°E",110
+"Greece","Aliartos",,"Contributing","full operation","38.37°N 23.08°E",110
+"Greece","Athens","ATH","Regional","full operation","37.98°N 23.73°E",280
+"Greece","Demokritos Athens","DEM","Regional","full operation","38.00°N 23.82°E",270
+"Greece","Finokalia","FIK","Contributing","full operation","35.34°N 25.67°E",150
+"Greece","Finokalia","GR0002R","EMEP","Operational?","35.32°N 25.67°E",250
+"Greece","Livadi","GR0003R","EMEP","Operational?","40.53°N 23.25°E",850
+"Greece","Thessaloniki","THE","Regional","full operation","40.63°N 22.96°E",60
+"Greenland","Ivittuut","IVI","Non-GAW (international)","full operation","61.21°N 48.17°W",10
+"Greenland","Summit","SUM","Regional","full operation","72.58°N 38.48°W",3238
+"Hungary","Budapest - Lorinc","BPL","Regional","full operation","47.43°N 19.18°E",139
+"Hungary","Hegyhatsal","HUN","Regional","full operation","46.95°N 16.65°E",248
+"Hungary","K-puszta","HU0002R","EMEP","Operational?","46.97°N 19.58°E",125
+"Hungary","K-Puszta","KPS","Regional","full operation","46.97°N 19.58°E",125
+"Hungary","Kecskemét","HU0001R","EMEP","Operational?","46.97°N 19.58°E",125
+"Iceland","Irafoss","IRF","Regional","full operation","64.08°N 21.02°W",65
+"Iceland","Irafoss","IS0002R","EMEP","Operational?","64.08°N 21.02°W",66
+"Iceland","Reykjavik","IS0090R","EMEP","Operational?","64.13°N 21.90°W",52
+"Iceland","Reykjavik","RKV","Regional","full operation","64.13°N 21.90°W",52
+"Iceland","Rjupnahed","IS0001R","EMEP","Operational?","64.08°N 21.85°W",120
+"Iceland","Storhofdi","ICE","Regional","full operation","63.40°N 20.28°W",118
+"Iceland","Storhofdi","IS0091R","EMEP","Operational?","63.40°N 20.28°W",118
+"India","Ahmadabad","AHM","Regional","full operation","23.02°N 72.65°E",55
+"India","Allahabad","ALH","Regional","full operation","25.45°N 81.73°E",98
+"India","Cape Rama","CRI","Contributing","intermittent operation","15.08°N 73.83°E",60
+"India","Dum Dum","DDM","Regional","full operation","22.65°N 88.45°E",11
+"India","Hanle","HLE","Non-GAW (international)","full operation","32.78°N 78.96°E",4517
+"India","Jodhpur","JDP","Regional","full operation","26.30°N 73.02°E",217
+"India","Kodaikanal","KDK","Regional","full operation","10.00°N 77.47°E",2343
+"India","Maitri","MTR","Regional","full operation","70.46°S 11.45°E",330
+"India","Minicoy","MNC","Regional","full operation","8.30°N 73.00°E",2
+"India","Mohanbari","MHB","Regional","full operation","27.48°N 95.02°E",111
+"India","Mount Abu","MAB","Regional","closed","24.60°N 72.72°E",1220
+"India","Mumbai/Bombay","BOM","Regional","full operation","19.12°N 72.85°E",145
+"India","Nagpur","NGP","Regional","full operation","21.10°N 79.05°E",310
+"India","New Delhi","NDL","Regional","full operation","28.57°N 77.20°E",216
+"India","Port-Blair","PBL","Regional","full operation","11.67°N 92.72°E",79
+"India","Pune","PNA","Regional","full operation","18.53°N 73.85°E",559
+"India","Srinagar","SRN","Regional","full operation","34.08°N 74.83°E",1587
+"India","Trivandrum","TVM","Regional","full operation","8.48°N 76.95°E",60
+"India","Varanasi/Banaras","VNS","Regional","full operation","25.30°N 83.02°E",76
+"India","Vishakhapatnam","VSK","Regional","full operation","17.68°N 83.30°E",72
+"Indonesia","Bukit Kototabang","BKT","Global","full operation","0.20°S 100.30°E",864
+"Indonesia","Ciater / Bandung","BAD","Contributing","closed","6.40°S 107.40°E",
+"Indonesia","Jakarta","JKR","Regional","unknown","6.18°S 106.80°E",7
+"Indonesia","Watukosek (Java)",,"Contributing","full operation","7.57°S 112.70°E",50
+"Iran","Esfahan",,"Regional","unknown","32.48°N 51.43°E",1550
+"Iran","Mt. Aminabad","MAM","Regional","full operation","35.70°N 52.59°E",2986
+"Iran","Tehran University",,"Regional","unknown","35.45°N 51.23°E",1419
+"Iraq","Hawr al Habbaniyah / Ar Ramadi",,"Regional","closed","33.37°N 43.57°E",44
+"Ireland","Adrigole","ADR","Regional","closed","51.68°N 9.73°W",50
+"Ireland","Carnsore Point","IE0008R","EMEP","Operational?","52.19°N 6.37°W",9
+"Ireland","Glen Veagh","IE0007R","EMEP","Operational?","55.05°N 7.94°W",44
+"Ireland","Johnstown Castle","IE0009R","EMEP","Operational?","52.30°N 6.51°W",62
+"Ireland","Mace Head","IE0031R","EMEP","Operational?","53.17°N 9.50°W",15
+"Ireland","Mace Head","MHD","Global","full operation","53.33°N 9.90°W",5
+"Ireland","Malin Head","IE0006R","EMEP","Operational?","55.38°N 7.34°W",20
+"Ireland","Oak Park","IE0005R","EMEP","Operational?","52.87°N 6.92°W",59
+"Ireland","Ridge of Capard","IE0004R","EMEP","Operational?","53.12°N 7.45°W",340
+"Ireland","The Burren","IE0003R","EMEP","Operational?","53.00°N 9.10°W",90
+"Ireland","Turlough Hill","IE0002R","EMEP","Operational?","53.04°N 6.40°W",420
+"Ireland","Valentia","VTO","Regional","full operation","51.94°N 10.25°W",14
+"Ireland","Valentia Observatory","IE0001R","EMEP","Operational?","51.94°N 10.24°W",11
+"Israel","Sede Boker","WIS","Regional","full operation","31.13°N 34.88°E",400
+"Italy","Aosta","AST","Contributing","full operation","45.74°N 7.36°E",569
+"Italy","Arabba","IT0005R","EMEP","Operational?","46.52°N 11.88°E",2030
+"Italy","Brindisi",,"Regional","full operation","40.63°N 17.95°E",5
+"Italy","Cagliari/Elmas",,"Regional","unknown","39.25°N 9.05°E",4
+"Italy","ISAC Belogna","IT0008R","EMEP","Operational?","44.48°N 11.33°E",0
+"Italy","Ispra","IPR","Regional","full operation","45.80°N 8.63°E",209
+"Italy","Ispra","IT0004R","EMEP","Operational?","45.80°N 8.63°E",209
+"Italy","Lampedusa","LMP","Regional","full operation","35.52°N 12.63°E",45
+"Italy","Messina",,"Regional","full operation","38.20°N 15.55°E",54
+"Italy","Monte Cimone","CMN","Global","full operation","44.17°N 10.68°E",2165
+"Italy","Mt Cimone","IT0009R","EMEP","Operational?","44.18°N 10.70°E",2165
+"Italy","Montelibretti","IT0001R","EMEP","Operational?","42.10°N 12.63°E",48
+"Italy","Montelibretti",,"Contributing","full operation","42.10°N 12.63°E",48
+"Italy","Napoli",,"Regional","closed","40.85°N 15.25°E",45
+"Italy","Plateau Rosa","PRS","Regional","full operation","45.93°N 7.70°E",3480
+"Italy","Rome University","ROM","Regional","full operation","41.90°N 12.52°E",75
+"Italy","San Pietro Capofiume",,"Regional","closed","44.65°N 11.62°E",11
+"Italy","Santa Maria di Leuca",,"Regional","full operation","39.80°N 18.33°E",104
+"Italy","Sestola",,"Regional","full operation","44.22°N 10.77°E",1030
+"Italy","Stelvio","IT0002R","EMEP","Operational?","46.35°N 10.38°E",1415
+"Italy","Trapani",,"Regional","full operation","37.92°N 12.50°E",7
+"Italy","Vallombrosa","IT0003R","EMEP","Operational?","43.73°N 11.55°E",1000
+"Italy","Verona",,"Regional","full operation","45.38°N 10.87°E",67
+"Italy","Vigna di Valle",,"Regional","full operation","42.08°N 12.52°E",262
+"Italy","Viterbo",,"Regional","full operation","42.43°N 12.05°E",300
+"Japan","Cape Ochiishi","COI","Contributing","full operation","43.17°N 145.50°E",49
+"Japan","Hamamatsu","HMM","Contributing","unknown","34.72°N 137.70°E",29
+"Japan","Hateruma Island","HAT","Contributing","full operation","24.05°N 123.80°E",10
+"Japan","Hedo (Okinawa)","HDO","Contributing","full operation","26.87°N 128.30°E",60
+"Japan","Kagoshima","KAG","Regional","full operation","31.55°N 130.60°E",31
+"Japan","Kisai","KIS","Contributing","full operation","36.08°N 139.60°E",13
+"Japan","Kiso","KSO","Contributing","closed","35.80°N 137.60°E",
+"Japan","Memanbetsu","MMB","Contributing","closed","43.92°N 144.20°E",33
+"Japan","Mikawa-Ichinomiya","MKW","Contributing","full operation","34.85°N 137.40°E",50
+"Japan","Minamitorishima","MNM","Global","full operation","24.29°N 154.00°E",8
+"Japan","Mizuho","MZH","Contributing","closed","70.70°S 44.30°E",2230
+"Japan","Moshiri","MOS","Contributing","full operation","44.40°N 142.30°E",200
+"Japan","Mt. Dodaira","DDR","Contributing","full operation","36.00°N 139.20°E",840
+"Japan","Nagoya","NGY","Contributing","closed","35.15°N 137.00°E",35
+"Japan","Naha","NAH","Regional","full operation","26.20°N 127.70°E",27
+"Japan","Rikubetsu","RKB","Contributing","full operation","43.50°N 143.80°E",370
+"Japan","Ryofu Maru","RYF",,"full operation",,0
+"Japan","Ryori","RYO","Regional","full operation","39.03°N 141.80°E",260
+"Japan","Sapporo","SAP","Regional","full operation","43.05°N 141.30°E",26
+"Japan","Suita","SUI","Contributing","closed","34.82°N 135.50°E",63
+"Japan","Syowa","SYO","Regional","full operation","69.00°S 39.58°E",21
+"Japan","Takayama","TKY","Contributing","full operation","36.15°N 137.40°E",1420
+"Japan","Tateno (Tsukuba)","TKB","Regional","full operation","36.05°N 140.10°E",31
+"Japan","Torishima","TOR","Contributing","closed","30.48°N 140.30°E",83
+"Japan","Urawa","URW","Contributing","closed","35.87°N 139.60°E",10
+"Japan","Yonagunijima","YON","Regional","full operation","24.47°N 123.00°E",30
+"Kazakhstan","Almaty",,"Regional","full operation","43.14°N 76.56°E",851
+"Kazakhstan","Aral Sea",,"Regional","full operation","46.47°N 61.39°E",62
+"Kazakhstan","Atyray",,"Regional","full operation","47.07°N 61.39°E",-23
+"Kazakhstan","Borovoe","BRV","Regional","full operation","53.12°N 70.28°E",0
+"Kazakhstan","Borovoe","KZ0001R","EMEP","Operational?","53.12°N 70.28°E",0
+"Kazakhstan","Karaganda",,"Regional","full operation","49.48°N 73.09°E",553
+"Kazakhstan","Plateau Assy","KZM","Regional","full operation","43.25°N 77.88°E",2519
+"Kazakhstan","Sary Taukum","KZD","Regional","full operation","44.45°N 77.57°E",412
+"Kazakhstan","Semipalatinsk",,"Regional","full operation","50.25°N 80.18°E",196
+"Kenya","Malindi","MLD","Regional","closed","2.99°S 40.19°E",0
+"Kenya","Mt. Kenya","MKN","Global","full operation","0.06°S 37.30°E",3678
+"Kenya","Nairobi","NRB","Regional","full operation","1.30°S 36.75°E",1795
+"Kiribati","Christmas Island","CHR","Regional","full operation","1.70°N 157.20°W",3
+"Kiribati","Tarawa","TAW","Contributing","closed","1.40°N 172.90°E",0
+"Korea","Anmyeon-do","AMY","Regional","full operation","36.54°N 126.30°E",46
+"Korea","Cheju",,"Regional","unknown","33.50°N 126.50°E",300
+"Korea","Gosan","GSN","Regional","full operation","33.28°N 126.20°E",72
+"Korea","King Sejong","KSG","Regional","full operation","62.22°S 58.78°W",0
+"Korea","Pohang",,"Regional","full operation","36.03°N 129.40°E",6
+"Korea","Seoul",,"Regional","full operation","37.57°N 127.00°E",84
+"Korea","Tae-ahn Peninsula","TAP","Regional","full operation","36.73°N 126.10°E",20
+"Kyrgyzstan","Issyk-Kul","ISK","Regional","full operation","42.62°N 76.98°E",1640
+"Latvia","Aluksne","ALK","Contributing","full operation","57.26°N 27.02°E",197
+"Latvia","Dobele","DBL","Contributing","full operation","56.37°N 23.19°E",42
+"Latvia","Kemeri","LV0025R","EMEP","Operational?","56.92°N 23.47°E",0
+"Latvia","Riga","RGA","Regional","closed","57.19°N 24.25°E",7
+"Latvia","Rucava","LV0010R","EMEP","Operational?","56.16°N 21.17°E",18
+"Latvia","Rucava","RCV","Regional","full operation","56.09°N 21.10°E",18
+"Latvia","Zilani","ZLN","Contributing","full operation","56.31°N 25.55°E",107
+"Latvia","Zoseni","LV0016R","EMEP","Operational?","57.14°N 25.91°E",188
+"Latvia","Zoseni","ZSN","Regional","full operation","57.08°N 25.54°E",183
+"Lithuania","Kaunas","KAU","Regional","full operation","54.88°N 23.84°E",77
+"Lithuania","Preila","LT0015R","EMEP","Operational?","55.35°N 21.07°E",5
+"Lithuania","Preila","PLA","Regional","full operation","55.21°N 21.04°E",5
+"Lthuania","Nida","LT0003R","EMEP","Operational?","55.35°N 21.07°E",17
+"Luxembourg","Diekirch","LCD","Regional","full operation","49.87°N 6.17°E",218
+"Macedonia","Lazaropole","MK0007R","EMEP","Operational?","41.32°N 20.42°E",1332
+"Macedonia","Lazaropole","LZP","Regional","intermittent operation","41.32°N 20.42°E",1332
+"Malawi","Lilongwe",,"Regional","closed","13.78°S 33.78°E",1228
+"Malaysia","Danum Valley","DMV","Global","full operation","4.98°N 117.80°E",426
+"Malaysia","Petaling Jaya","PJM","Regional","full operation","3.10°N 101.70°E",46
+"Malaysia","Sepang Airport","SEP","Regional","full operation","2.73°N 101.70°E",17
+"Malaysia","Tanah Rata","TAR","Regional","full operation","4.47°N 101.40°E",1472
+"Maldives","Gan (Addu Atoll)","GAN","Regional","closed","0.68°S 73.15°E",2
+"Maldives","Kaashidhoo (Male Atoll)","KCO","Regional","closed","4.97°N 73.47°E",1
+"Malta","Dwejra Point","GOZ","Regional","closed","36.05°N 14.18°E",30
+"Malta","Giordan Lighthouse","GLH","Regional","full operation","36.07°N 14.22°E",167
+"Malta","Giordan lighthouse","MT0001R","EMEP","Operational?","36.10°N 14.20°E",160
+"Marshall Islands","Kwajalein","KWJ","Contributing","full operation","8.72°N 167.70°E",10
+"Mexico","Cerrillos",,"Regional","closed","19.48°N 99.72°W",2640
+"Mexico","Mex High Altitude Global Climate Observation Cente","MEX","Non-GAW (international)","full operation","19.98°N 97.17°W",4560
+"Mexico","Mexico City","MXC","Regional","full operation","19.32°N 99.17°W",2268
+"Moldova","Leova","MD0012R","EMEP","Operational?","46.50°N 28.27°E",156
+"Moldova","Leova II","MD0013R","EMEP","Operational?","46.49°N 28.28°E",166
+"Moldova","Chisinau","ARG","Regional","full operation","47.00°N 28.82°E",205
+"Mongolia","Sainshand","SSH","Regional","closed","45.00°N 110.00°E",940
+"Mongolia","Ulaan Uul","UUM","Regional","full operation","44.45°N 111.10°E",914
+"Montenegro","Zabljak","ME0008R","EMEP","Operational?","43.15°N 19.13°E",1450
+"Montenegro","Zabljak","ZBL","Regional","closed","43.15°N 19.13°E",1450
+"Morocco","Beni Mellal",,"Regional","intermittent operation","32.37°N 6.40°W",468
+"Morocco","Casablanca",,"Regional","full operation","33.57°N 7.20°W",56
+"Morocco","Ifrane",,"Regional","intermittent operation","33.50°N 5.17°W",1665
+"Mozambique","Maputo",,"Regional","unknown","25.97°S 32.60°E",70
+"Mozambique","Nampula",,"Regional","unknown","15.10°S 39.28°E",440
+"Namibia","Etosha Pan",,"Regional","closed","19.20°S 15.90°E",1100
+"Namibia","Gobabeb","NMB","Regional","full operation","23.57°S 15.03°E",408
+"Nauru","Nauru","NAU","Contributing","full operation","0.52°S 166.90°E",7
+"Nepal","Nepal Climate Observatory - Pyramid","PYR","Global","full operation","27.96°N 86.81°E",5079
+"Netherlands","Appelscha","NL0006R","EMEP","Operational?","52.95°N 6.30°E",10
+"Netherlands","Bilthoven","NL0008R","EMEP","Operational?","52.12°N 5.20°E",5
+"Netherlands","Bilthoven",,"Contributing","closed","52.12°N 5.20°E",5
+"Netherlands","Cabauw","NL0011R","EMEP","Operational?","51.97°N 4.93°E",60
+"Netherlands","Cesar (Cabauw)","CES","Regional","full operation","51.97°N 4.93°E",-1
+"Netherlands","De Bilt","DBT","Regional","full operation","52.10°N 5.18°E",2
+"Netherlands","De Zilk","NL0091R","EMEP","Operational?","52.30°N 4.50°E",4
+"Netherlands","De Zilk",,"Contributing","full operation","52.30°N 4.50°E",4
+"Netherlands","Eibergen","NL0007R","EMEP","Operational?","52.08°N 6.57°E",20
+"Netherlands","Eibergen",,"Contributing","closed","52.08°N 6.57°E",20
+"Netherlands","Kloosterburen","KTB","Regional","closed","53.40°N 6.42°E",0
+"Netherlands","Kollumerwaard","KMW","Regional","full operation","53.33°N 6.27°E",0
+"Netherlands","Kollumerwaard","NL0009R","EMEP","Operational?","53.33°N 6.28°E",1
+"Netherlands","Moerdijk","MDK","Regional","closed","51.68°N 4.53°E",0
+"Netherlands","Rekken","NL0005R","EMEP","Operational?","52.10°N 6.72°E",25
+"Netherlands","Vredepeel","NL0010R","EMEP","Operational?","51.54°N 5.85°E",28
+"Netherlands","Vreedepeel",,"Contributing","full operation","51.53°N 5.85°E",5
+"Netherlands","Witteveen","NL0002R","EMEP","Operational?","52.82°N 6.67°E",18
+"New Zealand","Arrival Heights","ARH","Regional","full operation","77.83°S 166.70°E",184
+"New Zealand","Baring Head","BHD","Regional","full operation","41.41°S 174.90°E",85
+"New Zealand","Chatham Island","CHI","Regional","closed","43.92°S 176.50°W",20
+"New Zealand","Christchurch",,"Regional","closed","43.48°S 172.60°E",34
+"New Zealand","Hallett",,"Regional","closed","72.32°S 170.20°E",5
+"New Zealand","Invercargill","IVC","Regional","closed","46.43°S 168.40°E",30
+"New Zealand","Kaitorete Spit","NZL","Regional","closed","43.83°S 172.60°E",3
+"New Zealand","Lauder","LAU","Global","full operation","45.04°S 169.70°E",370
+"New Zealand","Raratonga (Cook Islands)","RTA","Regional","full operation","21.25°S 159.80°W",20
+"New Zealand","Scott Base","SBS","Regional","full operation","77.85°S 166.80°E",16
+"New Zealand","Wellington",,"Regional","closed","41.28°S 174.70°E",126
+"Nigeria","Ilorin","ILO","Contributing","intermittent operation","8.53°N 4.57°E",350
+"Nigeria","Lagos",,"Regional","full operation","6.60°N 3.30°E",10
+"Nigeria","Oshogbo",,"Regional","intermittent operation","7.80°N 4.50°E",300
+"Norway","Andoya","ARR","Contributing","full operation","69.28°N 16.01°E",360
+"Norway","Andøya (Alomar)","NO0090R","EMEP","Operational?","69.28°N 16.01°E",380
+"Norway","Birkenes","BIR","Regional","full operation","58.38°N 8.25°E",190
+"Norway","Birkenes","NO0001R","EMEP","Operational?","58.38°N 8.25°E",190
+"Norway","Birkenes II","NO0002R","EMEP","Operational?","58.39°N 8.25°E",219
+"Norway","Bjørnøya","NO0037R","EMEP","Operational?","74.52°N 19.02°E",20
+"Norway","Bjørnøya",,"Contributing","closed","74.50°N 19.02°E",
+"Norway","Dombas",,"Regional","unknown","62.10°N 9.10°E",659
+"Norway","Filefjell","NO0269R","EMEP","Operational?","60.18°N 8.12°E",956
+"Norway","Finsland","NO0203R","EMEP","Operational?","58.32°N 7.58°E",275
+"Norway","Frihetsli","NO0990R","EMEP","Operational?","0.000.00",
+"Norway","Harestua","HRS","Contributing","full operation","60.20°N 10.80°E",596
+"Norway","Hornsund (Svalbard)",,"Regional","unknown","77.00°N 15.55°E",11
+"Norway","Hummelfjell","NO0036R","EMEP","Operational?","62.45°N 11.27°E",1539
+"Norway","Hurdal","NO0056R","EMEP","Operational?","60.37°N 11.08°E",300
+"Norway","Jeløya","NO0045R","EMEP","Operational?","59.43°N 10.60°E",5
+"Norway","Jergul","JGL","Regional","closed","69.40°N 24.60°E",255
+"Norway","Jergul","NO0030R","EMEP","Operational?","69.45°N 24.60°E",255
+"Norway","Karasjok","NO0055R","EMEP","Operational?","69.47°N 25.22°E",333
+"Norway","Karpdalen","NO0098R","EMEP","Operational?","69.65°N 30.43°E",70
+"Norway","Kårvatn","NO0039R","EMEP","Operational?","62.78°N 8.88°E",210
+"Norway","Kårvatn / Kaarvatn",,"Regional","full operation","62.78°N 8.88°E",210
+"Norway","Kirkeveien","NO0931R","EMEP","Operational?","59.93°N 10.73°E",60
+"Norway","Kise","NO0382R","EMEP","Operational?","60.77°N 10.82°E",128
+"Norway","Lista","NO0099R","EMEP","Operational?","58.10°N 6.57°E",13
+"Norway","Løken","NO0218R","EMEP","Operational?","59.81°N 11.46°E",135
+"Norway","Longyearbyen",,"Regional","unknown","78.22°N 15.57°E",0
+"Norway","Lyngør","NO0233R","EMEP","Operational?","58.63°N 9.13°E",20
+"Norway","Møsvatn","NO0094R","EMEP","Operational?","59.83°N 8.33°E",940
+"Norway","Murchison Bay",,"Regional","unknown","80.00°N 18.00°E",-1
+"Norway","Narbuvoll","NO0035R","EMEP","Operational?","62.35°N 11.67°E",768
+"Norway","Nordmoen","NO0044R","EMEP","Operational?","60.27°N 11.10°E",200
+"Norway","Ny √Ölesund","NYA","Global","full operation","78.91°N 11.88°E",0
+"Norway","Osen","NO0041R","EMEP","Operational?","61.25°N 11.78°E",440
+"Norway","Osen",,"Regional","unknown","61.25°N 11.78°E",440
+"Norway","Oslo",,"Regional","full operation","59.90°N 10.73°E",50
+"Norway","Øverbygd","NO0092R","EMEP","Operational?","69.05°N 19.37°E",90
+"Norway","Prestebakke","NO0043R","EMEP","Operational?","59.00°N 11.53°E",160
+"Norway","Prestebakke",,"Contributing","full operation","59.00°N 11.53°E",160
+"Norway","Sandve","NO0052R","EMEP","Operational?","59.20°N 5.20°E",15
+"Norway","Sandve",,"Contributing","full operation","59.20°N 5.20°E",40
+"Norway","Skei i Jølster","NO0214R","EMEP","Operational?","61.57°N 6.48°E",205
+"Norway","Skreådalen","NO0008R","EMEP","Operational?","58.82°N 6.72°E",475
+"Norway","Skreådalen",,"Regional","closed","58.82°N 6.72°E",475
+"Norway","Solhomfjell","NO0097R","EMEP","Operational?","58.93°N 8.80°E",260
+"Norway","Søyland","NO0209R","EMEP","Operational?","58.68°N 5.98°E",263
+"Norway","Zeppelinfjell Spitsbergen","NO0042G","EMEP","Operational?","78.90°N 11.88°E",474
+"Norway","Svanvik","NO0047R","EMEP","Operational?","69.45°N 30.03°E",30
+"Norway","Svanvik",,"Contributing","closed","69.45°N 30.03°E",30
+"Norway","Treungen","NO0236R","EMEP","Operational?","59.02°N 8.52°E",300
+"Norway","Troll","NO0058G","EMEP","Operational?","72.02°S 2.53°E",1309
+"Norway","Tromsø",,"Regional","unknown","69.65°N 18.95°E",100
+"Norway","Tustervatn","NO0015R","EMEP","Operational?","65.83°N 13.92°E",439
+"Norway","Tustervatn",,"Regional","full operation","65.83°N 13.92°E",439
+"Norway","Ualand","NO0095R","EMEP","Operational?","58.52°N 6.38°E",220
+"Norway","Valdalen","NO0093R","EMEP","Operational?","62.08°N 12.17°E",800
+"Norway","Vasser","NO0232R","EMEP","Operational?","58.07°N 10.43°E",35
+"Norway","Voss","NO0048R","EMEP","Operational?","60.60°N 6.53°E",500
+"Norway","Zeppelin Mountain (Ny √Ölesund)","ZEP","Global","full operation","78.91°N 11.88°E",474
+"Other Pacific Islands","Chenggong","CHG","Regional","full operation","23.10°N 121.40°E",34
+"Other Pacific Islands","Lulin","LLN","Contributing","full operation","23.47°N 120.90°E",2862
+"Other Pacific Islands","Taipei","CWB","Regional","full operation","25.02°N 121.50°E",5
+"Pakistan","Quetta","QTA","Regional","full operation","30.19°N 66.95°E",1799
+"Panama","Albrook","ARK","Regional","closed","8.98°N 79.55°W",66
+"Panama","David City","DVC","Contributing","full operation","8.40°N 82.42°W",27
+"Panama","Fort Sherman","FSM","Regional","closed","9.33°N 79.98°W",57
+"Panama","Santiago City",,"Regional","unknown","8.10°N 80.40°W",140
+"Panama","University of Panama","UPA","Contributing","full operation","8.98°N 79.53°W",50
+"Papua New Guinea","Momote","MAN","Contributing","full operation","2.06°S 147.40°E",6
+"Paraguay","San Lorenzo","SNL","Regional","full operation","25.37°S 57.55°W",133
+"Peru","Chilca","CIC","Regional","closed","12.50°S 76.80°W",1
+"Peru","Huancayo","HUA","Regional","closed","12.15°S 75.57°W",4575
+"Peru","Marcapomacocha","MPO","Regional","full operation","11.40°S 76.33°W",4500
+"Philippines","Manila",,"Regional","full operation","14.65°N 121.10°E",63
+"Philippines","Mt. St. Thomas",,"Regional","unknown","16.33°N 120.60°E",2256
+"Poland","Baltic Sea","BAL","Regional","full operation","55.50°N 16.67°E",7
+"Poland","Belsk","COG","Regional","full operation","51.84°N 20.79°E",180
+"Poland","Bialystok",,"Contributing","full operation","53.23°N 23.03°E",180
+"Poland","Diabla Gora","PL0005R","EMEP","Operational?","54.15°N 22.07°E",157
+"Poland","Diabla Gora / Puszcza Borecka","DIG","Regional","full operation","54.15°N 22.07°E",157
+"Poland","Jarczew","JCZ","Regional","full operation","51.82°N 21.98°E",180
+"Poland","Jarczew","PL0002R","EMEP","Operational?","51.82°N 21.98°E",180
+"Poland","Leba","LEB","Regional","full operation","54.75°N 17.53°E",2
+"Poland","Leba","PL0004R","EMEP","Operational?","54.75°N 17.53°E",2
+"Poland","Legionowo","LEG","Regional","full operation","52.40°N 20.97°E",96
+"Poland","Sniezka","PL0003R","EMEP","Operational?","50.73°N 15.73°E",1603
+"Poland","Sniezka","SNZ","Regional","full operation","50.73°N 15.73°E",1603
+"Poland","Suwalki","PL0001R","EMEP","Operational?","54.13°N 22.95°E",184
+"Poland","Suwalki","SWL","Regional","closed","54.13°N 22.95°E",184
+"Portugal","Angra de Heroismo (A√ßores)","ANG","Regional","full operation","38.67°N 27.22°W",74
+"Portugal","Beja","BEJ","Regional","closed","38.02°N 7.87°W",246
+"Portugal","Braganca","BRG","Regional","full operation","41.80°N 6.73°W",690
+"Portugal","Braganca","PT0001R","EMEP","Operational?","41.82°N 6.77°W",690
+"Portugal","Castelo Branco","CAS","Regional","full operation","39.83°N 7.47°W",386
+"Portugal","Faro","FAR","Regional","closed","37.02°N 7.97°W",8
+"Portugal","Faro","PT0002R","EMEP","Operational?","37.02°N 7.97°W",8
+"Portugal","Foia","PT0005R","EMEP","Operational?","37.32°N 8.90°W",902
+"Portugal","Funchal (Madeira)","FUN","Regional","full operation","32.65°N 16.88°W",58
+"Portugal","Lisboa","LIS","Regional","full operation","38.77°N 9.13°W",105
+"Portugal","Monte Velho","MVH","Regional","full operation","38.08°N 8.80°W",43
+"Portugal","Monte Velho","PT0004R","EMEP","Operational?","38.08°N 8.80°W",43
+"Portugal","Penhas Douradas","PEN","Regional","full operation","40.42°N 7.55°W",1380
+"Portugal","Santa Maria Island (Azores)","SMI","Contributing","closed","36.96°N 25.17°W",100
+"Portugal","Serreta (Terceira)","AZR","Regional","full operation","38.77°N 27.38°W",40
+"Portugal","Viana do Castelo","PT0003R","EMEP","Operational?","41.70°N 8.80°W",16
+"Portugal","Viana do Castelo","VDC","Regional","full operation","41.70°N 8.80°W",16
+"Puerto Rico","Cape San Juan","CPR","Contributing","full operation","18.38°N 65.62°W",65
+"Puerto Rico","San Juan","SJP","Regional","closed","18.48°N 66.13°W",17
+"Romania","Bucharest","ANM","Regional","full operation","44.48°N 26.13°E",100
+"Romania","Constanta (Black Sea)","BSC","Regional","full operation","44.17°N 28.68°E",3
+"Romania","Fundata","FDT","Regional","intermittent operation","45.43°N 25.27°E",1384
+"Romania","Fundata","RO0005R","EMEP","Operational?","45.47°N 25.30°E",1371
+"Romania","Paring","RO0004R","EMEP","Operational?","45.38°N 23.47°E",1585
+"Romania","Rarau","RO0001R","EMEP","Operational?","47.45°N 25.45°E",1536
+"Romania","Semenic","RO0003R","EMEP","Operational?","45.12°N 25.97°E",1432
+"Romania","Semenic","SEM","Regional","closed","45.18°N 22.05°E",1432
+"Romania","Stana de Vale","STN","Regional","closed","46.68°N 22.20°E",1108
+"Romania","Stina de Vale","RO0002R","EMEP","Operational?","46.68°N 23.53°E",1111
+"Romania","Turia","RO0006R","EMEP","Operational?","46.12°N 25.98°E",1008
+"Russian Federation","Arkhangel'sk","AHK","Regional","full operation","64.58°N 40.50°E",13
+"Russian Federation","Astrakhan","ASN","Regional","full operation","45.75°N 47.92°E",-25
+"Russian Federation","Barguzin","BGZ","Regional","full operation","54.20°N 109.50°E",250
+"Russian Federation","Bering Island","BER","Regional","closed","55.20°N 166.00°E",13
+"Russian Federation","Bol'shaya Elan","BSH","Regional","full operation","46.92°N 142.70°E",22
+"Russian Federation","Caucasus","KWZ","Regional","full operation","43.70°N 40.22°E",400
+"Russian Federation","Central Forest","CLZ","Regional","full operation","56.60°N 32.80°E",260
+"Russian Federation","Cimljansk","CYM","Regional","full operation","47.73°N 42.25°E",64
+"Russian Federation","Danki","DAK","Regional","full operation","54.90°N 37.80°E",140
+"Russian Federation","Danki","RU0018R","EMEP","Operational?","54.90°N 37.80°E",150
+"Russian Federation","Dikson Island","DXO","Regional","intermittent operation","73.50°N 80.23°E",18
+"Russian Federation","Hanty Mansijsk","XMS","Regional","full operation","60.97°N 69.07°E",40
+"Russian Federation","Heiss Island","HEI","Regional","closed","80.62°N 58.10°E",20
+"Russian Federation","Igarka","IFY","Regional","closed","67.47°N 86.57°E",20
+"Russian Federation","Irkutsk","IRK","Regional","full operation","52.26°N 104.40°E",467
+"Russian Federation","Janiskoski","JNS","Regional","full operation","68.93°N 28.85°E",118
+"Russian Federation","Janiskoski","RU0001R","EMEP","Operational?","68.93°N 28.85°E",118
+"Russian Federation","Khuzhir","HZR","Regional","full operation","53.20°N 107.30°E",487
+"Russian Federation","Kislovodsk","KSL","Regional","full operation","43.73°N 42.66°E",2070
+"Russian Federation","Kotelnyj Island","KOT","Regional","full operation","76.00°N 137.90°E",5
+"Russian Federation","Krasnoyarsk","KRS","Regional","full operation","56.00°N 92.88°E",137
+"Russian Federation","Lesnoy","RU0020R","EMEP","Operational?","56.53°N 32.94°E",340
+"Russian Federation","Lesogorsky","RU0008R","EMEP","Operational?","61.00°N 28.97°E",39
+"Russian Federation","Markovo","MRK","Regional","full operation","64.68°N 170.40°E",22
+"Russian Federation","Mirny","MIR","Regional","closed","66.55°S 93.00°E",30
+"Russian Federation","Moscow","MSC","Regional","full operation","55.75°N 37.37°E",187
+"Russian Federation","Mt. Elbrus","ELB","Regional","closed","43.32°N 42.47°E",2100
+"Russian Federation","Murmansk","MRM","Regional","full operation","68.97°N 33.05°E",46
+"Russian Federation","Nagaevo","NGV","Regional","full operation","59.58°N 150.80°E",118
+"Russian Federation","Nikolayevsk-na-Amure","NKA","Regional","full operation","53.15°N 140.70°E",46
+"Russian Federation","Novolazarevskaya-Forster","NLZ","Regional","closed","70.77°S 11.87°E",110
+"Russian Federation","Obninsk","OBN","Regional","full operation","55.10°N 36.61°E",100
+"Russian Federation","Oka-Terrase","OKA","Regional","full operation","54.90°N 37.80°E",200
+"Russian Federation","Olenek","OLN","Regional","full operation","68.50°N 112.40°E",127
+"Russian Federation","Omsk","OMS","Regional","full operation","54.93°N 73.40°E",119
+"Russian Federation","Pechora","PCH","Regional","full operation","65.20°N 57.17°E",56
+"Russian Federation","Petropavlovsk-Kamchatskiy","PTK","Regional","full operation","52.97°N 158.80°E",78
+"Russian Federation","Pinega","PIN","Regional","full operation","64.70°N 43.40°E",28
+"Russian Federation","Pinega","RU0013R","EMEP","Operational?","64.70°N 43.40°E",28
+"Russian Federation","Pushkinskie Gory","RU0014R","EMEP","Operational?","57.00°N 28.90°E",103
+"Russian Federation","Salekhard","SKD","Contributing","full operation","67.50°N 67.50°E",419
+"Russian Federation","Samara","KSM","Regional","full operation","53.25°N 50.45°E",139
+"Russian Federation","Shadzhatmaz (Novopyatigorsk)","SDM","Regional","full operation","43.73°N 42.60°E",2070
+"Russian Federation","Shepeljovo","RU0016R","EMEP","Operational?","59.97°N 29.12°E",4
+"Russian Federation","Shepeljovo","SHP","Regional","full operation","59.97°N 29.12°E",4
+"Russian Federation","Sikhote-Alin' Biosphere Reserve (Terney)","SAI","Regional","full operation","45.00°N 136.60°E",51
+"Russian Federation","Skovorodino","SKV","Regional","closed","54.00°N 124.00°E",-1
+"Russian Federation","St. Petersburg","SPB","Regional","full operation","59.97°N 30.30°E",60
+"Russian Federation","Teriberka","TER","Regional","full operation","69.20°N 35.10°E",40
+"Russian Federation","Tiksi","TIK","Regional","full operation","71.58°N 128.90°E",8
+"Russian Federation","Tura","TUR","Regional","full operation","64.17°N 100.10°E",
+"Russian Federation","Turukhansk","TRH","Regional","full operation","65.78°N 87.90°E",38
+"Russian Federation","Ust'-Vym' (Syktyvkar - I)","USV","Regional","full operation","62.23°N 50.40°E",106
+"Russian Federation","Vitim","VTM","Regional","full operation","59.45°N 112.60°E",186
+"Russian Federation","Vladivostok","VLB","Regional","full operation","43.12°N 131.90°E",80
+"Russian Federation","Volgograd","VGG","Regional","closed","48.58°N 45.72°E",60
+"Russian Federation","Voronezh","VOR","Regional","full operation","51.90°N 39.60°E",145
+"Russian Federation","Vostok","VST","Regional","closed","78.27°S 106.50°E",-1
+"Russian Federation","Yakutsk","YAK","Regional","closed","62.08°N 129.80°E",98
+"Russian Federation","Yekaterinburg / Sverdlovsk","SVR","Regional","full operation","56.80°N 60.63°E",290
+"Russian Federation","Zhigansk","ZHI","Contributing","full operation","67.20°N 123.40°E",50
+"Russian Federation","Zvenigorod","ZVG","Contributing","full operation","55.70°N 36.80°E",184
+"Saudi Arabia","Solar Village (Riyadh)","SVO","Contributing","full operation","24.65°N 48.77°E",650
+"Sebia","Kamenicki vis","RS0005R","EMEP","Operational?","43.40°N 21.95°E",813
+"Senegal","Bambey","BBY","Regional","closed","14.70°N 16.47°W",17
+"Serbia","Belgrade","PDJ","Contributing","full operation","44.51°N 20.23°E",103
+"Serbia","Kamenicki-Vis","KAM","Regional","full operation","43.40°N 21.95°E",813
+"Seychelles","Mahé","SEY","Regional","full operation","4.67°S 55.52°E",3
+"Singapore","Singapore","SIN","Regional","full operation","1.32°N 103.90°E",14
+"Slovakia","Chopok","CHO","Regional","full operation","48.97°N 19.60°E",2008
+"Slovakia","Chopok","SK0002R","EMEP","Operational?","48.93°N 19.58°E",2008
+"Slovakia","Poprad-Ganovce","PPG","Regional","full operation","49.03°N 20.32°E",706
+"Slovakia","Liesek","SK0005R","EMEP","Operational?","49.37°N 19.68°E",892
+"Slovakia","Stara Lesna",,"Contributing","full operation","49.15°N 20.28°E",808
+"Slovakia","Stará Lesná","SK0004R","EMEP","Operational?","49.15°N 20.28°E",808
+"Slovakia","Starina",,"Contributing","full operation","49.05°N 22.27°E",345
+"Slovakia","Starina","SK0006R","EMEP","Operational?","49.05°N 22.27°E",345
+"Slovakia","Topolniky",,"Contributing","full operation","47.97°N 17.87°E",113
+"Slovakia","Topolniky","SK0007R","EMEP","Operational?","47.96°N 17.86°E",113
+"Slovenia","Iskrba","IRB","Regional","full operation","45.33°N 14.51°E",520
+"Slovenia","Iskrba","SI0008R","EMEP","Operational?","45.57°N 14.87°E",520
+"Slovenia","Kovk","KVK","Regional","full operation","46.07°N 15.06°E",600
+"Slovenia","Kovk","SI0033R","EMEP","Operational?","46.13°N 15.11°E",600
+"Slovenia","Krvavec","KVV","Regional","full operation","46.18°N 14.32°E",1720
+"Slovenia","Krvavec","SI0032R","EMEP","Operational?","46.30°N 14.54°E",1740
+"Slovenia","Masun","SI0001R","EMEP","Operational?","45.65°N 14.37°E",1026
+"Slovenia","Zarodnje","SI0031R","EMEP","Operational?","46.43°N 15.00°E",770
+"Slovenia","Zavodnje","ZRN","Regional","full operation","46.26°N 15.00°E",770
+"South Africa","Cape Point","CPT","Global","full operation","34.35°S 18.49°E",230
+"South Africa","De Aar","DAA","Regional","intermittent operation","30.66°S 23.99°E",1287
+"South Africa","Irene","IRE","Regional","full operation","25.25°S 28.22°E",1524
+"South Africa","Marion Island","MAR","Regional","closed","46.87°S 37.85°E",20
+"South Africa","Pretoria","PRT","Regional","closed","25.73°S 28.18°E",1369
+"South Africa","Springbok","SPK","Regional","full operation","29.67°S 17.90°E",1006
+"Spain","Barcarrola","ES0011R","EMEP","Operational?","38.48°N 6.92°W",393
+"Spain","Barcarrota",,"Contributing","full operation","38.47°N 6.92°W",393
+"Spain","Begur","BGU","Non-GAW (international)","full operation","41.97°N 3.23°E",13
+"Spain","Cabo de Creus","ES0010R","EMEP","Operational?","42.32°N 3.32°E",23
+"Spain","Cabo de Creus",,"Contributing","full operation","42.32°N 3.32°W",23
+"Spain","Cambisabalos",,"Contributing","full operation","41.27°N 3.13°W",1360
+"Spain","Campisabalos","ES0009R","EMEP","Operational?","41.28°N 3.14°W",1360
+"Spain","Doñana","DON","Regional","full operation","37.05°N 6.55°W",5
+"Spain","El Arenosillo","ARN","Regional","full operation","37.10°N 6.73°W",41
+"Spain","Els Torms","ES0014R","EMEP","Operational?","41.40°N 0.72°E",470
+"Spain","Els Torms",,"Contributing","full operation","41.38°N 0.72°E",470
+"Spain","Izaña (Tenerife)","IZO","Global","full operation","28.31°N 16.50°W",2373
+"Spain","La Cartuja","CAR","Regional","closed","37.20°N 3.60°W",720
+"Spain","La Cartuja","ES0002R","EMEP","Operational?","37.20°N 3.60°W",720
+"Spain","La Coruña","LCO","Regional","full operation","43.33°N 8.47°W",62
+"Spain","Logroño","ES0004R","EMEP","Operational?","42.46°N 2.50°W",445
+"Spain","Logroño","LOG","Regional","closed","42.45°N 2.50°W",370
+"Spain","Madrid","MAD","Regional","full operation","40.45°N 3.72°W",680
+"Spain","Mahón","ES0006R","EMEP","Operational?","39.87°N 4.32°E",78
+"Spain","Mahón","MHN","Regional","full operation","39.87°N 4.32°E",78
+"Spain","Montseny","ES1778R","EMEP","Operational?","41.77°N 2.35°E",700
+"Spain","Murcia","MUR","Regional","full operation","38.00°N 1.17°W",69
+"Spain","Niembro","ES0008R","EMEP","Operational?","43.44°N 4.85°W",134
+"Spain","Niembro",,"Contributing","full operation","43.43°N 4.85°W",134
+"Spain","Noia","NIA","Regional","full operation","42.73°N 8.92°W",685
+"Spain","Noya","ES0005R","EMEP","Operational?","42.73°N 8.92°W",683
+"Spain","O Saviñao","ES0016R","EMEP","Operational?","43.23°N 7.70°W",506
+"Spain","O Saviñao",,"Contributing","full operation","42.63°N 7.70°W",506
+"Spain","Penausende","ES0013R","EMEP","Operational?","41.28°N 5.87°W",985
+"Spain","Penausende",,"Contributing","full operation","41.28°N 5.87°W",985
+"Spain","Risco Llamo","ES0015R","EMEP","Operational?","39.52°N 4.35°W",1241
+"Spain","Roquetas","ES0003R","EMEP","Operational?","40.82°N 0.49°E",44
+"Spain","Roquetas","ROQ","Regional","closed","40.82°N 0.48°W",50
+"Spain","San Pablo de los Montes","ES0001R","EMEP","Operational?","39.55°N 4.35°W",917
+"Spain","San Pablos de los Montes","SPM","Regional","full operation","39.55°N 4.35°W",917
+"Spain","Santa Cruz (Tenerife)","SCO","Regional","full operation","28.47°N 16.25°W",52
+"Spain","Viznar",,"Contributing","full operation","37.23°N 3.47°W",1230
+"Spain","Víznar","ES0007R","EMEP","Operational?","37.23°N 3.53°W",1265
+"Spain","Zaragoza","ZAR","Contributing","full operation","41.63°N 0.91°W",250
+"Spain","Zarra","ES0012R","EMEP","Operational?","39.09°N 1.10°W",885
+"Spain","Zarra",,"Contributing","full operation","39.08°N 1.10°W",885
+"Suriname","Paramaribo","PMO","Regional","full operation","5.81°N 55.21°W",23
+"Sweden","Ammarnäs","SE0031R","EMEP","Operational?","65.97°N 16.20°E",480
+"Sweden","Arup","SE0051R","EMEP","Operational?","55.75°N 13.67°E",157
+"Sweden","Arup","SE0099R","EMEP","Operational?","55.75°N 13.67°E",0
+"Sweden","Arup",,"Contributing","full operation","55.75°N 13.67°E",157
+"Sweden","Aspvreten","APT","Regional","full operation","58.81°N 17.39°E",20
+"Sweden","Aspvreten","SE0012R","EMEP","Operational?","58.80°N 17.38°E",20
+"Sweden","Borlänge","BOR","Regional","full operation","60.49°N 15.43°E",164
+"Sweden","Bredkälen","BRE","Regional","full operation","63.84°N 15.32°E",410
+"Sweden","Bredkälen","SE0005R","EMEP","Operational?","63.85°N 15.33°E",404
+"Sweden","Ekeröd","SE0001R","EMEP","Operational?","55.90°N 13.72°E",140
+"Sweden","Esrange","ESR","Regional","closed","67.88°N 21.07°E",475
+"Sweden","Esrange","SE0013R","EMEP","Operational?","67.88°N 21.07°E",475
+"Sweden","Gårdsjön","SE0097R","EMEP","Operational?","58.05°N 12.02°E",126
+"Sweden","Gårdsjön",,"Contributing","full operation","58.05°N 12.02°E",113
+"Sweden","Göteborg","GBG","Regional","full operation","57.71°N 11.99°E",30
+"Sweden","Grimsö","SE0039R","EMEP","Operational?","59.73°N 15.47°E",132
+"Sweden","Gunnarn","GNN","Regional","closed","64.96°N 17.70°E",278
+"Sweden","Hoburg","HOB","Regional","unknown","56.92°N 18.15°E",58
+"Sweden","Hoburgen","SE0008R","EMEP","Operational?","56.92°N 18.15°E",58
+"Sweden","Karlstad","KAR","Regional","full operation","59.36°N 13.47°E",46
+"Sweden","Kiruna","KIR","Contributing","full operation","67.84°N 20.41°E",424
+"Sweden","Luleå","LUL","Regional","full operation","65.54°N 22.11°E",32
+"Sweden","Lund","LUN","Regional","full operation","55.71°N 13.21°E",85
+"Sweden","Norra Kvill",,"Contributing","full operation","57.82°N 15.57°E",261
+"Sweden","Norra-Kvill","SE0032R","EMEP","Operational?","57.82°N 15.57°E",261
+"Sweden","Norrköping","NRK","Regional","full operation","58.58°N 16.15°E",43
+"Sweden","Onsala","ONS","Contributing","full operation","57.40°N 11.93°E",
+"Sweden","Östersund","OST","Regional","full operation","63.20°N 14.48°E",374
+"Sweden","Råö","SE0014R","EMEP","Operational?","57.39°N 11.91°E",5
+"Sweden","Råö",,"Contributing","full operation","57.40°N 11.92°E",10
+"Sweden","Roervik","ROR","Regional","unknown","57.42°N 11.93°E",10
+"Sweden","Rörvik","SE0002R","EMEP","Operational?","57.42°N 11.93°E",10
+"Sweden","Sännen","SE0033R","EMEP","Operational?","56.33°N 15.33°E",90
+"Sweden","Sjöängen","SJO","Regional","full operation","58.75°N 14.30°E",128
+"Sweden","Stockholm","STH","Regional","full operation","59.35°N 18.06°E",30
+"Sweden","Storulvsjöen","SE0034R","EMEP","Operational?","62.27°N 16.30°E",420
+"Sweden","Svenska Högarna","SVH","Regional","full operation","59.44°N 19.50°E",10
+"Sweden","Tarfala","TLA","Regional","full operation","67.91°N 18.61°E",1144
+"Sweden","Umeå","UME","Regional","full operation","63.81°N 20.24°E",23
+"Sweden","Uppsala","UPS","Regional","closed","59.85°N 17.52°E",15
+"Sweden","Vavihill","SE0011R","EMEP","Operational?","56.02°N 13.15°E",175
+"Sweden","Vavihill",,"Contributing","full operation","56.02°N 13.15°E",172
+"Sweden","Växjö","VAX","Regional","full operation","56.93°N 14.73°E",182
+"Sweden","Velen","SE0003R","EMEP","Operational?","58.78°N 14.30°E",127
+"Sweden","Vindeln","SE0035R","EMEP","Operational?","64.25°N 19.77°E",225
+"Sweden","Vindeln","VDL","Regional","full operation","64.23°N 19.77°E",225
+"Sweden","Visby","VIS","Regional","full operation","57.67°N 18.35°E",49
+"Switzerland","Arosa","ARO","Regional","full operation","46.78°N 9.68°E",1840
+"Switzerland","Bern","BRN","Contributing","full operation","46.95°N 7.45°E",550
+"Switzerland","Chaumont","CH0004R","EMEP","Operational?","47.05°N 6.98°E",1137
+"Switzerland","Chaumont",,"Contributing","full operation","47.05°N 6.98°E",1137
+"Switzerland","Davos","DAV","Contributing","full operation","46.82°N 9.85°E",1590
+"Switzerland","Jungfraujoch","CH0001G","EMEP","Operational?","46.55°N 7.99°E",3578
+"Switzerland","Jungfraujoch","JFJ","Global","full operation","46.55°N 7.99°E",3580
+"Switzerland","Locarno-Monti","OTL","Contributing","full operation","46.17°N 8.78°E",366
+"Switzerland","Payerne","CH0002R","EMEP","Operational?","46.81°N 6.94°E",489
+"Switzerland","Payerne","PAY","Regional","full operation","46.82°N 6.95°E",490
+"Switzerland","Rigi","CH0005R","EMEP","Operational?","47.07°N 8.46°E",1031
+"Switzerland","Rigi","RIG","Regional","full operation","47.07°N 8.45°E",1031
+"Switzerland","Sion","CH0031R","EMEP","Operational?","46.22°N 7.34°E",483
+"Switzerland","Sion",,"Contributing","full operation","46.22°N 7.34°E",483
+"Switzerland","Tänikon","CH0003R","EMEP","Operational?","47.48°N 8.90°E",539
+"Switzerland","Tänikon","TAE","Contributing","full operation","47.48°N 8.90°E",539
+"Switzerland","Thalwil","THW","Regional","closed","47.29°N 8.56°E",515
+"Switzerland","Zimmerwald","ZIM","Contributing","full operation","46.88°N 7.46°E",907
+"Syria","Halab/Aleppo",,"Regional","unknown","36.14°N 37.10°E",502
+"Tajikistan","Dushanbe",,"Regional","closed","38.57°N 67.77°E",800
+"Thailand","Bangna Bangkok","BKK","Regional","full operation","13.67°N 100.60°E",53
+"Thailand","Songkhla","SKH","Regional","full operation","7.20°N 100.60°E",4
+"Tunisia","Thala",,"Regional","intermittent operation","36.55°N 8.68°E",1091
+"Turkey","Ankara","TRA","Regional","full operation","39.95°N 32.88°E",896
+"Turkey","Cubuk II","TR0001R","EMEP","Operational?","40.50°N 33.00°E",1169
+"Turkey","Cubuk II","TRU","Regional","full operation","40.50°N 33.00°E",1169
+"Turkmenistan","Ashgabat",,"Regional","closed","37.97°N 58.32°E",200
+"Turkmenistan","Chardzhev",,"Regional","closed","39.67°N 63.60°E",191
+"Ukraine","Beregovo","UA0007R","EMEP","Operational?","48.25°N 22.68°E",112
+"Ukraine","Faraday-Vernadsky","FAD","Regional","full operation","65.15°S 64.16°W",10
+"Ukraine","Feodosiya","FEO","Regional","full operation","44.55°N 35.12°E",42
+"Ukraine","Kiev","KIE","Regional","full operation","50.24°N 30.58°E",121
+"Ukraine","Kyiv-Goloseyev","KGV","Regional","full operation","50.36°N 30.50°E",206
+"Ukraine","Lvov","LVO","Regional","full operation","49.51°N 24.03°E",329
+"Ukraine","Odessa","ODE","Regional","full operation","46.26°N 30.46°E",42
+"Ukraine","Rava-Russkaya","UA0006R","EMEP","Operational?","50.25°N 23.63°E",249
+"Ukraine","Svityaz","UA0005R","EMEP","Operational?","51.52°N 23.88°E",164
+"United Arab Emirates","Abu Dhabi","ADB","Regional","full operation","24.45°N 54.32°E",20
+"United Arab Emirates","Al Safa",,"Regional","unknown","25.19°N 55.24°E",5
+"United Arab Emirates","Deira",,"Regional","unknown","25.26°N 55.32°E",5
+"United Arab Emirates","Jebel Ali Port",,"Regional","unknown","25.01°N 55.08°E",5
+"United Arab Emirates","Jebel Ali Village",,"Regional","unknown","25.04°N 55.11°E",5
+"United Arab Emirates","Mushrif",,"Regional","unknown","25.21°N 55.45°E",5
+"United Kingdom","Aberdeen","ABD","Contributing","closed","57.00°N 2.00°W",
+"United Kingdom","Aberystwyth","AWT","Contributing","full operation","52.00°N 4.00°W",
+"United Kingdom","Aldergrove",,"Contributing","closed","54.65°N 6.22°W",72
+"United Kingdom","Argentine Islands",,"Regional","full operation","65.25°S 64.27°W",10
+"United Kingdom","Ascension Island","ASC","Regional","full operation","7.98°S 14.42°W",91
+"United Kingdom","Aston Hill","GB0031R","EMEP","Operational?","52.50°N 3.03°W",370
+"United Kingdom","Aston Hill",,"Contributing","full operation","52.50°N 3.05°W",370
+"United Kingdom","Auchencorth Moss","GB0048R","EMEP","Operational?","55.79°N 3.24°W",260
+"United Kingdom","Banchory","GB0091R","EMEP","Operational?","57.08°N 2.53°W",120
+"United Kingdom","Barcomb Mills",,"Regional","full operation","50.92°N 0.05°E",10
+"United Kingdom","Barcombe Mills","GB0007R","EMEP","Operational?","50.87°N 0.03°W",8
+"United Kingdom","Bird Island (South Georgia)","SGI","Regional","full operation","54.01°S 38.05°W",30
+"United Kingdom","Bracknell","BRK","Regional","closed","51.38°N 0.78°W",70
+"United Kingdom","Bush","GB0033R","EMEP","Operational?","55.86°N 3.21°W",180
+"United Kingdom","Bush",,"Contributing","full operation","55.87°N 3.20°W",180
+"United Kingdom","Camborne","CBR","Regional","full operation","50.22°N 5.32°W",88
+"United Kingdom","CEH Edingburgh","GB0046R","EMEP","Operational?","55.95°N 3.22°W",0
+"United Kingdom","Charlton Mackrell","GB0053R","EMEP","Operational?","51.06°N 2.68°W",54
+"United Kingdom","Chillerton","GB0092R","EMEP","Operational?","50.70°N 1.30°W",35
+"United Kingdom","Chilton","GB0096R","EMEP","Operational?","51.57°N 1.32°W",109
+"United Kingdom","Driby","GB0095R","EMEP","Operational?","53.23°N 0.07°E",47
+"United Kingdom","East Ruston","GB0090R","EMEP","Operational?","52.80°N 1.47°E",5
+"United Kingdom","Eskdalemuir","EDM","Regional","full operation","55.20°N 3.20°W",242
+"United Kingdom","Eskdalemuir","GB0002R","EMEP","Operational?","55.31°N 3.20°W",243
+"United Kingdom","Glen Dye","GB0016R","EMEP","Operational?","56.97°N 2.42°W",85
+"United Kingdom","Glen Dye",,"Regional","full operation","56.97°N 2.58°W",85
+"United Kingdom","Goonhilly","GB0003R","EMEP","Operational?","50.05°N 5.18°W",108
+"United Kingdom","Great Dun Fell","GB0035R","EMEP","Operational?","54.68°N 2.45°W",847
+"United Kingdom","Great Dun Fell",,"Contributing","full operation","54.68°N 2.45°W",847
+"United Kingdom","Halley","HBA","Regional","full operation","75.58°S 26.71°W",30
+"United Kingdom","Harwell","GB0036R","EMEP","Operational?","51.57°N 1.32°W",137
+"United Kingdom","Harwell",,"Contributing","full operation","51.57°N 1.32°W",137
+"United Kingdom","Heigham Holmes","GB0017R","EMEP","Operational?","52.72°N 1.62°E",0
+"United Kingdom","Hemsby",,"Contributing","closed","52.68°N 1.68°E",14
+"United Kingdom","High Muffles","GB0014R","EMEP","Operational?","54.33°N 0.81°W",267
+"United Kingdom","High Muffles",,"Regional","full operation","54.33°N 0.80°W",267
+"United Kingdom","King Edward Point (South Georgia)","KEP","Contributing","full operation","54.28°S 36.49°W",15
+"United Kingdom","Ladybower",,"Contributing","full operation","53.40°N 1.75°W",420
+"United Kingdom","Ladybower Res.","GB0037R","EMEP","Operational?","53.40°N 1.75°W",420
+"United Kingdom","Lerwick","GB0052R","EMEP","Operational?","60.14°N 1.19°W",85
+"United Kingdom","Lerwick","SIS","Regional","full operation","60.13°N 1.18°W",84
+"United Kingdom","Lough Erne","GB0094R","EMEP","Operational?","54.40°N 8.05°W",35
+"United Kingdom","Lough Navar","GB0006R","EMEP","Operational?","54.44°N 7.87°W",126
+"United Kingdom","Lough Navar",,"Regional","full operation","54.43°N 7.90°W",130
+"United Kingdom","Ludlow","GB0005R","EMEP","Operational?","52.37°N 2.63°W",190
+"United Kingdom","Lullington Heath","GB0038R","EMEP","Operational?","50.79°N 0.18°E",120
+"United Kingdom","Lullington Heath",,"Regional","full operation","52.00°N 0.50°E",50
+"United Kingdom","Manchester","MCR","Contributing","full operation","53.47°N 2.23°W",76
+"United Kingdom","Market Harborough","GB0051R","EMEP","Operational?","52.55°N 0.77°W",145
+"United Kingdom","Narberth","GB0043R","EMEP","Operational?","51.23°N 4.70°W",160
+"United Kingdom","Narberth",,"Contributing","full operation","51.78°N 4.70°W",160
+"United Kingdom","Oxford",,"Regional","closed","51.75°N 1.18°W",140
+"United Kingdom","Prestwick",,"Contributing","intermittent operation","55.50°N 4.61°W",
+"United Kingdom","Reading","RDG","Regional","full operation","51.44°N 0.94°W",66
+"United Kingdom","Rothera","ROT","Contributing","full operation","67.57°S 68.12°W",30
+"United Kingdom","Sibton","GB0039R","EMEP","Operational?","52.29°N 1.46°E",46
+"United Kingdom","Sibton",,"Regional","full operation","52.28°N 1.45°E",46
+"United Kingdom","Somerton","GB0044R","EMEP","Operational?","51.23°N 3.05°W",55
+"United Kingdom","Somerton",,"Contributing","full operation","51.77°N 3.05°W",55
+"United Kingdom","St. Helena",,"Regional","closed","15.93°S 5.65°W",460
+"United Kingdom","St. Osyth","GB0050R","EMEP","Operational?","51.78°N 1.08°E",8
+"United Kingdom","Stanley (Falkland Islands)","STY","Regional","closed","51.70°S 57.87°W",51
+"United Kingdom","Staxton Wold","GB0093R","EMEP","Operational?","54.18°N 0.43°W",35
+"United Kingdom","Stoke Ferry","GB0004R","EMEP","Operational?","52.57°N 0.50°E",15
+"United Kingdom","Stoke Ferry",,"Regional","full operation","52.57°N 0.50°E",15
+"United Kingdom","Strath Vaich",,"Regional","full operation","57.73°N 4.78°W",270
+"United Kingdom","Strath Vaich Dam","GB0015R","EMEP","Operational?","57.73°N 4.77°W",270
+"United Kingdom","Tudor Hill (Bermuda)","BMW","Regional","full operation","32.27°N 64.88°W",30
+"United Kingdom","Weybourne","GB0049R","EMEP","Operational?","52.95°N 1.12°E",16
+"United Kingdom","Wharley Croft","GB0041R","EMEP","Operational?","54.62°N 2.47°W",26
+"United Kingdom","Wicken Fen","GB0045R","EMEP","Operational?","52.30°N 0.29°W",5
+"United Kingdom","Wicken Fen",,"Contributing","full operation","52.30°N 0.30°W",5
+"United Kingdom","Yarner Wood","GB0013R","EMEP","Operational?","50.60°N 3.71°W",119
+"United Kingdom","Yarner Wood",,"Regional","full operation","50.70°N 3.72°W",119
+"United States","Acadia (ME)","ACA","Contributing","full operation","44.38°N 68.26°W",122
+"United States","Ainsworth Airport (NE)","ANW","Contributing","closed","42.58°N 100.00°W",789
+"United States","Albuquerque (NM)","ABQ","Regional","full operation","35.04°N 106.60°W",1617
+"United States","Appalachian State University","APP","Contributing","full operation","36.21°N 81.69°W",1076
+"United States","Argyle (ME)","AMT","Contributing","full operation","45.03°N 68.68°W",50
+"United States","Atlanta (GA)","ATL","Contributing","closed","33.75°N 84.42°W",315
+"United States","Barrow (AK)","BRW","Global","full operation","71.32°N 156.60°W",11
+"United States","Baton Rouge (LA)","BTR","Regional","full operation","30.36°N 91.17°W",7
+"United States","Bedford (LA)","BED","Regional","closed","42.45°N 71.27°W",80
+"United States","Beltsville (MD)","BEL","Regional","full operation","39.02°N 76.95°W",34
+"United States","Big Bend (TX)","BBE","Contributing","full operation","29.30°N 103.02°W",1052
+"United States","Billings (OK)","BIL","Regional","full operation","36.62°N 97.50°W",317
+"United States","Bismarck (ND)",,"Regional","full operation","46.77°N 100.80°W",511
+"United States","Bondville (IL)","BND","Regional","full operation","40.05°N 88.37°W",213
+"United States","Boulder BSRN (CO)","BOU","Contributing","full operation","40.05°N 106.00°W",1577
+"United States","Boulder ESRL HQ (CO)","BLD","Regional","full operation","40.02°N 105.30°W",1634
+"United States","Boulder SURFRAD (CO)","BOS","Contributing","full operation","40.13°N 105.20°W",1689
+"United States","Bradford Forest (FL)","BFD","Regional","full operation","29.97°N 82.20°W",44
+"United States","Burlington (VT)","BTV","Regional","full operation","44.53°N 72.86°W",408
+"United States","Byrd","BYR","Regional","closed","80.03°S 119.50°W",1528
+"United States","Canton Island","CTI","Regional","closed","2.76°S 171.70°W",3
+"United States","Canyonlands (UT)","CAN","Contributing","full operation","38.46°N 109.80°W",1814
+"United States","Cape Kumukahi (HI)","KUM","Regional","full operation","19.52°N 154.80°W",3
+"United States","Cape Meares (OR)","CMO","Regional","closed","45.00°N 124.00°W",30
+"United States","Caribou (ME)","CBM","Regional","full operation","46.87°N 68.01°W",191
+"United States","Castolon (TX)","CTL","Regional","full operation","29.15°N 103.50°W",677
+"United States","Chesapeake Lighthouse","CLH","Contributing","full operation","36.90°N 75.70°W",34
+"United States","Cold Bay (AK)","CBA","Regional","full operation","55.20°N 162.70°W",25
+"United States","Cottonwood (SD)","CTW","Regional","full operation","43.95°N 101.90°W",733
+"United States","Dancy (WI)","DNR","Regional","full operation","44.71°N 89.77°W",381
+"United States","Davis (CA)","DVS","Regional","full operation","38.54°N 121.80°W",18
+"United States","Denali (AK)","DEN","Contributing","full operation","63.73°N 149.00°W",640
+"United States","Denver (CO)","DNV","Regional","closed","39.77°N 104.90°W",1611
+"United States","Desert Rock (NV)","DRA","Contributing","full operation","38.63°N 116.10°W",1007
+"United States","Everglades (FL)","EVE","Regional","full operation","25.39°N 80.68°W",2
+"United States","Fairbanks (AK)","FBK","Regional","closed","64.82°N 147.90°W",138
+"United States","Fort Collins (CO)","FCL","Regional","closed","40.57°N 105.10°W",1551
+"United States","Fort Peck (MT)","FPE","Regional","full operation","48.31°N 105.10°W",634
+"United States","Fort Worth (TX)","FTW","Regional","closed","32.83°N 97.05°W",176
+"United States","Fresno (CA)","FAT","Regional","closed","36.77°N 119.70°W",100
+"United States","Gaithersburg (MD)","GAI","Contributing","closed","39.13°N 77.22°W",130
+"United States","Geneva (NY)","GNV","Regional","full operation","42.88°N 77.03°W",218
+"United States","Glacier (MT)","GLR","Contributing","full operation","48.51°N 114.00°W",976
+"United States","Goddard (MD)","GSF","Regional","full operation","38.99°N 76.83°W",100
+"United States","Goodwin Creek (MS)","GCR","Contributing","full operation","34.25°N 89.87°W",98
+"United States","Grand Rapids (MN)","GPZ","Regional","full operation","47.18°N 93.53°W",390
+"United States","Great Falls (MT)","GTF","Regional","closed","47.48°N 111.40°W",1118
+"United States","Great Smokey Mountains (TN)","GRS","Contributing","full operation","35.60°N 83.78°W",564
+"United States","Green Bay (WI)","GNB","Regional","closed","44.48°N 88.13°W",209
+"United States","Greenbelt (MD)","GRB","Contributing","intermittent operation","38.90°N 76.70°W",50
+"United States","Griffin (GA)","GAS","Regional","full operation","33.18°N 84.41°W",270
+"United States","Grifton - Georgia Station (NC)","ITN","Regional","closed","35.35°N 77.38°W",505
+"United States","Guam (Mariana Island)","GMI","Regional","full operation","13.43°N 144.80°E",2
+"United States","H.J. Andrews Forest (OR)","HAF","Regional","full operation","44.22°N 122.30°W",450
+"United States","Hanford (CA)","HNX","Regional","full operation","36.32°N 119.60°W",73
+"United States","Harvard Forest (MA)","HFM","Regional","full operation","42.90°N 72.30°W",340
+"United States","Hilo (HI)","HIH","Regional","full operation","19.58°N 155.10°W",11
+"United States","Holtville (CA)","HLT","Regional","full operation","32.81°N 115.40°W",-18
+"United States","Hopi Point Grand Canyon (AZ)","GRC","Regional","full operation","36.07°N 112.20°W",2152
+"United States","Houston (TX)","HST","Contributing","full operation","29.72°N 95.40°W",19
+"United States","Huntsville (AL)","HVA","Regional","full operation","35.28°N 86.58°W",196
+"United States","Ithaca (NY)","ITC","Regional","full operation","42.40°N 76.72°W",503
+"United States","JPL",,"Contributing","closed","34.13°N 118.10°W",227
+"United States","Key Biscane (FL)","KEY","Regional","full operation","25.67°N 80.20°W",3
+"United States","Kilauea (HI)","HVT","Contributing","closed","19.42°N 155.30°W",1243
+"United States","Kitt Peak (AZ)","KPA","Regional","closed","31.97°N 111.60°W",2083
+"United States","Konza Prairie (KS)","KZP","Regional","full operation","39.10°N 96.20°W",350
+"United States","L.B.J. National Grassland (TX)","LBJ","Regional","full operation","33.40°N 97.63°W",312
+"United States","La Jolla (CA)","SIO","Regional","closed","32.83°N 117.30°W",14
+"United States","Laramie (WY)","LMI","Contributing","closed","41.32°N 105.70°W",2218
+"United States","Las Cruces (NM)","LCS","Regional","full operation","32.62°N 106.70°W",1317
+"United States","Lewes (DE)","LWS","Regional","full operation","38.77°N 75.10°W",2
+"United States","Little America","LAM","Regional","closed","78.00°S 162.00°W",44
+"United States","Logan (UT)","LGN","Regional","full operation","41.65°N 111.90°W",1370
+"United States","Long View (TX)","LVW","Regional","full operation","32.38°N 94.71°W",103
+"United States","Mauna Kea (HI)","MKO","Contributing","full operation","19.83°N 155.50°W",4204
+"United States","Mauna Loa (HI)","MLO","Global","full operation","19.54°N 155.60°W",3397
+"United States","McDonald Observatory (LA)","MDO","Regional","closed","30.67°N 90.93°W",2081
+"United States","McMurdo","MCM","Regional","full operation","77.83°S 166.60°E",11
+"United States","Mead (NE)","MED","Regional","full operation","41.15°N 96.49°W",352
+"United States","Midland (TX)","MDX","Regional","closed","31.93°N 102.20°W",872
+"United States","Moody (TX)","WKT","Regional","full operation","31.32°N 97.62°W",723
+"United States","Mt. Barcroft (CA)","MBT","Contributing","closed","37.58°N 118.20°W",3800
+"United States","Narragansett (RI)","NGT","Contributing","full operation","41.49°N 71.42°W",21
+"United States","Nashville (TN)","BNA","Regional","full operation","36.25°N 86.57°W",182
+"United States","Niwot Ridge - T-van (CO)","NWR","Regional","full operation","40.05°N 105.60°W",3523
+"United States","Ocean Station Charlie","STC","Regional","closed","54.00°N 35.00°W",0
+"United States","Ocean Station M","STM","Regional","full operation","66.00°N 2.00°E",4
+"United States","Olympic (WA)","CPO","Contributing","closed","48.14°N 123.40°W",2
+"United States","Olympic Peninsula (WA)","OPW","Regional","closed","48.25°N 124.40°W",488
+"United States","Oxford (OH)","OXF","Regional","full operation","39.52°N 84.72°W",283
+"United States","Palestine (TX)","PSN","Regional","closed","31.80°N 95.72°W",121
+"United States","Palmer Station","PSA","Regional","full operation","64.92°S 64.00°W",10
+"United States","Paradox (NY)","PDX","Contributing","full operation","43.92°N 73.64°W",284
+"United States","Park Falls (WI)","LEF","Regional","full operation","45.93°N 90.27°W",868
+"United States","Pawnee/Nunn (CO)","PWN","Regional","full operation","40.81°N 104.80°W",1641
+"United States","Pellston (MI)","PEL","Regional","full operation","45.56°N 84.67°W",238
+"United States","Penn State (PA)","PSU","Regional","full operation","40.78°N 77.93°W",393
+"United States","Point Arena (CA)","PTA","Regional","full operation","38.95°N 123.70°W",17
+"United States","Poker Flat (AK)","POK","Regional","full operation","65.12°N 147.50°W",204
+"United States","Presque Isle (ME)","PQI","Regional","full operation","46.68°N 68.04°W",144
+"United States","Pullman (WA)","PUL","Regional","full operation","46.75°N 117.20°W",804
+"United States","Raleigh (NC)","RAL","Contributing","full operation","35.73°N 78.68°W",124
+"United States","Research Triangle Park (NC)","RTP","Contributing","closed","35.89°N 78.88°W",134
+"United States","Richland (WA)","RLD","Contributing","closed","46.20°N 119.20°W",123
+"United States","Riverside (CA)","RVS","Contributing","closed","34.00°N 117.30°W",32
+"United States","Rocky Mountain (CO)","RMT","Contributing","closed","40.03°N 105.50°W",2891
+"United States","Samoa (Cape Matatula)","SMO","Global","full operation","14.23°S 170.60°W",77
+"United States","San Diego (CA)","SDO","Regional","closed","32.45°N 117.10°W",124
+"United States","Sand Island","MID","Regional","full operation","28.22°N 177.40°W",4
+"United States","Seguin (TX)","SEG","Contributing","full operation","29.57°N 97.99°W",172
+"United States","Sequoia (CA)","SQA","Contributing","closed","36.49°N 118.80°W",610
+"United States","Shemya Island","SHM","Regional","full operation","52.72°N 174.10°E",40
+"United States","Shenandoah (VA)","SHN","Contributing","full operation","38.52°N 78.44°W",1074
+"United States","Silver Hill (MD)","SLH","Regional","closed","38.83°N 76.95°W",89
+"United States","Sioux Falls (SD)","SXF","Regional","full operation","43.73°N 96.62°W",473
+"United States","South Pole","SPO","Global","full operation","90.00°S 24.80°W",2841
+"United States","Southern Great Plains E13 (OK)","SGP","Contributing","full operation","36.60°N 97.50°W",318
+"United States","Spokane (WA)","SKN","Regional","closed","47.67°N 117.40°W",576
+"United States","St. Croix","AVI","Regional","closed","17.75°N 64.75°W",3
+"United States","Starkville (MS)","STK","Regional","full operation","33.47°N 88.78°W",85
+"United States","Steamboat Springs (CO)","SPL","Regional","full operation","40.46°N 106.70°W",3220
+"United States","Sterling/Washington (VA)","SVA","Regional","full operation","38.98°N 77.48°W",84
+"United States","Table Mountain (CA)","TMF","Regional","full operation","34.23°N 117.40°W",2286
+"United States","Table Mountain (CO)","TMN","Regional","full operation","40.18°N 105.30°W",1524
+"United States","Tallahassee (FL)","TAL","Regional","full operation","30.43°N 84.33°W",53
+"United States","Theodore (ND)","THR","Contributing","full operation","46.90°N 103.40°W",870
+"United States","Topeka (KS)","TPK","Contributing","closed","39.07°N 95.63°W",270
+"United States","Trinidad Head (CA)","THD","Global","full operation","41.05°N 124.20°W",107
+"United States","Underhill (VT)","UHL","Regional","full operation","44.53°N 72.87°W",399
+"United States","Valparaiso (IN)","VLP","Contributing","full operation","41.50°N 87.00°W",240
+"United States","Virgin Islands","VII","Contributing","full operation","18.34°N 64.80°W",56
+"United States","Walker Branch Watershed (TN)","WBW","Regional","full operation","35.96°N 84.28°W",341
+"United States","Wallops Island (VA)","WAI","Regional","full operation","37.93°N 72.48°W",13
+"United States","Wendover (UT)","UTA","Regional","full operation","39.90°N 113.70°W",1320
+"United States","West Lafayette (IN)","WLF","Regional","full operation","40.47°N 86.99°W",215
+"United States","White Sands (NM)","WHS","Regional","closed","32.38°N 106.50°W",1224
+"United States","Whiteface Mountain (NY)","WFM","Regional","full operation","44.39°N 73.86°W",610
+"United States","Wye (MD)","WYE","Regional","full operation","38.91°N 76.15°W",6
+"Uruguay","Artigas",,"Regional","full operation","62.18°S 58.90°W",10
+"Uruguay","Salto Grande","SAG","Regional","full operation","31.38°S 57.95°W",34
+"Uzbekistan","Chatcal Reserve",,"Regional","unknown","41.10°N 60.50°E",1250
+"Uzbekistan","Kyzylcha","KYZ","Regional","closed","40.87°N 66.15°E",340
+"Viet Nam","Hanoi","AAR","Regional","full operation","21.20°N 105.80°E",25
+"Viet Nam","SaPa",,"Contributing (prospective)","full operation","22.35°N 103.80°E",1584
+"Viet Nam","Tan Son Hoa",,"Contributing","intermittent operation","10.79°N 106.70°E",13
