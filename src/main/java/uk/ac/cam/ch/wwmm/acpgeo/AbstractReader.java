@@ -3,13 +3,13 @@ package uk.ac.cam.ch.wwmm.acpgeo;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.apache.commons.lang.StringEscapeUtils;
-
 import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Nodes;
 import nu.xom.ParsingException;
 import nu.xom.ValidityException;
+
+import org.apache.commons.lang.StringEscapeUtils;
 
 public class AbstractReader {
 

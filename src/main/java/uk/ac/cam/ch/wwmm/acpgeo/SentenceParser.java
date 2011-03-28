@@ -67,10 +67,11 @@ public class SentenceParser extends ChemistrySentenceParser {
 		actionMap.put("NN-MEASUREMENT", "Measurement");
 		actionMap.put("VB-DETERMINE", "Analysis");
 		actionMap.put("VB-INVESTIGATE", "Analysis");
-		actionMap.put("VB-OBSERVE", "Observation");
-		actionMap.put("NN-CONCENTRATE", "Concentration");
+		actionMap.put("VB-OBSERVE", "Observation");	
+//		actionMap.put("found", "Observation");
+//		actionMap.put("MASSVOLUME", "Concentration");
 
-		actionMap.put("MASSVOLUME", "Concentration");
+//		actionMap.put("MASSVOLUME", "Concentration");
 
 		actionMap.put("VB-INDICATE", "Indication");
 		return new ASTtoXML().convert(getParseTree(), true,actionMap);

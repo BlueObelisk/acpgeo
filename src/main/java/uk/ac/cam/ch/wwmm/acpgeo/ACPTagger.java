@@ -45,7 +45,7 @@ public class ACPTagger {
 				"NNP-STATION");
 		posTagger.setRegexTagger(acpRegexTagger);
 		POSContainer posContainer = posTagger.runTaggers(inputSentence,false);
-		List<String> tokenlist = posContainer.getTokenList();
+		List<String> tokenlist = posContainer.getWordTokenList();
 		int count = 0;
 		for (String token : tokenlist) {
 			if (acpGlossaryMap.containsKey(token.toLowerCase())) {
