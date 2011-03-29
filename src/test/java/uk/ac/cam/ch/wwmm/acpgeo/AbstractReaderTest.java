@@ -27,8 +27,17 @@ public class AbstractReaderTest {
 		
 	}
 	
-	
-	
+	@Test
+	public void testRemoveMarkup(){
+        String sentence  = "This is an example that uses <b>bold</b> and <i>italics</i> letters as well as <sub>sub</sub> and <sup>sup</sup>";
+        String expected = "This is an example that uses bold and italics letters as well as sub and sup";
+        String actual = new AbstractReader().clearnAbstract(sentence);
+        System.out.println();
+        Assert.assertEquals("Removed markup",expected, actual);
+
+		
+	}
+	@Ignore
 	@Test
 	public void AbstractTestSentence(){
 		ACPTagger acpTagger = ACPTagger.getInstance();

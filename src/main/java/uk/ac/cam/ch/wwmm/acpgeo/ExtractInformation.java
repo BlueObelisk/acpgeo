@@ -38,6 +38,12 @@ public class ExtractInformation {
 
 		getQuery(files, "//CAMPAIGN","CAMPAIGN.csv");
 		getQuery(files, "//AcronymPhrase","ACRONYMPHRASES.csv");
+		getQuery(files, "//NNP-ACRONYM","NNP-ACRONYM.csv");
+		getQuery(files, "//ParentheticalPhrase","PARENTHETICALPHRASE.csv");
+		getQuery(files, "//LOCATION","LOCATION.csv");
+		getQuery(files, "//NNP-STATION","NNP-STATION.csv");
+		getQuery(files, "//ActionPhrase[@type='Measurement']","ACTIONPHRASEMEASUREMENT.csv");
+		getQuery(files, "//ActionPhrase[@type='Observation']","ACTIONPHRASEOBSERVATION.csv");
 	}
 
 	private void getQuery(File[] files, String query,String fileName) {
