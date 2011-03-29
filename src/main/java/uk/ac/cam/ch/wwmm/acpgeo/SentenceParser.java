@@ -55,7 +55,7 @@ public class SentenceParser extends ChemistrySentenceParser {
 
 			}
 			setParseTree((Tree) result.getTree());
-			System.out.println(getParseTree().toStringTree());
+//			System.out.println(getParseTree().toStringTree());
 		}
 	}
 	

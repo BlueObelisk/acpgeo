@@ -7,7 +7,7 @@ public class ExtractInformationTest {
 	
 	@Test
 	public void testExtractInformation() {
-		 ExtractInformation extractInfo = new ExtractInformation("target/");
+		 new ExtractInformation("target/");
 		
 	}
 
