@@ -6,7 +6,6 @@ import java.util.List;
 import uk.ac.cam.ch.wwmm.chemicaltagger.ChemistryPOSTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
-import uk.ac.cam.ch.wwmm.chemicaltagger.WWMMTag;
 
 public class ACPTagger {
 
@@ -49,13 +48,12 @@ public class ACPTagger {
 		for (String token : tokenlist) {
 			if (acpGlossaryMap.containsKey(token.toLowerCase())) {
 				String currentTag = posContainer.getCombinedTagsList()
-						.get(count).getPOS();
+						.get(count);
 				if (currentTag.contains("-") && !currentTag.startsWith("-")) {
 					currentTag = currentTag.split("-")[0];
 				}
 				if (!(currentTag.contains("NN") ||currentTag.contains("VB")||currentTag.contains("JJ"))) currentTag = "NN";
-				posContainer.getCombinedTagsList().set(count,
-						new WWMMTag(currentTag + "-ACP"));
+				posContainer.getCombinedTagsList().set(count,currentTag + "-ACP");
 			}
 			
 
@@ -63,8 +61,6 @@ public class ACPTagger {
 		}
 		
 		System.out.println(posContainer.getTokenTagTupleAsString());
-//		posContainer = new PostProcessTags()
-//				.correctCombinedTagsList(posContainer);
 
 		return posContainer;
 	}
