@@ -15,7 +15,7 @@ import nu.xom.Element;
 import nu.xom.Nodes;
 import nu.xom.ParsingException;
 import nu.xom.ValidityException;
-import uk.ac.cam.ch.wwmm.chemicaltagger.extractText.ExtractFromXML;
+import uk.ac.cam.ch.wwmm.chemicaltagger.ExtractFromXML;
 
 public class ExtractInformation {
 
@@ -82,7 +82,7 @@ public class ExtractInformation {
 					Element element = (Element) nodes.get(i);
 //					System.out.println(file.getCanonicalPath()+"\t"+new ExtractFromXML().getStringValue(
 //							element, " "));
-					filewriter.write(file.getCanonicalPath()+"\t"+new ExtractFromXML().getStringValue(
+					filewriter.write(file.getCanonicalPath()+"\t"+ExtractFromXML.getStringValue(
 							element, " ")+"\n");
 					filewriter.flush();
 				}
