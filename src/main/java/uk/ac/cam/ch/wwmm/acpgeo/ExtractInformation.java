@@ -15,7 +15,7 @@ import nu.xom.Element;
 import nu.xom.Nodes;
 import nu.xom.ParsingException;
 import nu.xom.ValidityException;
-import uk.ac.cam.ch.wwmm.chemicaltagger.ExtractFromXML;
+import uk.ac.cam.ch.wwmm.chemicaltagger.extractText.ExtractFromXML;
 
 public class ExtractInformation {
 
@@ -42,10 +42,10 @@ public class ExtractInformation {
 		getQuery(files, "//ParentheticalPhrase","PARENTHETICALPHRASE.csv");
 		getQuery(files, "//LOCATION","LOCATION.csv");
 		getQuery(files, "//NNP-STATION","NNP-STATION.csv");
-		getQuery(files, "//ActionPhrase[@type='Measurement']","ACTIONPHRASEMEASUREMENT.csv");
-		getQuery(files, "//ActionPhrase[@type='Measurement'][descendant-or-self::MOLECULE]","ACTIONPHRASEMEASUREMENTMOLECULE.csv");
-		getQuery(files, "//ActionPhrase[@type='Observation']","ACTIONPHRASEOBSERVATION.csv");
-		getQuery(files, "//ActionPhrase[descendant-or-self::MOLECULE]","ACTIONPHRASEMOLECULE.csv");
+		getQuery(files, "//ActionPhrase[@type='Measurement']","ACTIONPHRASEmeasurement.csv");
+		getQuery(files, "//ActionPhrase[@type='Measurement'][descendant-or-self::MOLECULE]","ACTIONPHRASEmeasurementMOLECULE.csv");
+		getQuery(files, "//ActionPhrase[@type='Observation']","ACTIONPHRASEobservation.csv");
+		getQuery(files, "//ActionPhrase[@type='Observation'][descendant-or-self::MOLECULE]","ACTIONPHRASEobservationMOLECULE.csv");
 	}
 
 	private void getQuery(File[] files, String query,String fileName) {
