@@ -43,7 +43,9 @@ public class ExtractInformation {
 		getQuery(files, "//LOCATION","LOCATION.csv");
 		getQuery(files, "//NNP-STATION","NNP-STATION.csv");
 		getQuery(files, "//ActionPhrase[@type='Measurement']","ACTIONPHRASEMEASUREMENT.csv");
+		getQuery(files, "//ActionPhrase[@type='Measurement'][descendant-or-self::MOLECULE]","ACTIONPHRASEMEASUREMENTMOLECULE.csv");
 		getQuery(files, "//ActionPhrase[@type='Observation']","ACTIONPHRASEOBSERVATION.csv");
+		getQuery(files, "//ActionPhrase[descendant-or-self::MOLECULE]","ACTIONPHRASEMOLECULE.csv");
 	}
 
 	private void getQuery(File[] files, String query,String fileName) {
