@@ -95,6 +95,7 @@ public class ACPGeoMain {
                     catch (Exception e){
                     	System.err.println("Can't do " + file.getName()
         						+ " skipping");
+                    	e.printStackTrace();
                     }
 				}
 			}

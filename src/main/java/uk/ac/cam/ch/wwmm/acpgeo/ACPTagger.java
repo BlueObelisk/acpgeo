@@ -42,6 +42,7 @@ public class ACPTagger {
 		acpRegexTagger.addDictionarySetToRegex(gawCoordinates.getSiteCoordsMap().keySet(),
 				"NNP-STATION");
 		posTagger.setRegexTagger(acpRegexTagger);
+		posTagger.setUseOscarTokeniser(false);
 		POSContainer posContainer = posTagger.runTaggers(inputSentence,false);
 		List<String> tokenlist = posContainer.getWordTokenList();
 		int count = 0;
