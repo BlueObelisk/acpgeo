@@ -13,7 +13,7 @@ NN-CAMPAIGN---^((EU-)?(p|P)re)?((C|c)ampaign|(EU-)?(p|P)roject|(EU-)?(p|P)rogram
 NN-ACP---^(W|w)aters$---;
 NNP---^(II|del|Cape|de|Ny|St\.|bei|La|Le|San|san|sur|Monte|Mt\.?)$---proper nouns that precede stations;
 #CD
-CD-DEGREES---(^(~)?(\d|-)?\d+\.?\d*(°|º))---Degrees;
+CD-DEGREES---(^(~)?(\d|-)?\d+\.?\d*(°|º|'))---Degrees;
 CD-ALTITUDE---(^~?(\d|-)?\d+\.?\d*m)?\(?(A|a)\.?(S|s|G|g)\.?(L|l)\.?\)?$---Altitude Metres (Above Sea/Ground Level);
 #if a.s.l. is optional is there then a problem - m is usually taken as molar not metres?
 #To include observations at higher levels could require feet (ft) or pressure height but unlikely 

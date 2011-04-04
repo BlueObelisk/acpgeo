@@ -112,7 +112,19 @@ public class ACPTaggerTest {
 
 		
 	  }
-
+	@Test
+	public void testDegrees2() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "51' N";
+		String expected = "CD-DEGREES 51' NNP-DIRECTION N";
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+        Assert.assertEquals("Correct Markup",expected,posContainer.getTokenTagTupleAsString());
+		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		sentenceParser.parseTags();
+        System.out.println(sentenceParser.makeXMLDocument().toXML());
+		
+	  }
 	@Test
 	public void testRecogniseCampaign() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
