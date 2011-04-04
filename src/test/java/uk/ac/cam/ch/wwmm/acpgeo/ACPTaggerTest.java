@@ -10,7 +10,7 @@ import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 
 public class ACPTaggerTest {
 
-	
+	@Ignore
 	@Test
 	public void testSentence1() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
@@ -28,6 +28,7 @@ public class ACPTaggerTest {
 
 		
 	}
+	@Ignore
 	@Test
 	public void testSentence2() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
@@ -46,7 +47,7 @@ public class ACPTaggerTest {
 		
 	  }
 
-	
+	@Ignore
 	@Test
 	public void testSentence3() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
@@ -98,7 +99,7 @@ public class ACPTaggerTest {
 		
 	  }
 	
-
+	@Ignore
 	@Test
 	public void testDegrees() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
@@ -112,7 +113,7 @@ public class ACPTaggerTest {
 
 		
 	  }
-	
+	@Ignore
 	@Test
 	public void testRecogniseCampaign() {
 		ACPTagger acpTagger = ACPTagger.getInstance();

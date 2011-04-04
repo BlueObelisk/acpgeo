@@ -41,11 +41,14 @@ public class ExtractInformation {
 		getQuery(files, "//NNP-ACRONYM","NNP-ACRONYM.csv");
 		getQuery(files, "//ParentheticalPhrase","PARENTHETICALPHRASE.csv");
 		getQuery(files, "//LOCATION","LOCATION.csv");
+		getQuery(files, "//MOLECULE","MOLECULE.csv");
 		getQuery(files, "//NNP-STATION","NNP-STATION.csv");
+		getQuery(files, "//LOCATION[descendant-or-self::NNP-STATION][not(descendant-or-self::CD-DEGREES)]","LOCATIONSTATION.csv");
 		getQuery(files, "//ActionPhrase[@type='Measurement']","ACTIONPHRASEmeasurement.csv");
 		getQuery(files, "//ActionPhrase[@type='Measurement'][descendant-or-self::MOLECULE]","ACTIONPHRASEmeasurementMOLECULE.csv");
 		getQuery(files, "//ActionPhrase[@type='Observation']","ACTIONPHRASEobservation.csv");
 		getQuery(files, "//ActionPhrase[@type='Observation'][descendant-or-self::MOLECULE]","ACTIONPHRASEobservationMOLECULE.csv");
+		
 	}
 
 	private void getQuery(File[] files, String query,String fileName) {

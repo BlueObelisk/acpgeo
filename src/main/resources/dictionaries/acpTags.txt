@@ -3,22 +3,28 @@
 #Nouns
 NNP-MONTH---January|February|March|April|May|June|July|August|September|October|November|December---Months of a year;
 NNP-DIRECTION---^(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)(ern|-)?(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)?(ern)?$+---Directions;
+NNP-ACP---^Mt\.$---field station short for Mount;
 NN-APPARATUS---^(s|S)atellite(s)?$---Apparatus Equipment;
 NN-STATION---station$---Field stations;
 NN-MEASUREMENT---measurement(s)?$---Measurement;
 NNP-ACRONYM---^([A-Z][A-Z](\-)?[A-Z]+(s)?)$---Acronyms
-NN-VOL---(L−1|L\-1)---volume
+NN-VOL---((l|L)−1|(l|L)\-1)---volume
 NN-PRESSURE---(k|m)b---pressure bar unit
 NN-CAMPAIGN---^((EU-)?(p|P)re)?((C|c)ampaign|(EU-)?(p|P)roject|(EU-)?(p|P)rogram|Study)$---Campaigns
+NN-ACP---^(W|w)aters$---;
 #CD
 CD-DEGREES---(^(~)?(\d|-)?\d+\.?\d*(°|º))---Degrees;
+#CD-ALTITUDE---(^(~)?(\d|-)?\d+\.?\d*m(( )*((A|a)\.?(S|s|G|g)\.?(L|)\.?)?)$---Altitude Metres (Above Sea/Ground Level);
+#if a.s.l. is optional is there then a problem - m is usually taken as molar not metres?
+#To include observations at higher levels could require feet (ft) or pressure height but unlikely 
 CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;
 CD-YEAR-RANGE---^(1|2)(0|9)\d\d\-(1|2)(0|9)\d\d$---Valid Year;
 JJ---^(t|T)hat$---demonstrative adjective;
+JJ-ACP---^(M|m)arine$---demonstrative adjective;
 JJ-CHEM---^(i|I)frared$---demonstrative adjective;
 VB-ANALYSE---^analy(s|z)(ed|e)$---analysis verbs
 VB-MEASURE---^measur(ed|e)$---measurement verbs
 VB-DETERMINE---^(determin|identif)(ed|e|y|ied)$---determine verbs
 VB-OBSERVE---^observ(e|ed)$---observation verbs
-VB-INVESTIGATE---^investigat(e|ed)$---investigate verbs
-VB-INDICATE---^(indicat|investigat|highlight|signify)(ed|in)$---indication verbs
+VB-INVESTIGATE---^investigat(e|ed|ing)$---investigate verbs
+VB-INDICATE---^(indicat|highlight|signif)(y|e|ied|ed|ing|ying|s|ies|es)?$---indication verbs
