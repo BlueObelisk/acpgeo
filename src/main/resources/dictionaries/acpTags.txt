@@ -3,18 +3,18 @@
 #Nouns
 NNP-MONTH---January|February|March|April|May|June|July|August|September|October|November|December---Months of a year;
 NNP-DIRECTION---^(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)(ern|-)?(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)?(ern)?$+---Directions;
-NNP-ACP---^Mt\.$---field station short for Mount;
 NN-APPARATUS---^(s|S)atellite(s)?$---Apparatus Equipment;
 NN-STATION---station$---Field stations;
 NN-MEASUREMENT---measurement(s)?$---Measurement;
-NNP-ACRONYM---^([A-Z][A-Z](\-)?[A-Z]+(s)?)$---Acronyms
+NNP-ACRONYM---^([A-Z][A-Z]+(\-|\\|\/)?[A-Z]+[0-9]*(s)?[0-9]*)$---Acronyms
 NN-VOL---((l|L)−1|(l|L)\-1)---volume
 NN-PRESSURE---(k|m)b---pressure bar unit
 NN-CAMPAIGN---^((EU-)?(p|P)re)?((C|c)ampaign|(EU-)?(p|P)roject|(EU-)?(p|P)rogram|Study)$---Campaigns
 NN-ACP---^(W|w)aters$---;
+NNP---^(II|del|Cape|de|Ny|St\.|bei|La|Le|San|san|sur|Monte|Mt\.?)$---proper nouns that precede stations;
 #CD
 CD-DEGREES---(^(~)?(\d|-)?\d+\.?\d*(°|º))---Degrees;
-#CD-ALTITUDE---(^(~)?(\d|-)?\d+\.?\d*m(( )*((A|a)\.?(S|s|G|g)\.?(L|)\.?)?)$---Altitude Metres (Above Sea/Ground Level);
+CD-ALTITUDE---(^~?(\d|-)?\d+\.?\d*m)?\(?(A|a)\.?(S|s|G|g)\.?(L|l)\.?\)?$---Altitude Metres (Above Sea/Ground Level);
 #if a.s.l. is optional is there then a problem - m is usually taken as molar not metres?
 #To include observations at higher levels could require feet (ft) or pressure height but unlikely 
 CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;

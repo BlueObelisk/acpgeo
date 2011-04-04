@@ -75,7 +75,7 @@ acronymPhrase
 
 
 acronymPhraseStructure
-	: (advAdj|properNoun|moleculeNoun|oscarcd|cd)+ ((cc|inAll)(advAdj|properNoun|moleculeNoun|oscarcd|cd)+)? acronym;	
+	: (advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+ ((cc|inAll)(advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+)? acronym;	
 
 nounphrase
 	:	nounphraseStructure ->  ^(NounPhrase  nounphraseStructure);	
@@ -93,7 +93,7 @@ verbphrase
 verbphraseStructure :  dt? to? inAll? inafter? (md* rbconj? advAdj* verb+ md* advAdj* neg? )+ inoff? (cc? comma? prepphrase)*   ;
 verb : vbindicate|vbmeasure|vbacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange;
 
-number : cd|oscarcd|oscarcpr|cddegrees;	
+number : cd|cdAlphanum|oscarcpr|cddegrees;	
 noun1 	:	(dtTHE|dt)? advAdj* nounStructure (dash nounStructure)*;
 noun	:	(acronymPhrase|noun1);
 
@@ -249,7 +249,7 @@ quantity1
 location	: locationStructure+  ->^(LOCATION  locationStructure+)	;
 
 locationStructure : (locationContent|lrb locationContent (comma? dash? locationContent)* rrb) ; 
-locationContent: (nnpcountry|cddegrees apost? nnpdirection|nnpdirection nnp|nnpstation nnp? nnstation?|nnpacronym+ nnp? nnstation|nnp nnstation|nnstation nnp); 
+locationContent: (nnpcountry|cddegrees apost? nnpdirection? cdaltitude?|nnpdirection nnp|nnpstation nnp? nnstation? cdaltitude?|nnpacronym+ nnp? nnstation|nnp nnstation|nnstation nnp); 
 acronym	: lrb (nn|properNoun) rrb ->^(ACRONYM  lrb nn? properNoun? rrb)	;
 
 //ACP Tags
@@ -301,7 +301,9 @@ cdyear
 	: 'CD-YEAR' TOKEN -> ^('CD-YEAR' TOKEN)	;
 cdyearRange
 	: 'CD-YEAR-RANGE' TOKEN -> ^('CD-YEAR-RANGE' TOKEN)	;
-	
+
+cdaltitude
+	: 'CD-ALTITUDE' TOKEN ->	^('CD-ALTITUDE' TOKEN)	;	
 	
 //ACP verbs
 
@@ -326,7 +328,7 @@ vbacp
 	
 		
 //Tags---Pattern---Description
-oscarcd:'OSCAR-CD' TOKEN -> ^('OSCAR-CD' TOKEN);
+cdAlphanum:'CD-ALPHANUM' TOKEN -> ^('CD-ALPHANUM' TOKEN);
 oscarcj:'OSCAR-CJ' TOKEN -> ^('OSCAR-CJ' TOKEN);
 oscarrn:'OSCAR-RN' TOKEN -> ^('OSCAR-RN' TOKEN);
 oscarcpr:'OSCAR-CPR' TOKEN -> ^('OSCAR-CPR' TOKEN);

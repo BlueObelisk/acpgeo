@@ -4,8 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 
 import uk.ac.cam.ch.wwmm.chemicaltagger.ChemistryPOSTagger;
+import uk.ac.cam.ch.wwmm.chemicaltagger.OpenNLPTagger;
+import uk.ac.cam.ch.wwmm.chemicaltagger.OscarTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
+import uk.ac.cam.ch.wwmm.chemicaltagger.WhiteSpaceTokeniser;
+import uk.ac.cam.ch.wwmm.oscar.Oscar;
 
 public class ACPTagger {
 
@@ -24,7 +28,8 @@ public class ACPTagger {
 	private ACPTagger() {
 		DictionaryLoader dictLoader = new DictionaryLoader();
 		acpRegexTagger = new ACPRegexTagger();
-		posTagger = ChemistryPOSTagger.getInstance();
+
+		posTagger = new ChemistryPOSTagger(null, new WhiteSpaceTokeniser(), new OscarTagger(new Oscar()), acpRegexTagger, OpenNLPTagger.getInstance());
 		acpGlossaryMap = dictLoader.loadDictionary(ACP_DICTIONARY, true);
         gawCoordinates = new CoordinatesLoader(STATION_COORDS_FILE);
 	}
@@ -35,15 +40,14 @@ public class ACPTagger {
 
 	public POSContainer runTaggers(String inputSentence) {
 
+
 		acpRegexTagger.addValuesWithSufficesToRegex(gawCoordinates.getSiteCountryMap().values(),
 				"JJ-COUNTRY", "n|an|ian");
 		acpRegexTagger.addValuesWithSufficesToRegex(gawCoordinates.getSiteCountryMap().values(),
 				"NNP-COUNTRY", "");
 		acpRegexTagger.addDictionarySetToRegex(gawCoordinates.getSiteCoordsMap().keySet(),
 				"NNP-STATION");
-		posTagger.setRegexTagger(acpRegexTagger);
-		posTagger.setUseOscarTokeniser(false);
-		POSContainer posContainer = posTagger.runTaggers(inputSentence,false);
+		POSContainer posContainer = posTagger.runTaggers(inputSentence,false,false,false);
 		List<String> tokenlist = posContainer.getWordTokenList();
 		int count = 0;
 		for (String token : tokenlist) {

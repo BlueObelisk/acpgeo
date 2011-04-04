@@ -10,7 +10,7 @@ import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 
 public class ACPTaggerTest {
 
-	@Ignore
+	
 	@Test
 	public void testSentence1() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
@@ -28,7 +28,7 @@ public class ACPTaggerTest {
 
 		
 	}
-	@Ignore
+	
 	@Test
 	public void testSentence2() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
@@ -47,7 +47,6 @@ public class ACPTaggerTest {
 		
 	  }
 
-	@Ignore
 	@Test
 	public void testSentence3() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
@@ -64,7 +63,7 @@ public class ACPTaggerTest {
 
 		
 	  }
-	@Ignore
+	
 	@Test
 	public void testSentence4() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
@@ -113,7 +112,7 @@ public class ACPTaggerTest {
 
 		
 	  }
-	@Ignore
+
 	@Test
 	public void testRecogniseCampaign() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
@@ -131,6 +130,23 @@ public class ACPTaggerTest {
 		
 	  }	
 	
+
+	@Test
+	public void testRecogniseAltitude() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "Assekrem a.s.l";
+		sentence = Utils.cleanHTMLText(sentence);
+	
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		System.out.println(posContainer.getTokenTagTupleAsString());
+		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+		"target/file7.xml");
+		Assert.assertTrue("Error-free parse",!sentenceParser.getParseTree().toStringTree().contains("<error"));
+	
+		
+	  }	
 	
 
 
