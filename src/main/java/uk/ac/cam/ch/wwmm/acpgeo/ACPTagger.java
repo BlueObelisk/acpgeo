@@ -29,7 +29,7 @@ public class ACPTagger {
 		DictionaryLoader dictLoader = new DictionaryLoader();
 		acpRegexTagger = new ACPRegexTagger();
 
-		posTagger = new ChemistryPOSTagger(null, new WhiteSpaceTokeniser(), new OscarTagger(new Oscar()), acpRegexTagger, OpenNLPTagger.getInstance());
+		posTagger = new ChemistryPOSTagger(new WhiteSpaceTokeniser(),new OscarTagger(new Oscar()), acpRegexTagger, OpenNLPTagger.getInstance());
 		acpGlossaryMap = dictLoader.loadDictionary(ACP_DICTIONARY, true);
         gawCoordinates = new CoordinatesLoader(STATION_COORDS_FILE);
 	}
@@ -47,7 +47,7 @@ public class ACPTagger {
 				"NNP-COUNTRY", "");
 		acpRegexTagger.addDictionarySetToRegex(gawCoordinates.getSiteCoordsMap().keySet(),
 				"NNP-STATION");
-		POSContainer posContainer = posTagger.runTaggers(inputSentence,false,false,false);
+		POSContainer posContainer = posTagger.runTaggers(inputSentence,false,false);
 		List<String> tokenlist = posContainer.getWordTokenList();
 		int count = 0;
 		for (String token : tokenlist) {
