@@ -94,7 +94,7 @@ verbphraseStructure :  dt? to? inAll? inafter? (md* rbconj? advAdj* verb+ md* ad
 verb : vbindicate|vbmeasure|vbacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange;
 
 number : cd|cdAlphanum|oscarcpr|cddegrees;	
-noun1 	:	(dtTHE|dt)? advAdj* nounStructure (dash nounStructure)*;
+noun1 	:	(dtTHE|dt)? advAdj* (nounStructure|nncampaign) (dash nounStructure)*;
 noun	:	(acronymPhrase|noun1);
 
 nounStructure : apparatus|nn|nns|campaign|parentheticalPhraseAcronym|expression|time|acpNoun|quantityNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase;

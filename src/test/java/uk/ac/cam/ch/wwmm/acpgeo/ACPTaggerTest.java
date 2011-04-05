@@ -160,7 +160,22 @@ public class ACPTaggerTest {
 		
 	  }	
 	
-
+	@Test
+	public void testRecogniseNonTitledCampaigns() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "a field campaign was performed";
+		sentence = Utils.cleanHTMLText(sentence);
+	
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		System.out.println(posContainer.getTokenTagTupleAsString());
+		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+		"target/file8.xml");
+		Assert.assertTrue("Error-free parse",!sentenceParser.getParseTree().toStringTree().contains("<error"));
+	
+		
+	  }	
 
 	
 
