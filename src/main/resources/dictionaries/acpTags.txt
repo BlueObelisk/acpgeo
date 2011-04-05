@@ -15,6 +15,7 @@ NNP---^(II|del|Cape|de|Ny|St\.|bei|La|Le|San|san|sur|Monte|Mt\.?)$---proper noun
 #CD
 CD-DEGREES---(^(~)?(\d|-)?\d+\.?\d*(°|º|'))---Degrees;
 CD-ALTITUDE---(^~?(\d|-)?\d+\.?\d*m)?\(?(A|a)\.?(S|s|G|g)\.?(L|l)\.?\)?$---Altitude Metres (Above Sea/Ground Level);
+SYM---^(\+|±)$---Plus and minus signs;
 #if a.s.l. is optional is there then a problem - m is usually taken as molar not metres?
 #To include observations at higher levels could require feet (ft) or pressure height but unlikely 
 CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;

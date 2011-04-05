@@ -51,11 +51,9 @@ fragment ACHAR	:	('A'..'Z') | ('a'..'z');
 // fragment ACHAR : ~('\\'|'"') ; 
 
 fragment DIGIT	: ('0'..'9');
-fragment UNICODE	:  '\u00A0'..'\ufffe';
+fragment UNICODE	:  '\u0080'..'\ufffe';
 
-//TOKEN	:	(ACHAR|DIGIT|UNICODE)+;
-TOKEN : (ACHAR|'?'|';'|'~'| '_'|',' |'.'|')'|'('|'/'|'-'|'='|':'|'%'|'\''|'{'|'}'|'['|']'|'>'|'<'|'@'|'+'|'|'|'"'|'`'|DIGIT|UNICODE)+;
-
+TOKEN : (ACHAR|'?'|';'|'~'| '_'|',' |'.'|')'|'('|'/'|'-'|'='|':'|'%'|'\''|'{'|'}'|'['|']'|'>'|'<'|'@'|'+'|'|'|'"'|'`'|'^'|DIGIT|UNICODE)+;
 
 document: sentences+-> ^(Sentence  sentences )+ ;
 
@@ -125,6 +123,8 @@ apparatus
 
 nnApp 
 	:	nnapparatus+ (dash nnapparatus)*;
+
+		
 preapparatus
 	:    (quantity|adj|nnpressure|nnadd|molecule|nnchementity|nnstate|nn)+ ;
 	
@@ -159,6 +159,7 @@ prepPhraseTimeStructure
 	
 prepphraseIN 
 	:inin molecule ->  ^(PrepPhrase  inin  molecule);
+	
 
 prepphraseRole
 	:inas dt? nnchementity ->	^(RolePrepPhrase  inas dt? nnchementity);
@@ -277,6 +278,8 @@ nncampaign
 	: 'NN-CAMPAIGN' TOKEN -> ^('NN-CAMPAIGN' TOKEN)	;	
 nnpacronym
 	: 'NNP-ACRONYM' TOKEN -> ^('NNP-ACRONYM' TOKEN)	;
+
+nnParts             :   'NN-PARTS' TOKEN -> ^('NN-PARTS' TOKEN);                     	
 
 //ACP Tags
 oscaracp

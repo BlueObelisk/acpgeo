@@ -177,7 +177,72 @@ public class ACPTaggerTest {
 		
 	  }	
 
+	@Test
+	public void testRecogniseConcentrations1() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "benzene = (65 ± 33) pptv";
+//		sentence = "C<sub>2</sub>H<sub>6</sub>  = (905 ± 200) pptv";
+		sentence = Utils.cleanHTMLText(sentence);
 	
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		System.out.println(posContainer.getTokenTagTupleAsString());
+		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+		"target/file9.xml");
+		Assert.assertTrue("Error-free parse",!sentenceParser.getParseTree().toStringTree().contains("<error"));
+	
+		
+	  }	
 
+	@Test
+	public void testRecogniseConcentrations2() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "C<sub>2</sub>H<sub>6</sub>  = (905 ± 200) pptv";
+		sentence = Utils.cleanHTMLText(sentence);
+	    System.out.println(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		System.out.println(posContainer.getTokenTagTupleAsString());
+		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+		"target/file10.xml");
+		Assert.assertTrue("Error-free parse",!sentenceParser.getParseTree().toStringTree().contains("<error"));
+	
+		
+	  }	
+	@Test
+	public void testRecogniseConcentrations3() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "(121 ± 20 ppbv CO, 0.284 ± 0.220 ppbv NOx, 1.15 ± 0.8 ppbv NOy, 58 ± 9 ppbv O3).";
+		sentence = Utils.cleanHTMLText(sentence);
+	
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		System.out.println(posContainer.getTokenTagTupleAsString());
+		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+		"target/file11.xml");
+		Assert.assertTrue("Error-free parse",!sentenceParser.getParseTree().toStringTree().contains("<error"));
+	
+		
+	  }
+	@Test
+	public void testRecogniseConcentrations4() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "(O3 minimum around 15–20 ppbV).";
+		sentence = Utils.cleanHTMLText(sentence);
+	
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		System.out.println(posContainer.getTokenTagTupleAsString());
+		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+		"target/file11.xml");
+		Assert.assertTrue("Error-free parse",!sentenceParser.getParseTree().toStringTree().contains("<error"));
+	
+		
+	  }	
+	
 	
 	}
