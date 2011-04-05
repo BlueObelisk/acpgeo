@@ -93,9 +93,8 @@ verbphraseStructure :  dt? to? inAll? inafter? (md* rbconj? advAdj* verb+ md* ad
 verb : vbindicate|vbmeasure|vbacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange;
 
 number : cd|cdAlphanum|oscarcpr|cddegrees;	
-noun1 	:	(dtTHE|dt)? advAdj* (nounStructure|nncampaign) (dash nounStructure)*;
+noun1 	:	(dtTHE|dt)? advAdj* (nounStructure|nncampaign|nnParts|nnmeter) (dash nounStructure)*;
 noun	:	(acronymPhrase|noun1);
-
 nounStructure : apparatus|nn|nns|campaign|parentheticalPhraseAcronym|expression|time|acpNoun|quantityNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase;
 acpNoun:location|nnpcountry;
 
@@ -241,12 +240,12 @@ moleculeamount1
 	: oscarCompound to oscarCompound nn?;	
 
 moleculeamount2
-	:(quantity)* (oscarCompound|in|nnacp)+ sym?  quantity* ;	
+	:(quantity)* oscarCompound+ sym?  quantity* ;	
 	
 moleculeamount : moleculeamount1 | moleculeamount2 ;	
 molecule          
 	:  moleculeamount-> ^(MOLECULE  moleculeamount );	
-
+	
 
 quantity 	:  quantity1 ->   ^(QUANTITY  quantity1);
 	
