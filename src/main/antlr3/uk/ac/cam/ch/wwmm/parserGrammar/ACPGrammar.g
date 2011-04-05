@@ -36,6 +36,7 @@ ParentheticalPhrase;
 ParentheticalPhraseEmpty;
 TransitionPhrase;
 CAMPAIGN;
+CONCENTRATIONMEASUREMENT;
 }
 
 @header {
@@ -54,7 +55,7 @@ fragment DIGIT	: ('0'..'9');
 fragment UNICODE	:  '\u0080'..'\ufffe';
 
 TOKEN : (ACHAR|'?'|';'|'~'| '_'|',' |'.'|')'|'('|'/'|'-'|'='|':'|'%'|'\''|'{'|'}'|'['|']'|'>'|'<'|'@'|'+'|'|'|'"'|'`'|'^'|DIGIT|UNICODE)+;
-
+//TOKEN : (~' ')+;
 document: sentences+-> ^(Sentence  sentences )+ ;
 
 sentences:  (sentenceStructure)+    (comma|stop)*;
@@ -188,7 +189,7 @@ parentheticalPhraseEmpty
 	: lrb rrb ->^(ParentheticalPhraseEmpty lrb rrb);
 
 parentheticalContent
-	:  dtTHE? (advAdj|nounStructure|verb|inAll)  conjunction? stop?;			
+	:  dtTHE? colon? (advAdj|nounStructure|verb|inAll)  conjunction? stop?;			
 
 inAll	: in|inafter|inas|inbefore|inby|infor|infrom|inin|ininto|inof|inoff|inon|inover|inunder|invia|inwith|inwithout|to;
 prepphraseTemp:  prepphraseTempContent ->  ^(TempPhrase   prepphraseTempContent);
@@ -199,12 +200,20 @@ prepphraseTempContent
 amount	: cd+ nnamount -> ^(AMOUNT   cd+ nnamount );
 mass	: cd+ nnmass-> ^(MASS   cd+ nnmass ); 
 massVolume	: cd+ nnmass nnvol -> ^(MASSVOLUME   cd+ nnmass nnvol ); 
+concentrationMeasurementContent1
+	: cd+ (sym cd)*;
+concentrationMeasurementContent2
+	: lrb cd+ (sym cd)* rrb;	
+concentrationMeasurementContent
+	: (concentrationMeasurementContent1|concentrationMeasurementContent2) nnParts;
+concentrationMeasurement
+	:concentrationMeasurementContent+ -> ^(CONCENTRATIONMEASUREMENT concentrationMeasurementContent+);					
 percent	: number  nnpercent -> ^(PERCENT   number nnpercent );
 volume	: cd+ nnvol -> ^(VOLUME   cd+ nnvol );
 molar	: cd* nnmolar -> ^(MOLAR   cd* nnmolar );
 
 measurements
-	: massVolume|molar|amount|mass|percent|volume ;	
+	: massVolume|molar|amount|mass|percent|volume|concentrationMeasurement ;	
 
 time 	:	 timeStructure ->^(TimePhrase timeStructure);
 
@@ -232,7 +241,7 @@ moleculeamount1
 	: oscarCompound to oscarCompound nn?;	
 
 moleculeamount2
-	:(quantity)* oscarCompound+  quantity* ;	
+	:(quantity)* (oscarCompound|in|nnacp)+ sym?  quantity* ;	
 	
 moleculeamount : moleculeamount1 | moleculeamount2 ;	
 molecule          
@@ -240,17 +249,36 @@ molecule
 
 
 quantity 	:  quantity1 ->   ^(QUANTITY  quantity1);
-
-
+	
 quantity1
 	:  measurements (comma  measurements)*  ;
 
-
-
 location	: locationStructure+  ->^(LOCATION  locationStructure+)	;
 
-locationStructure : (locationContent|lrb locationContent (comma? dash? locationContent)* rrb) ; 
-locationContent: (nnpcountry|cddegrees apost? nnpdirection? cdaltitude?|nnpdirection nnp|nnpstation nnp? nnstation? cdaltitude?|nnpacronym+ nnp? nnstation|nnp nnstation|nnstation nnp); 
+locationStructure : (locationStructure1|bracketedLocationStructure);
+locationStructure1
+	: locationContent (comma? dash? locationContent)*;	
+bracketedLocationStructure
+	: lrb locationContent (comma? dash? locationContent)* rrb ;	 
+locationContent: (nnpcountry|locationContent1|locationContent2|locationContent3|locationContent4|locationContent5|locationContent6|locationContent7); 
+locationContent1
+	:	cd? nnmeter cdaltitude;
+locationContent2
+	:	cddegrees apost? nnpdirection? cdaltitude?;
+locationContent3
+	:	nnpdirection nnp;	
+	
+locationContent4
+	:	nnpstation nnp? nnstation? cdaltitude?;	
+	
+locationContent5
+	:	nnpacronym+ nnp? nnstation;
+		
+locationContent6
+	:	nnp nnstation;
+	
+locationContent7
+	:	nnstation nnp;	
 acronym	: lrb (nn|properNoun) rrb ->^(ACRONYM  lrb nn? properNoun? rrb)	;
 
 //ACP Tags
@@ -262,6 +290,8 @@ nnpcountry
 	: 'NNP-COUNTRY' TOKEN -> ^('NNP-COUNTRY' TOKEN)	;
 nnpmonth
 	: 'NNP-MONTH' TOKEN -> ^('NNP-MONTH' TOKEN)	;
+nnmeter
+	: 'NN-METER' TOKEN -> ^('NN-METER' TOKEN)	;
 nnpacp
 	: 'NNP-ACP' TOKEN -> ^('NNP-ACP' TOKEN)	;
 nnpdirection

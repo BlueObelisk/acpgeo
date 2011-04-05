@@ -13,6 +13,8 @@ import java.util.List;
 
 import nu.xom.Builder;
 import nu.xom.Document;
+import nu.xom.Element;
+import nu.xom.Nodes;
 import nu.xom.ParsingException;
 import nu.xom.ValidityException;
 
@@ -38,6 +40,7 @@ public class ACPGeoMain {
 	private static void runACPGeo(String directoryName) {
 		File[] files = new File(directoryName).listFiles();
 		ACPTagger posTagger = ACPTagger.getInstance();
+		Document acpAbstract = null;
 		List<String> doneFiles = getListofFiles(new File("target/").listFiles());
 		for (File file : files) {
 			if (doneFiles.contains(file.getName()))
@@ -80,17 +83,26 @@ public class ACPGeoMain {
 						e.printStackTrace();
 					}
 					// changed on 28th Feb 2011
+					Element rootElement = new Element("ACPABSTRACT");
+					acpAbstract = new Document(rootElement);
 					AbstractReader abReader = new AbstractReader(xmlInputStream);
 					System.out.println(abReader.getAbstractString());
                     try{
 					POSContainer posContainer = posTagger.runTaggers(abReader
 							.getAbstractString());
+					abReader.getAuthors();
 
 					SentenceParser sentenceParser = new SentenceParser(
 							posContainer);
 					sentenceParser.parseTags();
-					Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
-							"target/" + file.getName());
+					
+					Document parsedDoc = sentenceParser.makeXMLDocument();
+
+					addListToParentNode(rootElement, abReader.getAuthors());
+					addListToParentNode(rootElement, abReader.getAffiliations());
+					addListToParentNode(rootElement, abReader.getTitleNode());
+					rootElement.appendChild(parsedDoc.getRootElement().copy());
+					Utils.writeXMLToFile(acpAbstract,"target/" + file.getName());
                     }
                     catch (Exception e){
                     	System.err.println("Can't do " + file.getName()
@@ -102,6 +114,19 @@ public class ACPGeoMain {
 		}
 	}
 
+	
+	/****************************************************
+	 * Adds a list of Elements to a parent node.
+	 * @param parentNode
+	 * @param nodeList
+	 ****************************************************/
+	private static void addListToParentNode(Element rootElement, Nodes nodeList) {
+		for (int i = 0; i < nodeList.size(); i++) {
+	        
+			rootElement.appendChild(nodeList.get(i).copy());
+		}
+
+	}
 	private static List<String> getListofFiles(File[] doneFiles) {
 		List<String> doneStringFiles = new ArrayList<String>();
 		for (File file : doneFiles) {

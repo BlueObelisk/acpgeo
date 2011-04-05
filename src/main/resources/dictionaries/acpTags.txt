@@ -12,14 +12,18 @@ NN-PRESSURE---(k|m)b---pressure bar unit
 NN-CAMPAIGN---^((EU-)?(p|P)re)?((C|c)ampaign|(EU-)?(p|P)roject|(EU-)?(p|P)rogram|Study)$---Campaigns
 NN-ACP---^(W|w)aters$---;
 NNP---^(II|del|Cape|de|Ny|St\.|bei|La|Le|San|san|sur|Monte|Mt\.?)$---proper nouns that precede stations;
+NN-PARTS---^(pp(b|t)(v|V)?|PP(B|T)(v|V)?)$---parts per billiona nd parts very trillion
+OSCAR-CM---C\d+H\d+---Oscar tokens that sometimes go wrong;
 #CD
 CD-DEGREES---(^(~)?(\d|-)?\d+\.?\d*(°|º|'))---Degrees;
+NN-METER---^(m|\d+m)$---Meters;
 CD-ALTITUDE---(^~?(\d|-)?\d+\.?\d*m)?\(?(A|a)\.?(S|s|G|g)\.?(L|l)\.?\)?$---Altitude Metres (Above Sea/Ground Level);
 SYM---^(\+|±)$---Plus and minus signs;
 #if a.s.l. is optional is there then a problem - m is usually taken as molar not metres?
 #To include observations at higher levels could require feet (ft) or pressure height but unlikely 
 CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;
 CD-YEAR-RANGE---^(1|2)(0|9)\d\d\-(1|2)(0|9)\d\d$---Valid Year;
+CD---(^(~)?(\d|-)?\d+(\-|±)\d+)---non-year range numbers
 JJ---^(t|T)hat$---demonstrative adjective;
 JJ-ACP---^(M|m)arine$---demonstrative adjective;
 JJ-CHEM---^(i|I)frared$---demonstrative adjective;

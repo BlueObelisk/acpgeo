@@ -38,6 +38,16 @@ public class AbstractReader {
 	private Nodes references;
 	private String titleString;
 	private Nodes authors;
+	private Nodes affiliations;
+	private Nodes titleNode;
+
+	public Nodes getTitleNode() {
+		return titleNode;
+	}
+
+	public Nodes getAffiliations() {
+		return affiliations;
+	}
 
 	public AbstractReader(InputStream xmlInputStream) {
 		try {
@@ -60,9 +70,11 @@ public class AbstractReader {
 
 	private void loadDocument() {
 		abstractString =Utils.cleanHTMLText(xmlDoc.query("//abstract").get(0).getValue());
-		titleString = xmlDoc.query("//article_title").get(0).getValue();
+		titleNode =xmlDoc.query("//article_title");
+		titleString = Utils.cleanHTMLText(xmlDoc.query("//article_title").get(0).getValue());
 		references = xmlDoc.query("//reference");
-		authors = xmlDoc.query("//author");
+		authors = xmlDoc.query("//authors");
+		affiliations = xmlDoc.query("//affiliations");
 	}
 
 

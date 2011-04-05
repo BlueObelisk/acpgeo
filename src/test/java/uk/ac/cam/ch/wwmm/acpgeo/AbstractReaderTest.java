@@ -22,7 +22,7 @@ public class AbstractReaderTest {
 		Assert.assertNotNull("Abstract String",abstractReader.getAbstractString());
 		Assert.assertNotNull("Article Title",abstractReader.getTitleString());
 		Assert.assertEquals("References size",34,abstractReader.getReferences().size());
-		Assert.assertEquals("Author size",7,abstractReader.getAuthors().size());
+		Assert.assertEquals("Author size",1,abstractReader.getAuthors().size());
 		
 		
 	}
