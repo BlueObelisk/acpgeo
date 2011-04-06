@@ -28,6 +28,9 @@ public class SentenceParser extends ChemistrySentenceParser {
 		
 		
 	}
+	public SentenceParser(String taggedSentence) {
+		super(taggedSentence);
+	}
 	public void parseTags() {
 		ACPGrammarLexer lexer = null;
 

@@ -81,7 +81,7 @@ nounphrase
 	
 
 nounphraseStructure
-	:	dtTHE? dt?    noun+    (conjunction*  noun)*   ((prepphraseOf| prepphraseIN|prepphraseAtmosphere|prepphraseTemp|prepphraseTime) )*  ;
+	:	dtTHE? dt?    noun+   (conjunction*  noun)*   ((prepphraseOf| prepphraseIN|prepphraseAtmosphere|prepphraseTemp|prepphraseTime) )*  ;
 
 
 conjunction 
@@ -93,7 +93,7 @@ verbphraseStructure :  dt? to? inAll? inafter? (md* rbconj? advAdj* verb+ md* ad
 verb : vbindicate|vbmeasure|vbacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange;
 
 number : cd|cdAlphanum|oscarcpr|cddegrees;	
-noun1 	:	(dtTHE|dt)? advAdj* (nounStructure|nncampaign|nnParts|nnmeter) (dash nounStructure)*;
+noun1 	:	(dtTHE|dt)? advAdj* to? (nounStructure|nncampaign|nnParts|nnmeter|cdaltitude)(dash nounStructure)*;
 noun	:	(acronymPhrase|noun1);
 nounStructure : apparatus|nn|nns|campaign|parentheticalPhraseAcronym|expression|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase;
 acpNoun:location|nnpcountry;
@@ -103,7 +103,7 @@ experimentNoun : nnflash|nngeneral|nnmethod|nnpressure|nncolumn|nnchromatography
 quantityNoun:amount|quantity|measurements|nnvol|nnamount;
 actionNoun : nnyield|nnstate|nnadd|nnextract|nnfilter|nnprecipitate|nnremove|nnsynthesize|nndry|nnconcentrate|nnpurify;
 fwSymbolNoun : fw|fwin|sym|tmunicode;
-clauseNoun:wdt|wp_poss|wpo|wps|wql|wrb|ex|pdt;
+clauseNoun:wdt|wp_poss|wpo|wps|wql|wrb|ex|pdt|wp;
 
 properNoun
 	:	nnpstation|nps|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp;
@@ -770,6 +770,8 @@ wpo:'WPO' TOKEN -> ^('WPO' TOKEN);
 // Nominative wh- pronoun (who, which, that)
 wps:'WPS' TOKEN -> ^('WPS' TOKEN);
 
+// Nominative wh- pronoun (who, which, that)
+wp:'WP' TOKEN -> ^('WP' TOKEN);
 // Wh- qualifier (how)
 wql:'WQL' TOKEN -> ^('WQL' TOKEN);
 
