@@ -1,7 +1,5 @@
 package uk.ac.cam.ch.wwmm.acpgeo;
 
-import java.nio.charset.Charset;
-
 import junit.framework.Assert;
 
 import org.junit.Ignore;
@@ -297,6 +295,19 @@ public class ACPTaggerTest {
 	public void testRecogniseConcentrations7() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration7.txt");
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),"target/file14.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+
+	}
+	@Test
+	public void testRecogniseDirections() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "The northern hemisphere";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		SentenceParser sentenceParser = new SentenceParser(posContainer);
