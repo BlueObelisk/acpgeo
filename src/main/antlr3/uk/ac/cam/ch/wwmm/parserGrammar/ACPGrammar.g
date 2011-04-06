@@ -95,7 +95,7 @@ verb : vbindicate|vbmeasure|vbacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|
 number : cd|cdAlphanum|oscarcpr|cddegrees;	
 noun1 	:	(dtTHE|dt)? advAdj* (nounStructure|nncampaign|nnParts|nnmeter) (dash nounStructure)*;
 noun	:	(acronymPhrase|noun1);
-nounStructure : apparatus|nn|nns|campaign|parentheticalPhraseAcronym|expression|time|acpNoun|quantityNoun|properNoun|moleculeNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase;
+nounStructure : apparatus|nn|nns|campaign|parentheticalPhraseAcronym|expression|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase;
 acpNoun:location|nnpcountry;
 
 conditionNoun : nntime|nnatmosphere|nntemp;
@@ -240,9 +240,11 @@ moleculeamount1
 	: oscarCompound to oscarCompound nn?;	
 
 moleculeamount2
-	:(quantity)* oscarCompound+ sym?  quantity* ;	
-	
-moleculeamount : moleculeamount1 | moleculeamount2 ;	
+	:quantity* oscarCompound+ ;	
+
+moleculeamount3
+	:oscarCompound+ sym?  quantity* ;	
+moleculeamount : moleculeamount2|moleculeamount3|moleculeamount1 ;	
 molecule          
 	:  moleculeamount-> ^(MOLECULE  moleculeamount );	
 	

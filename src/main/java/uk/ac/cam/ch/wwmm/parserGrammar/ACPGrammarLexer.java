@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 14:05:07 uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g 2011-04-05 18:46:59
+// $ANTLR 3.2 Sep 23, 2009 14:05:07 uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g 2011-04-06 11:03:57
 package uk.ac.cam.ch.wwmm.parserGrammar;
 
 import org.antlr.runtime.*;
@@ -6843,7 +6843,6 @@ public class ACPGrammarLexer extends Lexer {
 
     protected DFA4 dfa4 = new DFA4(this);
     protected DFA5 dfa5 = new DFA5(this);
-    static class DFA4_static {
     static final String DFA4_eotS =
         "\1\1\36\uffff";
     static final String DFA4_eofS =
@@ -6894,21 +6893,20 @@ public class ACPGrammarLexer extends Lexer {
             "",
             ""
     };
-    }
 
-    static final short[] DFA4_eot = DFA.unpackEncodedString(DFA4_static.DFA4_eotS);
-    static final short[] DFA4_eof = DFA.unpackEncodedString(DFA4_static.DFA4_eofS);
-    static final char[] DFA4_min = DFA.unpackEncodedStringToUnsignedChars(DFA4_static.DFA4_minS);
-    static final char[] DFA4_max = DFA.unpackEncodedStringToUnsignedChars(DFA4_static.DFA4_maxS);
-    static final short[] DFA4_accept = DFA.unpackEncodedString(DFA4_static.DFA4_acceptS);
-    static final short[] DFA4_special = DFA.unpackEncodedString(DFA4_static.DFA4_specialS);
+    static final short[] DFA4_eot = DFA.unpackEncodedString(DFA4_eotS);
+    static final short[] DFA4_eof = DFA.unpackEncodedString(DFA4_eofS);
+    static final char[] DFA4_min = DFA.unpackEncodedStringToUnsignedChars(DFA4_minS);
+    static final char[] DFA4_max = DFA.unpackEncodedStringToUnsignedChars(DFA4_maxS);
+    static final short[] DFA4_accept = DFA.unpackEncodedString(DFA4_acceptS);
+    static final short[] DFA4_special = DFA.unpackEncodedString(DFA4_specialS);
     static final short[][] DFA4_transition;
 
     static {
-        int numStates = DFA4_static.DFA4_transitionS.length;
+        int numStates = DFA4_transitionS.length;
         DFA4_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA4_transition[i] = DFA.unpackEncodedString(DFA4_static.DFA4_transitionS[i]);
+            DFA4_transition[i] = DFA.unpackEncodedString(DFA4_transitionS[i]);
         }
     }
 
@@ -6929,7 +6927,6 @@ public class ACPGrammarLexer extends Lexer {
             return "()+ loopback of 57:9: ( ACHAR | '?' | ';' | '~' | '_' | ',' | '.' | ')' | '(' | '/' | '-' | '=' | ':' | '%' | '\\'' | '{' | '}' | '[' | ']' | '>' | '<' | '@' | '+' | '|' | '\"' | '`' | '^' | DIGIT | UNICODE )+";
         }
     }
-    static class DFA5_static {
     static final String DFA5_eotS =
         "\1\uffff\26\31\3\uffff\1\114\1\31\1\116\1\121\1\122\1\31\1\124\1"+
         "\131\1\133\1\31\1\136\1\137\1\146\1\31\1\150\1\152\1\154\1\31\1"+
@@ -8397,21 +8394,20 @@ public class ACPGrammarLexer extends Lexer {
             "\1\uffff\uff7f\31",
             ""
     };
-    }
 
-    static final short[] DFA5_eot = DFA.unpackEncodedString(DFA5_static.DFA5_eotS);
-    static final short[] DFA5_eof = DFA.unpackEncodedString(DFA5_static.DFA5_eofS);
-    static final char[] DFA5_min = DFA.unpackEncodedStringToUnsignedChars(DFA5_static.DFA5_minS);
-    static final char[] DFA5_max = DFA.unpackEncodedStringToUnsignedChars(DFA5_static.DFA5_maxS);
-    static final short[] DFA5_accept = DFA.unpackEncodedString(DFA5_static.DFA5_acceptS);
-    static final short[] DFA5_special = DFA.unpackEncodedString(DFA5_static.DFA5_specialS);
+    static final short[] DFA5_eot = DFA.unpackEncodedString(DFA5_eotS);
+    static final short[] DFA5_eof = DFA.unpackEncodedString(DFA5_eofS);
+    static final char[] DFA5_min = DFA.unpackEncodedStringToUnsignedChars(DFA5_minS);
+    static final char[] DFA5_max = DFA.unpackEncodedStringToUnsignedChars(DFA5_maxS);
+    static final short[] DFA5_accept = DFA.unpackEncodedString(DFA5_acceptS);
+    static final short[] DFA5_special = DFA.unpackEncodedString(DFA5_specialS);
     static final short[][] DFA5_transition;
 
     static {
-        int numStates = DFA5_static.DFA5_transitionS.length;
+        int numStates = DFA5_transitionS.length;
         DFA5_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA5_transition[i] = DFA.unpackEncodedString(DFA5_static.DFA5_transitionS[i]);
+            DFA5_transition[i] = DFA.unpackEncodedString(DFA5_transitionS[i]);
         }
     }
 
