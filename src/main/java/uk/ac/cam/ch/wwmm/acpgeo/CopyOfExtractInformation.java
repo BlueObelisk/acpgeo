@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.util.regex.Pattern;
 
 import nu.xom.Builder;
 import nu.xom.Document;
@@ -15,11 +16,22 @@ import nu.xom.Element;
 import nu.xom.Nodes;
 import nu.xom.ParsingException;
 import nu.xom.ValidityException;
+import uk.ac.cam.ch.wwmm.chemicaltagger.ChemistryPOSTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.ExtractFromXML;
+import uk.ac.cam.ch.wwmm.chemicaltagger.OpenNLPTagger;
+import uk.ac.cam.ch.wwmm.chemicaltagger.OscarTagger;
+import uk.ac.cam.ch.wwmm.chemicaltagger.WhiteSpaceTokeniser;
+import uk.ac.cam.ch.wwmm.oscar.Oscar;
 
-public class ExtractInformation {
+public class CopyOfExtractInformation {
 
 	private String outputFolder = "target/extractedInfo/";
+	private static String STATION_COORDS_FILE = "dictionaries/StationCoords.csv";
+	private CoordinatesLoader gawCoordinates;
+	
+//	private CopyOfExtractInformation() {
+//        gawCoordinates = new CoordinatesLoader(STATION_COORDS_FILE);
+//	}
 
 	public String getOutputFolder() {
 		return outputFolder;
@@ -29,29 +41,13 @@ public class ExtractInformation {
 		this.outputFolder = outputFolder;
 	}
 
-	public ExtractInformation(String fileLocation) {
+	public CopyOfExtractInformation(String fileLocation) {
 		File[] files = new File(fileLocation).listFiles();
 		runQueries(files);
 	}
 
 	public void runQueries(File[] files) {
-
-		getQuery(files, "//CAMPAIGN","CAMPAIGN.csv");
-		getQuery(files, "//AcronymPhrase","ACRONYMPHRASES.csv");
-		getQuery(files, "//NNP-ACRONYM","NNP-ACRONYM.csv");
-		getQuery(files, "//ParentheticalPhrase","PARENTHETICALPHRASE.csv");
-		getQuery(files, "//LOCATION","LOCATION.csv");
-		getQuery(files, "//MOLECULE","MOLECULE.csv");
-		getQuery(files, "//CD-DEGREES","CD-DEGREES.csv");
-		getQuery(files, "//CD-ALTITUDE","CD-ALTITUDE.csv");
-		getQuery(files, "//QUANTITY","QUANTITY.csv");
-		getQuery(files, "//NNP-STATION","NNP-STATION.csv");
-		getQuery(files, "//LOCATION[descendant-or-self::NNP-STATION][not(descendant-or-self::CD-DEGREES)]","LOCATIONSTATION.csv");
-		getQuery(files, "//ActionPhrase[@type='Measurement']","ACTIONPHRASEmeasurement.csv");
-		getQuery(files, "//ActionPhrase[@type='Measurement'][descendant-or-self::MOLECULE]","ACTIONPHRASEmeasurementMOLECULE.csv");
-		getQuery(files, "//ActionPhrase[@type='Observation']","ACTIONPHRASEobservation.csv");
-		getQuery(files, "//ActionPhrase[@type='Observation'][descendant-or-self::MOLECULE]","ACTIONPHRASEobservationMOLECULE.csv");
-		
+		getQuery(files, "//NNP-STATION","NNP-STATION_add_map.csv");
 	}
 
 	private void getQuery(File[] files, String query,String fileName) {
@@ -67,6 +63,9 @@ public class ExtractInformation {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
+		gawCoordinates = new CoordinatesLoader(STATION_COORDS_FILE);
+		
 		for (File file : files) {
 			if (file.getName().endsWith("xml")) {
 				try {
@@ -84,12 +83,17 @@ public class ExtractInformation {
 				
 
 				Nodes nodes = doc.query(query);
+				
 				for (int i = 0; i < nodes.size(); i++) {
 					Element element = (Element) nodes.get(i);
-//					System.out.println(file.getCanonicalPath()+"\t"+new ExtractFromXML().getStringValue(
-//							element, " "));
-					filewriter.write(file.getCanonicalPath()+"\t"+ExtractFromXML.getStringValue(
-							element, " ")+"\n");
+					String myKey = ExtractFromXML.getStringValue( element, "" );
+//					Pattern p = Pattern.compile(myKey, Pattern.CASE_INSENSITIVE);
+					String outputString = file.getCanonicalPath( ) +
+					                      "\t" +
+					                      myKey +
+					                      "\t" +
+					                      gawCoordinates.getSiteCoordsMap().get( myKey );
+					filewriter.write( outputString + "\n" );
 					filewriter.flush();
 				}
 				} catch (ValidityException e) {
@@ -104,6 +108,8 @@ public class ExtractInformation {
 				}
 			}
 		}
+		
+		
 		try {
 			filewriter.close();
 		} catch (IOException e) {
