@@ -1,5 +1,7 @@
 package uk.ac.cam.ch.wwmm.acpgeo;
 
+import java.nio.charset.Charset;
+
 import junit.framework.Assert;
 
 import org.junit.Ignore;
@@ -116,8 +118,7 @@ public class ACPTaggerTest {
 	@Test
 	public void testDegrees() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = Utils
-				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testDegrees.txt");
+		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testDegrees.txt");
 		String expected = Utils
 				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/refDegrees.txt");
 		sentence = Utils.cleanHTMLText(sentence);
@@ -208,8 +209,7 @@ public class ACPTaggerTest {
 	@Test
 	public void testRecogniseConcentrations1() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "benzene = (65 ± 33) pptv";
-		// sentence = "C<sub>2</sub>H<sub>6</sub>  = (905 ± 200) pptv";
+		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration1.txt");
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		SentenceParser sentenceParser = new SentenceParser(posContainer);
@@ -224,7 +224,7 @@ public class ACPTaggerTest {
 	@Test
 	public void testRecogniseConcentrations2() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "C<sub>2</sub>H<sub>6</sub>  = (905 ± 200) pptv";
+		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration2.txt");
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		SentenceParser sentenceParser = new SentenceParser(posContainer);
@@ -239,7 +239,8 @@ public class ACPTaggerTest {
 	@Test
 	public void testRecogniseConcentrations3() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "(121 ± 20 ppbv CO, 0.284 ± 0.220 ppbv NOx, 1.15 ± 0.8 ppbv NOy, 58 ± 9 ppbv O3).";
+		
+		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration3.txt");
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		SentenceParser sentenceParser = new SentenceParser(posContainer);
@@ -254,7 +255,7 @@ public class ACPTaggerTest {
 	@Test
 	public void testRecogniseConcentrations4() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "(O3 minimum around 15–20 ppbV).";
+		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration4.txt");
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		SentenceParser sentenceParser = new SentenceParser(posContainer);
@@ -268,7 +269,7 @@ public class ACPTaggerTest {
 	@Test
 	public void testRecogniseConcentrations5() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "Ambient CO2 was fairly stable (84±12 ppbV).";
+		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration5.txt");
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		SentenceParser sentenceParser = new SentenceParser(posContainer);
@@ -282,7 +283,7 @@ public class ACPTaggerTest {
 	@Test
 	public void testRecogniseConcentrations6() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "( C2H6 = (905 ± 200) pptv, C3H8 = (268 ±110) pptv, C2H2 = (201 ± 102) pptv, C5H8 = (111 ± 124) pptv, benzene = (65 ± 33) pptv )";
+		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration6.txt");
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		SentenceParser sentenceParser = new SentenceParser(posContainer);
@@ -295,7 +296,7 @@ public class ACPTaggerTest {
 	@Test
 	public void testRecogniseConcentrations7() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "(e.g.: C2H6 = (905 ± 200) pptv, C3H8 = (268 ±110) pptv, C2H2 = (201 ± 102) pptv, C5H8 = (111 ± 124) pptv, benzene = (65 ± 33) pptv).";
+		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration7.txt");
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		SentenceParser sentenceParser = new SentenceParser(posContainer);
