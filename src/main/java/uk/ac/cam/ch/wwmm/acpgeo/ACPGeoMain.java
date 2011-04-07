@@ -92,7 +92,7 @@ public class ACPGeoMain {
 							.getAbstractString());
 					abReader.getAuthors();
 
-					SentenceParser sentenceParser = new SentenceParser(
+					ACPSentenceParser sentenceParser = new ACPSentenceParser(
 							posContainer);
 					sentenceParser.parseTags();
 					

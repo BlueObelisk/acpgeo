@@ -21,7 +21,7 @@ public class ACPTaggerTest {
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals("Correct Markup", expected,
 				posContainer.getTokenTagTupleAsString());
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
 				"target/file1.xml");
@@ -42,7 +42,7 @@ public class ACPTaggerTest {
 		Assert.assertEquals("Correct Markup", expected,
 				posContainer.getTokenTagTupleAsString());
 
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
 				"target/file2.xml");
@@ -62,7 +62,7 @@ public class ACPTaggerTest {
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals("Correct Markup", expected,
 				posContainer.getTokenTagTupleAsString());
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
 				"target/file3.xml");
@@ -82,7 +82,7 @@ public class ACPTaggerTest {
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals("Correct Markup", expected,
 				posContainer.getTokenTagTupleAsString());
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
 				"target/file4.xml");
@@ -103,7 +103,7 @@ public class ACPTaggerTest {
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals("Correct Markup", expected,
 				posContainer.getTokenTagTupleAsString());
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
 				"target/file5.xml");
@@ -123,7 +123,7 @@ public class ACPTaggerTest {
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals("Correct Markup", expected,
 				posContainer.getTokenTagTupleAsString());
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 
 	}
@@ -137,7 +137,7 @@ public class ACPTaggerTest {
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals("Correct Markup", expected,
 				posContainer.getTokenTagTupleAsString());
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		System.out.println(sentenceParser.makeXMLDocument().toXML());
 
@@ -149,7 +149,7 @@ public class ACPTaggerTest {
 		String sentence = "CHABLIS (Chemistry of the Antarctic Boundary Layer and the Interface with Snow) campaign ";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
 				"target/file6.xml");
@@ -164,7 +164,7 @@ public class ACPTaggerTest {
 		String sentence = "Assekrem a.s.l";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
 				"target/file7.xml");
@@ -179,7 +179,7 @@ public class ACPTaggerTest {
 		String sentence = "a field campaign was performed";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
 				"target/file8.xml");
@@ -188,13 +188,15 @@ public class ACPTaggerTest {
 
 	}
 	
+	@Ignore
 	@Test
 	public void testRecogniseLocations() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = " Mt. Cimone station (44°11' N-10°42' E, 2165 m asl, the highest mountain in the northern Italian Apennines) .";
+//		String sentence = " Mt. Cimone station (44°11' N-10°42' E, 2165 m asl, the highest mountain in the northern Italian Apennines) .";
+		String sentence = " ( Mt. Cimone station 44°11' N-10°42' E, 2165 m asl, the highest mountain in the  northern Italian Apennines ) .";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
 				"target/fileLocation.xml");
@@ -210,7 +212,7 @@ public class ACPTaggerTest {
 		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration1.txt");
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
 				"target/file9.xml");
@@ -225,7 +227,7 @@ public class ACPTaggerTest {
 		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration2.txt");
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
 				"target/file10.xml");
@@ -241,7 +243,7 @@ public class ACPTaggerTest {
 		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration3.txt");
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
 				"target/file11.xml");
@@ -256,7 +258,7 @@ public class ACPTaggerTest {
 		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration4.txt");
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),	"target/file11.xml");
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
@@ -270,7 +272,7 @@ public class ACPTaggerTest {
 		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration5.txt");
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),"target/file12.xml");
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
@@ -284,7 +286,7 @@ public class ACPTaggerTest {
 		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration6.txt");
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),"target/file13.xml");
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
@@ -297,7 +299,7 @@ public class ACPTaggerTest {
 		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration7.txt");
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),"target/file14.xml");
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
@@ -310,7 +312,7 @@ public class ACPTaggerTest {
 		String sentence = "The northern hemisphere";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		SentenceParser sentenceParser = new SentenceParser(posContainer);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),"target/file14.xml");
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()

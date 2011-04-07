@@ -12,23 +12,23 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.Tree;
 
 import uk.ac.cam.ch.wwmm.chemicaltagger.ASTtoXML;
-import uk.ac.cam.ch.wwmm.chemicaltagger.ChemistrySentenceParser;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
+import uk.ac.cam.ch.wwmm.chemicaltagger.SentenceParser;
 import uk.ac.cam.ch.wwmm.parserGrammar.ACPGrammarLexer;
 import uk.ac.cam.ch.wwmm.parserGrammar.ACPGrammarParser;
 
-public class SentenceParser extends ChemistrySentenceParser {
+public class ACPSentenceParser extends SentenceParser {
 
-	public SentenceParser(InputStream taggedTokenInStream) {
+	public ACPSentenceParser(InputStream taggedTokenInStream) {
 		super(taggedTokenInStream);
 		
 	}
-	public SentenceParser(POSContainer posContainer) {
+	public ACPSentenceParser(POSContainer posContainer) {
 		super(posContainer);
 		
 		
 	}
-	public SentenceParser(String taggedSentence) {
+	public ACPSentenceParser(String taggedSentence) {
 		super(taggedSentence);
 	}
 	public void parseTags() {

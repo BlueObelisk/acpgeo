@@ -65,8 +65,7 @@ public class ExtractInformation {
 				files,
 				"//ActionPhrase[@type='Observation'][descendant-or-self::MOLECULE]",
 				"ACTIONPHRASEobservationMOLECULE.csv");
-		// … paperId, affiliation, publication year,
-		// campaignName,campaignLocation, campaignYear, molecules
+		// … paperId, affiliation, publication year,campaignName,campaignLocation, campaignYear, molecules
 		String fileName = "MappingData.csv";
 		FileWriter filewriter = null;
 		if (!new File(outputFolder).exists())
