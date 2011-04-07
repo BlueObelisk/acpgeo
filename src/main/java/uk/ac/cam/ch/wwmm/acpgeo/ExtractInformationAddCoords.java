@@ -8,7 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.util.regex.Pattern;
 
 import nu.xom.Builder;
 import nu.xom.Document;
@@ -16,12 +15,7 @@ import nu.xom.Element;
 import nu.xom.Nodes;
 import nu.xom.ParsingException;
 import nu.xom.ValidityException;
-import uk.ac.cam.ch.wwmm.chemicaltagger.ChemistryPOSTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.ExtractFromXML;
-import uk.ac.cam.ch.wwmm.chemicaltagger.OpenNLPTagger;
-import uk.ac.cam.ch.wwmm.chemicaltagger.OscarTagger;
-import uk.ac.cam.ch.wwmm.chemicaltagger.WhiteSpaceTokeniser;
-import uk.ac.cam.ch.wwmm.oscar.Oscar;
 
 public class ExtractInformationAddCoords {
 

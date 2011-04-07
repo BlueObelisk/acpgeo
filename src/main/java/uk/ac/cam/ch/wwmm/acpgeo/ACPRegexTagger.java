@@ -128,7 +128,7 @@ public class ACPRegexTagger extends RegexTagger {
 			}
 
 			tags.add(stationName);
-			rules.add(new Rule(tagName, "^" + stationName + "$"));
+			rules.add(new Rule(tagName, "(?i)^" + stationName + "$"));
 		}
 	}
 
