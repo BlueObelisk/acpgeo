@@ -3,11 +3,11 @@ package uk.ac.cam.ch.wwmm.acpgeo;
 import org.junit.Test;
 
 
-public class CopyOfExtractInformationTest {
+public class ExtractInformationTestAddCoords {
 	
 	@Test
 	public void testCopyOfExtractInformation() {
-		 new CopyOfExtractInformation("target/");
+		 new ExtractInformationAddCoords("target/");
 	}
 
 }

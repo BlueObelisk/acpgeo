@@ -23,15 +23,12 @@ import uk.ac.cam.ch.wwmm.chemicaltagger.OscarTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.WhiteSpaceTokeniser;
 import uk.ac.cam.ch.wwmm.oscar.Oscar;
 
-public class CopyOfExtractInformation {
+public class ExtractInformationAddCoords {
 
 	private String outputFolder = "target/extractedInfo/";
 	private static String STATION_COORDS_FILE = "dictionaries/StationCoords.csv";
 	private CoordinatesLoader gawCoordinates;
 	
-//	private CopyOfExtractInformation() {
-//        gawCoordinates = new CoordinatesLoader(STATION_COORDS_FILE);
-//	}
 
 	public String getOutputFolder() {
 		return outputFolder;
@@ -41,7 +38,7 @@ public class CopyOfExtractInformation {
 		this.outputFolder = outputFolder;
 	}
 
-	public CopyOfExtractInformation(String fileLocation) {
+	public ExtractInformationAddCoords(String fileLocation) {
 		File[] files = new File(fileLocation).listFiles();
 		runQueries(files);
 	}

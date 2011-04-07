@@ -46,7 +46,6 @@ public class ExtractInformation {
 		getQuery(files, "//CD-ALTITUDE","CD-ALTIUDE.csv");
 		getQuery(files, "//QUANTITY","QUANTITY.csv");
 		getQuery(files, "//NN-PARTS","NN-PARTS.csv");
-		getQuery(files, "//AMOUNT","AMOUNT.csv");
 		getQuery(files, "//NNP-STATION","NNP-STATION.csv");
 		getQuery(files, "//LOCATION[descendant-or-self::NNP-STATION][not(descendant-or-self::CD-DEGREES)]","LOCATIONSTATION.csv");
 		getQuery(files, "//ActionPhrase[@type='Measurement']","ACTIONPHRASEmeasurement.csv");
