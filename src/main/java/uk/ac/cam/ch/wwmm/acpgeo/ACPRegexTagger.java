@@ -13,19 +13,19 @@ import java.util.Set;
 import org.apache.commons.lang.StringUtils;
 
 import uk.ac.cam.ch.wwmm.chemicaltagger.RegexTagger;
+import uk.ac.cam.ch.wwmm.chemicaltagger.Rule;
 
 public class ACPRegexTagger extends RegexTagger {
 
 	String acpTagFile = "dictionaries/acpTags.txt";
-
+	private List<Rule> rules;
 	public ACPRegexTagger() {
 		super();
-		List<Rule> superrules = super.rules;
-		rules = new ArrayList<RegexTagger.Rule>();
+		List<Rule> superrules = super.getRules();
+		rules = new ArrayList<Rule>();
 		appendRules();
-
 		rules.addAll(superrules);
-
+		super.setRules(rules);
 	}
 
 	private void appendRules() {

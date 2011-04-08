@@ -13,6 +13,7 @@ NN-CAMPAIGN---^((EU-)?(p|P)re)?((C|c)ampaign|(EU-)?(p|P)roject|(EU-)?(p|P)rogram
 NN-ACP---^(W|w)aters$---;
 NNP---^(II|del|Cape|de|Ny|St\.|bei|La|Le|San|san|sur|Monte|Mt\.?)$---proper nouns that precede stations;
 NN-PARTS---^(pp(b|t)(v|V)?|PP(B|T)(v|V)?)$---parts per billiona nd parts very trillion
+NN-PARTS---^(n?g\/?m\-?3)$---parts per billiona nd parts very trillion
 OSCAR-CM---C\d+H\d+---Oscar tokens that sometimes go wrong;
 WP---^(T|t)hose$--- those;
 #CD
