@@ -147,8 +147,10 @@ public class ACPTaggerTest {
 	public void testRecogniseCampaign() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "CHABLIS (Chemistry of the Antarctic Boundary Layer and the Interface with Snow) campaign ";
+		sentence = "Arenosillo station (37.1° N, 6.7° W, 20 m a.s.l)";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
