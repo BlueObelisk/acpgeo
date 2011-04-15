@@ -4,6 +4,7 @@ options {
     language=Java;
     output = AST;
    backtrack= true;
+   memoize = true;
 
 }
 tokens{
@@ -44,18 +45,10 @@ CONCENTRATIONMEASUREMENT;
  }
 @lexer::header {package uk.ac.cam.ch.wwmm.parserGrammar;}
 
-WS	:	 (' '|'\t')+ {skip();};
-NEWLINE	:	'\r'? '\n';
 
-fragment ACHAR	:	('A'..'Z') | ('a'..'z');
+WS :  (' ')+ {skip();};
+TOKEN : (~' ')+;
 
-// fragment ACHAR : ~('\\'|'"') ; 
-
-fragment DIGIT	: ('0'..'9');
-fragment UNICODE	:  '\u0080'..'\ufffe';
-
-TOKEN : (ACHAR|'?'|';'|'~'| '_'|',' |'.'|')'|'('|'/'|'-'|'='|':'|'%'|'\''|'{'|'}'|'['|']'|'>'|'<'|'@'|'+'|'|'|'"'|'`'|'^'|DIGIT|UNICODE)+;
-//TOKEN : (~' ')+;
 document: sentences+-> ^(Sentence  sentences )+ ;
 
 sentences:  (sentenceStructure)+    (comma|stop)*;
@@ -106,10 +99,10 @@ fwSymbolNoun : fw|sym|tmunicode;
 clauseNoun:wdt|wp_poss|wrb|ex|pdt|wp;
 
 properNoun
-	:	nnpstation|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp;
+	:	(nnpstation|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp);
 prpNoun :	prp|prp_poss;
 moleculeNoun
-	:	molecule|oscaront|nnchementity;
+	:	(molecule|oscaront|nnchementity);
 	
 range: number dash number;
 
@@ -227,27 +220,29 @@ timeYear	:	 yearStructure+ -> ^(YEARS yearStructure+);
 yearStructure 
 	:	(cdyear|cdyearRange) (cc (cdyear|cdyearRange))*;
 // The RRB at the end is for leftover brackets from chemicals that didn't parse properly
-oscarCompound :  adj* (oscarCompound1|oscarCompound2|oscarCompound4|oscarcm|oscaracp) adj? ;
+oscarCompound :  adj* (oscarCompound1|oscarCompound2|oscarCompound3|oscaracp) adj? ;
 
-oscarCompound4 :	lrb  oscarcm rrb -> ^(OSCARCM  lrb  oscarcm  rrb );
+oscarCompound3 :	lrb  oscarcm+ rrb -> ^(OSCARCM  lrb  oscarcm+  rrb );
 oscarCompound2 :	oscarCompound2Structure -> ^(OSCARCM   oscarCompound2Structure );
-oscarCompound1 :	oscarcm oscarcm+ -> ^(OSCARCM  oscarcm oscarcm+);
+oscarCompound1 :	oscarcm oscarcm* -> ^(OSCARCM  oscarcm oscarcm*);
 
 oscarCompound2Structure 
 	:  oscarcm (dash oscarcm)+  dash?;	 
 
 moleculeamount1
-	: oscarCompound to oscarCompound nn?;	
+	:quantity* inof? oscarCompound+ ;	
 
 moleculeamount2
-	:quantity* oscarCompound+ ;	
+	:oscarCompound+ sym?  quantity* ;
+
 
 moleculeamount3
-	:oscarCompound+ sym?  quantity* ;	
-moleculeamount : moleculeamount2|moleculeamount3|moleculeamount1 ;	
-molecule          
-	:  moleculeamount-> ^(MOLECULE  moleculeamount );	
+	: oscarCompound to oscarCompound nn?;	
+		
+moleculeamount : (moleculeamount1|moleculeamount2|moleculeamount3|oscarCompound)+;
 	
+molecule          
+	:  moleculeamount -> ^(MOLECULE  moleculeamount);	
 
 quantity 	:  quantity1 ->   ^(QUANTITY  quantity1);
 	
@@ -315,7 +310,6 @@ nnParts             :   'NN-PARTS' TOKEN -> ^('NN-PARTS' TOKEN);
 //ACP Tags
 oscaracp
 	: 'OSCAR-ACP' TOKEN -> ^('OSCAR-ACP' TOKEN)	;
-
 
 nnmeasurement
 	: 'NN-MEASUREMENT' TOKEN -> ^('NN-MEASUREMENT' TOKEN)	;

@@ -37,7 +37,6 @@ public class AbstractReaderTest {
 
 		
 	}
-	@Ignore
 	@Test
 	public void AbstractTestSentence(){
 		ACPTagger acpTagger = ACPTagger.getInstance();
