@@ -347,7 +347,6 @@ public class ACPTaggerTest {
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
 	}
-	@Ignore
 	@Test
 	public void testQuantities(){
 		ACPTagger acpTagger = ACPTagger.getInstance();

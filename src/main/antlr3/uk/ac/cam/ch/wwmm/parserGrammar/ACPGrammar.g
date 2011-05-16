@@ -206,7 +206,9 @@ volume	: cd+ nnvol -> ^(VOLUME   cd+ nnvol );
 molar	: cd* nnmolar -> ^(MOLAR   cd* nnmolar );
 
 perSecond
-	: cd* NNPERSECOND -> (PERSECOND cd * NNPERSECOND);
+	: cd* nnpersecond -> ^(PERSECOND cd* nnpersecond);
+	
+	
 measurements
 	: massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond ;
 		
@@ -355,8 +357,9 @@ vbacp
 	: 'VB-ACP' TOKEN -> ^('VB-ACP' TOKEN)	;
 
 
-NNPERSECOND
-	: 'NN-PERSECOND' TOKEN -> ('NN-PERSECOND' TOKEN);	
+nnpersecond
+	: 'NN-PERSECOND' TOKEN -> ^('NN-PERSECOND' TOKEN);	
+		
 		
 //Tags---Pattern---Description
 //Tags---Pattern---Description
