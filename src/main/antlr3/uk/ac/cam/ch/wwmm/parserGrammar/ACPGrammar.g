@@ -148,7 +148,7 @@ prepphraseOf
 prepphraseTime 
 	:prepPhraseTimeStructure ->  ^(TimePhrase  prepPhraseTimeStructure);
 prepPhraseTimeStructure
-	:advAdj* inAll?  dt? advAdj* cd? (timeMonth|timeYear|nntime)+ nncampaign?;
+	:advAdj* inAll?  dt? advAdj* cd? (timeMonth|timeYear|nntime|nnpSeason)+ nncampaign?;
 
 	
 prepphraseIN 
@@ -262,7 +262,7 @@ locationStructure1
 	: locationContent (comma? dash? locationContent)*;	
 bracketedLocationStructure
 	: lrb locationContent (comma? dash? locationContent)* rrb ;	 
-locationContent: (nnpcountry|locationContent1|locationContent2|locationContent3|locationContent4|locationContent5|locationContent6|locationContent7); 
+locationContent: (nnpcountry|nnpcountry|locationContent1|locationContent2|locationContent3|locationContent4|locationContent5|locationContent6|locationContent7); 
 locationContent1
 	:	cd? nnmeter cdaltitude;
 locationContent2
@@ -275,6 +275,7 @@ locationContent4
 	
 locationContent5
 	:	nnpacronym+ nnp? nnstation;
+		
 		
 locationContent6
 	:	nnp nnstation;
@@ -290,6 +291,10 @@ nnstation
 	: 'NN-STATION' TOKEN -> ^('NN-STATION' TOKEN)	;
 nnpcountry
 	: 'NNP-COUNTRY' TOKEN -> ^('NNP-COUNTRY' TOKEN)	;
+
+
+nnpcontinent
+	: 'NNP-CONTINENT' TOKEN -> ^('NNP-CONTINENT' TOKEN)	;	
 nnpmonth
 	: 'NNP-MONTH' TOKEN -> ^('NNP-MONTH' TOKEN)	;
 nnmeter
@@ -311,7 +316,13 @@ nncampaign
 nnpacronym
 	: 'NNP-ACRONYM' TOKEN -> ^('NNP-ACRONYM' TOKEN)	;
 
-nnParts             :   'NN-PARTS' TOKEN -> ^('NN-PARTS' TOKEN);                     	
+nnParts             :   'NN-PARTS' TOKEN -> ^('NN-PARTS' TOKEN); 
+
+nnpersecond
+	: 'NN-PERSECOND' TOKEN -> ^('NN-PERSECOND' TOKEN);	
+
+nnpSeason
+	: 'NNP-SEASON' TOKEN -> ^('NNP-SEASON' TOKEN);	                    	
 
 //ACP Tags
 oscaracp
@@ -356,9 +367,6 @@ vbindicate
 vbacp
 	: 'VB-ACP' TOKEN -> ^('VB-ACP' TOKEN)	;
 
-
-nnpersecond
-	: 'NN-PERSECOND' TOKEN -> ^('NN-PERSECOND' TOKEN);	
 		
 		
 //Tags---Pattern---Description
