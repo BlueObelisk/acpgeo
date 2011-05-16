@@ -144,6 +144,20 @@ public class ACPTaggerTest {
 	}
 
 	@Test
+	public void testDegrees3() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = " (54N, 10W)";
+		String expected = "-LRB- ( CD 54 NNP-DIRECTION N COMMA , NNP-DIRECTION 10W -RRB- )";
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		Assert.assertEquals("Correct Markup", expected,
+				posContainer.getTokenTagTupleAsString());
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		System.out.println(sentenceParser.makeXMLDocument().toXML());
+
+	}
+	@Test
 	public void testRecogniseCampaign() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "CHABLIS (Chemistry of the Antarctic Boundary Layer and the Interface with Snow) campaign ";
@@ -332,6 +346,20 @@ public class ACPTaggerTest {
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),"target/file15.xml");
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
+	}
+	@Ignore
+	@Test
+	public void testQuantities(){
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "(condensation sink &ndash; CS: &lt;0.002 s-1, NOx: &lt;0.5 ppb)";
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),"target/taggedQuantity.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+		
 	}
 	@Ignore
 	@Test

@@ -38,6 +38,7 @@ ParentheticalPhraseEmpty;
 TransitionPhrase;
 CAMPAIGN;
 CONCENTRATIONMEASUREMENT;
+PERSECOND;
 }
 
 @header {
@@ -204,8 +205,11 @@ percent	: number  nnpercent -> ^(PERCENT   number nnpercent );
 volume	: cd+ nnvol -> ^(VOLUME   cd+ nnvol );
 molar	: cd* nnmolar -> ^(MOLAR   cd* nnmolar );
 
+perSecond
+	: cd* NNPERSECOND -> (PERSECOND cd * NNPERSECOND);
 measurements
-	: massVolume|molar|amount|mass|percent|volume|concentrationMeasurement ;	
+	: massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond ;
+		
 
 time 	:	 timeStructure ->^(TimePhrase timeStructure);
 
@@ -350,7 +354,9 @@ vbindicate
 vbacp
 	: 'VB-ACP' TOKEN -> ^('VB-ACP' TOKEN)	;
 
-	
+
+NNPERSECOND
+	: 'NN-PERSECOND' TOKEN -> ('NN-PERSECOND' TOKEN);	
 		
 //Tags---Pattern---Description
 //Tags---Pattern---Description
