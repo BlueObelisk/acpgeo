@@ -91,7 +91,6 @@ public class ACPTaggerTest {
 
 	}
 
-	@Ignore
 	@Test
 	public void testSentence5() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
