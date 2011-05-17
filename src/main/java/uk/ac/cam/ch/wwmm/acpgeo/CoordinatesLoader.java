@@ -8,6 +8,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -20,6 +21,10 @@ public class CoordinatesLoader {
 	private HashMap<String,String> siteCoordsMap = new HashMap<String,String>();
 	public HashMap<String, String> getSiteCoordsMap() {
 		return siteCoordsMap;
+	}
+	private HashMap<String,String> siteCoordsMapA = new HashMap<String,String>();
+	public HashMap<String, String> getSiteCoordsMapA() {
+		return siteCoordsMapA;
 	}
 	public HashMap<String, String> getSiteCountryMap() {
 		return siteCountryMap;
@@ -47,8 +52,16 @@ public class CoordinatesLoader {
 			e.printStackTrace();
 		}
          for (String[] row : gawRows) {
+        	 
         	if (row.length > 6 && !row[1].equals("Station") && StringUtils.isNotEmpty(row[1])){  
 			siteCoordsMap.put(row[1], row[5]+" "+row[6]);
+			String firstWords = row[1];
+       	 	StringTokenizer firstWord = new StringTokenizer(firstWords);
+       	 	String Word=firstWord.nextToken();
+       	    if (Word.matches(".*II|del|Cape|de|Ny|St.|bei|La|Le|San|san|sur|Monte|Mt.?.*")) {
+       	    	Word=firstWord.nextToken();
+       	    }
+			siteCoordsMapA.put(Word, row[5]+" "+row[6]);
 			siteCountryMap.put(row[1], row[0]);
 			siteGawIdMap.put(row[1], row[2]);
         	}

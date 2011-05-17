@@ -22,6 +22,8 @@ import uk.ac.cam.ch.wwmm.chemicaltagger.ExtractFromXML;
 public class ExtractInformation {
 
 	private String outputFolder = "target/extractedInfo/";
+	private static String STATION_COORDS_FILE = "dictionaries/StationCoords.csv";
+	private CoordinatesLoader gawCoordinates;
 
 	public String getOutputFolder() {
 		return outputFolder;
@@ -49,10 +51,19 @@ public class ExtractInformation {
 		getQuery(files, "//QUANTITY", "QUANTITY.csv");
 		getQuery(files, "//NN-PARTS", "NN-PARTS.csv");
 		getQuery(files, "//NNP-STATION", "NNP-STATION.csv");
+		getQuery(files, "//NNP-STATION[not(.=preceding::NNP-STATION/.)]", "NNP-STATION1.csv");
+		getQuery(
+				files,
+				"//LOCATION[descendant-or-self::CD-DEGREES[2]]",
+				"LOCATIONDEGREES.csv");
 		getQuery(
 				files,
 				"//LOCATION[descendant-or-self::NNP-STATION][not(descendant-or-self::CD-DEGREES)]",
 				"LOCATIONSTATION.csv");
+		getQuery(
+				files,
+				"//LOCATION[descendant-or-self::NN-STATION]",
+				"LOCATIONSTATION1.csv");
 		getQuery(files, "//ActionPhrase[@type='Measurement']",
 				"ACTIONPHRASEmeasurement.csv");
 		getQuery(
@@ -79,16 +90,19 @@ public class ExtractInformation {
 		}
 		getDetails(
 				files,
-				Arrays.asList("//affiliation //publication_year //CAMPAIGN //LOCATION[descendant-or-self::NNP-STATION][not(descendant-or-self::CD-DEGREES)] //TimePhrase[descendant-or-self::CD-YEAR] //MOLECULE"
-						.split(" ")), filewriter);
-
+//				Arrays.asList("//affiliation //publication_year //CAMPAIGN //LOCATION[descendant-or-self::NNP-STATION][not(descendant-or-self::CD-DEGREES)] //TimePhrase[descendant-or-self::CD-YEAR] //MOLECULE"
+//						.split(" ")), filewriter);
+				Arrays.asList("//TimePhrase[descendant-or-self::CD-YEAR][not(.=preceding::TimePhrase[descendant-or-self::CD-YEAR]/.)] //NNP-STATION[not(.=preceding::NNP-STATION/.)] //LOCATION[descendant-or-self::CD-DEGREES[2]] //CAMPAIGN //MOLECULE[not(.=preceding::MOLECULE/.)] //affiliation //publication_year"
+				.split(" ")), filewriter);
 	}
 
 	private void getDetails(File[] files, List<String> queryList,
 			FileWriter filewriter) {
 		BufferedReader in = null;
 		Document doc = null;
-
+		
+		gawCoordinates = new CoordinatesLoader(STATION_COORDS_FILE);
+		
 		for (File file : files) {
 			if (file.getName().endsWith("xml")) {
 				try {
@@ -108,20 +122,43 @@ public class ExtractInformation {
 					for (String query : queryList) {
 
 						Nodes nodes = doc.query(query);
+						
 						for (int i = 0; i < nodes.size(); i++) {
 							Element element = (Element) nodes.get(i);
-							
-							if (i == 0)
-							    filewriter.write(ExtractFromXML.getStringValue(element," "));
-							else
-								filewriter.write("|"+ExtractFromXML.getStringValue(element," "));
+							if (i == 0) {
+								if (query.equals("//NNP-STATION[not(.=preceding::NNP-STATION/.)]")) {
+//									System.out.println("query again " + query);	
+									String myKey = ExtractFromXML.getStringValue( element, "" );
+									String outputString = gawCoordinates.getSiteCoordsMapA().get( myKey ) + "_:_";
+									filewriter.write( outputString );
+								}
+								filewriter.write(ExtractFromXML.getStringValue(element,""));
+//								String outputDataString = ExtractFromXML.getStringValue(element,"");
+							}
+							else {
+//								if (ExtractFromXML.getStringValue(element,"").equals( outputDataString )) {
+//								}
+//								else {
+								if (query.equals("//NNP-STATION[not(.=preceding::NNP-STATION/.)]")) {
+//									System.out.println("query again " + query);	
+									String myKey = ExtractFromXML.getStringValue( element, "" );
+									String outputString = "|" + gawCoordinates.getSiteCoordsMapA().get( myKey ) + "_:_";
+									filewriter.write( outputString );
+									filewriter.write(ExtractFromXML.getStringValue(element,""));
+								}
+								else {
+								filewriter.write("|"+ ExtractFromXML.getStringValue(element,""));
+//								String outputDataString = outputDataString+"|"+ExtractFromXML.getStringValue(element,"");
+								}
+							}
+//							filewriter.write( outputDataString );
 							filewriter.flush();
 						}
 						filewriter.write("\t");
 					}
 					filewriter.write("\n");
 				} catch (ValidityException e) {
-					// TODO Auto-generated catch block
+					// TODO Auto-gener¤ated catch block
 					e.printStackTrace();
 				} catch (ParsingException e) {
 					// TODO Auto-generated catch block
