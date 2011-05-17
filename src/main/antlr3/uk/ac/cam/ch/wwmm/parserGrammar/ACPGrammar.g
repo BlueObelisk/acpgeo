@@ -262,7 +262,7 @@ locationStructure1
 	: locationContent (comma? dash? locationContent)*;	
 bracketedLocationStructure
 	: lrb locationContent (comma? dash? locationContent)* rrb ;	 
-locationContent: (nnpcountry|nnpcountry|locationContent1|locationContent2|locationContent3|locationContent4|locationContent5|locationContent6|locationContent7); 
+locationContent: (nnpcountry|nnpcontinent|locationContent1|locationContent2|locationContent3|locationContent4|locationContent5|locationContent6|locationContent7); 
 locationContent1
 	:	cd? nnmeter cdaltitude;
 locationContent2

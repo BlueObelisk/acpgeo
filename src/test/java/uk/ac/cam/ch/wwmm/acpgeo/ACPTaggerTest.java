@@ -203,7 +203,22 @@ public class ACPTaggerTest {
 				.toStringTree().contains("<error"));
 
 	}
+
 	
+	@Test
+	public void testSeasonandContinent() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "a field campaign was performed in Spring in Europe";
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+				"target/seasonContinent.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+
+	}
 	@Ignore
 	@Test
 	public void testRecogniseLocations() {
@@ -348,18 +363,33 @@ public class ACPTaggerTest {
 				.toStringTree().contains("<error"));
 	}
 	@Test
-	public void testQuantities(){
+	public void testQuantities1(){
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "(condensation sink &ndash; CS: &lt;0.002 s-1, NOx: &lt;0.5 ppb)";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
-		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),"target/taggedQuantity.xml");
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),"target/taggedQuantity1.xml");
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
 		
 	}
+	
+	@Test
+	public void testQuantities2(){
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "(up to 62 ngm-3)";
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),"target/taggedQuantity2.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+		
+	}
+	
 	@Ignore
 	@Test
 	public void testRecogniseConcentrations8() {

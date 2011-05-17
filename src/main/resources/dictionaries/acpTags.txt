@@ -2,9 +2,11 @@
 
 #Nouns
 NNP-MONTH---January|February|March|April|May|June|July|August|September|October|November|December---Months of a year;
+NNP-SEASON---^([wW]inter|[Ss]ummer|[Ss]pring|[Aa]utumn|[Ff]all$)---Seasons;
 NNP-DIRECTION---^\d*(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)(ern|-)?(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)?(ern)?$+---Directions;
+NNP-CONTINENT---^([Aa]sia|[aA]frica|[aA]merica|[Aa]ntarctica|[Ee]urope|[aA]ustralia)$--- continents
 NN-APPARATUS---^(s|S)atellite(s)?$---Apparatus Equipment;
-NN-STATION---station$---Field stations;
+NN-STATION---station(s)?$---Field stations;
 NN-MEASUREMENT---measurement(s)?$---Measurement;
 NNP-ACRONYM---^([A-Z][A-Z]+(\-|\\|\/)?[A-Z]+[0-9]*(s)?[0-9]*)$---Acronyms
 NN-VOL---((l|L)−1|(l|L)\-1)---volume
@@ -26,7 +28,7 @@ SYM---^(\+|±)$---Plus and minus signs;
 #To include observations at higher levels could require feet (ft) or pressure height but unlikely 
 CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;
 CD-YEAR-RANGE---^(1|2)(0|9)\d\d\-(1|2)(0|9)\d\d$---Valid Year;
-CD---(^(~)?(\d|-)?\d+(\-|±)\d+)---non-year range numbers
+CD---(^(~)?(\d|-)?(\d+\.)?\d+(\-|±)\d+)---non-year range numbers
 JJ---^(t|T)hat$---demonstrative adjective;
 JJ-ACP---^(M|m)arine$---demonstrative adjective;
 JJ-CHEM---^(i|I)frared$---demonstrative adjective;
