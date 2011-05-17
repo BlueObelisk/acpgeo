@@ -30,6 +30,7 @@ OSCARCM;
 MOLECULE;
 QUANTITY;
 EXPRESSION;
+METER;
 APPARATUS;
 YEARS;
 MONTHS;
@@ -193,6 +194,7 @@ prepphraseTempContent
 amount	: cd+ nnamount -> ^(AMOUNT   cd+ nnamount );
 mass	: cd+ nnmass-> ^(MASS   cd+ nnmass ); 
 massVolume	: cd+ nnmass nnvol -> ^(MASSVOLUME   cd+ nnmass nnvol ); 
+meter	: cd+ nnmeter nn? -> ^(METER   cd+ nnmeter nn? ); 	
 concentrationMeasurementContent1
 	: cd+ (sym cd)*;
 concentrationMeasurementContent2
@@ -210,7 +212,7 @@ perSecond
 	
 	
 measurements
-	: massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond ;
+	: massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter ;
 		
 
 time 	:	 timeStructure ->^(TimePhrase timeStructure);

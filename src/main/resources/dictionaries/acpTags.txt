@@ -21,7 +21,7 @@ OSCAR-CM---C\d+H\d+---Oscar tokens that sometimes go wrong;
 WP---^(T|t)hose$--- those;
 #CD
 CD-DEGREES---((~)?(\d|-)?\d+\.?\d*(°|º|'))---Degrees;
-NN-METER---^(m|\d+m)$---Meters;
+NN-METER---^n?(m|\d+m)$---Meters;
 CD-ALTITUDE---(^~?(\d|-)?\d+\.?\d*m)?\(?((A|a)\.?(S|s|G|g)\.?(L|l)\.?)|(alt.)\)?$---Altitude Metres (Above Sea/Ground Level);
 SYM---^(\+|±)$---Plus and minus signs;
 #if a.s.l. is optional is there then a problem - m is usually taken as molar not metres?
