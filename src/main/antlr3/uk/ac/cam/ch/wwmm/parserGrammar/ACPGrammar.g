@@ -104,13 +104,13 @@ properNoun
 	:	(nnpstation|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp);
 prpNoun :	prp|prp_poss;
 moleculeNoun
-	:	(molecule|oscaront|nnchementity);
+	:	molecule|oscaront|nnchementity;
 	
 range: number dash number;
 
 adj	:	(jj|jjr|jjs|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjcomp) (cc (jj|jjr|jjs|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjcomp))*;
 
-adv	:	rb|rbr|rp|rbs|wrb;
+adv	:	(rb|rbr|rp|rbs|wrb);
 
 
 apparatus
@@ -139,7 +139,7 @@ campaignContent
 	: (parentheticalPhraseAcronym|nnp|acronym)+ nounStructure? nncampaign 	;
 	
 		
-advAdj	: adv|adj  ;	
+advAdj	: (adv|adj)  ;	
 prepphraseOther
 	: advAdj* inAll+  nounphrase ->  ^(PrepPhrase  advAdj* inAll+  nounphrase);
 prepphraseOf 
@@ -247,7 +247,7 @@ moleculeamount2
 moleculeamount3
 	: oscarCompound to oscarCompound nn?;	
 		
-moleculeamount : (moleculeamount1|moleculeamount2|moleculeamount3|oscarCompound)+;
+moleculeamount : (moleculeamount1|moleculeamount2|moleculeamount3|oscarCompound)+ parentheticalPhrase?;
 	
 molecule          
 	:  moleculeamount -> ^(MOLECULE  moleculeamount);	

@@ -378,7 +378,7 @@ public class ACPTaggerTest {
 	@Test
 	public void testQuantities2(){
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "(up to 62 ngm-3)";
+		String sentence = "carboxylic acids (up to 62 ngm-3)";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
