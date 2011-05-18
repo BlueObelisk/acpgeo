@@ -187,6 +187,21 @@ public class ACPTaggerTest {
 				.toStringTree().contains("<error"));
 
 	}
+	
+	@Test
+	public void testRecogniseTimeRange() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "After 12:00-13:00";
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+				"target/fileTime.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+
+	}
 
 	@Test
 	public void testRecogniseNonTitledCampaigns() {

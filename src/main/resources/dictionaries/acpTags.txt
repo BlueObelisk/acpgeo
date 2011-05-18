@@ -2,13 +2,10 @@
 
 #Nouns
 NNP-MONTH---January|February|March|April|May|June|July|August|September|October|November|December---Months of a year;
-<<<<<<< local
-NNP-DIRECTION---^(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)(ern|-)?(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)(ern|-)?(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)?(ern)?$+---Directions;
-=======
-NNP-SEASON---^([wW]inter|[Ss]ummer|[Ss]pring|[Aa]utumn|[Ff]all$)---Seasons;
+
+NNP-SEASON---^([wW]inter|[Ss]ummer|[Ss]pring|[Aa]utumn|[Ff]all)time?$---Seasons;
 NNP-DIRECTION---^\d*(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)(ern|-)?(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)?(ern)?$+---Directions;
 NNP-CONTINENT---^([Aa]sia|[aA]frica|[aA]merica|[Aa]ntarctica|[Ee]urope|[aA]ustralia)$--- continents
->>>>>>> other
 NN-APPARATUS---^(s|S)atellite(s)?$---Apparatus Equipment;
 NN-STATION---station(s)?$---Field stations;
 NN-MEASUREMENT---measurement(s)?$---Measurement;
@@ -24,6 +21,7 @@ NN-PERSECOND---^(S|s)\-1$---per second (hz)
 OSCAR-CM---C\d+H\d+---Oscar tokens that sometimes go wrong;
 WP---^(T|t)hose$--- those;
 #CD
+NN-TIME---((\d+:\d\d)(-\d+:\d\d)?|afternoon|morning|night|evening)---time;
 CD-DEGREES---((~)?(\d|-)?\d+\.?\d*(°|º|'))---Degrees;
 NN-METER---^n?(m|\d+m)$---Meters;
 CD-ALTITUDE---(^~?(\d|-)?\d+\.?\d*m)?\(?((A|a)\.?(S|s|G|g)\.?(L|l)\.?)|(alt.)\)?$---Altitude Metres (Above Sea/Ground Level);
