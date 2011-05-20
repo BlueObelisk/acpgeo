@@ -13,8 +13,8 @@ import uk.ac.cam.ch.wwmm.oscar.Oscar;
 
 public class ACPTagger {
 
+
 	private static String ACP_DICTIONARY = "dictionaries/atmChemMetGlossary.txt";
-	private static String STATION_COORDS_FILE = "dictionaries/StationCoords.csv";
 
 	private static class TaggerHolder {
 		private static final ACPTagger INSTANCE = new ACPTagger();
@@ -23,15 +23,15 @@ public class ACPTagger {
 	public ChemistryPOSTagger posTagger;
 	private HashMap<String, String> acpGlossaryMap;
 	private ACPRegexTagger acpRegexTagger;
-	private CoordinatesLoader gawCoordinates;
 
 	private ACPTagger() {
-		DictionaryLoader dictLoader = new DictionaryLoader();
 		acpRegexTagger = new ACPRegexTagger();
+		DictionaryLoader dictLoader = new DictionaryLoader();
+
+		acpGlossaryMap = dictLoader.loadDictionary(ACP_DICTIONARY, true);
 
 		posTagger = new ChemistryPOSTagger(new WhiteSpaceTokeniser(),new OscarTagger(new Oscar()), acpRegexTagger, OpenNLPTagger.getInstance());
-		acpGlossaryMap = dictLoader.loadDictionary(ACP_DICTIONARY, true);
-        gawCoordinates = new CoordinatesLoader(STATION_COORDS_FILE);
+		
 	}
 
 	public static ACPTagger getInstance() {
@@ -41,12 +41,12 @@ public class ACPTagger {
 	public POSContainer runTaggers(String inputSentence) {
 
 
-		acpRegexTagger.addValuesWithSufficesToRegex(gawCoordinates.getSiteCountryMap().keySet(),
-				"JJ-COUNTRY", "n|an|ian");
-		acpRegexTagger.addValuesWithSufficesToRegex(gawCoordinates.getSiteCountryMap().keySet(),
-				"NNP-COUNTRY", "");
-		acpRegexTagger.addDictionarySetToRegex(gawCoordinates.getSiteCoordsMap().keySet(),
-				"NNP-STATION");
+//		acpRegexTagger.addValuesWithSufficesToRegex(gawCoordinates.getSiteCountryMap().keySet(),
+//				"JJ-COUNTRY", "n|an|ian");
+//		acpRegexTagger.addValuesWithSufficesToRegex(gawCoordinates.getSiteCountryMap().keySet(),
+//				"NNP-COUNTRY", "");
+//		acpRegexTagger.addDictionarySetToRegex(gawCoordinates.getSiteCoordsMap().keySet(),
+//				"NNP-STATION");
 		POSContainer posContainer = posTagger.runTaggers(inputSentence,false,false);
 		List<String> tokenlist = posContainer.getWordTokenList();
 		int count = 0;

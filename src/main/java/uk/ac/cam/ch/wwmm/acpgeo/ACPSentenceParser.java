@@ -71,6 +71,8 @@ public class ACPSentenceParser extends SentenceParser {
 		actionMap.put("VB-DETERMINE", "Analysis");
 		actionMap.put("VB-INVESTIGATE", "Analysis");
 		actionMap.put("VB-OBSERVE", "Observation");	
+
+		actionMap.put("VB-SHOW", "Observation");	
 //		actionMap.put("found", "Observation");
 //		actionMap.put("MASSVOLUME", "Concentration");
 

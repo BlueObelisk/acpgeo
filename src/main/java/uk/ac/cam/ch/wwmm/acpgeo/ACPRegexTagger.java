@@ -19,11 +19,22 @@ public class ACPRegexTagger extends RegexTagger {
 
 	String acpTagFile = "dictionaries/acpTags.txt";
 	private List<Rule> rules;
+	private static String STATION_COORDS_FILE = "dictionaries/StationCoords.csv";
 	public ACPRegexTagger() {
 		super();
+
+		CoordinatesLoader gawCoordinates = new CoordinatesLoader(STATION_COORDS_FILE);
 		List<Rule> superrules = super.getRules();
 		rules = new ArrayList<Rule>();
+		
+		addValuesWithSufficesToRegex(gawCoordinates.getSiteCountryMap().keySet(),
+				"JJ-COUNTRY", "n|an|ian");
+		addValuesWithSufficesToRegex(gawCoordinates.getSiteCountryMap().keySet(),
+				"NNP-COUNTRY", "");
+		addDictionarySetToRegex(gawCoordinates.getSiteCoordsMap().keySet(),
+				"NNP-STATION");
 		appendRules();
+		
 		rules.addAll(superrules);
 		super.setRules(rules);
 	}

@@ -20,6 +20,7 @@ NN-PARTS---^(c?n?g\/?m\-?3)$---parts per billiona nd parts very trillion
 NN-PERSECOND---^(S|s)\-1$---per second (hz)
 OSCAR-CM---C\d+H\d+---Oscar tokens that sometimes go wrong;
 WP---^(T|t)hose$--- those;
+NNS---results---plural results mistagged as yields;
 #CD
 NN-TIME---((\d+:\d\d)(-\d+:\d\d)?|afternoon|morning|night|evening)---time;
 CD-DEGREES---((~)?(\d|-)?\d+\.?\d*(°|º|'))---Degrees;
@@ -37,6 +38,6 @@ JJ-CHEM---^(i|I)frared$---demonstrative adjective;
 VB-ANALYSE---^analy(s|z)(ed|e)$---analysis verbs
 VB-MEASURE---^measur(ed|e)$---measurement verbs
 VB-DETERMINE---^(determin|identif)(ed|e|y|ied)$---determine verbs
-VB-OBSERVE---^observ(e|ed)$---observation verbs
+VB-OBSERVE---^(observ|show)(e|ed)?$---observation verbs
 VB-INVESTIGATE---^investigat(e|ed|ing)$---investigate verbs
 VB-INDICATE---^(indicat|highlight|signif)(y|e|ied|ed|ing|ying|s|ies|es)?$---indication verbs
