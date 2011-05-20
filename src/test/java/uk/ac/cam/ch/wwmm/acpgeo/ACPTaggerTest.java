@@ -10,7 +10,7 @@ import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 
 public class ACPTaggerTest {
 
-	@Ignore @Test
+	@Test
 	public void testSentence1() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils
@@ -30,7 +30,7 @@ public class ACPTaggerTest {
 
 	}
 
-	@Ignore @Test
+	@Test
 	public void testSentence2() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils
@@ -51,7 +51,7 @@ public class ACPTaggerTest {
 
 	}
 
-	@Ignore @Test
+	@Test
 	public void testSentence3() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils
@@ -71,7 +71,7 @@ public class ACPTaggerTest {
 
 	}
 
-	@Ignore @Test
+	@Test
 	public void testSentence4() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils
@@ -91,7 +91,7 @@ public class ACPTaggerTest {
 
 	}
 
-	@Ignore @Test
+	@Test
 	public void testSentence5() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils
@@ -112,7 +112,7 @@ public class ACPTaggerTest {
 	}
 
 	
-	@Ignore @Test
+	@Test
 	public void testDegrees() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testDegrees.txt");
@@ -127,7 +127,7 @@ public class ACPTaggerTest {
 
 	}
 
-	@Ignore @Test
+	@Test
 	public void testDegrees2() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "51' N";
@@ -142,7 +142,7 @@ public class ACPTaggerTest {
 
 	}
 
-	@Ignore @Test
+	@Test
 	public void testDegrees3() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = " (54N, 10W)";
@@ -157,7 +157,7 @@ public class ACPTaggerTest {
 
 	}
 
-	@Ignore @Test
+	@Test
 	public void testRecogniseLocation() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "Mace Head in Eire";
@@ -171,7 +171,7 @@ public class ACPTaggerTest {
 		System.out.println(sentenceParser.makeXMLDocument().toXML());
 
 	}
-	@Ignore @Test
+	@Test
 	public void testRecogniseCampaign() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "CHABLIS (Chemistry of the Antarctic Boundary Layer and the Interface with Snow) campaign ";
@@ -189,7 +189,7 @@ public class ACPTaggerTest {
 
 	}
 
-	@Ignore @Test
+	@Test
 	public void testRecogniseAltitude() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "Assekrem a.s.l";
@@ -204,7 +204,7 @@ public class ACPTaggerTest {
 
 	}
 	
-	@Ignore @Test
+	@Test
 	public void testRecogniseTimeRange() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "After 12:00-13:00";
@@ -219,7 +219,7 @@ public class ACPTaggerTest {
 
 	}
 
-	@Ignore @Test
+	@Test
 	public void testRecogniseNonTitledCampaigns() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "a field campaign was performed";
@@ -235,7 +235,7 @@ public class ACPTaggerTest {
 	}
 
 	
-	@Ignore @Test
+	@Test
 	public void testSeasonandContinent() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "a field campaign was performed in Spring in Europe";
@@ -267,7 +267,7 @@ public class ACPTaggerTest {
 	}
 
 
-	@Ignore @Test
+	@Test
 	public void testRecogniseConcentrations1() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration1.txt");
@@ -282,7 +282,7 @@ public class ACPTaggerTest {
 
 	}
 
-	@Ignore @Test
+	@Test
 	public void testRecogniseConcentrations2() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration2.txt");
@@ -297,7 +297,7 @@ public class ACPTaggerTest {
 
 	}
 
-	@Ignore @Test
+	@Test
 	public void testRecogniseConcentrations3() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		
@@ -313,7 +313,7 @@ public class ACPTaggerTest {
 
 	}
 
-	@Ignore @Test
+	@Test
 	public void testRecogniseConcentrations4() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration4.txt");
@@ -327,7 +327,7 @@ public class ACPTaggerTest {
 
 	}
 
-	@Ignore @Test
+	@Test
 	public void testRecogniseConcentrations5() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration5.txt");
@@ -341,7 +341,7 @@ public class ACPTaggerTest {
 
 	}
 	
-	@Ignore @Test
+	@Test
 	public void testRecogniseConcentrations6() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration6.txt");
@@ -354,7 +354,7 @@ public class ACPTaggerTest {
 				.toStringTree().contains("<error"));
 
 	}
-	@Ignore @Test
+	@Test
 	public void testRecogniseConcentrations7() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/testConcentration7.txt");
@@ -367,7 +367,7 @@ public class ACPTaggerTest {
 				.toStringTree().contains("<error"));
 
 	}
-	@Ignore @Test
+	@Test
 	public void testRecogniseDirections() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "The northern hemisphere";
@@ -380,7 +380,7 @@ public class ACPTaggerTest {
 				.toStringTree().contains("<error"));
 
 	}
-	@Ignore @Test
+	@Test
 	public void testMultiMolecules(){
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "The simulated fields of ozone carbon monoxide, nitrogen oxides and sulfur dioxide are compared with aircraft and surface station measurements";
@@ -392,7 +392,7 @@ public class ACPTaggerTest {
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
 	}
-	@Ignore @Test
+	@Test
 	public void testQuantities1(){
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "(condensation sink &ndash; CS: &lt;0.002 s-1, NOx: &lt;0.5 ppb)";
@@ -406,7 +406,7 @@ public class ACPTaggerTest {
 		
 	}
 	
-	@Ignore @Test
+	@Test
 	public void testQuantities2(){
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "carboxylic acids (up to 62 ngm-3)";
