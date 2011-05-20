@@ -156,11 +156,27 @@ public class ACPTaggerTest {
 		System.out.println(sentenceParser.makeXMLDocument().toXML());
 
 	}
+
+	@Test
+	public void testRecogniseLocation() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "Mace Head in Eire";
+		String expected = "NNP-STATION Mace NNP-STATION Head IN-IN in NNP-COUNTRY Eire";
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		Assert.assertEquals("Correct Markup", expected,
+				posContainer.getTokenTagTupleAsString());
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		System.out.println(sentenceParser.makeXMLDocument().toXML());
+
+	}
 	@Test
 	public void testRecogniseCampaign() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "CHABLIS (Chemistry of the Antarctic Boundary Layer and the Interface with Snow) campaign ";
-		sentence = "Arenosillo station (37.1° N, 6.7° W, 20 m a.s.l)";
+		//sentence = "North Atlantic Marine Boundary Layer Experiment (NAMBLEX) campaign";
+		//sentence = "Arenosillo station (37.1° N, 6.7° W, 20 m a.s.l)";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		

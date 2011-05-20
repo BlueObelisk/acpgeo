@@ -41,9 +41,9 @@ public class ACPTagger {
 	public POSContainer runTaggers(String inputSentence) {
 
 
-		acpRegexTagger.addValuesWithSufficesToRegex(gawCoordinates.getSiteCountryMap().values(),
+		acpRegexTagger.addValuesWithSufficesToRegex(gawCoordinates.getSiteCountryMap().keySet(),
 				"JJ-COUNTRY", "n|an|ian");
-		acpRegexTagger.addValuesWithSufficesToRegex(gawCoordinates.getSiteCountryMap().values(),
+		acpRegexTagger.addValuesWithSufficesToRegex(gawCoordinates.getSiteCountryMap().keySet(),
 				"NNP-COUNTRY", "");
 		acpRegexTagger.addDictionarySetToRegex(gawCoordinates.getSiteCoordsMap().keySet(),
 				"NNP-STATION");

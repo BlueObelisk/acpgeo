@@ -66,6 +66,7 @@ public class ACPRegexTagger extends RegexTagger {
 	public void addValuesWithSufficesToRegex(
 			Collection<String> collectionValues, String tagName, String suffices) {
 		for (String value : collectionValues) {
+			value = StringUtils.capitalize(value.toLowerCase());
 			boolean add= true;
 
 			if (value.endsWith("e")&& StringUtils.isNotEmpty(suffices))
