@@ -89,7 +89,7 @@ verb : vbindicate|vbmeasure|vbacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|
 
 number : cd|cdAlphanum|cddegrees;	
 noun1 	:	(dtTHE|dt)? advAdj* to? (nounStructure|nncampaign|nnParts|nnmeter|cdaltitude)(dash nounStructure)*;
-noun	:	(acronymPhrase|noun1);
+noun	:	(campaign|acronymPhrase|noun1);
 nounStructure : apparatus|nn|nns|campaign|parentheticalPhraseAcronym|expression|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase;
 acpNoun:location|nnpcountry;
 
