@@ -136,7 +136,7 @@ expressionContent
 campaign:	campaignContent	->^(CAMPAIGN campaignContent);
 
 campaignContent
-	: (parentheticalPhraseAcronym|nnp|acronym)+ nounStructure? nncampaign 	;
+	: (acronymPhrase|parentheticalPhraseAcronym|nnp|acronym)+ nounStructure? nncampaign 	;
 	
 		
 advAdj	: (adv|adj)  ;	
