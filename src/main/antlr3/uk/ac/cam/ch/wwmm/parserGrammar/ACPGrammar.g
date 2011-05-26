@@ -40,6 +40,7 @@ TransitionPhrase;
 CAMPAIGN;
 CONCENTRATIONMEASUREMENT;
 PERSECOND;
+OSCARONT;
 }
 
 @header {
@@ -104,7 +105,7 @@ properNoun
 	:	(nnpstation|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp);
 prpNoun :	prp|prp_poss;
 moleculeNoun
-	:	molecule|oscaront|nnchementity;
+	:	molecule|oscaronts|nnchementity;
 	
 range: number dash number;
 
@@ -227,6 +228,10 @@ monthStructure
 timeYear	:	 yearStructure+ -> ^(YEARS yearStructure+);
 yearStructure 
 	:	(cdyear|cdyearRange) (cc (cdyear|cdyearRange))*;
+
+oscaronts
+	: oscaront+ -> ^(OSCARONT   oscaront+);
+
 // The RRB at the end is for leftover brackets from chemicals that didn't parse properly
 oscarCompound :  adj* (oscarCompound1|oscarCompound2|oscarCompound3|oscaracp) adj? ;
 
@@ -238,7 +243,7 @@ oscarCompound2Structure
 	:  oscarcm (dash oscarcm)+  dash?;	 
 
 moleculeamount1
-	:quantity* inof? oscarCompound+ ;	
+	:quantity+ inof? oscarCompound+ ;	
 
 moleculeamount2
 	:oscarCompound+ sym?  quantity* ;
