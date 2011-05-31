@@ -28,8 +28,10 @@ CD-ALTITUDE---(^~?(\d|-)?\d+\.?\d*m)?\(?((A|a)\.?(S|s|G|g)\.?(L|l)\.?)|(alt.)\)?
 SYM---^(\+|x|\*|±)$---Plus and minus signs - put any html symbol in here?;
 #if a.s.l. is optional is there then a problem - m is usually taken as molar not metres?
 #To include observations at higher levels could require feet (ft) or pressure height but unlikely 
-CD-YEAR---^(19)\d\d|(20)\d\d$---Valid Year;
-CD-YEAR-RANGE---^(19)\d\d\|(20)\d\d\-(19)\d\d\|(20)\d\d$---Valid Year;
+#CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;
+#CD-YEAR-RANGE---^(1|2)(0|9)\d\d\-(1|2)(0|9)\d\d$---Valid Year;
+CD-YEAR-RANGE---^((19\d\d)|(20\d\d))\-((19\d\d)|(20\d\d))$---Valid Year;
+CD-YEAR---^((19)\d\d)|((20)\d\d)$---Valid Year;
 CD---(^(~)?(\d|-)?(\d+\.)?\d+(\-|±)\d+)---non-year range numbers
 JJ---^(t|T)hat$---demonstrative adjective;
 JJ-ACP---^(M|m)arine$---demonstrative adjective;

@@ -41,6 +41,8 @@ public class ExtractInformation {
 	public void runQueries(File[] files) {
 
 		getQuery(files, "//CAMPAIGN", "CAMPAIGN.csv");
+		getQuery(files, "//CD-YEAR", "YEARS.csv");
+		getQuery(files, "//CD-YEAR-RANGE", "YEAR-RANGE.csv");
 		getQuery(files, "//AcronymPhrase", "ACRONYMPHRASES.csv");
 		getQuery(files, "//NNP-ACRONYM", "NNP-ACRONYM.csv");
 		getQuery(files, "//ParentheticalPhrase", "PARENTHETICALPHRASE.csv");
