@@ -15,7 +15,7 @@ NN-PRESSURE---(k|m)b---pressure bar unit
 NN-CAMPAIGN---^((EU-)?(p|P)re)?((C|c)ampaign|(EU-)?(p|P)roject|(EU-)?(p|P)rogram|Study)$---Campaigns
 NN-ACP---^(W|w)aters$---;
 NNP---^(II|del|Cape|de|Ny|St\.|bei|La|Le|San|san|sur|Monte|Mt\.?)$---proper nouns that precede stations;
-NN-PARTS---^(pp(b|t)(v|V)?|PP(B|T)(v|V)?)$---parts per billiona nd parts very trillion
+NN-PARTS---^(pp(b|t)(v|V)?|PP(B|T)(v|V)?)$---parts per billion and parts per trillion
 NN-PARTS---^(c?n?g\/?m\-?3)$---parts per billiona nd parts very trillion
 NN-PERSECOND---^(S|s)\-1$---per second (hz)
 OSCAR-CM---C\d+H\d+---Oscar tokens that sometimes go wrong;
@@ -26,18 +26,23 @@ NN-TIME---((\d+:\d\d)(-\d+:\d\d)?|afternoon|morning|night|evening)---time;
 CD-DEGREES---((~)?(\d|-)?\d+\.?\d*(°|º|'))---Degrees;
 NN-METER---^n?(m|\d+m)$---Meters;
 CD-ALTITUDE---(^~?(\d|-)?\d+\.?\d*m)?\(?((A|a)\.?(S|s|G|g)\.?(L|l)\.?)|(alt.)\)?$---Altitude Metres (Above Sea/Ground Level);
-SYM---^(\+|±)$---Plus and minus signs;
+SYM---^(\+|x|\*|±)$---Plus and minus signs - put any html symbol in here?;
 #if a.s.l. is optional is there then a problem - m is usually taken as molar not metres?
 #To include observations at higher levels could require feet (ft) or pressure height but unlikely 
-CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;
-CD-YEAR-RANGE---^(1|2)(0|9)\d\d\-(1|2)(0|9)\d\d$---Valid Year;
+CD-YEAR---^(19)\d\d|(20)\d\d$---Valid Year;
+CD-YEAR-RANGE---^(19)\d\d\|(20)\d\d\-(19)\d\d\|(20)\d\d$---Valid Year;
 CD---(^(~)?(\d|-)?(\d+\.)?\d+(\-|±)\d+)---non-year range numbers
 JJ---^(t|T)hat$---demonstrative adjective;
 JJ-ACP---^(M|m)arine$---demonstrative adjective;
-JJ-CHEM---^(i|I)frared$---demonstrative adjective;
+JJ-CHEM---^(i|I)nfrared$---demonstrative adjective;
 VB-ANALYSE---^analy(s|z)(ed|e)$---analysis verbs
 VB-MEASURE---^measur(ed|e)$---measurement verbs
 VB-DETERMINE---^(determin|identif)(ed|e|y|ied)$---determine verbs
 VB-OBSERVE---^(observ|show)(e|ed)?$---observation verbs
 VB-INVESTIGATE---^investigat(e|ed|ing)$---investigate verbs
 VB-INDICATE---^(indicat|highlight|signif)(y|e|ied|ed|ing|ying|s|ies|es)?$---indication verbs
+IN-BETWEEN---^between$---in
+IN-NEAR---^near$---in
+IN-ABOVE---^above$---in
+IN-AT---^(A|a)t$---in
+IN-AROUND---^around$---in

@@ -15,6 +15,7 @@ ACRONYM;
 LOCATION;
 PrepPhrase;
 TimePhrase;
+LocationPhrase;
 RolePrepPhrase;
 AcronymPhrase;
 AtmospherePhrase;
@@ -77,7 +78,7 @@ nounphrase
 	
 
 nounphraseStructure
-	:	dtTHE? dt?    noun+   (conjunction*  noun)*   ((prepphraseOf| prepphraseIN|prepphraseAtmosphere|prepphraseTemp|prepphraseTime) )*  ;
+	:	dtTHE? dt?    noun+   (conjunction*  noun)*   ((prepphraseOf| prepphraseIN|prepphraseAtmosphere|prepphraseTemp|prepphraseTime|prepphraseLocation) )*  ;
 
 
 conjunction 
@@ -126,7 +127,7 @@ preapparatus
 	
 // Different PrepPhrases
 prepphrase 
-	: 	neg? (prepphrasePressure|prepphraseAtmosphere|prepphraseTime|prepphraseTemp|prepphraseIN|prepphraseRole|prepphraseOther)  ;
+	: 	neg? (prepphrasePressure|prepphraseAtmosphere|prepphraseTime|prepphraseLocation|prepphraseTemp|prepphraseIN|prepphraseRole|prepphraseOther)  ;
 
 expression 
 	:lrb expressionContent  rrb->^(EXPRESSION  lrb expressionContent  rrb)	;
@@ -186,7 +187,7 @@ parentheticalPhraseEmpty
 parentheticalContent
 	:  dtTHE? colon? (advAdj|nounStructure|verb|inAll)  conjunction? stop?;			
 
-inAll	: in|inafter|inas|inbefore|inby|infor|infrom|inin|ininto|inof|inoff|inon|inover|inunder|invia|inwith|inwithout|to;
+inAll	: in|inafter|inas|inbefore|inby|infor|infrom|inin|ininto|inof|inoff|inon|inover|inunder|invia|inwith|inwithout|to|inbetween|innear|inabove|inaround|inat;
 prepphraseTemp:  prepphraseTempContent ->  ^(TempPhrase   prepphraseTempContent);
 
 prepphraseTempContent
@@ -289,6 +290,7 @@ locationContent6
 	
 locationContent7
 	:	nnstation nnp;	
+
 acronym	: lrb (nn|properNoun) rrb ->^(ACRONYM  lrb nn? properNoun? rrb)	;
 
 //ACP Tags
@@ -304,6 +306,13 @@ nnpcontinent
 	: 'NNP-CONTINENT' TOKEN -> ^('NNP-CONTINENT' TOKEN)	;	
 nnpmonth
 	: 'NNP-MONTH' TOKEN -> ^('NNP-MONTH' TOKEN)	;
+
+
+prepphraseLocation 
+	:prepPhraseLocationStructure ->  ^(LocationPhrase  prepPhraseLocationStructure);
+prepPhraseLocationStructure
+	:(inin|inat|inover|inabove|inaround|innear|infrom|inbetween) dt? advAdj* (nnp|nnpstation|nnpcountry|nnpcontinent)+ ((comma|to|inof|cc) (nnp|nnpstation|nnpcountry|nnpcontinent))*;
+// need to add and rather than cc
 nnmeter
 	: 'NN-METER' TOKEN -> ^('NN-METER' TOKEN)	;
 nnpacp
@@ -389,6 +398,13 @@ jjchem:'JJ-CHEM' TOKEN -> ^('JJ-CHEM' TOKEN);
 jjcomp:'JJ-COMPOUND' TOKEN -> ^('JJ-COMPOUND' TOKEN);
 // Prepositions
 inas:'IN-AS' TOKEN -> ^('IN-AS' TOKEN);
+// added HRB
+inat:'IN-AT' TOKEN -> ^('IN-AT' TOKEN);
+inabove:'IN-ABOVE' TOKEN -> ^('IN-ABOVE' TOKEN);
+inaround:'IN-AROUND' TOKEN -> ^('IN-AROUND' TOKEN);
+inbetween:'IN-BETWEEN' TOKEN -> ^('IN-BETWEEN' TOKEN);
+innear:'IN-NEAR' TOKEN -> ^('IN-NEAR' TOKEN);
+//
 inbefore:'IN-BEFORE' TOKEN -> ^('IN-BEFORE' TOKEN);
 inafter:'IN-AFTER' TOKEN -> ^('IN-AFTER' TOKEN);
 inin:'IN-IN' TOKEN -> ^('IN-IN' TOKEN);
