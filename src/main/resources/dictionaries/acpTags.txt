@@ -20,7 +20,6 @@ NN-PARTS---^(c?n?g\/?m\-?3)$---parts per billiona nd parts very trillion
 NN-PERSECOND---^(S|s)\-1$---per second (hz)
 OSCAR-CM---C\d+H\d+---Oscar tokens that sometimes go wrong;
 WP---^(T|t)hose$--- those;
-NNS---results---plural results mistagged as yields;
 #CD
 NN-TIME---((\d+:\d\d)(-\d+:\d\d)?|afternoon|morning|night|evening)---time;
 CD-DEGREES---((~)?(\d|-)?\d+\.?\d*(°|º|'))---Degrees;

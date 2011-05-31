@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -20,8 +21,10 @@ public class ACPRegexTagger extends RegexTagger {
 	String acpTagFile = "dictionaries/acpTags.txt";
 	private List<Rule> rules;
 	private static String STATION_COORDS_FILE = "dictionaries/StationCoords.csv";
+	private List<String> ignoredTags;
 	public ACPRegexTagger() {
 		super();
+		ignoredTags = new ArrayList<String>();
 
 		CoordinatesLoader gawCoordinates = new CoordinatesLoader(STATION_COORDS_FILE);
 		List<Rule> superrules = super.getRules();
@@ -36,6 +39,8 @@ public class ACPRegexTagger extends RegexTagger {
 		appendRules();
 		
 		rules.addAll(superrules);
+		ignoredTags = Arrays.asList("VB-YIELD");
+		super.setIgnoredTags(ignoredTags);
 		super.setRules(rules);
 	}
 
