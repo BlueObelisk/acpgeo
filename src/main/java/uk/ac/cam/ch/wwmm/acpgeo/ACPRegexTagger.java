@@ -75,9 +75,7 @@ public class ACPRegexTagger extends RegexTagger {
 		}
 	}
 
-	public void addDictionaryMapToRegex() {
 
-	}
 
 	public void addValuesWithSufficesToRegex(
 			Collection<String> collectionValues, String tagName, String suffices) {

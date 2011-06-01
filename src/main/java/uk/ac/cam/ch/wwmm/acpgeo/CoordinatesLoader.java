@@ -15,6 +15,7 @@ import org.apache.commons.lang.StringUtils;
 import au.com.bytecode.opencsv.CSVReader;
 
 public class CoordinatesLoader {
+	private static String DEFAULT_STATION_COORDS_FILE = "dictionaries/StationCoords.csv";
 
 	private CSVReader reader;
 
@@ -32,16 +33,22 @@ public class CoordinatesLoader {
 	public HashMap<String, String> getSiteGawIdMap() {
 		return siteGawIdMap;
 	}
+	
 	private HashMap<String,String> siteCountryMap = new HashMap<String,String>();
 	private HashMap<String,String> siteGawIdMap = new HashMap<String,String>();
+	public CoordinatesLoader(){
+		loadData(DEFAULT_STATION_COORDS_FILE);
+	}
+	
 	public CoordinatesLoader(String coordsFile) {
-		
+		loadData(coordsFile);
+	}
+	
+	private void loadData(String coordsFile){
 		 InputStream is = this.getClass().getClassLoader()
 			.getResourceAsStream(coordsFile);
-         BufferedReader in = new BufferedReader(new InputStreamReader(is,
+      BufferedReader in = new BufferedReader(new InputStreamReader(is,
 			Charset.forName("UTF-8")));
-
-
 		reader = new CSVReader(in);
 		List<String[]> gawRows = new ArrayList<String[]>();
 		try {
@@ -69,7 +76,7 @@ public class CoordinatesLoader {
 			siteGawIdMap.put(row[1], row[2]);
         	}
 		}
-         
+	
 	}
 
 }
