@@ -22,17 +22,17 @@ OSCAR-CM---C\d+H\d+---Oscar tokens that sometimes go wrong;
 WP---^(T|t)hose$--- those;
 #CD
 NN-TIME---((\d+:\d\d)(-\d+:\d\d)?|afternoon|morning|night|evening)---time;
-CD-DEGREES---((~)?(\d|-)?\d+\.?\d*(°|º|'))---Degrees;
+CD-DEGREES---((~)?(\d|-)?\d+\.?\d*(\u2103|\u2109|\u00B0|\u00BA|\u2218|'))---Degrees;
 NN-METER---^n?(m|\d+m)$---Meters;
 CD-ALTITUDE---(^~?(\d|-)?\d+\.?\d*m)?\(?((A|a)\.?(S|s|G|g)\.?(L|l)\.?)|(alt.)\)?$---Altitude Metres (Above Sea/Ground Level);
-SYM---^(\+|x|\*|±)$---Plus and minus signs - put any html symbol in here?;
+SYM---^(\u002B|\u2715|\*|\u00B1|x)$---Plus and minus signs - put any html symbol in here?;
 #if a.s.l. is optional is there then a problem - m is usually taken as molar not metres?
 #To include observations at higher levels could require feet (ft) or pressure height but unlikely 
 #CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;
 #CD-YEAR-RANGE---^(1|2)(0|9)\d\d\-(1|2)(0|9)\d\d$---Valid Year;
 CD-YEAR-RANGE---^((19\d\d)|(20\d\d))\-((19\d\d)|(20\d\d))$---Valid Year;
 CD-YEAR---^((19)\d\d)|((20)\d\d)$---Valid Year;
-CD---(^(~)?(\d|-)?(\d+\.)?\d+(\-|±)\d+)---non-year range numbers
+CD---(^(~)?(\d|-)?(\d+\.)?\d+(\-|\u00B1)\d+)---non-year range numbers
 JJ---^(t|T)hat$---demonstrative adjective;
 JJ-ACP---^(M|m)arine$---demonstrative adjective;
 JJ-CHEM---^(i|I)nfrared$---demonstrative adjective;
