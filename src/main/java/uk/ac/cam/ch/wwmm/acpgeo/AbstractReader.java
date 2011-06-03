@@ -41,6 +41,11 @@ public class AbstractReader {
 	private Nodes affiliations;
 	private Nodes titleNode;
 	private Nodes year;
+	private Nodes articleURL;
+
+	public Nodes getArticleURL() {
+		return articleURL;
+	}
 
 	public Nodes getYear() {
 		return year;
@@ -80,6 +85,8 @@ public class AbstractReader {
 		references = xmlDoc.query("//reference");
 		authors = xmlDoc.query("//authors");
 		affiliations = xmlDoc.query("//affiliations");
+
+		articleURL = xmlDoc.query("//article_url");
 		year = xmlDoc.query("//publication_year");
 	}
 

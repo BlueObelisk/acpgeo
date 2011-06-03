@@ -102,6 +102,7 @@ public class ACPGeoMain {
 					addListToParentNode(rootElement, abReader.getAffiliations());
 					addListToParentNode(rootElement, abReader.getYear());
 					addListToParentNode(rootElement, abReader.getTitleNode());
+					addListToParentNode(rootElement, abReader.getArticleURL());
 					rootElement.appendChild(parsedDoc.getRootElement().copy());
 					Utils.writeXMLToFile(acpAbstract,"target/" + file.getName());
                     }
