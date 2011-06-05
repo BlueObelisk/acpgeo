@@ -39,21 +39,33 @@ public class ExtractInformation {
 	}
 
 	public void runQueries(File[] files) {
+		
 
 		getQuery(files, "//CAMPAIGN", "CAMPAIGN.csv");
+		getQuery(files, "//EXPRESSION", "EXPRESSION.csv");
+		getQuery(files, "//NN-UNITS", "NN-UNITS.csv");
+		getQuery(files, "//NN-PERAREA", "NN-PERAREA.csv");
+		getQuery(files, "//NN-PERTIMEUNIT", "NN-PERTIMEUNIT.csv");
+		getQuery(files, "//ReferencePhrase", "ReferencePhrase.csv");
 		getQuery(files, "//CD-YEAR", "YEARS.csv");
 		getQuery(files, "//CD-YEAR-RANGE", "YEAR-RANGE.csv");
+		getQuery(files, "//CD-YEAR[not(preceding::CD-YEAR >= . or following::CD-YEAR >= . or descendant::CD-YEAR >= .)]", "YEAR-MAX.csv");
+		getQuery(files, "//CD-YEAR[not(preceding::CD-YEAR >= . )]", "YEAR-MAX1.csv");
 		getQuery(files, "//AcronymPhrase", "ACRONYMPHRASES.csv");
 		getQuery(files, "//NNP-ACRONYM", "NNP-ACRONYM.csv");
 		getQuery(files, "//ParentheticalPhrase", "PARENTHETICALPHRASE.csv");
 		getQuery(files, "//LOCATION", "LOCATION.csv");
 		getQuery(files, "//MOLECULE", "MOLECULE.csv");
+		getQuery(files, "//MOLECULE[not(child::JJ-ACP)][not(child::JJ)][not(child::JJ-CHEM)]", "MOLECULE1.csv");
+		getQuery(files, "//MOLECULE[child::JJ-ACP|JJ|JJ-CHEM]/OSCARCM[1]", "MOLECULE2.csv");
+		getQuery(files, "//MOLECULE/OSCARCM[1]", "MOLECULE3.csv");
 		getQuery(files, "//CD-DEGREES", "CD-DEGREES.csv");
 		getQuery(files, "//CD-ALTITUDE", "CD-ALTIUDE.csv");
 		getQuery(files, "//QUANTITY", "QUANTITY.csv");
 		getQuery(files, "//NN-PARTS", "NN-PARTS.csv");
 		getQuery(files, "//NNP-STATION", "NNP-STATION.csv");
 		getQuery(files, "//NNP-STATION[not(.=preceding::NNP-STATION/.)]", "NNP-STATION1.csv");
+
 		getQuery(
 				files,
 				"//LOCATION[descendant-or-self::CD-DEGREES[2]]",
@@ -78,8 +90,8 @@ public class ExtractInformation {
 				files,
 				"//ActionPhrase[@type='Observation'][descendant-or-self::MOLECULE]",
 				"ACTIONPHRASEobservationMOLECULE.csv");
-		// â€¦ paperId, affiliation, publication year,campaignName,campaignLocation, campaignYear, molecules
-		String fileName = "MappingData.csv";
+		// É paperId, affiliation, publication year,campaignName,campaignLocation, campaignYear, molecules
+		String fileName = "MappingDataAll.csv";
 		FileWriter filewriter = null;
 		if (!new File(outputFolder).exists())
 			new File(outputFolder).mkdir();
@@ -90,18 +102,28 @@ public class ExtractInformation {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		getDetails(
-				files,
-//				Arrays.asList("//affiliation //publication_year //CAMPAIGN //LOCATION[descendant-or-self::NNP-STATION][not(descendant-or-self::CD-DEGREES)] //TimePhrase[descendant-or-self::CD-YEAR] //MOLECULE"
-//						.split(" ")), filewriter);
-				Arrays.asList("//TimePhrase[descendant-or-self::CD-YEAR][not(.=preceding::TimePhrase[descendant-or-self::CD-YEAR]/.)] //NNP-STATION[not(.=preceding::NNP-STATION/.)] //LOCATION[descendant-or-self::CD-DEGREES[2]] //CAMPAIGN //MOLECULE[not(.=preceding::MOLECULE/.)] //affiliation //publication_year"
-				.split(" ")), filewriter);
+		
+		//CD-YEAR[not(preceding::CD-YEAR <= . or following::CD-YEAR <= . or descendant::CD-YEAR <= .)] //CD-YEAR[not(preceding::CD-YEAR >= . or following::CD-YEAR >= . or descendant::CD-YEAR >= .)] 
+						//				Arrays.asList("//TimePhrase[descendant-or-self::CD-YEAR][not(.=preceding::TimePhrase[descendant-or-self::CD-YEAR]/.)] //NNP-STATION[not(.=preceding::NNP-STATION/.)] //LOCATION[descendant-or-self::CD-DEGREES[2]] //CAMPAIGN //MOLECULE[not(.=preceding::MOLECULE/.)] //affiliation //publication_year"
+		try {
+			getDetails(
+					files,			
+					Arrays.asList("//LOCATION/NNP-STATION[not(.=preceding::LOCATION/NNP-STATION/.)] //CD-YEAR[not(.>=preceding::CD-YEAR)][not(.>=following::CD-YEAR)][not(.>=descendant::CD-YEAR)] //CD-YEAR[not(.<=preceding::CD-YEAR)][not(.<=following::CD-YEAR)][not(.<=descendant::CD-YEAR)] //CAMPAIGN //MOLECULE/OSCARCM[1][not(.=preceding::MOLECULE/OSCARCM[1]/.)] //affiliation //publication_year"
+//				Arrays.asList("//LOCATION/NNP-STATION[not(.=preceding::LOCATION/NNP-STATION/.)] //LOCATION[descendant-or-self::CD-DEGREES[2]] //CD-YEAR[not(.>=preceding::CD-YEAR)][not(.>=following::CD-YEAR)][not(.>=descendant::CD-YEAR)] //CD-YEAR[not(.<=preceding::CD-YEAR)][not(.<=following::CD-YEAR)][not(.<=descendant::CD-YEAR)] //CAMPAIGN //MOLECULE/OSCARCM[1][not(.=preceding::MOLECULE/OSCARCM[1]/.)] //affiliation //publication_year"
+					.split(" ")), filewriter);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-
+// MOLECULE/OSCARCM[1] used rather than MOLECULE to avoid any adjectives being included. There is a risk that other information may be lost - what acronym is etc. and possbility of MOLECULE containing a range of molecules or further clarification e.g. halogens (chlorine and bromine).
+// Also temporarily ignoring lat and long from phrases other than Station (i.e. //LOCATION[descendant-or-self::CD-DEGREES[2]] )
 	private void getDetails(File[] files, List<String> queryList,
-			FileWriter filewriter) {
+			FileWriter filewriter) throws IOException {
 		BufferedReader in = null;
 		Document doc = null;
+		// Rest of the code specific to MappingData.csv
+		filewriter.write("FileName"+ "\t" + "Lat" + "\t" + "Lon" + "\t" + "Altitude" + "\t" + "Title" + "\t" + "YearMin" + "\t" + "YearMax" + "\t" + "Campaign" + "\t" + "MeasuredCompounds" + "\t" + "InstituteAddresses" + "\t" + "PublicationYear");
 		
 		gawCoordinates = new CoordinatesLoader(STATION_COORDS_FILE);
 		
@@ -118,49 +140,86 @@ public class ExtractInformation {
 					e.printStackTrace();
 				}
 				try {
-					filewriter.write(file.getCanonicalPath()+ "\t");
 					doc = new Builder().build(in, "UTF-8");
 
-					for (String query : queryList) {
+						String query1 = queryList.get(0);
+						String holder = "astring";
+//						System.out.println("query one " + query1);	
 
-						Nodes nodes = doc.query(query);
+						Nodes nodes1 = doc.query(query1);
 						
-						for (int i = 0; i < nodes.size(); i++) {
-							Element element = (Element) nodes.get(i);
-							if (i == 0) {
-								if (query.equals("//NNP-STATION[not(.=preceding::NNP-STATION/.)]")) {
-//									System.out.println("query again " + query);	
-									String myKey = ExtractFromXML.getStringValue( element, "" );
-									String outputString = gawCoordinates.getSiteCoordsMapA().get( myKey ) + "_:_";
-									filewriter.write( outputString );
-								}
-								filewriter.write(ExtractFromXML.getStringValue(element,""));
-//								String outputDataString = ExtractFromXML.getStringValue(element,"");
-							}
-							else {
-//								if (ExtractFromXML.getStringValue(element,"").equals( outputDataString )) {
-//								}
-//								else {
-								if (query.equals("//NNP-STATION[not(.=preceding::NNP-STATION/.)]")) {
-//									System.out.println("query again " + query);	
-									String myKey = ExtractFromXML.getStringValue( element, "" );
-									String outputString = "|" + gawCoordinates.getSiteCoordsMapA().get( myKey ) + "_:_";
-									filewriter.write( outputString );
-									filewriter.write(ExtractFromXML.getStringValue(element,""));
+						for (int i = 0; i < nodes1.size(); i++) {
+							Element element1 = (Element) nodes1.get(i);
+							
+							if (query1.equals("//LOCATION/NNP-STATION[not(.=preceding::LOCATION/NNP-STATION/.)]")) {
+//								System.out.println("query again " + query);	
+								
+								String myKey = ExtractFromXML.getStringValue( element1, "" );
+								String outputString = gawCoordinates.getSiteCoordsMapA().get( myKey ) + "";
+								
+								if (outputString.equals("null") | outputString.equals(holder)) {
+// Should really look for other co-ordinates here - to do!
+// This also bad way to get rid of duplicates caused by multi-word station names - need to sort these out elsewhere
 								}
 								else {
-								filewriter.write("|"+ ExtractFromXML.getStringValue(element,""));
-//								String outputDataString = outputDataString+"|"+ExtractFromXML.getStringValue(element,"");
+									holder = outputString;
+									filewriter.write("\n");
+									filewriter.write(file.getCanonicalPath()+ "\t" + outputString + "\t" + ExtractFromXML.getStringValue(element1,"") + "\t");
 								}
-							}
-//							filewriter.write( outputDataString );
-							filewriter.flush();
+															
+								for (String query : queryList) {
+									Nodes nodes = doc.query(query);
+									if (query.equals("//LOCATION/NNP-STATION[not(.=preceding::LOCATION/NNP-STATION/.)]")) {
+// I don't know how else to skip first query
+									}
+									else if (outputString.equals("null")) {
+									}
+									else {
+									for (int j = 0; j < nodes.size(); j++) {
+										Element element = (Element) nodes.get(j);
+										if (j == 0) {
+//								System.out.println("element " + element);	
+											if (query.equals("//CD-YEAR[not(.>=preceding::CD-YEAR)][not(.>=following::CD-YEAR)][not(.>=descendant::CD-YEAR)]")) {
+//												System.out.println("element " + element);	
+												filewriter.write(ExtractFromXML.getStringValue(element,"").trim().substring(0,4));
+											}
+											else if (query.equals("//CD-YEAR[not(.<=preceding::CD-YEAR)][not(.<=following::CD-YEAR)][not(.<=descendant::CD-YEAR)]")) {
+												if (j==nodes.size()-1) {
+												String yearstring = ExtractFromXML.getStringValue(element,"").trim().replace("s", "");
+												int len = yearstring.trim().length();
+												filewriter.write(ExtractFromXML.getStringValue(element,"").trim().substring(len-4,len));
+												}
+											}	
+											else {
+											filewriter.write(ExtractFromXML.getStringValue(element," "));
+											}
+										}
+										else {
+											if (query.equals("//CD-YEAR[not(.>=preceding::CD-YEAR)][not(.>=following::CD-YEAR)][not(.>=descendant::CD-YEAR)]")) {
+	//											filewriter.write(ExtractFromXML.getStringValue(element,"").trim().substring(0,4) + ";");
+											}
+											else if (query.equals("//CD-YEAR[not(.<=preceding::CD-YEAR)][not(.<=following::CD-YEAR)][not(.<=descendant::CD-YEAR)]")) {
+												if (j==nodes.size()-1) {
+													String yearstring = ExtractFromXML.getStringValue(element,"").trim().replace("s", "");
+													int len = yearstring.trim().length();
+													filewriter.write(ExtractFromXML.getStringValue(element,"").trim().substring(len-4,len));
+												}
+											}
+											else {
+												filewriter.write("; " + ExtractFromXML.getStringValue(element," "));
+//												filewriter.write(ExtractFromXML.getStringValue(element," "));
+											}
+										}
+									}
+									filewriter.flush();
 						}
 						filewriter.write("\t");
 					}
-					filewriter.write("\n");
+				filewriter.write("\n");
+					}
+					}
 				} catch (ValidityException e) {
-					// TODO Auto-gener¤ated catch block
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (ParsingException e) {
 					// TODO Auto-generated catch block
@@ -179,6 +238,7 @@ public class ExtractInformation {
 			e.printStackTrace();
 		}
 	}
+
 
 	private void getQuery(File[] files, String query, String fileName) {
 		BufferedReader in = null;

@@ -1360,33 +1360,36 @@ Wm-2:: Watts per square metre
 #
 # Others that have been found to come up as MOLECULE
 #
-#WFM-DOAS:: a fast modified DOAS algorithm - http://www.iup.uni-bremen.de/sciamachy/NIR_NADIR_WFM_DOAS/
-#SCIAMACHY-WFMD:: satellite instrument -
-#ERS-2:: satellite
-#SYNAER:: satellite instrumenent
-#ECHAM5/MESSy1:: model 
+GC:: Gas Chromatography
+WFM-DOAS:: a fast modified DOAS algorithm - http://www.iup.uni-bremen.de/sciamachy/NIR_NADIR_WFM_DOAS/
+SCIAMACHY-WFMD:: satellite instrument -
+ERS-2:: satellite
+SYNAER:: satellite instrumenent
+ECHAM5/MESSy1:: model 
+RHaMBLe:: campaign
 #TgN:: Terragrams Nitrogen
-#ToN:: Total particle number
-#ToV:: Totoal particle Volume
-#TM3:: Global Transport Model
-#TM5:: Global Transport Model
-#NCO-P:: Station
-#MOHp:: Station
-#AMSU-A:: Satellite instrument 
-#AMSU-B:: Satellite instrument
-#AOT(500)::wavelength threshold?
-#ATSR-2:: Satellite instrument
-#FORTH-AERONET:: project
-#GOME-2:: Satellite instrument
-#GOME/ERS-2:: Satellite instrument on satellite
-#HWM-93:: model atmosphere
-#CMIP5:: model scenario
+ToN:: Total particle number
+ToV:: Totoal particle Volume
+TM3:: Global Transport Model
+TM5:: Global Transport Model
+NCO-P:: Station
+MOHp:: Station
+AMSU-A:: Satellite instrument 
+AMSU-B:: Satellite instrument
+AOT(500)::wavelength threshold?
+ATSR-2:: Satellite instrument
+FORTH-AERONET:: project
+GOME-2:: Satellite instrument
+GOME/ERS-2:: Satellite instrument on satellite
+HWM-93:: model atmosphere
+CMIP5:: model scenario
 #
 # Country codes - have also come up as molecule
 #
-#CH:: country code for
-#CZ:: country code for
-#DE:: country code for
+BE:: country code
+CH:: country code for
+CZ:: country code for
+DE:: country code for
 #CH:: country code for
 #
 #Air, composition of pure:: The composition of air is variable with respect to several of its components (e.g., CH<sub>4</sub>, CO<sub>2</sub>, H<sub>2</sub>O) so "pure" air has no precise meaning; it is commonly considered to be air which is free of dust, aerosols, and reactive gaseous contaminants of anthropogenic origin. The composition of the major components in dry air is relatively constant (percent by volume given): nitrogen, 78.084; oxygen, 20.946; argon, 0.934; carbon dioxide, 0.033; neon, 0.0018; helium, 0.000524; methane, 0.00016, krypton 0.000114; hydrogen 0.00005; nitrous oxide, 0.00003; xenon, 0.0000087. The concentration of carbon dioxide, methane, nitrous oxide, the chlorofluorocarbons and some other species of anthropogenic origin are increasing measurably with time. Relative clean air which is free of most reactive anthropogenic pollution (NO, NO<sub>2</sub>, SO<sub>2</sub>, non-methane hydrocarbons, etc.), often used as a reference sample in the calibration and operation of instruments, is purchased under the designation of zero <i>air</i>. Source = Calvert Atmos Chem Glossary.

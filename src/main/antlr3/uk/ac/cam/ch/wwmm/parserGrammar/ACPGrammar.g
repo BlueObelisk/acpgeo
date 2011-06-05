@@ -42,6 +42,13 @@ CAMPAIGN;
 CONCENTRATIONMEASUREMENT;
 PERSECOND;
 OSCARONT;
+PARTSPERAREA;
+PERAREA;
+AREA;
+TIMEUNIT;
+PERTIMEUNIT; 
+UNITS;
+ReferencePhrase;
 }
 
 @header {
@@ -80,6 +87,12 @@ nounphrase
 nounphraseStructure
 	:	dtTHE? dt?    noun+   (conjunction*  noun)*   ((prepphraseOf| prepphraseIN|prepphraseAtmosphere|prepphraseTemp|prepphraseTime|prepphraseLocation) )*  ;
 
+referencePhrase
+   :referencePhraseStructure ->  ^(ReferencePhrase  referencePhraseStructure);
+referencePhraseStructure
+   : nnp+ fw+ (comma time)+ ;
+//   : nnp+ fw+ comma (cdyear|cdyearRange)+ ;
+// need to add and rather than cc
 
 conjunction 
 	:	 cc|comma;
@@ -89,10 +102,11 @@ verbphrase
 verbphraseStructure :  dt? to? inAll? inafter? (md* rbconj? advAdj* verb+ md* advAdj* neg? )+ inoff? (cc? comma? prepphrase)*   ;
 verb : vbindicate|vbmeasure|vbacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange;
 
-number : cd|cdAlphanum|cddegrees;	
-noun1 	:	(dtTHE|dt)? advAdj* to? (nounStructure|nncampaign|nnParts|nnmeter|cdaltitude)(dash nounStructure)*;
+number : cd|cdAlphanum|cddegrees;
+//noun1 	:	(dtTHE|dt)? advAdj* to? (nounStructure|nncampaign|nnParts|nnmeter|cdaltitude)(dash nounStructure)*;
+noun1 	:	(dtTHE|dt)? advAdj* to? (nounStructure|nncampaign|nnParts|nnmeter|nnarea|nnperarea|nnpartsperarea|nnpertimeunit|nntimeunit|nnunits|nnmoles|cdaltitude)(dash nounStructure)*;
 noun	:	(campaign|acronymPhrase|noun1);
-nounStructure : apparatus|nn|nns|campaign|parentheticalPhraseAcronym|expression|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase;
+nounStructure : apparatus|nn|nns|campaign|parentheticalPhraseAcronym|parentheticalPhraseReference|expression|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase|referencePhrase;
 acpNoun:location|nnpcountry;
 
 conditionNoun : nntime|nnatmosphere|nntemp;
@@ -107,7 +121,6 @@ properNoun
 prpNoun :	prp|prp_poss;
 moleculeNoun
 	:	molecule|oscaronts|nnchementity;
-	
 range: number dash number;
 
 adj	:	(jj|jjr|jjs|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjcomp) (cc (jj|jjr|jjs|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjcomp))*;
@@ -134,6 +147,13 @@ expression
 
 expressionContent 
 	:nn sym cd prepphrase? verb* nnpdirection? prepphrase?;
+
+//mathEquationContent 
+//	:(cd|sym|units)+ sym (cd|sym|units)+ ;
+	
+//mathExpressionContent 
+//	:(cd|sym|units)+ ;
+	
 	
 campaign:	campaignContent	->^(CAMPAIGN campaignContent);
 
@@ -165,6 +185,9 @@ prepphraseAtmosphere
 prepphraseAtmosphereContent
 	:inunder  dt? advAdj* molecule nnatmosphere?	;
 
+
+parentheticalPhraseReference
+	: referencePhrase parentheticalPhrase ->^(ReferencePhrase parentheticalPhrase);
 
 parentheticalPhraseAcronym
 	: nnpacronym parentheticalPhrase ->^(AcronymPhrase  nnpacronym  parentheticalPhrase);
@@ -211,12 +234,31 @@ molar	: cd* nnmolar -> ^(MOLAR   cd* nnmolar );
 
 perSecond
 	: cd* nnpersecond -> ^(PERSECOND cd* nnpersecond);
-	
-	
-measurements
-	: massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter ;
-		
 
+partsperarea
+   : cd* nnpartsperarea -> ^(PARTSPERAREA cd* nnpartsperarea);
+
+perarea
+   : cd* nnperarea -> ^(PERAREA cd* nnperarea);
+
+area
+   : cd* nnarea -> ^(AREA cd* nnarea);
+
+timeunit
+   : cd* nntimeunit -> ^(TIMEUNIT cd* nntimeunit);
+
+pertimeunit
+   : cd* nnpertimeunit -> ^(PERTIMEUNIT cd* nnpertimeunit);
+
+units
+   : cd* nnunits -> ^(UNITS cd* nnunits);
+
+measurements
+   : massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter|partsperarea|perarea|area|timeunit|pertimeunit|units ;	
+	
+//measurements
+//	: massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter ;
+		
 time 	:	 timeStructure ->^(TimePhrase timeStructure);
 
 timeStructure
@@ -333,6 +375,14 @@ nnpacronym
 	: 'NNP-ACRONYM' TOKEN -> ^('NNP-ACRONYM' TOKEN)	;
 
 nnParts             :   'NN-PARTS' TOKEN -> ^('NN-PARTS' TOKEN); 
+
+nnpartsperarea             :   'NN-PARTSPERAREA' TOKEN -> ^('NN-PARTSPERAREA' TOKEN);
+nnarea             :   'NN-AREA' TOKEN -> ^('NN-AREA' TOKEN);
+nnperarea             :   'NN-PERAREA' TOKEN -> ^('NN-PERAREA' TOKEN);
+nnmoles             :   'NN-MOLES' TOKEN -> ^('NN-MOLES' TOKEN);
+nntimeunit             :   'NN-TIMEUNIT' TOKEN -> ^('NN-TIMEUNIT' TOKEN);
+nnpertimeunit             :   'NN-PERTIMEUNIT' TOKEN -> ^('NN-PERTIMEUNIT' TOKEN);
+nnunits             :   'NN-UNITS' TOKEN -> ^('NN-UNITS' TOKEN);
 
 nnpersecond
 	: 'NN-PERSECOND' TOKEN -> ^('NN-PERSECOND' TOKEN);	

@@ -69,7 +69,9 @@ public class CoordinatesLoader {
        	    if (Word.matches(".*II|del|Cape|de|Ny|St.|bei|La|Le|San|san|sur|Monte|Mt.?.*")) {
        	    	Word=firstWord.nextToken();
        	    }
-			siteCoordsMapA.put(Word, row[5]+" "+row[6]);
+       	    
+//			siteCoordsMapA.put(Word, row[5]+" "+row[6]);
+			siteCoordsMapA.put(Word, row[7]+"\t"+row[8]+"\t"+row[6]);
 			if (StringUtils.isNotEmpty(row[0])){
 				siteCountryMap.put(row[0], row[1]);
 			}
