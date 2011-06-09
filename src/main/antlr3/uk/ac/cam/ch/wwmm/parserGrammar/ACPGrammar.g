@@ -250,7 +250,7 @@ pertimeunit
    : cd* nnpertimeunit -> ^(PERTIMEUNIT cd* nnpertimeunit);
 
 units
-   : cd* nnunits -> ^(UNITS cd* nnunits);
+   : cd* nnunits nnmoles? perarea? -> ^(UNITS cd* nnunits nnmoles? perarea?);
 
 measurements
    : massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter|partsperarea|perarea|area|timeunit|pertimeunit|units ;	

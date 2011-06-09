@@ -11,7 +11,7 @@ import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 
 public class ACPTaggerTest {
 
-	@Ignore
+	
 	@Test
 	public void testSentence1() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
