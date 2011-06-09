@@ -452,7 +452,6 @@ public class ACPTaggerTest {
 	}
 	
 
-        @Ignore
 	@Test
 	public void testRecogniseCitation() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
@@ -468,7 +467,7 @@ public class ACPTaggerTest {
 				.toStringTree().contains("<error"));
 		
 		Assert.assertTrue("Found ReferencePhrase", doc.query("//ReferencePhrase").size()>0);
-
+		Assert.assertTrue("Not within a ParentheticalPhrase", doc.query("//ParentheticalPhrase").size()==0);
 	}
 	
 	

@@ -88,7 +88,9 @@ nounphraseStructure
 	:	dtTHE? dt?    noun+   (conjunction*  noun)*   ((prepphraseOf| prepphraseIN|prepphraseAtmosphere|prepphraseTemp|prepphraseTime|prepphraseLocation) )*  ;
 
 referencePhrase
-   :referencePhraseStructure ->  ^(ReferencePhrase  referencePhraseStructure);
+   : (bracketedReferencePhraseStructure|referencePhraseStructure) ->  ^(ReferencePhrase  bracketedReferencePhraseStructure? referencePhraseStructure?);
+bracketedReferencePhraseStructure
+   : lrb referencePhraseStructure rrb ;   
 referencePhraseStructure
    : nnp+ fw+ (comma time)+ ;
 //   : nnp+ fw+ comma (cdyear|cdyearRange)+ ;
@@ -106,7 +108,7 @@ number : cd|cdAlphanum|cddegrees;
 //noun1 	:	(dtTHE|dt)? advAdj* to? (nounStructure|nncampaign|nnParts|nnmeter|cdaltitude)(dash nounStructure)*;
 noun1 	:	(dtTHE|dt)? advAdj* to? (nounStructure|nncampaign|nnParts|nnmeter|nnarea|nnperarea|nnpartsperarea|nnpertimeunit|nntimeunit|nnunits|nnmoles|cdaltitude)(dash nounStructure)*;
 noun	:	(campaign|acronymPhrase|noun1);
-nounStructure : apparatus|nn|nns|campaign|parentheticalPhraseAcronym|parentheticalPhraseReference|expression|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|referencePhrase|parentheticalPhrase;
+nounStructure : (apparatus|nn|nns|campaign|referencePhrase|parentheticalPhraseAcronym|expression|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase);
 acpNoun:location|nnpcountry;
 
 conditionNoun : nntime|nnatmosphere|nntemp;
@@ -185,9 +187,6 @@ prepphraseAtmosphere
 prepphraseAtmosphereContent
 	:inunder  dt? advAdj* molecule nnatmosphere?	;
 
-
-parentheticalPhraseReference
-	: referencePhrase parentheticalPhrase ->^(ReferencePhrase parentheticalPhrase);
 
 parentheticalPhraseAcronym
 	: nnpacronym parentheticalPhrase ->^(AcronymPhrase  nnpacronym  parentheticalPhrase);
