@@ -6,7 +6,7 @@ NNP-MONTH---January|February|March|April|May|June|July|August|September|October|
 NNP-SEASON---^([wW]inter|[Ss]ummer|[Ss]pring|[Aa]utumn|[Ff]all)time?|(S|s)eason$---Seasons;
 NNP-DIRECTION---^\d*(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)(ern|-)?(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)?(ern)?$+---Directions;
 NNP-CONTINENT---^([Aa]sia|[aA]frica|[aA]merica|[Aa]ntarctica|[Ee]urope|[aA]ustralia)$--- continents
-NN-APPARATUS---^(s|S)atellite(s)?|((ATSR|SYNAER/ERS|ERS|GOME)(((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?2?))$---Apparatus Equipment;
+NN-APPARATUS---^(s|S)atellite(s)?|((ATSR|SYNAER/ERS|ERS)(((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?2?))$---Apparatus Equipment;
 NN-STATION---station(s)?$---Field stations;
 NN-MEASUREMENT---measurement(s)?$---Measurement;
 NNP-ACRONYM---^([A-Z][A-Z]+(\-|\\|\/)?[A-Z]+[0-9]*(s)?[0-9]*)$---Acronyms

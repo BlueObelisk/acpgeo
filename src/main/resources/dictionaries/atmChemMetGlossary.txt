@@ -1386,7 +1386,7 @@ CMIP5:: model scenario
 #
 # Country codes - have also come up as molecule
 #
-BE:: country code
+#BE:: country code
 CH:: country code for
 CZ:: country code for
 DE:: country code for
