@@ -1,6 +1,7 @@
 package uk.ac.cam.ch.wwmm.acpgeo;
 
 import junit.framework.Assert;
+import nu.xom.Document;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -10,6 +11,7 @@ import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 
 public class ACPTaggerTest {
 
+	@Ignore
 	@Test
 	public void testSentence1() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
@@ -234,7 +236,6 @@ public class ACPTaggerTest {
 
 	}
 
-	
 	@Test
 	public void testSeasonandContinent() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
@@ -451,7 +452,25 @@ public class ACPTaggerTest {
 	}
 	
 
+        @Ignore
+	@Test
+	public void testRecogniseCitation() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "( Flentje et al. , 2010 )";
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc,
+				"target/file18.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+		
+		Assert.assertTrue("Found ReferencePhrase", doc.query("//ReferencePhrase").size()>0);
 
+	}
+	
 	
 
 }

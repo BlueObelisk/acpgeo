@@ -106,7 +106,7 @@ number : cd|cdAlphanum|cddegrees;
 //noun1 	:	(dtTHE|dt)? advAdj* to? (nounStructure|nncampaign|nnParts|nnmeter|cdaltitude)(dash nounStructure)*;
 noun1 	:	(dtTHE|dt)? advAdj* to? (nounStructure|nncampaign|nnParts|nnmeter|nnarea|nnperarea|nnpartsperarea|nnpertimeunit|nntimeunit|nnunits|nnmoles|cdaltitude)(dash nounStructure)*;
 noun	:	(campaign|acronymPhrase|noun1);
-nounStructure : apparatus|nn|nns|campaign|parentheticalPhraseAcronym|parentheticalPhraseReference|expression|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase|referencePhrase;
+nounStructure : apparatus|nn|nns|campaign|parentheticalPhraseAcronym|parentheticalPhraseReference|expression|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|referencePhrase|parentheticalPhrase;
 acpNoun:location|nnpcountry;
 
 conditionNoun : nntime|nnatmosphere|nntemp;

@@ -403,7 +403,7 @@ Efflorescence:: The reverse of deliquescence: the drying of a salt solution when
 Effluent:: Any spent liquors or other waste material which are emitted by a source (waste from plating shops, pickling tanks, sewage treatment plants, chemical manufacturing plants, etc.).	Source = Calvert Atmos Chem Glossary.
 Einstein unit:: 1 mole (6.02213 x 10<sup>23</sup>) of quanta or photons of electromagnetic radiation; for monochromatic light of wavelength &#108;, a light beam of energy <i>E</i> (J s<sup>-1</sup>) striking a surface, will have <i>E</i>/(6.022 x 10<sup>23</sup> x <i>hc</i>/&#108;) Einstein striking per sec; <i>h</i> is the Planck constant (6.626 x 10<sup>-34</sup> J s) and <i>c</i> is the velocity of light (2.998 x 10<sup>8</sup> m s<sup>-1</sup>).	Source = Calvert Atmos Chem Glossary.
 El NiÃ¯Â¿Â½o:: A major warming of the equatorial waters in the eastern Pacific Ocean. El NiÃ¯Â¿Â½o events usually occur every 3 to 7 years, and are related to shifts in global weather patterns. (Spanish for the "Christ Child", named this because it often begins around Christmas.). Source = NOAA Met Glossary.
-El Ni–o :: A major warming of the equatorial waters in the eastern Pacific Ocean. El Ni–o  events usually occur every 3 to 7 years, and are related to shifts in global weather patterns. (Spanish for the "Christ Child", named this because it often begins around Christmas.). Source = NOAA Met Glossary.
+El Niï¿½o :: A major warming of the equatorial waters in the eastern Pacific Ocean. El Niï¿½o  events usually occur every 3 to 7 years, and are related to shifts in global weather patterns. (Spanish for the "Christ Child", named this because it often begins around Christmas.). Source = NOAA Met Glossary.
 Electrical hygrometer:: A hygrometer whose sensitive element has electrical properties which vary with the humidity of the gas which traverses the hygrometer.	Source = Calvert Atmos Chem Glossary.
 Electrolytic hygrometer:: Hygrometer using a hygroscopic substance (for example, diphosphorus pentoxide, P<sub>2</sub>O<sub>5</sub>) which is transformed into an electrolyte (phosphoric acid, H<sub>3</sub>PO<sub>4</sub>) in contact with the moisture in the gas. The electrolyte (phosphoric acid) is electrolysed continuously and the electrolysis current is measured. At a constant flow of the gas to be analysed, the electrolysis current is a linear function of the water concentration.	Source = Calvert Atmos Chem Glossary.
 Electron charge:: The negative electric charge which appears on the electron or univalent ions [1.602 x 10<sup>-19</sup> coulombs or 4.803 x 10<sup>-10</sup> electrostatic units (esu)].	Source = Calvert Atmos Chem Glossary.
@@ -483,7 +483,7 @@ Flux:: The number or mass of particles or molecules which pass through a given u
 Fly ash collector:: Equipment to remove fly ash from the products of combustion. Source = Calvert Atmos Chem Glossary.
 Fly ash:: Finely divided particles of ash entrained in fine gases resulting from the combustion of fuel. Source = Calvert Atmos Chem Glossary.
 Foehn:: A warm dry wind on the lee side of a mountain range. The heating and drying are due to adiabatic compression as the wind descend downslope. Source = NOAA Met Glossary.
-Fšhn:: A warm dry wind on the lee side of a mountain range. The heating and drying are due to adiabatic compression as the wind descend downslope. Source = NOAA Met Glossary.
+Fï¿½hn:: A warm dry wind on the lee side of a mountain range. The heating and drying are due to adiabatic compression as the wind descend downslope. Source = NOAA Met Glossary.
 Fog horizon:: The top of a fog layer which is confined by a low-level temperature inversion and gives the appearance of the horizon (which it actually obscures) when viewed from above, against the sky. Source = Calvert Atmos Chem Glossary.
 Fog:: A general term applied to a suspension of droplets in a gas. In meteorology, it refers to a suspension of water droplets resulting in a visibility of less than 1 km. <B>GB</B>: An aerosol of liquid particles, in particular a low cloud. Source = Calvert Atmos Chem Glossary.
 Fog:: Water that has condensed close to ground level, producing a cloud of very small droplets that reduces visibility to less than one km (three thousand and three hundred feet). Source = NOAA Met Glossary.
@@ -670,7 +670,7 @@ Knot:: A measure of speed. It is one nautical mile per hour (1.15 mph).  A nauti
 Knuckles:: Lumpy protrusions on the edges, and sometimes the underside, of a thunderstorm anvil. They usually appear on the upwind side of a back-sheared anvil, and indicate rapid expansion of the anvil due to the presence of a very strong updraft. They are not mammatus clouds. Source = NOAA Met Glossary.
 LIDAR:: An acronym for LIght Detection And Ranging. It is a real time remote sensing technique for the determination of aerosol and trace gas concentrations in air by measurement of scattered laser radiation.	Source = Calvert Atmos Chem Glossary.
 La Nina:: A cooling of the equatorial waters in the Pacific Ocean. Source = NOAA Met Glossary.
-La Ni–a:: A cooling of the equatorial waters in the Pacific Ocean. Source = NOAA Met Glossary.
+La Niï¿½a:: A cooling of the equatorial waters in the Pacific Ocean. Source = NOAA Met Glossary.
 Lachrymator:: A substance which produces a flow of tears in a person or animal (e.g., acetyl chloride, acrylaldehyde, etc.).	Source = Calvert Atmos Chem Glossary.
 Lake effect:: The effect of a lake (usually a large one) in modifying the weather near the shore and down wind. It is often refers to the enhanced rain or snow that falls downwind from the lake.  This effect can also result in enhanced snowfall along the east coast of New England in winter. Source = NOAA Met Glossary.
 Laminar flow::Laminar flow, a form of fluid flow (i.e. the movement of air or other fluid in the open or in a duct, pipe, or passage), in which the mass of fluid may be considered separate laminae (sheets) with simple shear existing at the surface of contact of laminae if there is any difference in mean speed of the separate laminaeSource = Calvert Atmos Chem Glossary.
@@ -1379,6 +1379,7 @@ AMSU-B:: Satellite instrument
 AOT(500)::wavelength threshold?
 ATSR-2:: Satellite instrument
 FORTH-AERONET:: project
+GOME:: Satellite instrument
 GOME-2:: Satellite instrument
 GOME/ERS-2:: Satellite instrument on satellite
 HWM-93:: model atmosphere
