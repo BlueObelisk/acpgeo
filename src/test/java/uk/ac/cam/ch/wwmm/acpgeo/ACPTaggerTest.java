@@ -6,6 +6,7 @@ import nu.xom.Document;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import uk.ac.cam.ch.wwmm.chemicaltagger.Formatter;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 
@@ -470,6 +471,70 @@ public class ACPTaggerTest {
 		Assert.assertTrue("Not within a ParentheticalPhrase", doc.query("//ParentheticalPhrase").size()==0);
 	}
 	
+
+	@Test
+	public void testSplitEquationEquals() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "n=1";
+		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+	    Assert.assertEquals("n = 1", sentence);
+
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		Assert.assertEquals("NN n SYM = CD 1",posContainer.getTokenTagTupleAsString());
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 	
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc,
+				"target/file19.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+
+	}
+	@Test
+	public void testSplitEquationGreatLessThan() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "n>1";
+		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+	    Assert.assertEquals("n > 1", sentence);
+
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		Assert.assertEquals("NN n SYM > CD 1",posContainer.getTokenTagTupleAsString());
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+	
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc,
+				"target/file20.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+
+	}
+		
+
+	@Test
+	public void testSplitPressure() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "200hPa";
+		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+		Assert.assertEquals("200 hPa", sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+
+	    
+		System.out.println(posContainer.getTokenTagTupleAsString());
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc,
+				"target/file21.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+
+	}
+	
+		
 
 }
