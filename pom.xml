@@ -11,6 +11,14 @@
 			<url>https://maven.ch.cam.ac.uk/m2repo</url>
 		</repository>
 	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>ucc-repo</id>
+			<name>UCC Repository</name>
+			<url>https://maven.ch.cam.ac.uk/m2repo</url>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -21,13 +29,13 @@
 				</configuration>
 			</plugin>
 			<plugin>
-	    <groupId>org.apache.maven.plugins</groupId>
-	    <artifactId>maven-surefire-plugin</artifactId>
-	    <version>2.5</version>
-	    <configuration>
-	        <argLine>-Xms512m -Xmx1024m</argLine>
-	    </configuration>
-	</plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<argLine>-Xms512m -Xmx1024m</argLine>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
@@ -56,9 +64,11 @@
 			<build>
 				<plugins>
 					<plugin>
+
 						<groupId>org.antlr</groupId>
 						<artifactId>antlr3-maven-plugin</artifactId>
-						<version>3.2</version>
+						<version>3.2wwmm</version>
+
 						<executions>
 							<execution>
 								<goals>

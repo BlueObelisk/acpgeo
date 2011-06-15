@@ -14,7 +14,6 @@ public class ACPTaggerTest {
 
 	
 	@Test
-	@Ignore
 	public void testSentence1() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils

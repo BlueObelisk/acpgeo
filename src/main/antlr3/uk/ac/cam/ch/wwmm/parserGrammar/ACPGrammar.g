@@ -49,6 +49,7 @@ TIMEUNIT;
 PERTIMEUNIT; 
 UNITS;
 ReferencePhrase;
+EQUATION;
 }
 
 @header {
@@ -98,7 +99,6 @@ referencePhraseStructure
 
 conjunction 
 	:	 cc|comma;
-
 verbphrase
 	:	verbphraseStructure ->  ^(VerbPhrase  verbphraseStructure);
 verbphraseStructure :  dt? to? inAll? inafter? (md* rbconj? advAdj* verb+ md* advAdj* neg? )+ inoff? (cc? comma? prepphrase)*   ;
@@ -150,26 +150,21 @@ expression
 expressionContent 
 	:nn sym cd prepphrase? verb* nnpdirection? prepphrase?;
 
-//mathEquationContent 
-//	:(cd|sym|units)+ sym (cd|sym|units)+ ;
-	
-//mathExpressionContent 
-//	:(cd|sym|units)+ ;
-	
-	
+mathEquationContent 
+	:cd* sym (cd|sym)+ ;
+mathEquation
+	:	mathEquationContent -> ^(EQUATION mathEquationContent);	
 campaign:	campaignContent	->^(CAMPAIGN campaignContent);
 
 campaignContent
 	: (acronymPhrase|parentheticalPhraseAcronym|nnp|acronym)+ nounStructure? nncampaign 	;
 	
-		
 advAdj	: (adv|adj)  ;	
 prepphraseOther
 	: advAdj* inAll+  nounphrase ->  ^(PrepPhrase  advAdj* inAll+  nounphrase);
 prepphraseOf 
 	: inof   advAdj* to? nounphrase->  ^(PrepPhrase  inof  advAdj* to?  nounphrase);
 	
-
 prepphraseTime 
 	:prepPhraseTimeStructure ->  ^(TimePhrase  prepPhraseTimeStructure);
 prepPhraseTimeStructure
@@ -250,7 +245,7 @@ pertimeunit
    : cd* nnpertimeunit -> ^(PERTIMEUNIT cd* nnpertimeunit);
 
 units
-   : cd* nnunits nnmoles? perarea? -> ^(UNITS cd* nnunits nnmoles? perarea?);
+   : cd* nnunits mathEquation? nnmoles? perarea? -> ^(UNITS cd* nnunits mathEquation? nnmoles? perarea?);
 
 measurements
    : massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter|partsperarea|perarea|area|timeunit|pertimeunit|units ;	
