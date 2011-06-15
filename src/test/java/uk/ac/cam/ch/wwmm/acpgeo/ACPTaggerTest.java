@@ -14,6 +14,7 @@ public class ACPTaggerTest {
 
 	
 	@Test
+	@Ignore
 	public void testSentence1() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils
@@ -515,6 +516,29 @@ public class ACPTaggerTest {
 		
 
 	@Test
+	public void testSplitEquationTimes() {
+		String sentence = "	n\u00d710-9";
+		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+	    Assert.assertEquals("n \u00d7 10-9", sentence);
+
+
+
+	}
+	@Test
+	public void testSplitEquationDU() {
+		String sentence = "DU=2.69\u00d710^16";
+		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+	    Assert.assertEquals("DU = 2.69 \u00d7 10^16", sentence);
+
+
+
+	}
+	
+	
+
+	@Test
 	public void testSplitPressure() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "200hPa";
@@ -536,5 +560,23 @@ public class ACPTaggerTest {
 	}
 	
 		
+	@Test
+	public void testEquationCD() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "3x10-9";
+		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+		Assert.assertEquals("3x10-9", sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+        Assert.assertEquals("CD 3x10-9", posContainer.getTokenTagTupleAsString());
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc,
+				"target/file22.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
 
+	}
+	
 }
