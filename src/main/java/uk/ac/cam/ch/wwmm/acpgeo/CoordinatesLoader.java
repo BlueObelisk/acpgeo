@@ -8,7 +8,6 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -73,7 +72,7 @@ public class CoordinatesLoader {
 			    String stationNames[] = row[1].split(" ");
 			    for (String statName : stationNames) {
 			    	statName = statName.replace("(", "").replace(")", "");
-			    	if (!statName.matches(".*II|del|Altitude|Cape|de|Ny|St.|Climate|bei|La|Le|San|san|sur|Monte|Mt.?.*|Mountain|Hill|Solar|Global|[s|S]tation|Research|Site|[P|p]eak|Area|Black|Point") && (statName.length()>3) && !(statName.startsWith("Atmosph"))) {
+			    	if (!statName.matches(".*II|del|Altitude|Cape|Climate|bei|La|Le|San|san|sur|Monte|Mt.?.*|Mountain|Hill|Solar|Global|Station") && (statName != statName.toLowerCase()) && (statName.length()>3) && !(statName.startsWith("Atmosph"))) {
 			    		siteCoordsMapA.put(statName, row[7]+"\t"+row[8]+"\t"+row[6]);
 			    		siteCoordsMap.put(statName, row[5]+" "+row[6]);
 			    	}
