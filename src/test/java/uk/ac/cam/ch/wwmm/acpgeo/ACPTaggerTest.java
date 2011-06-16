@@ -524,6 +524,16 @@ public class ACPTaggerTest {
 
 
 	}
+
+	@Ignore
+	@Test
+	public void testSplitEquation() {
+		String sentence = "0.1<D";
+		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+	    Assert.assertEquals("0.1 < D", sentence);
+	}
+	 
 	@Test
 	public void testSplitEquationDU() {
 		String sentence = "DU=2.69\u00d710^16";
