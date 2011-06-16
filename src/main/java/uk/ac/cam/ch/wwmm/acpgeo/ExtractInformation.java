@@ -42,6 +42,7 @@ public class ExtractInformation {
 		
 
 		getQuery(files, "//CAMPAIGN", "CAMPAIGN.csv");
+		getQuery(files, "//CD", "CD.csv");
 		getQuery(files, "//EXPRESSION", "EXPRESSION.csv");
 		getQuery(files, "//NN-UNITS", "NN-UNITS.csv");
 		getQuery(files, "//NN-PERAREA", "NN-PERAREA.csv");
@@ -50,7 +51,7 @@ public class ExtractInformation {
 		getQuery(files, "//CD-YEAR", "YEARS.csv");
 		getQuery(files, "//CD-YEAR-RANGE", "YEAR-RANGE.csv");
 		getQuery(files, "//CD-YEAR[not(preceding::CD-YEAR >= . or following::CD-YEAR >= . or descendant::CD-YEAR >= .)]", "YEAR-MAX.csv");
-		getQuery(files, "//CD-YEAR[not(preceding::CD-YEAR >= . )]", "YEAR-MAX1.csv");
+		getQuery(files, "//CD-YEAR[not(ancestor::ReferencePhrase)]", "YEAR-notREf.csv");
 		getQuery(files, "//AcronymPhrase", "ACRONYMPHRASES.csv");
 		getQuery(files, "//NNP-ACRONYM", "NNP-ACRONYM.csv");
 		getQuery(files, "//ParentheticalPhrase", "PARENTHETICALPHRASE.csv");
