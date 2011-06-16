@@ -587,5 +587,22 @@ public class ACPTaggerTest {
 				.toStringTree().contains("<error"));
 
 	}
-	
+	@Test
+	public void testEquationPowerCD() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "3x10^9";
+		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+		Assert.assertEquals("3x10^9", sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+        Assert.assertEquals("CD 3x10^9", posContainer.getTokenTagTupleAsString());
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc,
+				"target/file23.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+
+	}
 }
