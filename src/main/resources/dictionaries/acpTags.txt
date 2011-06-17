@@ -9,8 +9,6 @@ NNP-CONTINENT---^([Aa]sia|[aA]frica|[aA]merica|[Aa]ntarctica|[Ee]urope|[aA]ustra
 NN-APPARATUS---^(s|S)atellite(s)?|((ATSR|SYNAER/ERS|ERS)(\-)?2?)$---Apparatus Equipment;
 NN-STATION---station(s)?|[O|o]bservato(ry|ire|rio)$---Field stations;
 NN-MEASUREMENT---measurement(s)?$---Measurement;
-NNP-ACRONYM---^([A-Z][A-Z]+(\-|\\|\/)?[A-Z]+[0-9]*(s)?[0-9]*)$---Acronyms
-NNP-ACRONYM---^(Metop(\-)A|RHamble|GCxGC|RH|dp|Ev(\-)K2(\-)CNR|AR5|TdF|MOHp|CLaMS|ECHAM5\/MESSy1|GF|AOT(500)|LBA(\-)CLAIRE(\-)2001|Po|HWM(\-)93|TM5|T1|T2|IMF|ABS|ERA40)$--_ACP type acronyms
 NN-CAMPAIGN---^((EU-)?(p|P)re)?((C|c)ampaign|(EU-)?(p|P)roject|(EU-)?(p|P)rogram|Study)$---Campaigns
 NN-ACP---^(W|w)aters$---;
 NNP---^(II|del|Cape|de|Ny|St\.|bei|La|Le|lac|San|san|sur|Monte|Mt\.?)$---proper nouns that precede stations;
@@ -37,6 +35,10 @@ NN-PERTIMEUNIT---\d*(Yr|yr|y|Y|a|min|Hr|hr|H|h|d|day)(\-)1$--- Time units
 NN-UNITS---\d*(DU|Mm(\-)1|W/m2)$---any unit not above
 #
 OSCAR-CM---((H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg)\d+)+---Oscar tokens that sometimes go wrong;
+OSCAR-CM---^((C|N|O|H)+\d*)$+---Oscar tokens that sometimes go wrong;
+NNP-ACRONYM---^([A-Z][A-Z]+(\-|\\|\/)?[A-Z]+[0-9]*(s)?[0-9]*)$---Acronyms
+NNP-ACRONYM---^(Metop(\-)A|RHamble|GCxGC|RH|dp|Ev(\-)K2(\-)CNR|AR5|TdF|MOHp|CLaMS|ECHAM5\/MESSy1|GF|AOT(500)|LBA(\-)CLAIRE(\-)2001|Po|HWM(\-)93|TM5|T1|T2|IMF|ABS|ERA40)$--_ACP type acronyms
+
 WP---^(T|t)hose$--- those;
 #CD
 NN-TIME---((\d+:\d\d)(\-\d+:\d\d)?|afternoon|morning|night|evening|UTC|GMT)---time;

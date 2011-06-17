@@ -553,5 +553,38 @@ public class ACPTaggerTest {
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
 	}
+	@Test
+	public void misTaggedCD() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "Eigenvector and 222Radon are not numbers";
+		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+        Assert.assertEquals("NNP Eigenvector CC and NNP 222Radon VBP are NEG not NNS numbers", posContainer.getTokenTagTupleAsString());
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc,
+				"target/file24.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+	}
 	
+	@Test
+	public void recogniseOscarFormulae() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "HCOOH and HNO3 are compounds";
+		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+        Assert.assertEquals("OSCAR-CM HCOOH CC and OSCAR-CM HNO3 VBP are NN-CHEMENTITY compounds", posContainer.getTokenTagTupleAsString());
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc,
+				"target/file24.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+	}
+	  
 	}
