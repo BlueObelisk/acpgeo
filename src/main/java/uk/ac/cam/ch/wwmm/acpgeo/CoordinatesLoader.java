@@ -60,29 +60,23 @@ public class CoordinatesLoader {
          for (String[] row : gawRows) {
  
         	if (row.length > 6 && !row[1].equals("Station") && StringUtils.isNotEmpty(row[1])){  
-//				siteCoordsMap.put(row[1], row[5]+" "+row[6]);
-//	       	 	StringTokenizer firstWord = new StringTokenizer(firstWords);
-//	       	 	String Word=firstWord.nextToken();
-//	       	 	
-//	       	 	
-//	       	    if (Word.matches(".*II|del|Cape|de|Ny|St.|bei|La|Le|San|san|sur|Monte|Mt.?.*")) {
-//	       	    	Word=firstWord.nextToken();
-//	       	    }
 	       	    
-			    String stationNames[] = row[1].split(" ");
-			    for (String statName : stationNames) {
-			    	statName = statName.replace("(", "").replace(")", "");
-			    	if (!statName.matches(".*II|del|Altitude|Cape|Climate|bei|La|Le|San|san|sur|Monte|Mt.?.*|Mountain|Hill|Solar|Global|Station") && (statName != statName.toLowerCase()) && (statName.length()>3) && !(statName.startsWith("Atmosph"))) {
-			    		siteCoordsMapA.put(statName, row[7]+"\t"+row[8]+"\t"+row[6]);
-			    		siteCoordsMap.put(statName, row[5]+" "+row[6]);
-			    	}
-				}
-	//			siteCoordsMapA.put(Word, row[5]+" "+row[6]);
+//			    String stationNames[] = row[1].split(" ");
+//			    for (String statName : stationNames) {
+//			    	statName = statName.replace("(", "").replace(")", "");
+//			    	if (!statName.matches(".*II|del|Altitude|Cape|Climate|bei|La|Le|San|san|sur|Monte|Mt.?.*|Mountain|Hill|Solar|Global|Station") && (statName != statName.toLowerCase()) && (statName.length()>3) && !(statName.startsWith("Atmosph"))) {
+//			    		siteCoordsMapA.put(statName, row[7]+"\t"+row[8]+"\t"+row[6]);
+//			    		siteCoordsMap.put(statName, row[5]+" "+row[6]);
+//			    	}
+//				}
+			    String statName = row[1];
+	    		siteCoordsMapA.put(statName, row[8]+"\t"+row[9]+"\t"+row[7]);
+	    		siteCoordsMap.put(statName, row[6]+" "+row[7]);
 				
 				if (StringUtils.isNotEmpty(row[0])){
 					siteCountryMap.put(row[0], row[1]);
 				}
-				siteGawIdMap.put(row[1], row[2]);
+				siteGawIdMap.put(row[1], row[3]);
         	}
 		}
 	

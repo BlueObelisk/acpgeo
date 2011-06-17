@@ -1,1 +1,0 @@
-(e.g.: C2H6 = (905 ± 200) pptv, C3H8 = (268 ±110) pptv, C2H2 = (201 ± 102) pptv, C5H8 = (111 ± 124) pptv, benzene = (65 ± 33) pptv).
