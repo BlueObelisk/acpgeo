@@ -1330,6 +1330,7 @@ BBOA:: Acronym for Biomass Burning Organic Aerosol (there are always other possi
 BL:: Acronym for Boundary Layer (there are always other possible expansions of acronyms - check acronym phrase when present).
 CN:: Acronym for Condensation Nuclei (there are always other possible expansions of acronyms - check acronym phrase when present). http://www.extremescience.com/keyterms/condnuc.htm
 CCN:: Acronym for Cloud Condensation Nuclei (there are always other possible expansions of acronyms - check acronym phrase when present). http://en.wikipedia.org/wiki/Cloud_condensation_nuclei
+dp:: dew point (normal usage but also seen D<sub>p</sub> as particle diameter.
 EC:: Acronym commonly used in atmospheric science but with a number of meanings - Eddy Correlation, Eddy Covariance, Elemental Carbon and European Commission for Free Troposphere (there are always other possible expansions of acronyms - check acronym phrase when present).
 FT:: Acronym for Free Troposphere (there are always other possible expansions of acronyms - check acronym phrase when present).
 LS:: Acronym for Lower Stratosphere (there are always other possible expansions of acronyms - check acronym phrase when present).

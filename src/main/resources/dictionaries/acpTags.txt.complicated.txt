@@ -1,0 +1,75 @@
+#Tags---Pattern---Description
+
+#Nouns
+NNP-MONTH---January|February|March|April|May|June|July|August|September|October|November|December---Months of a year;
+
+NNP-SEASON---^([wW]inter|[Ss]ummer|[Ss]pring|[Aa]utumn|[Ff]all)time?|(S|s)eason$---Seasons;
+NNP-DIRECTION---^\d*(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)(ern|(\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)*(ern)?$+---Directions;
+NNP-CONTINENT---^([Aa]sia|[aA]frica|[aA]merica|[Aa]ntarctica|[Ee]urope|[aA]ustralia)$--- continents
+NN-APPARATUS---^(s|S)atellite(s)?|((ATSR|SYNAER/ERS|ERS)(((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?2?))$---Apparatus Equipment;
+NN-STATION---station(s)?$---Field stations;
+NN-MEASUREMENT---measurement(s)?$---Measurement;
+NNP-ACRONYM---^([A-Z][A-Z]+(\-|\\|\/)?[A-Z]+[0-9]*(s)?[0-9]*)$---Acronyms
+NNP-ACRONYM---^(Metop-A|RHamble|GCxGC|RH|dp|Ev-K2-CNR|AR5|TdF|MOHp|CLaMS|ECHAM5\/MESSy1|GF|AOT(500)|LBA-CLAIRE-2001|Po|HWM-93|TM5|T1|T2|IMF|ABS|ERA40)$--_ACP type acronyms
+#
+# UNITS have had to include leading digits with units as people do not always separate them e.g. 200hPa.
+# Also leading hyphens etc. e.g. 6-day trial 1-m pits
+#
+NN-VOL---\d*((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?(((l|L)((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))|(cm|m|mm)((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))3))---volume
+NN-AREA---\d*((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?((k|c||m|n)?m2|ha)$--- area
+NN-PERAREA---\d*((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?(k|c||m|n)?m((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))2$---per area
+NN-PRESSURE---\d*((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?((k|m)b|(h|k)?Pa|Torr|(m)?bar)---pressure bar unit
+#NN-PRESSURE---^\d*hPa$---pressure bar unit
+#NN-PRESSURE---(k|m)b---pressure bar unit
+NN-CAMPAIGN---^((EU-)?(p|P)re)?((C|c)ampaign|(EU-)?(p|P)roject|(EU-)?(p|P)rogram|Study)$---Campaigns
+NN-ACP---^(W|w)aters$---;
+NNP---^(II|del|Cape|de|Ny|St\.|bei|La|Le|lac|San|san|sur|Monte|Mt\.?)$---proper nouns that precede stations;
+NN-PARTS---((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?\d*((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?((pp(b|t)(v|V)?|PP(B|T)(v|V)?))$---parts per billion and parts per trillion
+NN-PARTS---\d*((k?c?n?m?p?\u00B5?\u03BC?g\/?\.?((c|m)?m((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?3|(L|l)((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?1)))$--- mass per volume
+NN-PARTS---\d*((n)?mol(e)?(cule)?(s)?\/?\.?c?m?m((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?3)$--- (n)moles/(n)molecules per volume
+NN-PARTSPERAREA---\d*((n)?mol(e)?(cule)?(s)?\/?\.?c?m?m((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?2)$--- (n)moles/(n)molecules per area
+NN-PARTSPERAREA---\d*((T|k|m|n|p|\u00B5|\03BC)?g\/?\.?c?m?m((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?2)$--- mass per area
+NN-MOLES---^(n|p)?mol(e)?(cule)?(s)?$---(n)moles/(n)molecules
+NN-PERSECOND---\d*(S|s)((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))1$---per second (hz)
+NN-TIMEUNIT---\d*((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?(((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?(Yr|yr|y|Y|min|Hr|hr|H|h|d))$--- Time units
+NN-MASS---\d*((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?(T|k|m|n|p|\u00B5|\u03BC)?g$---Mass
+NN-PERMASS---\d*(T|k|m|n|p|\u00B5|\u03BC)?g((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))1$---PerMass
+NN-PERTIMEUNIT---\d*(Yr|yr|y|Y|a|min|Hr|hr|H|h|d|day)((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))1$--- Time units
+NN-UNITS---\d*(DU|Mm((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))1)$---any unit not above
+#
+#NN-PARTS---^(c?n?g\/?m\-?3)$---parts per billiona nd parts very trillion
+OSCAR-CM---C\d+H\d+---Oscar tokens that sometimes go wrong;
+WP---^(T|t)hose$--- those;
+#CD
+NN-TIME---((\d+:\d\d)(-\d+:\d\d)?|afternoon|morning|night|evening)---time;
+CD-DEGREES---((~)?(\d|-)?\d+\.?\d*(\u2103|\u2109|\u00B0|\u00BA|\u2218|'))---Degrees;
+NN-METER---^\d*((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?(k|c|m|n||\u00B5|\u03BC)?m$---Meters;
+CD-ALTITUDE---(^~?(\d|-)?\d+\.?\d*m)?\(?((A|a)\.?(S|s|G|g)\.?(L|l)\.?)|(alt.)\)?$---Altitude Metres (Above Sea/Ground Level);
+SYM---^(\u002B|\u2715|\*|\u00B1|x)$---Plus and minus signs - put any html symbol in here?;
+#if a.s.l. is optional is there then a problem - m is usually taken as molar not metres?
+#To include observations at higher levels could require feet (ft) or pressure height but unlikely 
+#CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;
+#CD-YEAR-RANGE---^(1|2)(0|9)\d\d\-(1|2)(0|9)\d\d$---Valid Year;
+CD-YEAR-RANGE---^((19\d\d)|(20\d\d))\-((19\d\d)|(20\d\d))$---Valid Year;
+CD-YEAR---^((19)\d\d)|((20)\d\d)$---Valid Year;
+CD---(^(~)?(\d|-)?(\d+\.)?\d+(\-|\u00B1)\d+)---non-year range numbers;
+JJ---^(t|T)hat$---demonstrative adjective;
+JJ-ACP---^(M|m)arine$---demonstrative adjective;
+NN-ACP---^Ni(\u00F1)o$---AtmosChemMetGlossary with special characters;
+NN-ACP---^Ni(\u00F1)a$---AtmosChemMetGlossary with special characters;
+JJ-CHEM---^(i|I)nfrared$---demonstrative adjective;
+VB-ANALYSE---^analy(s|z)(ed|e)$---analysis verbs;
+VB-MEASURE---^measur(ed|e)$---measurement verbs;
+VB-DETERMINE---^(determin|identif)(ed|e|y|ied)$---determine verbs;
+VB-OBSERVE---^(observ|show)(e|ed)?$---observation verbs;
+VB-INVESTIGATE---^investigat(e|ed|ing)$---investigate verbs;
+VB-INDICATE---^(indicat|highlight|signif)(y|e|ied|ed|ing|ying|s|ies|es)?$---indication verbs;
+IN-BETWEEN---^(B|b)etween$---in
+IN-NEAR---^(N|n)ear$---in
+IN-ABOVE---^(A|a)bove$---in
+IN-AT---^(A|a)t$---in
+IN-AROUND---^(A|a)round$---in
+CD---((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?\d+\.?\d*x10\^((\u2014|\u2013|\u2015|\u2212|\u002D)|(\-))?\d+---any kind of simple number
+MATH---^.*=\d+.*$---
+MATH---^.*\u003C.*$---
+MATH---^.*\u003D.*$---
