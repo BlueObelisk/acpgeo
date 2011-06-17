@@ -35,7 +35,7 @@ NN-PERMASS---\d*(T|k|m|n|p|\u00B5|\u03BC)?g(\-)1$---PerMass
 NN-PERTIMEUNIT---\d*(Yr|yr|y|Y|a|min|Hr|hr|H|h|d|day)(\-)1$--- Time units
 NN-UNITS---\d*(DU|Mm(\-)1)$---any unit not above
 #
-OSCAR-CM---((H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg)[1-3])+---Oscar tokens that sometimes go wrong;
+OSCAR-CM---((H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg)\d+)+---Oscar tokens that sometimes go wrong;
 WP---^(T|t)hose$--- those;
 #CD
 NN-TIME---((\d+:\d\d)(\-\d+:\d\d)?|afternoon|morning|night|evening|UTC|GMT)---time;

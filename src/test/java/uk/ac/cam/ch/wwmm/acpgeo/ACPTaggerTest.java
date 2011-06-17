@@ -164,7 +164,7 @@ public class ACPTaggerTest {
 	public void testRecogniseLocation() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "Mace Head in Eire";
-		String expected = "NNP-STATION Mace NNP-STATION Head IN-IN in NNP-COUNTRY Eire";
+		String expected = "NNP-STATION Mace NNP Head IN-IN in NNP-COUNTRY Eire";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals("Correct Markup", expected,
