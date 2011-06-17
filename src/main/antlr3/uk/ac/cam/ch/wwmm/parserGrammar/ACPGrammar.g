@@ -119,7 +119,7 @@ fwSymbolNoun : fw|sym|tmunicode;
 clauseNoun:wdt|wp_poss|wrb|ex|pdt|wp;
 
 properNoun
-	:	(nnpstation|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp);
+	:	(nnpstation|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp|nnidentifier);
 prpNoun :	prp|prp_poss;
 moleculeNoun
 	:	molecule|oscaronts|nnchementity;
@@ -596,6 +596,8 @@ stop:'STOP' TOKEN -> ^('STOP' TOKEN);
 nnpercent:'NN-PERCENT' TOKEN -> ^('NN-PERCENT' TOKEN);
 lsqb:'LSQB' TOKEN -> ^('LSQB' TOKEN);
 rsqb:'RSQB' TOKEN -> ^('RSQB' TOKEN);
+
+nnidentifier:'NN-IDENTIFIER' TOKEN -> ^('NN-IDENTIFIER' TOKEN);
 
 //The determiner 'the';
 dtTHE:'DT-THE' TOKEN -> ^('DT-THE' TOKEN);
