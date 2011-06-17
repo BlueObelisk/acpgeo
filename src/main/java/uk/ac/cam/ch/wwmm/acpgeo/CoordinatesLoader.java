@@ -71,8 +71,9 @@ public class CoordinatesLoader {
 //				}
 			    String statName = row[1];
 	    		siteCoordsMapA.put(statName, row[8]+"\t"+row[9]+"\t"+row[7]);
+	    		
 	    		siteCoordsMap.put(statName, row[6]+" "+row[7]);
-				
+	    		siteCoordsMap.put(row[2], row[6]+" "+row[7]);
 				if (StringUtils.isNotEmpty(row[0])){
 					siteCountryMap.put(row[0], row[1]);
 				}

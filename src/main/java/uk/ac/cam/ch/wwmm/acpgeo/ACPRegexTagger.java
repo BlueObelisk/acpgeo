@@ -36,6 +36,7 @@ public class ACPRegexTagger extends RegexTagger {
 				"NNP-COUNTRY", "");
 		addDictionarySetToRegex(gawCoordinates.getSiteCoordsMap().keySet(),
 				"NNP-STATION");
+		
 		appendRules();
 		
 		rules.addAll(superrules);
