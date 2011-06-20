@@ -560,7 +560,7 @@ public class ACPTaggerTest {
 		sentence = Utils.cleanHTMLText(sentence);
 		sentence = Formatter.normaliseText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-        Assert.assertEquals("NNP Eigenvector CC and NNP 222Radon VBP are NEG not NNS numbers", posContainer.getTokenTagTupleAsString());
+        Assert.assertEquals("NNP Eigenvector CC and OSCAR-CM 222Radon VBP are NEG not NNS numbers", posContainer.getTokenTagTupleAsString());
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Document doc = sentenceParser.makeXMLDocument();
@@ -569,7 +569,7 @@ public class ACPTaggerTest {
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
 	}
-	
+
 	@Test
 	public void recogniseOscarFormulae() {
 		ACPTagger acpTagger = ACPTagger.getInstance();

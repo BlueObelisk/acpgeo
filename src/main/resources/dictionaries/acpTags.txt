@@ -34,6 +34,7 @@ NN-PERMASS---\d*(T|k|m|n|p|\u00B5|\u03BC)?g(\-)1$---PerMass
 NN-PERTIMEUNIT---\d*(Yr|yr|y|Y|a|min|Hr|hr|H|h|d|day)(\-)1$--- Time units
 NN-UNITS---\d*(DU|Mm(\-)1|W/m2)$---any unit not above
 #
+OSCAR-CM---(\d+(H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg|[R|r]adon))+---Oscar tokens that sometimes go wrong;
 OSCAR-CM---((H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg)\d+)+---Oscar tokens that sometimes go wrong;
 OSCAR-CM---^((C|N|O|H)+\d*)$+---Oscar tokens that sometimes go wrong;
 NNP-ACRONYM---^([A-Z][A-Z]+(\-|\\|\/)?[A-Z]+[0-9]*(s)?[0-9]*)$---Acronyms
