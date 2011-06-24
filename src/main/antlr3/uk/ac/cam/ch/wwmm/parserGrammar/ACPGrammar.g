@@ -106,7 +106,7 @@ verb : vbindicate|vbmeasure|vbacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|
 
 number : cd|cdAlphanum|cddegrees;
 //noun1 	:	(dtTHE|dt)? advAdj* to? (nounStructure|nncampaign|nnParts|nnmeter|cdaltitude)(dash nounStructure)*;
-noun1 	:	(dtTHE|dt)? advAdj* to? (nounStructure|nncampaign|nnParts|nnmeter|nnarea|nnperarea|nnpartsperarea|nnpertimeunit|nntimeunit|nnunits|nnmoles|cdaltitude)(dash nounStructure)*;
+noun1 	:	(dtTHE|dt)? advAdj* to? (nounStructure|nnplatform|nncampaign|nnParts|nnmeter|nnarea|nnperarea|nnpartsperarea|nnpertimeunit|nntimeunit|nnunits|nnmoles|cdaltitude)(dash nounStructure)*;
 noun	:	(campaign|acronymPhrase|noun1);
 nounStructure : (apparatus|nn|nns|campaign|referencePhrase|parentheticalPhraseAcronym|expression|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase);
 acpNoun:location|nnpcountry;
@@ -119,7 +119,7 @@ fwSymbolNoun : fw|sym|tmunicode;
 clauseNoun:wdt|wp_poss|wrb|ex|pdt|wp;
 
 properNoun
-	:	(nnpstation|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp|nnidentifier);
+	:	(nnpsatellite|nnpstation|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp|nnidentifier);
 prpNoun :	prp|prp_poss;
 moleculeNoun
 	:	molecule|oscaronts|nnchementity;
@@ -134,8 +134,8 @@ apparatus
 	:	dt? preapparatus* nnApp+-> ^(APPARATUS   dt? preapparatus* nnApp+ );
 
 nnApp 
-	:	nnapparatus+ (dash nnapparatus)*;
-
+	:	(nnapparatus|nnpapparatus|nnpsatellite)+ (dash (nnapparatus|nnpapparatus|nnpsatellite))*;
+//	:	(nnpapparatus|nnapparatus)+ (dash (nnapparatus|nnpapparatus))*;
 		
 preapparatus
 	:    (quantity|adj|nnpressure|nnadd|molecule|nnchementity|nnstate|nn)+ ;
@@ -367,6 +367,10 @@ nncampaign
 	: 'NN-CAMPAIGN' TOKEN -> ^('NN-CAMPAIGN' TOKEN)	;	
 nnpacronym
 	: 'NNP-ACRONYM' TOKEN -> ^('NNP-ACRONYM' TOKEN)	;
+nnpsatellite
+   : 'NNP-SATELLITE' TOKEN -> ^('NNP-SATELLITE' TOKEN)   ;
+nnplatform
+   : 'NN-PLATFORM' TOKEN -> ^('NN-PLATFORM' TOKEN) ;
 
 nnParts             :   'NN-PARTS' TOKEN -> ^('NN-PARTS' TOKEN); 
 
@@ -511,6 +515,7 @@ vbtreat:'VB-TREAT' TOKEN -> ^('VB-TREAT' TOKEN);
 //Apparatus Tokens
 vbapparatus:'VB-APPARATUS' TOKEN -> ^('VB-APPARATUS' TOKEN);
 nnapparatus:'NN-APPARATUS' TOKEN -> ^('NN-APPARATUS' TOKEN);
+nnpapparatus:'NNP-APPARATUS' TOKEN -> ^('NNP-APPARATUS' TOKEN);
 
 //Concentrate Tokens
 vbconcentrate:'VB-CONCENTRATE' TOKEN -> ^('VB-CONCENTRATE' TOKEN);

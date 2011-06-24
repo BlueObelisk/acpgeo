@@ -6,7 +6,11 @@ NNP-MONTH---January|February|March|April|May|June|July|August|September|October|
 NNP-SEASON---^([wW]inter|[Ss]ummer|[Ss]pring|[Aa]utumn|[Ff]all)time?|(S|s)eason$---Seasons;
 NNP-DIRECTION---^\d*(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)(ern|(\-))?(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)*(ern)?$+---Directions;
 NNP-CONTINENT---^([Aa]sia|[aA]frica|[aA]merica|[Aa]ntarctica|[Ee]urope|[aA]ustralia)$--- continents
-NN-APPARATUS---^(s|S)atellite(s)?|((ATSR|SYNAER/ERS|ERS)(\-)?2?)$---Apparatus Equipment;
+NNP-APPARATUS---^(ACR|ACRIM|AIS|AMS|AOL|ATLID|AVIRIS|CCD|CIMS|CRDS|DF|DIAL|(MAX\-)?DOAS|DOPLID|DWS|ECC|ECD|EPR|FAGE|FTS|FTIR|FT\-IR|GC|HPLC|IFOV|(E\-)?LIDAR|LIF|LMR|MS|MST|PEM|PERCA|PID|PLP|PMC|PM|PMIR|PPR|PRARE(E)?|RADAR|(A|X)?(\-)SAR|SEM|SUSIM|TDLS|TOF|WFOV|GCxGC|GC(\u00D7)GC)(\-)?(ACR|ACRIM|AIS|AMS|AOL|ATLID|AVIRIS|CCD|CIMS|CRDS|DF|DIAL|(MAX\-)?DOAS|DOPLID|DWS|ECC|ECD|EPR|FAGE|FTS|FTIR|FT\-IR|GC|HPLC|IFOV|(E\-)?LIDAR|LIF|LMR|MS|MST|PEM|PERCA|PID|PLP|PMC|PM|PMIR|PPR|PRARE(E)?|RADAR|(A|X)?(\-)SAR|SEM|SUSIM|TDLS|TOF|WFOV|GCxGC|GC(\u00D7)GC)?$---Apparatus Equipment;
+NN-METHOD---^([Ss]pectroscop(e|y|ic)|[Cc]hromatograph(y|ic)?|[Ss]pectromet(ry|ric|er)|([Ss]pectro)?[Pp]hotomet(ry|ric|er)|[Hh]ygrometer(y)?|[Tt]hermomet(er|ry)|[Aa]nalyser|[Ss]ampler]|[Ss]ensor|[Mm]apper)$---instrument techniques
+NNP-APPARATUS---^((A)?(\-)?SCAT|(A)?ATSR|AIRS|AMI|AMRIR|AMSR|AMSU(\-)?(A|B)?|AMTS|ASTER|ATMOS|ATS|ATSR|AVCS|AVHRR(\-)?(LAC|GAC)?|AVNIR|CERES|CLAES|CRISTA|CZCS|DLS|DORIS|DRS|DSB|DSN|EOSDIS|EOSP|ERBE|ERBS|ERL|ESMR|ETM|GERB|GLAS|GLI|GLRS(\-)?(A|R)?|GMS|GOME(\-1)?(\-2)?|GOMOS|GOMR|GOOS|GOS|GPS|GPSDR|GTS|HALOE|HCMM\/AEM(\-)1|HIMSS|HIRDLS|HIRIS|HIRLAM|HIRS|HIS|HMMR|HRDI|HROI|HRPT|HRV|IASI|ILAS|IRIS|IRTS|ISAMS|ISCCP|ISEE|ITIR|JEM|LAWS|LEFI|LIMS|LIS|MAPS|MERIS|MESSR|MFE\/MAGNOLIA|MHS|MIMR|MIPAS|MISR|MLS|MODIS(\-)?(N|T)?|MOPITT|MSS|MTS|NSCAT|RIS|SAGE|SAMS|SIR(\-)?(C)?|SISEX|SLIES|SME|SMM|SMMR|SOGE|SOLSTICE|SSALT|SYNAER|TES|TGT|VAS|VIRS|VIRSR|VIRTEM|VISSR|IMG|IPEI|MSU|OLS|POAM|POEM|POEMS|POES|POGO|POLDER|SAM|SCANSCAT|SCATT|SCIAMACHY|SeaWiFS|SSBUV|SWIRLS|TERSE|TMR|TOMS|TOMUIS|TOVS|WINDII)(\/)?(ADEOS|Deimos|ENVISAT|EOS(\-AM|\-CHEM)?|EO(\-)1|EPOP|EROS|ERS(\-)(1|2)?|ERTS(\-)1|EUMETSAT|Geosat|GOES|GOCE|JEOS|JERS(\-)1|JPOP|LAGEOS|Landsat|LITE|Magsat|METEOR|Meteor|METEOSAT|Meteosat|Met[Oo]p(\-A)?|MOS(\-)1|Nimbus|NPOP|Radarsat|S(\-)?GCOS|SARSAT|Scisat(\-1)?|Seasat|SeaStar|SPOT|TIROS|UARS)?$---
+NNP-SATELLITE---^(Satellite|ADEOS|Deimos|ENVISAT|EOS(\-AM|\-CHEM)?|EO(\-)1|EPOP|EROS|ERS(\-)(1|2)?|ERTS(\-)1|EUMETSAT|Geosat|GOES|GOCE|JEOS|JERS(\-)1|JPOP|LAGEOS|Landsat|LITE|Magsat|METEOR|Meteor|METEOSAT|Meteosat|Met[Oo]p(\-A)?|MOS(\-)1|Nimbus|NPOP|Radarsat|S(\-)?GCOS|SARSAT|Scisat(\-1)?|Seasat|SeaStar|SPOT|TIROS|UARS)$---
+NN-PLATFORM---^(satellite(s)?|[Aa]ircraft|[Aa]irborne|[Bb]alloon(\-)?(borne)?|([Rr]adio)?[Ss]onde|[Tt]ower|[Pp]latform|[Ss]hip(\-)?(borne)?)$---
 NN-STATION---station(s)?|[O|o]bservato(ry|ire|rio)$---Field stations;
 NN-MEASUREMENT---measurement(s)?$---Measurement;
 NN-CAMPAIGN---^((EU-)?(p|P)re)?((C|c)ampaign|(EU-)?(p|P)roject|(EU-)?(p|P)rogram|Study)$---Campaigns
@@ -17,29 +21,32 @@ NNP---^(II|del|Cape|de|Ny|St\.|bei|La|Le|lac|San|san|sur|Monte|Mt\.?)$---proper 
 # Also leading hyphens etc. e.g. 6-day trial 1-m pits
 #
 NN-VOL---^\d*(\-)?((l|L)((\-)1)?|(k|c|m|\u00B5|\u03BC|n)?m(\-)?3)$---volume
-NN-AREA---\d*(\-)?((k|c||m|\u00B5|\u03BC|n)?m2|ha)$--- area
-NN-PERAREA---\d*(\-)?(((k|c||m|\u00B5|\u03BC|n)?m(\-)2)|ha(\-)1)$---per area
-NN-PRESSURE---(\-)?((k|m)b|(h|k)?Pa|Torr|(m)?bar)---pressure bar unit
-NN-PARTS---\d*(\-)?(pp(b|t)(v|V)?|PP(B|T)(v|V)?)$---parts per billion and parts per trillion
-NN-PARTS---\d*(\-)?(pp(b|t)(v|V)?|PP(B|T)(v|V)?)$---parts per billion and parts per trillion
-NN-PARTS---(k|c|n|m|p|\u00B5|\u03BC)?m3\/?(k|c|n|m|p|\u00B5|\u03BC)?m(\-)?31$--- volume mixing ratio
-NN-PARTS---\d*((n)?mol(e)?(cule)?(s)?\/?\.?c?m?m((\-)3)?)$--- (n)moles/(n)molecules per volume
-NN-PARTSPERAREA---\d*((n)?mol(e)?(cule)?(s)?\/?\.?c?m?m(\-)?2)$--- (n)moles/(n)molecules per area
-NN-PARTSPERAREA---\d*((T|k|m|n|p|\u00B5|\03BC)?g\/?\.?c?m?m(\-)?2)$--- mass per area
+NN-AREA---^\d*(\-)?((k|c||m|\u00B5|\u03BC|n)?m2|ha)$--- area
+NN-PERAREA---^\d*(\-)?(((k|c||m|\u00B5|\u03BC|n)?m(\-)2)|ha(\-)1)$---per area
+NN-PRESSURE---^(\-)?((k|m)b|(h|k)?Pa|Torr|(m)?bar)$---pressure bar unit
+NN-PARTS---^\d*(\-)?(pp(m|b|t)(v|V)?|PP(M|B|T)(v|V)?)$---parts per billion and parts per trillion
+NN-PARTS---^(T|k|m|n|p|f|\u00B5|\u03BC)?g\/?(k|c|n|m|p|\u00B5|\u03BC)?m(\-)?3$---mass per volume
+NN-PARTS---^(k|c|n|m|p|\u00B5|\u03BC)?m3\/?(k|c|n|m|p|\u00B5|\u03BC)?m(\-)?3$--- volume mixing ratio
+NN-PARTS---^\d*((n)?mol(e)?(cule)?(s)?\/?\.?c?m?m((\-)3)?)$--- (n)moles/(n)molecules per volume
+NN-PARTSPERAREA---^\d*((n)?mol(e)?(cule)?(s)?\/?\.?c?m?m(\-)?2)$--- (n)moles/(n)molecules per area
+NN-PARTSPERAREA---^\d*((T|k|m|n|p|\u00B5|\03BC)?g\/?\.?c?m?m(\-)?2)$--- mass per area
 NN-MOLES---^(n|p)?mol(e)?(cule)?(s)?$---(n)moles/(n)molecules
-NN-PERSECOND---\d*(S|s)(\-)1$---per second (hz)
-NN-TIMEUNIT---\d*((\-)?(Yr|yr|y|Y|min|Hr|hr|H|h|d))$--- Time units
-NN-MASS---\d*(\-)?(T|k|m|n|p|\u00B5|\u03BC)?g$---Mass
-NN-PERMASS---\d*(T|k|m|n|p|\u00B5|\u03BC)?g(\-)1$---PerMass
-NN-PERTIMEUNIT---\d*(Yr|yr|y|Y|a|min|Hr|hr|H|h|d|day)(\-)1$--- Time units
-NN-UNITS---\d*(DU|Mm(\-)1|W/m2)$---any unit not above
+NN-PERSECOND---^(S|s)(\-)1$---per second (hz)
+NN-TIMEUNIT---^\d*((\-)?(Yr|yr|y|Y|min|Hr|hr|H|h|d))$--- Time units
+NN-MASS---^\d*(\-)?(T|k|m|n|p|\u00B5|\u03BC)?g$---Mass
+NN-PERMASS---^\d*(T|k|m|n|p|\u00B5|\u03BC)?g(\-)1$---PerMass
+NN-PERTIMEUNIT---^\d*(Yr|yr|y|Y|a|min|Hr|hr|H|h|d|day)(\-)1$--- Time units
+NN-UNITS---^\d*(DU|Mm(\-)1|W/m2)$---any unit not above
 #
-OSCAR-CM---(\d+(H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg|[R|r]adon))+---Oscar tokens that sometimes go wrong;
-OSCAR-CM---((H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg)\d+)+---Oscar tokens that sometimes go wrong;
+OSCAR-CM---^(\d+(H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg|[R|r]adon))+$---Oscar tokens that sometimes go wrong;
+OSCAR-CM---^((H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg)\d+)+$---Oscar tokens that sometimes go wrong;
 OSCAR-CM---^((C|N|O|H)+\d*)$+---Oscar tokens that sometimes go wrong;
+# We may miss some sulfur compounds like this but can't add too many letters or would have bigger acornym problems e.g.COSH would become a chemical.
+OSCAR-CM---^(((C|N|O|H)+\d*(I|Br|Cl|F)+\d*)|((I|Br|Cl|F)+\d*(C|N|O|H)+\d*)|((C|N|O|H)+\d*(I|Br|Cl|F)+\d*(C|N|O|H)+\d*))$---Oscar tokens that sometimes go wrong - to make sure common I compounds are identified - but will not fin I alone need to rely on Oscar for this?;
+OSCAR_CM---^(DMS|DMSO|MSA|([Mm]|[Pp])?PAN|D2O|HDO|DHO|DO|DO2)$---List of common ACP molecules not easily identified elsewhere
+OSCAR_CM---^((O|o|B|b)?VOC|NMHC|(H)?CFC|PCB|POP|[Hh]alon)(s)?$---List of common ACP chemical groups - not really correct assignment but good enough for present some will be caught by regex above
 NNP-ACRONYM---^([A-Z][A-Z]+(\-|\\|\/)?[A-Z]+[0-9]*(s)?[0-9]*)$---Acronyms
-NNP-ACRONYM---^(Metop(\-)A|RHamble|GCxGC|RH|dp|Ev(\-)K2(\-)CNR|AR5|TdF|MOHp|CLaMS|ECHAM5\/MESSy1|GF|AOT(500)|LBA(\-)CLAIRE(\-)2001|Po|HWM(\-)93|TM5|T1|T2|IMF|ABS|ERA40)$--_ACP type acronyms
-
+NNP-ACRONYM---^(Metop(\-)A|RHamble|RH|dp|Ev(\-)K2(\-)CNR|AR5|TdF|MOHp|CLaMS|ECHAM5\/MESSy1|GF|AOT(500)|LBA(\-)CLAIRE(\-)2001|Po|HWM(\-)93|TM5|T1|T2|IMF|ABS|ERA40)$--_ACP type acronyms
 WP---^(T|t)hose$--- those;
 #CD
 NN-TIME---((\d+:\d\d)(\-\d+:\d\d)?|afternoon|morning|night|evening|UTC|GMT)---time;
@@ -48,12 +55,12 @@ CD-DEGREES---((~)?(\d|\-)?\d+\.?\d*(\u2103|\u2109|\u00B0|\u00BA|\u2218|'))---Deg
 NN-METER---^\d*(\-)?(k|c|m|n||\u00B5|\u03BC)?m$---Meters;
 NN-PERMETER---^(k|c|m|n||\u00B5|\u03BC)?m(\-)1$---Meters;
 CD-ALTITUDE---(^~?(\d|-)?\d+\.?\d*m)?\(?((A|a)\.?(S|s|G|g)\.?(L|l)\.?)|(alt.)\)?$---Altitude Metres (Above Sea/Ground Level);
-SYM---^(\u002B|\u2715|\*|\u00B1|x)$---Plus and minus signs - put any html symbol in here?;
+SYM---^(\u002B|\u2715|\*|\u00B1|x|\u2030)$---Plus and minus signs - put any html symbol in here?;
 #if a.s.l. is optional is there then a problem - m is usually taken as molar not metres?
 #To include observations at higher levels could require feet (ft) or pressure height but unlikely 
 #CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;
 #CD-YEAR-RANGE---^(1|2)(0|9)\d\d\-(1|2)(0|9)\d\d$---Valid Year;
-CD-YEAR-RANGE---^((19\d\d)|(20\d\d))(\-)((19\d\d)|(20\d\d))$---Valid Year;
+CD-YEAR-RANGE---^((19\d\d)|(20\d\d))(\-|\/)((19\d\d)|(20\d\d))$---Valid Year;
 CD-YEAR---^((19)\d\d)|((20)\d\d)$---Valid Year;
 CD---(^(~)?(\d|\-)?(\d+\.)?\d+(\-|\u00B1)\d+)---non-year range numbers;
 JJ---^(t|T)hat$---demonstrative adjective;

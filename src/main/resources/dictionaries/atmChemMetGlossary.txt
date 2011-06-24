@@ -1369,11 +1369,11 @@ Wm-2:: Watts per square metre
 #
 In-line:: Could be in-line sampling (i.e. in situ sampling) but just as likely to be 'in-line with policy etc.'
 Off-line:: Off-line sampling is carried out after samples have been colected e.g. on return to a laboratory.
-GC:: Gas Chromatography
+#GC:: Gas Chromatography
 WFM-DOAS:: a fast modified DOAS algorithm - http://www.iup.uni-bremen.de/sciamachy/NIR_NADIR_WFM_DOAS/
 SCIAMACHY-WFMD:: satellite instrument -
-ERS-2:: satellite
-SYNAER:: satellite instrumenent
+#ERS-2:: satellite
+#SYNAER:: satellite instrumenent
 ECHAM5/MESSy1:: model 
 RHaMBLe:: campaign
 #TgN:: Terragrams Nitrogen
@@ -1383,14 +1383,14 @@ TM3:: Global Transport Model
 TM5:: Global Transport Model
 NCO-P:: Station
 MOHp:: Station
-AMSU-A:: Satellite instrument 
-AMSU-B:: Satellite instrument
+#AMSU-A:: Satellite instrument 
+#AMSU-B:: Satellite instrument
 AOT(500)::wavelength threshold?
-ATSR-2:: Satellite instrument
+#ATSR-2:: Satellite instrument
 FORTH-AERONET:: project
-GOME:: Satellite instrument
-GOME-2:: Satellite instrument
-GOME/ERS-2:: Satellite instrument on satellite
+#GOME:: Satellite instrument
+#GOME-2:: Satellite instrument
+#GOME/ERS-2:: Satellite instrument on satellite
 HWM-93:: model atmosphere
 CMIP5:: model scenario
 #

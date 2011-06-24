@@ -42,6 +42,7 @@ public class ExtractInformation {
 		
 
 		getQuery(files, "//CAMPAIGN", "CAMPAIGN.csv");
+		getQuery(files, "//NN-IDENTIFIER", "IDENTIFIER.csv");
 		getQuery(files, "//CD", "CD.csv");
 		getQuery(files, "//EXPRESSION", "EXPRESSION.csv");
 		getQuery(files, "//NN-UNITS", "NN-UNITS.csv");
