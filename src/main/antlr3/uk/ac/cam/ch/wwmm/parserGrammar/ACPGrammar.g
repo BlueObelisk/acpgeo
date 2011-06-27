@@ -108,9 +108,8 @@ number : cd|cdAlphanum|cddegrees;
 //noun1 	:	(dtTHE|dt)? advAdj* to? (nounStructure|nncampaign|nnParts|nnmeter|cdaltitude)(dash nounStructure)*;
 noun1 	:	(dtTHE|dt)? advAdj* to? (nounStructure|nnplatform|nncampaign|nnParts|nnmeter|nnarea|nnperarea|nnpartsperarea|nnpertimeunit|nntimeunit|nnunits|nnmoles|cdaltitude)(dash nounStructure)*;
 noun	:	(campaign|acronymPhrase|noun1);
-nounStructure : (apparatus|nn|nns|campaign|referencePhrase|parentheticalPhraseAcronym|expression|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase);
+nounStructure : (nn|nns|campaign|parentheticalPhraseAcronym|referencePhrase|expression|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase);
 acpNoun:location|nnpcountry;
-
 conditionNoun : nntime|nnatmosphere|nntemp;
 experimentNoun : nnflash|nngeneral|nnmethod|nnpressure|nncolumn|nnchromatography|nnvacuum|nncycle|nntimes|nnmixture|nnexample;
 quantityNoun:amount|quantity|measurements|nnvol|nnamount;
@@ -119,7 +118,7 @@ fwSymbolNoun : fw|sym|tmunicode;
 clauseNoun:wdt|wp_poss|wrb|ex|pdt|wp;
 
 properNoun
-	:	(nnpsatellite|nnpstation|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp|nnidentifier);
+	:	(apparatus|nnpstation|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp|nnidentifier|nnmethod);
 prpNoun :	prp|prp_poss;
 moleculeNoun
 	:	molecule|oscaronts|nnchementity;
@@ -131,9 +130,9 @@ adv	:	(rb|rbr|rp|rbs|wrb);
 
 
 apparatus
-	:	dt? preapparatus* nnApp+-> ^(APPARATUS   dt? preapparatus* nnApp+ );
+	:	apparatusContent+-> ^(APPARATUS   apparatusContent+ );
 
-nnApp 
+apparatusContent 
 	:	(nnapparatus|nnpapparatus|nnpsatellite)+ (dash (nnapparatus|nnpapparatus|nnpsatellite))*;
 //	:	(nnpapparatus|nnapparatus)+ (dash (nnapparatus|nnpapparatus))*;
 		
@@ -184,7 +183,10 @@ prepphraseAtmosphereContent
 
 
 parentheticalPhraseAcronym
-	: nnpacronym parentheticalPhrase ->^(AcronymPhrase  nnpacronym  parentheticalPhrase);
+	: (nnpacronym|apparatus) parentheticalAcronymStructure ->^(AcronymPhrase  nnpacronym? apparatus?  parentheticalAcronymStructure);
+parentheticalAcronymStructure
+	: lrb (advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+ ((cc|inAll)(advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+)? rrb;	
+		
 prepphrasePressure 
 	: prepphrasePressureContent  ->  ^(PressurePhrase  prepphrasePressureContent ) ;
 prepphrasePressureContent
@@ -342,7 +344,6 @@ nnpcontinent
 	: 'NNP-CONTINENT' TOKEN -> ^('NNP-CONTINENT' TOKEN)	;	
 nnpmonth
 	: 'NNP-MONTH' TOKEN -> ^('NNP-MONTH' TOKEN)	;
-
 
 prepphraseLocation 
 	:prepPhraseLocationStructure ->  ^(LocationPhrase  prepPhraseLocationStructure);
