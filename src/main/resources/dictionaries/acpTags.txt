@@ -12,7 +12,7 @@ NNP-APPARATUS---^((A)?(\-)?SCAT|(A)?ATSR|AIRS|AMI|AMRIR|AMSR|AMSU(\-)?(A|B)?|AMT
 NNP-SATELLITE---^(Satellite|ADEOS|Deimos|ENVISAT|EOS(\-AM|\-CHEM)?|EO(\-)1|EPOP|EROS|ERS(\-)(1|2)?|ERTS(\-)1|EUMETSAT|Geosat|GOES|GOCE|JEOS|JERS(\-)1|JPOP|LAGEOS|Landsat|LITE|Magsat|METEOR|Meteor|METEOSAT|Meteosat|Met[Oo]p(\-A)?|MOS(\-)1|Nimbus|NPOP|Radarsat|S(\-)?GCOS|SARSAT|Scisat(\-1)?|Seasat|SeaStar|SPOT|TIROS|UARS)$---
 NN-PLATFORM---^(satellite(s)?|[Aa]ircraft|[Aa]irborne|[Bb]alloon(\-)?(borne)?|([Rr]adio)?[Ss]onde|[Tt]ower|[Pp]latform|[Ss]hip(\-)?(borne)?)$---
 NN-STATION---station(s)?|[O|o]bservato(ry|ire|rio)$---Field stations;
-NN-MEASUREMENT---measurement(s)?$---Measurement;
+#NN-MEASUREMENT---measurement(s)?$---Measurement;
 NN-CAMPAIGN---^((EU-)?(p|P)re)?((C|c)ampaign|(EU-)?(p|P)roject|(EU-)?(p|P)rogram|Study)$---Campaigns
 NN-ACP---^(W|w)aters$---;
 NNP---^(II|del|Cape|de|Ny|St\.|bei|La|Le|lac|San|san|sur|Monte|Mt\.?)$---proper nouns that precede stations;
@@ -68,12 +68,12 @@ JJ-ACP---^(M|m)arine$---demonstrative adjective;
 NN-ACP---^Ni(\u00F1)o$---AtmosChemMetGlossary with special characters;
 NN-ACP---^Ni(\u00F1)a$---AtmosChemMetGlossary with special characters;
 JJ-CHEM---^(i|I)nfrared$---demonstrative adjective;
-VB-ANALYSE---^analy(s|z)(ed|e)$---analysis verbs;
-VB-MEASURE---^measur(ed|e)$---measurement verbs;
-VB-DETERMINE---^(determin|identif)(ed|e|y|ied)$---determine verbs;
-VB-OBSERVE---^(observ|show)(e|ed)?$---observation verbs;
-VB-INVESTIGATE---^investigat(e|ed|ing)$---investigate verbs;
-VB-INDICATE---^(indicat|highlight|signif)(y|e|ied|ed|ing|ying|s|ies|es)?$---indication verbs;
+#VB-ANALYSE---^analy(s|z)(ed|e)$---analysis verbs;
+#VB-MEASURE---^measur(ed|e)$---measurement verbs;
+#VB-DETERMINE---^(determin|identif)(ed|e|y|ied)$---determine verbs;
+#VB-OBSERVE---^(observ|show)(e|ed)?$---observation verbs;
+#VB-INVESTIGATE---^investigat(e|ed|ing)$---investigate verbs;
+#VB-INDICATE---^(indicat|highlight|signif)(y|e|ied|ed|ing|ying|s|ies|es)?$---indication verbs;
 IN-BETWEEN---^(B|b)etween$---in
 IN-NEAR---^(N|n)ear$---in
 IN-ABOVE---^(A|a)bove$---in

@@ -40,7 +40,7 @@ public class ACPRegexTagger extends RegexTagger {
 		appendRules();
 		
 		rules.addAll(superrules);
-		ignoredTags = Arrays.asList("VB-YIELD");
+		ignoredTags = Arrays.asList("VB-YIELD","VB-DEGASS","NN-CONCENTRATE");
 		super.setIgnoredTags(ignoredTags);
 		super.setRules(rules);
 	}
@@ -48,8 +48,7 @@ public class ACPRegexTagger extends RegexTagger {
 	private void appendRules() {
 		String line;
 		try {
-			// BufferedReader in = new BufferedReader(new FileReader(tagFile));
-			// PMR
+
 			InputStream is = this.getClass().getClassLoader()
 					.getResourceAsStream(acpTagFile);
 			BufferedReader in = new BufferedReader(new InputStreamReader(is,
