@@ -88,8 +88,8 @@ nounphrase
 nounphraseStructure
 	:	dtTHE? dt?    noun+   (conjunction*  noun)*   ((prepphraseOf| prepphraseIN|prepphraseAtmosphere|prepphraseTemp|prepphraseTime|prepphraseLocation) )*  ;
 otherStructure
-	:	(dt|dtTHE|advAdj|inAll)+;
-
+	:	(dt|dtTHE|nnpmonth|nnParts|advAdj|inAll|lrb|rrb|jjcomp|inAll|nnstate|nntime|nnmass|nnmolar|nnamount|nnatmosphere|nneq|nnvol|nnchementity|nntemp|nnflash|nngeneral|nnmethod|nnpressure|nncolumn|nnchromatography|nnvacuum|nncycle|nntimes|oscarcm|oscaronts|oscarase|verb|nnapparatus|nnconcentrate|nndry|nnextract|nnfilter|nnprecipitate|nnpurify|nnremove|nnsynthesize|nnyield|colon|apost|neg|dash|nnpercent|lsqb|rsqb|cc|fw|md|nn|nns|nnp|prp|prp_poss|rbconj|sym|uh|comma|ls|nnps|pos|nnidentifier)+;
+	
 referencePhrase
    : (bracketedReferencePhraseStructure|referencePhraseStructure) ->  ^(ReferencePhrase  bracketedReferencePhraseStructure? referencePhraseStructure?);
 bracketedReferencePhraseStructure
@@ -298,7 +298,7 @@ moleculeamount : (moleculeamount1|moleculeamount2|moleculeamount3|oscarCompound)
 molecule          
 	:  moleculeamount -> ^(MOLECULE  moleculeamount);	
 
-quantity 	:  quantity1 ->   ^(QUANTITY  quantity1);
+quantity 	:  quantity1+ ->   ^(QUANTITY  quantity1+);
 	
 quantity1
 	:  measurements (comma  measurements)*  ;
