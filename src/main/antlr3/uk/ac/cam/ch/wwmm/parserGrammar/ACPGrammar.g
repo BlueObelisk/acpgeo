@@ -185,7 +185,7 @@ prepphraseAtmosphereContent
 parentheticalPhraseAcronym
 	: (nnpacronym|apparatus) parentheticalAcronymStructure ->^(AcronymPhrase  nnpacronym? apparatus?  parentheticalAcronymStructure);
 parentheticalAcronymStructure
-	: lrb (advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+ ((cc|inAll)(advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+)? rrb;	
+	: lrb (advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+ ((cc|inAll|comma)(advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+)? rrb;	
 		
 prepphrasePressure 
 	: prepphrasePressureContent  ->  ^(PressurePhrase  prepphrasePressureContent ) ;

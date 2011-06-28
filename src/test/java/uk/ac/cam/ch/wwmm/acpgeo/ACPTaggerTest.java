@@ -87,11 +87,13 @@ public class ACPTaggerTest {
 				posContainer.getTokenTagTupleAsString());
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
-		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc,
 				"target/file4.xml");
+		
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
-
+		Assert.assertEquals("Found all 2 acronymphrases",doc.query("//AcronymPhrase").size(),2);
 	}
 
 	@Test
