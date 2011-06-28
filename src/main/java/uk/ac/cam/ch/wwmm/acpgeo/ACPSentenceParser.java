@@ -64,21 +64,21 @@ public class ACPSentenceParser extends SentenceParser {
 	
 	public Document makeXMLDocument() {
 		HashMap<String, String> actionMap = new HashMap<String, String>();
-		actionMap.put("VB-RECOVER", "Collection");
-		actionMap.put("VB-ANALYSE", "Analysis");
-		actionMap.put("VB-MEASURE", "Measurement");
-		actionMap.put("NN-MEASUREMENT", "Measurement");
-		actionMap.put("VB-DETERMINE", "Analysis");
-		actionMap.put("VB-INVESTIGATE", "Analysis");
-		actionMap.put("VB-OBSERVE", "Observation");	
-
-		actionMap.put("VB-SHOW", "Observation");	
+//		actionMap.put("VB-RECOVER", "Collection");
+//		actionMap.put("VB-ANALYSE", "Analysis");
+//		actionMap.put("VB-MEASURE", "Measurement");
+//		actionMap.put("NN-MEASUREMENT", "Measurement");
+//		actionMap.put("VB-DETERMINE", "Analysis");
+//		actionMap.put("VB-INVESTIGATE", "Analysis");
+//		actionMap.put("VB-OBSERVE", "Observation");	
+//
+//		actionMap.put("VB-SHOW", "Observation");	
 //		actionMap.put("found", "Observation");
 //		actionMap.put("MASSVOLUME", "Concentration");
 
 //		actionMap.put("MASSVOLUME", "Concentration");
 
-		actionMap.put("VB-INDICATE", "Indication");
+//		actionMap.put("VB-INDICATE", "Indication");
 		return new ASTtoXML().convert(getParseTree(), true,actionMap);
 	}
 

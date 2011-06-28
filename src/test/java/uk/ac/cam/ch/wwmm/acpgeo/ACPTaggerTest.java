@@ -93,7 +93,7 @@ public class ACPTaggerTest {
 		
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
-		Assert.assertEquals("Found all 2 acronymphrases",doc.query("//AcronymPhrase").size(),2);
+		Assert.assertEquals("Found all 3 acronymphrases",doc.query("//AcronymPhrase").size(),3);
 	}
 
 	@Test
