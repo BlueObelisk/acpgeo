@@ -65,7 +65,7 @@ document: sentences+-> ^(Sentence  sentences )+ ;
 
 sentences:  (sentenceStructure)+    (comma|stop)*;
 
-sentenceStructure:  (nounphrase|verbphrase|prepphrase|transitionalPhrase)+ (conjunction|rbconj|inAll)* (advAdj|colon) * (conjunction|rbconj)*;
+sentenceStructure:  (nounphrase|verbphrase|prepphrase|transitionalPhrase|otherStructure)+ (conjunction|rbconj|inAll)* (advAdj|colon) * (conjunction|rbconj)*;
 
 //ACP Rules:
 
@@ -87,6 +87,8 @@ nounphrase
 
 nounphraseStructure
 	:	dtTHE? dt?    noun+   (conjunction*  noun)*   ((prepphraseOf| prepphraseIN|prepphraseAtmosphere|prepphraseTemp|prepphraseTime|prepphraseLocation) )*  ;
+otherStructure
+	:	(dt|dtTHE|advAdj|inAll)+;
 
 referencePhrase
    : (bracketedReferencePhraseStructure|referencePhraseStructure) ->  ^(ReferencePhrase  bracketedReferencePhraseStructure? referencePhraseStructure?);
