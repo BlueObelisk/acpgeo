@@ -9,7 +9,12 @@ import nu.xom.Nodes;
 import nu.xom.ParsingException;
 import nu.xom.ValidityException;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
-
+/****************************************
+ * 
+ * @author lh359, hrb29
+ * 
+ * Reads the ACP XML abstracts
+ ***************************************/
 public class AbstractReader {
 
 	
@@ -63,13 +68,10 @@ public class AbstractReader {
 		try {
 			xmlDoc = new Builder().build(xmlInputStream);
 		} catch (ValidityException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ParsingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         loadDocument();		

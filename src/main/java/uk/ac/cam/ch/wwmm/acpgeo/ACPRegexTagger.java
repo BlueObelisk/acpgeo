@@ -15,7 +15,14 @@ import org.apache.commons.lang.StringUtils;
 
 import uk.ac.cam.ch.wwmm.chemicaltagger.RegexTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Rule;
-
+/************************************************
+ * Extends the RegexTagger from ChemicalTagger
+ * and includes new ACP-related tags from
+ * acpTags.txt and StationCoords.csv .
+ * 
+ * @author lh359, hrb29
+ *
+ */
 public class ACPRegexTagger extends RegexTagger {
 
 	String acpTagFile = "dictionaries/acpTags.txt";
@@ -40,11 +47,14 @@ public class ACPRegexTagger extends RegexTagger {
 		appendRules();
 		
 		rules.addAll(superrules);
-		ignoredTags = Arrays.asList("VB-YIELD","VB-DEGASS","NN-CONCENTRATE");
+		ignoredTags = Arrays.asList("VB-YIELD","VB-DEGASS","NN-CONCENTRATE","VB-RECOVER");
 		super.setIgnoredTags(ignoredTags);
 		super.setRules(rules);
 	}
 
+	/**********************************
+	 * Appends the new ACP rules to the RegexTagger.
+	 */
 	private void appendRules() {
 		String line;
 		try {
@@ -76,7 +86,12 @@ public class ACPRegexTagger extends RegexTagger {
 	}
 
 
-
+	/**********************************
+	 * Adds suffixes to country names
+	 * @param collectionValues
+	 * @param tagName
+	 * @param suffices
+	 */
 	public void addValuesWithSufficesToRegex(
 			Collection<String> collectionValues, String tagName, String suffices) {
 		for (String value : collectionValues) {

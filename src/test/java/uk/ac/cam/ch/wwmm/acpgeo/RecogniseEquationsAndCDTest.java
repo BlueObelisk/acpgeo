@@ -5,114 +5,105 @@ import nu.xom.Document;
 
 import org.junit.Test;
 
+import uk.ac.cam.ch.wwmm.chemicaltagger.Formatter;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 
-public class ACPTaggerTest {
+public class RecogniseEquationsAndCDTest {
 
 	@Test
-	public void testSentence1() {
+	public void testSplitEquationEquals() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = Utils
-				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/test1.txt");
-		String expected = Utils
-				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/ref1.txt");
+		String sentence = "n=1";
 		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+		Assert.assertEquals("n = 1", sentence);
+
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		Assert.assertEquals("Correct Markup", expected,
+		Assert.assertEquals("NN n SYM = CD 1",
+				posContainer.getTokenTagTupleAsString());
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc, "target/Equation1.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+
+	}
+
+	@Test
+	public void testSplitEquationGreatLessThan() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "n>1";
+		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+		Assert.assertEquals("n > 1", sentence);
+
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		Assert.assertEquals("NN n SYM > CD 1",
+				posContainer.getTokenTagTupleAsString());
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc, "target/Equation2.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+
+	}
+
+	@Test
+	public void testSplitPressure() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "200hPa";
+		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+		Assert.assertEquals("200 hPa", sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc, "target/Pressure1.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+
+	}
+
+	@Test
+	public void testEquationPowerCD() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "3x10^9";
+		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+		Assert.assertEquals("3x10^9", sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		Assert.assertEquals("CD 3x10^9",
 				posContainer.getTokenTagTupleAsString());
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Document doc = sentenceParser.makeXMLDocument();
-
-		Utils.writeXMLToFile(doc, "target/file1.xml");
+		Utils.writeXMLToFile(doc, "target/Equation3.xml");
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
-		Assert.assertEquals("Found the 1 acronymphrase",
-				doc.query("//AcronymPhrase").size(), 1);
 	}
 
 	@Test
-	public void testSentence2() {
+	public void misTaggedCD() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = Utils
-				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/test2.txt");
-		String expected = Utils
-				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/ref2.txt");
+		String sentence = "Eigenvector and 222Radon are not numbers";
 		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		Assert.assertEquals("Correct Markup", expected,
-				posContainer.getTokenTagTupleAsString());
-
-		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
-		sentenceParser.parseTags();
-		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
-				"target/file2.xml");
-		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
-				.toStringTree().contains("<error"));
-
-	}
-
-	@Test
-	public void testSentence3() {
-		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = Utils
-				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/test3.txt");
-		String expected = Utils
-				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/ref3.txt");
-		sentence = Utils.cleanHTMLText(sentence);
-		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		Assert.assertEquals("Correct Markup", expected,
-				posContainer.getTokenTagTupleAsString());
-		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
-		sentenceParser.parseTags();
-		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
-				"target/file3.xml");
-		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
-				.toStringTree().contains("<error"));
-
-	}
-
-	@Test
-	public void testSentence4() {
-		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = Utils
-				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/test4.txt");
-		String expected = Utils
-				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/ref4.txt");
-		sentence = Utils.cleanHTMLText(sentence);
-		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		Assert.assertEquals("Correct Markup", expected,
+		Assert.assertEquals(
+				"NNP Eigenvector CC and OSCAR-CM 222Radon VBP are NEG not NNS numbers",
 				posContainer.getTokenTagTupleAsString());
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Document doc = sentenceParser.makeXMLDocument();
-		Utils.writeXMLToFile(doc, "target/file4.xml");
-
+		Utils.writeXMLToFile(doc, "target/MistaggedCD1.xml");
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
-		Assert.assertEquals("Found all 3 acronymphrases",
-				doc.query("//AcronymPhrase").size(), 3);
-	}
-
-	@Test
-	public void testSentence5() {
-		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = Utils
-				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/test5.txt");
-		String expected = Utils
-				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/ref5.txt");
-		sentence = Utils.cleanHTMLText(sentence);
-		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		Assert.assertEquals("Correct Markup", expected,
-				posContainer.getTokenTagTupleAsString());
-		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
-		sentenceParser.parseTags();
-		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
-				"target/file5.xml");
-		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
-				.toStringTree().contains("<error"));
-
 	}
 
 }

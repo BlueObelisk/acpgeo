@@ -37,6 +37,10 @@ public class ACPGeoMain {
 			runACPGeo(args[0]);
 	}
 
+	/********************************************
+	 * Runs the ACPTagger against everything in the ACP Abstracts folder
+	 * @param directoryName
+	 */
 	private static void runACPGeo(String directoryName) {
 		File[] files = new File(directoryName).listFiles();
 		ACPTagger posTagger = ACPTagger.getInstance();
@@ -52,10 +56,8 @@ public class ACPGeoMain {
 					in = new BufferedReader(new InputStreamReader(
 							new FileInputStream(file), "UTF-8"));
 				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
@@ -79,10 +81,8 @@ public class ACPGeoMain {
 						xmlInputStream = IOUtils.toInputStream(doc.toXML(),
 								"UTF-8");
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					// changed on 28th Feb 2011
 					Element rootElement = new Element("ACPABSTRACT");
 					acpAbstract = new Document(rootElement);
 					AbstractReader abReader = new AbstractReader(xmlInputStream);
