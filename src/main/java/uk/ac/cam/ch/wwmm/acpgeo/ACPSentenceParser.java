@@ -79,7 +79,7 @@ public class ACPSentenceParser extends SentenceParser {
 //		actionMap.put("MASSVOLUME", "Concentration");
 
 //		actionMap.put("VB-INDICATE", "Indication");
-		return new ASTtoXML().convert(getParseTree(), true,actionMap);
+		return new ASTtoXML().convert(getParseTree(), false,actionMap);
 	}
 
 
