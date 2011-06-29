@@ -88,7 +88,7 @@ nounphrase
 nounphraseStructure
 	:	dtTHE? dt?    noun+   (conjunction*  noun)*   ((prepphraseOf| prepphraseIN|prepphraseAtmosphere|prepphraseTemp|prepphraseTime|prepphraseLocation) )*  ;
 otherStructure
-	:	(dt|dtTHE|nnpmonth|nnParts|advAdj|inAll|lrb|rrb|jjcomp|inAll|nnstate|nntime|nnmass|nnmolar|nnamount|nnatmosphere|nneq|nnvol|nnchementity|nntemp|nnflash|nngeneral|nnmethod|nnpressure|nncolumn|nnchromatography|nnvacuum|nncycle|nntimes|oscarcm|oscaronts|oscarase|verb|nnapparatus|nnconcentrate|nndry|nnextract|nnfilter|nnprecipitate|nnpurify|nnremove|nnsynthesize|nnyield|colon|apost|neg|dash|nnpercent|lsqb|rsqb|cc|fw|md|nn|nns|nnp|prp|prp_poss|rbconj|sym|uh|comma|ls|nnps|pos|nnidentifier)+;
+	:	(nounStructure|dt|dtTHE|advAdj|comma|cc|lrb|rrb)+;
 	
 referencePhrase
    : (bracketedReferencePhraseStructure|referencePhraseStructure) ->  ^(ReferencePhrase  bracketedReferencePhraseStructure? referencePhraseStructure?);
@@ -137,6 +137,7 @@ apparatus
 apparatusContent 
 	:	(nnapparatus|nnpapparatus|nnpsatellite)+ (dash (nnapparatus|nnpapparatus|nnpsatellite))*;
 //	:	(nnpapparatus|nnapparatus)+ (dash (nnapparatus|nnpapparatus))*;
+	
 		
 preapparatus
 	:    (quantity|adj|nnpressure|nnadd|molecule|nnchementity|nnstate|nn)+ ;
