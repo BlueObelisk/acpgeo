@@ -44,6 +44,7 @@ public class ExtractInformation {
 		getQuery(files, "//CAMPAIGN", "CAMPAIGN.csv");
 		getQuery(files, "//NN-IDENTIFIER", "IDENTIFIER.csv");
 		getQuery(files, "//CD", "CD.csv");
+		getQuery(files, "//CD-ALPHANUM", "CD-ALPHANUM.csv");
 		getQuery(files, "//EXPRESSION", "EXPRESSION.csv");
 		getQuery(files, "//NN-UNITS", "NN-UNITS.csv");
 		getQuery(files, "//NN-PERAREA", "NN-PERAREA.csv");
@@ -57,6 +58,7 @@ public class ExtractInformation {
 		getQuery(files, "//NNP-ACRONYM", "NNP-ACRONYM.csv");
 		getQuery(files, "//ParentheticalPhrase", "PARENTHETICALPHRASE.csv");
 		getQuery(files, "//LOCATION", "LOCATION.csv");
+		getQuery(files, "//LocationPhrase", "LocationPhrase.csv");
 		getQuery(files, "//MOLECULE", "MOLECULE.csv");
 		getQuery(files, "//MOLECULE[not(child::JJ-ACP)][not(child::JJ)][not(child::JJ-CHEM)]", "MOLECULE1.csv");
 		getQuery(files, "//MOLECULE[child::JJ-ACP|JJ|JJ-CHEM]/OSCARCM[1]", "MOLECULE2.csv");

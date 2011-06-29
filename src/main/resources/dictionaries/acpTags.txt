@@ -32,7 +32,8 @@ NN-PARTSPERAREA---^\d*((n)?mol(e)?(cule)?(s)?\/?\.?c?m?m(\-)?2)$--- (n)moles/(n)
 NN-PARTSPERAREA---^\d*((T|k|m|n|p|\u00B5|\03BC)?g\/?\.?c?m?m(\-)?2)$--- mass per area
 NN-MOLES---^(n|p)?mol(e)?(cule)?(s)?$---(n)moles/(n)molecules
 NN-PERSECOND---^(S|s)(\-)1$---per second (hz)
-NN-TIMEUNIT---^\d*((\-)?(Yr|yr|y|Y|min|Hr|hr|H|h|d))$--- Time units
+NN-TIMEUNIT---^\d*((\-)?(Yr|yr|y|Y|min|Hr|hr|H|h|d|day))$--- Time units
+NN-TIMEUNIT---^\d{0,3}(\-)?(s)$--- Time units
 NN-MASS---^\d*(\-)?(T|k|m|n|p|\u00B5|\u03BC)?g$---Mass
 NN-PERMASS---^\d*(T|k|m|n|p|\u00B5|\u03BC)?g(\-)1$---PerMass
 NN-PERTIMEUNIT---^\d*(Yr|yr|y|Y|a|min|Hr|hr|H|h|d|day)(\-)1$--- Time units
@@ -53,7 +54,7 @@ NN-TIME---((\d+:\d\d)(\-\d+:\d\d)?|afternoon|morning|night|evening|UTC|GMT)---ti
 # could have LT in here (local time but this might also be used for Lower Troposphere or other acronym)
 NN-TEMP---^\-?\d*.?\d*(\u2103|\u2109|\u00B0|\u00BA|\u2218)C\-?\d*$--- to avoid having deg C in location
 CD-DEGREES---((~)?(\d|\-)?\d+\.?\d*(\u2103|\u2109|\u00B0|\u00BA|\u2218|'))---Degrees;
-NN-METER---^\d*(\-)?(k|c|m|n||\u00B5|\u03BC)?m$---Meters;
+NN-METER---^\d*(\-)?(k|c|m|n|\u00B5|\u03BC)?m$---Meters;
 NN-PERMETER---^(k|c|m|n||\u00B5|\u03BC)?m(\-)1$---Meters;
 CD-ALTITUDE---(^~?(\d|-)?\d+\.?\d*m)?\(?((A|a)\.?(S|s|G|g)\.?(L|l)\.?)|(alt.)\)?$---Altitude Metres (Above Sea/Ground Level);
 SYM---^(\u002B|\u2715|\*|\u00B1|x|\u2030)$---Plus and minus signs - put any html symbol in here?;
@@ -61,7 +62,7 @@ SYM---^(\u002B|\u2715|\*|\u00B1|x|\u2030)$---Plus and minus signs - put any html
 #To include observations at higher levels could require feet (ft) or pressure height but unlikely 
 #CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;
 #CD-YEAR-RANGE---^(1|2)(0|9)\d\d\-(1|2)(0|9)\d\d$---Valid Year;
-CD-YEAR-RANGE---^((19\d\d)|(20\d\d))(\-|\/)((19\d\d)|(20\d\d))$---Valid Year;
+CD-YEAR-RANGE---^((19\d\d)|(20\d\d))(\-|\/)((19\d\d)|(20\d\d))|((19\d\ds)|(20\d\ds))$---Valid Year;
 CD-YEAR---^((19)\d\d)|((20)\d\d)$---Valid Year;
 CD---(^(~)?(\d|\-)?(\d+\.)?\d+(\-|\u00B1)\d+)---non-year range numbers;
 JJ---^(t|T)hat$---demonstrative adjective;
