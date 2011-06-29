@@ -50,6 +50,7 @@ PERTIMEUNIT;
 UNITS;
 ReferencePhrase;
 EQUATION;
+MOLES;
 }
 
 @header {
@@ -88,7 +89,7 @@ nounphrase
 nounphraseStructure
 	:	dtTHE? dt?    noun+   (conjunction*  noun)*   ((prepphraseOf| prepphraseIN|prepphraseAtmosphere|prepphraseTemp|prepphraseTime|prepphraseLocation) )*  ;
 otherStructure
-	:	(nounStructure|dt|dtTHE|advAdj|comma|cc|lrb|rrb)+;
+	:	(nn|nnp|nnacp|molecule|verb|dt|dtTHE|advAdj|comma|cc|lrb|rrb|inAll)+;
 	
 referencePhrase
    : (bracketedReferencePhraseStructure|referencePhraseStructure) ->  ^(ReferencePhrase  bracketedReferencePhraseStructure? referencePhraseStructure?);
@@ -98,7 +99,6 @@ referencePhraseStructure
    : nnp+ fw+ (comma time)+ ;
 //   : nnp+ fw+ comma (cdyear|cdyearRange)+ ;
 // need to add and rather than cc
-
 conjunction 
 	:	 cc|comma;
 verbphrase
@@ -248,12 +248,14 @@ timeunit
 
 pertimeunit
    : cd* nnpertimeunit -> ^(PERTIMEUNIT cd* nnpertimeunit);
+  
 
+moles 	: cd nnmoles	->^(MOLES cd nnmoles);
 units
    : cd* nnunits mathEquation? nnmoles? perarea? -> ^(UNITS cd* nnunits mathEquation? nnmoles? perarea?);
 
 measurements
-   : massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter|partsperarea|perarea|area|timeunit|pertimeunit|units ;	
+   : massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter|partsperarea|perarea|area|timeunit|pertimeunit|units|moles ;	
 	
 //measurements
 //	: massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter ;
