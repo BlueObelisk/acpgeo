@@ -624,4 +624,21 @@ public class ACPTaggerTest {
 				.toStringTree().contains("<error"));
 	}
 	
+	@Test
+	public void testQuantities() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "15 ppb h-1";
+		sentence = "0.5 nmol m-2 hr-1";
+		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+        ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc,
+				"target/file25.xml");
+		Assert.assertEquals("Found only 1 quantity",doc.query("//QUANTITY").size(),1);
+
+	}
+	
 	}
