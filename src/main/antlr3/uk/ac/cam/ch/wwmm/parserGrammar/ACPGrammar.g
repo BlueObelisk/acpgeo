@@ -136,12 +136,9 @@ apparatus
 	:	apparatusContent+-> ^(APPARATUS   apparatusContent+ );
 
 apparatusContent 
-	:	(nnapparatus|nnpapparatus|nnpsatellite)+ (dash (nnapparatus|nnpapparatus|nnpsatellite))*;
-//	:	(nnpapparatus|nnapparatus)+ (dash (nnapparatus|nnpapparatus))*;
+	:	(nnapparatus|nnpapparatus|nnpsatellite)+ (dash (nnapparatus|nnpapparatus|nnpsatellite))* referencePhrase?;
 	
-		
-preapparatus
-	:    (quantity|adj|nnpressure|nnadd|molecule|nnchementity|nnstate|nn)+ ;
+
 	
 // Different PrepPhrases
 prepphrase 
@@ -258,7 +255,7 @@ units
 measurements
    : (compositeUnits|massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter|partsperarea|perarea|area|timeunit|pertimeunit|units|moles) ;	
 
-siUnit 	:	(nntimeunit|nnmoles|nnarea|nnperarea|nnpartsperarea|nnmolar|nnpersecond|nnvol|nnpercent|nnmeter|nnmass|nnamount|nnunits);	
+siUnit 	:	(nntimeunit|nnParts|nnmoles|nnarea|nnperarea|nnpartsperarea|nnmolar|nnpersecond|nnvol|nnpercent|nnmeter|nnmass|nnamount|nnunits);	
 compositeUnits 
 	:	cd compositeUnitStructure -> ^(COMPOSITEUNIT cd compositeUnitStructure);
 
