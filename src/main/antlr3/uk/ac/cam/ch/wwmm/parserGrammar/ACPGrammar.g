@@ -136,9 +136,8 @@ apparatus
 	:	apparatusContent+-> ^(APPARATUS   apparatusContent+ );
 
 apparatusContent 
-	:	(nnapparatus|nnpapparatus|nnpsatellite)+ (dash (nnapparatus|nnpapparatus|nnpsatellite))* referencePhrase?;
+	:	(nnapparatus|nnpapparatus|nnpsatellite)+ (dash (nnapparatus|nnpapparatus|nnpsatellite))* ;
 	
-
 	
 // Different PrepPhrases
 prepphrase 
