@@ -51,7 +51,9 @@ UNITS;
 ReferencePhrase;
 EQUATION;
 MOLES;
+COMPOSITEUNIT;
 }
+
 
 @header {
     package uk.ac.cam.ch.wwmm.parserGrammar;
@@ -255,8 +257,15 @@ units
    : cd* nnunits mathEquation? nnmoles? perarea? -> ^(UNITS cd* nnunits mathEquation? nnmoles? perarea?);
 
 measurements
-   : massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter|partsperarea|perarea|area|timeunit|pertimeunit|units|moles ;	
-	
+   : compositeUnits|massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter|partsperarea|perarea|area|timeunit|pertimeunit|units|moles ;	
+
+siUnit 	:	(nntimeunit|nnmoles|nnarea|nnperarea|nnpartsperarea|nnmolar|nnpersecond|nnvol|nnpercent|nnmeter|nnmass|nnamount|nnunits);	
+compositeUnits 
+	:	cd compositeUnitStructure -> ^(COMPOSITEUNIT cd compositeUnitStructure);
+
+compositeUnitStructure 
+	:	siUnit (dash siUnit)+;
+
 //measurements
 //	: massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter ;
 		
