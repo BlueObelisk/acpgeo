@@ -80,7 +80,6 @@ transitionalContent
 acronymPhrase
 	:acronymPhraseStructure -> ^(AcronymPhrase acronymPhraseStructure)	;
 
-
 acronymPhraseStructure
 	: (advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+ ((cc|inAll)(advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+)? acronym;	
 
@@ -257,7 +256,7 @@ units
    : cd* nnunits mathEquation? nnmoles? perarea? -> ^(UNITS cd* nnunits mathEquation? nnmoles? perarea?);
 
 measurements
-   : compositeUnits|massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter|partsperarea|perarea|area|timeunit|pertimeunit|units|moles ;	
+   : (compositeUnits|massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter|partsperarea|perarea|area|timeunit|pertimeunit|units|moles) ;	
 
 siUnit 	:	(nntimeunit|nnmoles|nnarea|nnperarea|nnpartsperarea|nnmolar|nnpersecond|nnvol|nnpercent|nnmeter|nnmass|nnamount|nnunits);	
 compositeUnits 
@@ -265,9 +264,6 @@ compositeUnits
 
 compositeUnitStructure 
 	:	siUnit (dash siUnit)+;
-
-//measurements
-//	: massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter ;
 		
 time 	:	 timeStructure ->^(TimePhrase timeStructure);
 
