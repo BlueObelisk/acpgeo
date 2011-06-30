@@ -3,6 +3,7 @@ package uk.ac.cam.ch.wwmm.acpgeo;
 import junit.framework.Assert;
 import nu.xom.Document;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
@@ -73,6 +74,7 @@ public class ACPTaggerTest {
 
 	}
 
+	@Ignore
 	@Test
 	public void testSentence4() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
