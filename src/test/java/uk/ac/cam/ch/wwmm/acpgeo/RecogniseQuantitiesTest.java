@@ -61,7 +61,6 @@ public class RecogniseQuantitiesTest {
 
 	}
 
-	@Ignore
 	@Test
 	public void testQuantities4() {
 		ACPTagger acpTagger = ACPTagger.getInstance();

@@ -42,5 +42,20 @@ public class RecogniseMoleculesTest {
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
 	}
+	@Test
+	public void recogniseOscarRNandCJ() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "The results show that oxygenated VOCs such as ethanal and methanol are very significant sources of formaldehyde in the air masses reaching Mace Head .";
+		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc, "target/Molecules3.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+	}
+	
 
 }

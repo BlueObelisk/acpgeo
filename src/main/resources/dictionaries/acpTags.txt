@@ -44,8 +44,8 @@ OSCAR-CM---^((H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|
 OSCAR-CM---^((C|N|O|H)+\d*)$+---Oscar tokens that sometimes go wrong;
 # We may miss some sulfur compounds like this but can't add too many letters or would have bigger acornym problems e.g.COSH would become a chemical.
 OSCAR-CM---^(((C|N|O|H)+\d*(I|Br|Cl|F)+\d*)|((I|Br|Cl|F)+\d*(C|N|O|H)+\d*)|((C|N|O|H)+\d*(I|Br|Cl|F)+\d*(C|N|O|H)+\d*))$---Oscar tokens that sometimes go wrong - to make sure common I compounds are identified - but will not fin I alone need to rely on Oscar for this?;
-OSCAR_CM---^(DMS|DMSO|MSA|([Mm]|[Pp])?PAN|D2O|HDO|DHO|DO|DO2)$---List of common ACP molecules not easily identified elsewhere
-OSCAR_CM---^((O|o|B|b)?VOC|NMHC|(H)?CFC|PCB|POP|[Hh]alon)(s)?$---List of common ACP chemical groups - not really correct assignment but good enough for present some will be caught by regex above
+OSCAR-CM---^(DMS|DMSO|MSA|([Mm]|[Pp])?PAN|D2O|HDO|DHO|DO|DO2)$---List of common ACP molecules not easily identified elsewhere
+OSCAR-CM---^((O|o|B|b)?VOC|NMHC|(H)?CFC|PCB|POP|[Hh]alon)(s)?$---List of common ACP chemical groups - not really correct assignment but good enough for present some will be caught by regex above
 NNP-ACRONYM---^([A-Z][A-Z]+(\-|\\|\/)?[A-Z]+[0-9]*(s)?[0-9]*)$---Acronyms
 NNP-ACRONYM---^(Metop(\-)A|RHamble|RH|dp|Ev(\-)K2(\-)CNR|AR5|TdF|MOHp|CLaMS|ECHAM5\/MESSy1|GF|AOT(500)|LBA(\-)CLAIRE(\-)2001|Po|HWM(\-)93|TM5|T1|T2|IMF|ABS|ERA40)$--_ACP type acronyms
 WP---^(T|t)hose$--- those;
