@@ -64,8 +64,6 @@ SYM---^(\u002B|\u2715|\*|\u00B1|x|\u2030)$---Plus and minus signs - put any html
 #CD-YEAR-RANGE---^(1|2)(0|9)\d\d\-(1|2)(0|9)\d\d$---Valid Year;
 CD-YEAR-RANGE---^((19\d\d)|(20\d\d))(\-|\/)((19\d\d)|(20\d\d))|((19\d\ds)|(20\d\ds))$---Valid Year;
 CD-YEAR---^((19)\d\d)|((20)\d\d)$---Valid Year;
-CD---(^(~)?(\d|\-)?(\d+\.)?\d+(\-|\u00B1)\d+)---non-year range numbers;
-CD---(^(~|#)?\d+)$---cardinal digits;
 JJ---^(t|T)hat$---demonstrative adjective;
 JJ-ACP---^(M|m)arine$---demonstrative adjective;
 NN-ACP---^Ni(\u00F1)o$---AtmosChemMetGlossary with special characters;
