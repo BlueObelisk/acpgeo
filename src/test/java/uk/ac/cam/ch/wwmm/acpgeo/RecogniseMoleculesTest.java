@@ -33,7 +33,7 @@ public class RecogniseMoleculesTest {
 		sentence = Formatter.normaliseText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals(
-				"OSCAR-CM HCOOH CC and OSCAR-CM HNO3 VBP are NN-CHEMENTITY compounds STOP . PRP We VBD studied NN-MOLES molecules OSCAR-CM CH4 CC and NNP N2O. PRP$ Our NNS results VBP show PRP they VBP are RB definitely NN-MOLES molecules STOP .",
+				"OSCAR-CM HCOOH CC and OSCAR-CM HNO3 VBP are NN-CHEMENTITY compounds STOP . PRP We VBD studied NN-MOLES molecules OSCAR-CM CH4 CC and OSCAR-CM N2O STOP . PRP$ Our NNS results VBP show PRP they VBP are RB definitely NN-MOLES molecules STOP .",
 				posContainer.getTokenTagTupleAsString());
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
