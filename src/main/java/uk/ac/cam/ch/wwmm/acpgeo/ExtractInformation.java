@@ -42,13 +42,20 @@ public class ExtractInformation {
 		
 
 		getQuery(files, "//CAMPAIGN", "CAMPAIGN.csv");
+		getQuery(files, "//APPARATUS", "APPARATUS.csv");
 		getQuery(files, "//NN-IDENTIFIER", "IDENTIFIER.csv");
 		getQuery(files, "//CD", "CD.csv");
 		getQuery(files, "//CD-ALPHANUM", "CD-ALPHANUM.csv");
 		getQuery(files, "//EXPRESSION", "EXPRESSION.csv");
+		getQuery(files, "//NN-MODEL", "NN-MODEL.csv");
+		getQuery(files, "//MODEL", "MODEL.csv");
+		getQuery(files, "//NNP-MODEL", "NNP-MODEL.csv");
+		getQuery(files, "//NN-AEROSOL", "NN-AEROSOL.csv");
+		getQuery(files, "//NN-PHYSICAL", "NN-PHYSICAL.csv");
 		getQuery(files, "//NN-UNITS", "NN-UNITS.csv");
 		getQuery(files, "//NN-PERAREA", "NN-PERAREA.csv");
 		getQuery(files, "//NN-PERTIMEUNIT", "NN-PERTIMEUNIT.csv");
+		getQuery(files, "//NN-TIMEUNIT", "NN-TIMEUNIT.csv");
 		getQuery(files, "//ReferencePhrase", "ReferencePhrase.csv");
 		getQuery(files, "//CD-YEAR", "YEARS.csv");
 		getQuery(files, "//CD-YEAR-RANGE", "YEAR-RANGE.csv");

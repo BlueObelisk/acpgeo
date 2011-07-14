@@ -50,6 +50,9 @@ PERTIMEUNIT;
 UNITS;
 ReferencePhrase;
 EQUATION;
+MODEL;
+PHYSICAL;
+AEROSOL;
 MOLES;
 COMPOSITEUNIT;
 }
@@ -81,7 +84,7 @@ acronymPhrase
 	:acronymPhraseStructure -> ^(AcronymPhrase acronymPhraseStructure)	;
 
 acronymPhraseStructure
-	: (advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+ ((cc|inAll)(advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+)? acronym;	
+	: (advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+ ((cc|inAll) dtTHE? (advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+)? acronym;	
 
 nounphrase
 	:	nounphraseStructure ->  ^(NounPhrase  nounphraseStructure);	
@@ -109,9 +112,9 @@ verb : vbindicate|vbmeasure|vbacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|
 
 number : cd|cdAlphanum|cddegrees;
 //noun1 	:	(dtTHE|dt)? advAdj* to? (nounStructure|nncampaign|nnParts|nnmeter|cdaltitude)(dash nounStructure)*;
-noun1 	:	 advAdj* to? (nounStructure|nnplatform|nncampaign|nnParts|nnmeter|nnarea|nnperarea|nnpartsperarea|nnpertimeunit|nntimeunit|nnunits|nnmoles|cdaltitude)(dash nounStructure)*;
-noun	:	(dtTHE|dt)? (campaign|acronymPhrase|noun1);
-nounStructure : (acronymPhrase|nn|nns|campaign|parentheticalPhraseAcronym|referencePhrase|expression|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase);
+noun1 	:	 advAdj* to? (nounStructure|nnplatform|nncampaign|nnphysical|nnaerosol|nnmodel|nnParts|nnmeter|nnarea|nnperarea|nnpartsperarea|nnpertimeunit|nntimeunit|nnunits|nnmoles|cdaltitude)(dash nounStructure)*;
+noun	:	(dtTHE|dt)? (model|campaign|acronymPhrase|noun1);
+nounStructure : (acronymPhrase|nn|nns|model|campaign|parentheticalPhraseAcronym|referencePhrase|expression|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase);
 acpNoun:location|nnpcountry;
 conditionNoun : nntime|nnatmosphere|nntemp;
 experimentNoun : nnflash|nngeneral|nnmethod|nnpressure|nncolumn|nnchromatography|nnvacuum|nncycle|nntimes|nnmixture|nnexample;
@@ -121,7 +124,7 @@ fwSymbolNoun : fw|sym|tmunicode;
 clauseNoun:wdt|wp_poss|wrb|ex|pdt|wp;
 
 properNoun
-	:	(apparatus|nnpstation|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp|nnidentifier|nnmethod);
+	:	(nnps|apparatus|nnpmodel|nnpstation|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp|nnidentifier|nnmethod);
 prpNoun :	prp|prp_poss;
 moleculeNoun
 	:	(molecule|oscaronts|nnchementity);
@@ -151,12 +154,17 @@ expressionContent
 
 mathEquationContent 
 	:cd* sym (cd|sym)+ ;
-mathEquation
-	:	mathEquationContent -> ^(EQUATION mathEquationContent);	
+mathEquation	:	mathEquationContent -> ^(EQUATION mathEquationContent);	
 campaign:	campaignContent	->^(CAMPAIGN campaignContent);
 
 campaignContent
-	: (acronymPhrase|parentheticalPhraseAcronym|nnp|acronym)+ nounStructure? nncampaign 	;
+	: (acronymPhrase|parentheticalPhraseAcronym|nnp|nnps|acronym)+ nounStructure? adj? nncampaign 	;
+	
+model:	modelContent	->^(MODEL modelContent);
+
+modelContent
+	: ((acronymPhrase|parentheticalPhraseAcronym|nnp|nnps|acronym|nnpmodel)+ nounStructure? nnmodel)	;
+//note just nnpmodel alone or with parenthetical phrase should also be maked as model - fine for post processing
 	
 advAdj	: (adv|adj)  ;	
 prepphraseOther
@@ -181,6 +189,8 @@ prepphraseAtmosphere
 prepphraseAtmosphereContent
 	:inunder  dt? advAdj* molecule nnatmosphere?	;
 
+//parentheticalPhraseAcronymModel
+//	: nnpmodel  parentheticalAcronymStructure ->^(AcronymPhrase  nnpmodel  parentheticalAcronymStructure);
 
 parentheticalPhraseAcronym
 	: (nnpacronym|apparatus) parentheticalAcronymStructure ->^(AcronymPhrase  nnpacronym? apparatus?  parentheticalAcronymStructure);
@@ -254,12 +264,12 @@ units
 measurements
    : (compositeUnits|massVolume|molar|amount|mass|percent|volume|concentrationMeasurement|perSecond|meter|partsperarea|perarea|area|timeunit|pertimeunit|units|moles) ;	
 
-siUnit 	:	(nntimeunit|nnParts|nnmoles|nnarea|nnperarea|nnpartsperarea|nnmolar|nnpersecond|nnvol|nnpercent|nnmeter|nnmass|nnamount|nnunits);	
+unit 	:	(nntimeunit|nnParts|nnmoles|nnarea|nnperarea|nnpartsperarea|nnmolar|nnpersecond|nnvol|nnpercent|nnmeter|nnmass|nnamount|nnunits);	
 compositeUnits 
 	:	cd compositeUnitStructure -> ^(COMPOSITEUNIT cd compositeUnitStructure);
 
 compositeUnitStructure 
-	:	siUnit (dash siUnit)+;
+	:	unit (dash unit)+;
 		
 time 	:	 timeStructure ->^(TimePhrase timeStructure);
 
@@ -338,6 +348,16 @@ locationContent7
 acronym	: lrb (nn|properNoun) rrb ->^(ACRONYM  lrb nn? properNoun? rrb)	;
 
 //ACP Tags
+nnpmodel
+   : 'NNP-MODEL' TOKEN -> ^('NNP-MODEL' TOKEN) ;
+nnmodel
+   : 'NN-MODEL' TOKEN -> ^('NN-MODEL' TOKEN) ;
+
+nnphysical
+   : 'NN-PHYSICAL' TOKEN -> ^('NN-PHYSICAL' TOKEN) ;
+nnaerosol
+   : 'NN-AEROSOL' TOKEN -> ^('NN-AEROSOL' TOKEN) ;
+
 nnpstation
 	: 'NNP-STATION' TOKEN -> ^('NNP-STATION' TOKEN)	;
 nnstation

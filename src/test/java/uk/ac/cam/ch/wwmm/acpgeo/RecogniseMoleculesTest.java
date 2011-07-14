@@ -28,12 +28,12 @@ public class RecogniseMoleculesTest {
 	@Test
 	public void recogniseOscarFormulae() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "HCOOH and HNO3 are compounds";
+		String sentence = "HCOOH and HNO3 are compounds. We studied molecules CH4 and N2O. Our results show they are definitely molecules.";
 		sentence = Utils.cleanHTMLText(sentence);
 		sentence = Formatter.normaliseText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals(
-				"OSCAR-CM HCOOH CC and OSCAR-CM HNO3 VBP are NN-CHEMENTITY compounds",
+				"OSCAR-CM HCOOH CC and OSCAR-CM HNO3 VBP are NN-CHEMENTITY compounds STOP . PRP We VBD studied NN-MOLES molecules OSCAR-CM CH4 CC and NNP N2O. PRP$ Our NNS results VBP show PRP they VBP are RB definitely NN-MOLES molecules STOP .",
 				posContainer.getTokenTagTupleAsString());
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
@@ -52,7 +52,7 @@ public class RecogniseMoleculesTest {
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Document doc = sentenceParser.makeXMLDocument();
-		Utils.writeXMLToFile(doc, "target/Molecules3.xml");
+		Utils.writeXMLToFile(doc, "target/Molecules_3.xml");
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
 	}

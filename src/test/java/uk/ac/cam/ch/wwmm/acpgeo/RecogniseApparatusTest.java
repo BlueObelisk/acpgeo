@@ -46,5 +46,21 @@ public class RecogniseApparatusTest {
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
 	}
-
+	
+	@Test
+	public void recogniseModel() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "SLIMCAT is a model. The researchers used the TOMCAT model.";
+		sentence = Utils.cleanHTMLText(sentence);
+		sentence = Formatter.normaliseText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+        Assert.assertEquals("NNP-MODEL SLIMCAT VBZ is DT a NN-MODEL model STOP . DT-THE The NNS researchers VBD used DT-THE the NNP-MODEL TOMCAT NN-MODEL model STOP ." , posContainer.getTokenTagTupleAsString());
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc,
+				"target/Model1.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+	}
 	}

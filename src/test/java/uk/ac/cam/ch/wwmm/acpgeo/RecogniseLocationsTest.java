@@ -87,7 +87,7 @@ public class RecogniseLocationsTest {
 	@Test
 	public void testRecogniseLocations3() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "The northern hemisphere";
+		String sentence = "The northern hemisphere. We studied London and New York. Studies show they are place names.";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
