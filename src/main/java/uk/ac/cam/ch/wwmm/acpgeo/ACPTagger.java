@@ -1,5 +1,6 @@
 package uk.ac.cam.ch.wwmm.acpgeo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import uk.ac.cam.ch.wwmm.chemicaltagger.ChemistryPOSTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.OpenNLPTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.OscarTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
+import uk.ac.cam.ch.wwmm.chemicaltagger.Tagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.WhiteSpaceTokeniser;
 import uk.ac.cam.ch.wwmm.oscar.Oscar;
 
@@ -32,7 +34,11 @@ public class ACPTagger {
 		acpRegexTagger = new ACPRegexTagger();
 		DictionaryLoader dictLoader = new DictionaryLoader();
 		acpGlossaryMap = dictLoader.loadDictionary(ACP_DICTIONARY, true);
-		posTagger = new ChemistryPOSTagger(new WhiteSpaceTokeniser(),new OscarTagger(new Oscar()), acpRegexTagger, OpenNLPTagger.getInstance());
+		List<Tagger> acpTaggerList = new ArrayList<Tagger>();
+		acpTaggerList.add(acpRegexTagger);
+		acpTaggerList.add(new OscarTagger(new Oscar()));
+		acpTaggerList.add(OpenNLPTagger.getInstance());
+		posTagger = new ChemistryPOSTagger(new WhiteSpaceTokeniser(),acpTaggerList);
 		
 	}
 
@@ -60,7 +66,6 @@ public class ACPTagger {
 			count++;
 		}
 		
-//		System.out.println(posContainer.getTokenTagTupleAsString());
 
 		return posContainer;
 	}
