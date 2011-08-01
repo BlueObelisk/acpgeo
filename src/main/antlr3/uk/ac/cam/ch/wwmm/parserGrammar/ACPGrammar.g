@@ -234,7 +234,7 @@ concentrationMeasurementContent
 	: (concentrationMeasurementContent1|concentrationMeasurementContent2) nnParts;
 concentrationMeasurement
 	:concentrationMeasurementContent+ -> ^(CONCENTRATIONMEASUREMENT concentrationMeasurementContent+);					
-percent	: number  nnpercent -> ^(PERCENT   number nnpercent );
+percent	: cd nnpercent ( dash cd nnpercent)? -> ^(PERCENT   cd nnpercent dash? cd? nnpercent?);
 volume	: cd+ nnvol -> ^(VOLUME   cd+ nnvol );
 molar	: cd* nnmolar -> ^(MOLAR   cd* nnmolar );
 
