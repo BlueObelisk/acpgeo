@@ -11,6 +11,7 @@ import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Tagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.WhiteSpaceTokeniser;
 import uk.ac.cam.ch.wwmm.oscar.Oscar;
+import uk.ac.cam.ch.wwmm.oscar.document.Token;
 
 /**********************************************
  * @author lh359, hrb29
@@ -49,10 +50,10 @@ public class ACPTagger {
 	public POSContainer runTaggers(String inputSentence) {
 
 		POSContainer posContainer = posTagger.runTaggers(inputSentence,false,false);
-		List<String> tokenlist = posContainer.getWordTokenList();
+		List<Token> tokenlist = posContainer.getWordTokenList();
 		int count = 0;
-		for (String token : tokenlist) {
-			if (acpGlossaryMap.containsKey(token.toLowerCase())) {
+		for (Token token : tokenlist) {
+			if (acpGlossaryMap.containsKey(token.getSurface().toLowerCase())) {
 				String currentTag = posContainer.getCombinedTagsList()
 						.get(count);
 				if (currentTag.contains("-") && !currentTag.startsWith("-")) {
