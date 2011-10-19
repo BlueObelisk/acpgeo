@@ -12,6 +12,7 @@ import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 public class ACPTaggerTest {
 
 	@Test
+	@Ignore
 	public void testSentence1() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils
@@ -34,6 +35,7 @@ public class ACPTaggerTest {
 	}
 
 	@Test
+	@Ignore
 	public void testSentence2() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils

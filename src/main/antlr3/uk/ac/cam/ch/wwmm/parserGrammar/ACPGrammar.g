@@ -41,7 +41,6 @@ TransitionPhrase;
 CAMPAIGN;
 CONCENTRATIONMEASUREMENT;
 PERSECOND;
-OSCARONT;
 PARTSPERAREA;
 PERAREA;
 AREA;
@@ -127,7 +126,7 @@ properNoun
 	:	(nnps|apparatus|nnpmodel|nnpstation|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp|nnidentifier|nnmethod);
 prpNoun :	prp|prp_poss;
 moleculeNoun
-	:	(molecule|oscaronts|nnchementity);
+	:	(molecule|nnchementity);
 range: number dash number;
 
 adj	:	(jj|jjr|jjs|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjcomp) (cc (jj|jjr|jjs|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjcomp))*;
@@ -284,10 +283,6 @@ timeYear	:	 yearStructure+ -> ^(YEARS yearStructure+);
 yearStructure 
 	:	(cdyear|cdyearRange) (cc (cdyear|cdyearRange))*;
 
-oscaronts
-	: oscaront+ -> ^(OSCARONT   oscaront+);
-
-// The RRB at the end is for leftover brackets from chemicals that didn't parse properly
 oscarCompound :  adj* (oscarCompound1|oscarCompound2|oscarCompound3|oscaracp) adj? ;
 
 oscarCompound3 :	lrb  oscarcm+ rrb -> ^(OSCARCM  lrb  oscarcm+  rrb );
@@ -466,7 +461,6 @@ cdAlphanum:'CD-ALPHANUM' TOKEN -> ^('CD-ALPHANUM' TOKEN);
 oscarcj:'OSCAR-CJ' TOKEN -> ^('OSCAR-CJ' TOKEN);
 oscarrn:'OSCAR-RN' TOKEN -> ^('OSCAR-RN' TOKEN);
 oscarase:'OSCAR-ASE' TOKEN -> ^('OSCAR-ASE' TOKEN);
-oscaront:'OSCAR-ONT' TOKEN -> ^('OSCAR-ONT' TOKEN);
 tmunicode:'TM-UNICODE' TOKEN -> ^('TM-UNICODE' TOKEN);
 cdunicode:'CD-UNICODE' TOKEN -> ^('CD-UNICODE' TOKEN);
 jjchem:'JJ-CHEM' TOKEN -> ^('JJ-CHEM' TOKEN);
