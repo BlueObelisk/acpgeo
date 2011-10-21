@@ -48,7 +48,7 @@ TIMEUNIT;
 PERTIMEUNIT; 
 UNITS;
 ReferencePhrase;
-EQUATION;
+//EQUATION;
 MODEL;
 PHYSICAL;
 AEROSOL;
@@ -62,6 +62,38 @@ COMPOSITEUNIT;
  }
 @lexer::header {package uk.ac.cam.ch.wwmm.parserGrammar;}
 
+
+
+@members {
+public boolean isAtTokenPositionZero(TokenStream stream){
+   return stream.index()==0;
+}
+
+public boolean followedByetal(TokenStream stream){
+         String twoAheadTokenText = stream.LT(4).getText();
+         if (twoAheadTokenText !=null && twoAheadTokenText.toLowerCase().equals("al.")){
+         	String oneAheadTokenText = stream.LT(2).getText();
+         	if (oneAheadTokenText !=null && oneAheadTokenText.toLowerCase().equals("et")){
+            	return true;
+         	}
+         }
+         String secondAheadTokenTypeStr = stream.LT(3).getText();
+					if ("CD-YEAR".equals(secondAheadTokenTypeStr) || "CD-REF".equals(secondAheadTokenTypeStr)){
+           				return true;
+         		}
+         String twoAheadTokenTypeStr = stream.LT(3).getText();
+         if ("NNP".equals(twoAheadTokenTypeStr) || "NNPS".equals(twoAheadTokenTypeStr)){
+         	String oneAheadTokenText = stream.LT(2).getText();
+         	if (oneAheadTokenText !=null && oneAheadTokenText.toLowerCase().equals("and")){
+         		String fourAheadTokenTypeStr = stream.LT(7).getText();
+					if ("CD-YEAR".equals(fourAheadTokenTypeStr) || "CD-REF".equals(fourAheadTokenTypeStr)){
+           				return true;
+         		}
+         	}
+			}
+   return false;
+}
+}
 
 WS :  (' ')+ {skip();};
 TOKEN : (~' ')+;
@@ -79,11 +111,68 @@ transitionalPhrase
 
 transitionalContent
 	:	(inAll dt| rb)+;		
+
+
+referencePhrase
+   : (bracketedReferencePhraseStructure|referencePhraseStructure) ->  ^(ReferencePhrase  bracketedReferencePhraseStructure? referencePhraseStructure?);
+bracketedReferencePhraseStructure
+   : lrb (referencePhraseStructure) rrb ;   
+referencePhraseStructure
+   : (referencePhraseStructure1|referencePhraseStructure2) ;   
+referencePhraseStructure1
+   : nnp+ (fw|cc)* nnp* (comma (cdyear|cdref))+ ;
+referencePhraseStructure2
+   : nnp+ (fw|cc)* nnp* lrb (cdyear|cdref) (comma (cdyear|cdref))* rrb;
+//   : nnp+ (fw|cc)+ nnp* (comma time)+ ;
+//   : nnp+ fw+ (comma time)+ ;
+//   : nnp+ fw+ comma (cdyear|cdyearRange)+ ;
+// need to add and rather than cc
+
+
+
 acronymPhrase
-	:acronymPhraseStructure -> ^(AcronymPhrase acronymPhraseStructure)	;
+	:(parentheticalPhraseAcronym|acronymPhraseStructure) -> ^(AcronymPhrase parentheticalPhraseAcronym? acronymPhraseStructure?)	;
+//	:acronymPhraseStructure -> ^(AcronymPhrase acronymPhraseStructure)	;
 
 acronymPhraseStructure
-	: (advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+ ((cc|inAll) dtTHE? (advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+)? acronym;	
+	: (advAdj|properNoun|moleculeNoun|cdAlphanum|cd|nnstudy)+ ((cc|inAll) dtTHE? (advAdj|properNoun|moleculeNoun|cdAlphanum|cd|nnstudy)+)? acronym;	
+
+parentheticalPhraseAcronym
+	: (nnpacronym|apparatus|nnpmodel) parentheticalPhrase;
+//	: (nnpacronym|apparatus|nnpmodel) parentheticalPhrase {!ReferencePhrase} ;
+//	: (nnpacronym|apparatus|nnpmodel) parentheticalPhrase ->^(AcronymPhrase  nnpacronym? apparatus? nnpmodel? parentheticalPhrase);
+//	: (nnpacronym|apparatus|nnpmodel) parentheticalAcronymStructure ->^(AcronymPhrase  nnpacronym? apparatus? nnpmodel? parentheticalAcronymStructure);
+//parentheticalAcronymStructure
+//	: lrb (advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+ ((cc|inAll|comma)+(advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+)* rrb;	
+
+//campaign:	(campaignContent2|campaignContent)	->^(CAMPAIGN campaignContent2? campaignContent?);
+campaign:	(campaignContent|campaignContent2)	->^(CAMPAIGN campaignContent? campaignContent2?);
+
+//campaignContent
+//	: (parentheticalPhraseAcronym|nnp|nnps|acronym)+ nounStructure? adj? nncampaign 	;
+//	: (acronymPhrase|parentheticalPhraseAcronym|nnp|nnps|acronym)+ nounStructure? adj? nncampaign 	;
+campaignContent
+	: (acronymPhrase|nnp|nnps|nnpacp|nnpacronym|nnsacp) (time|cd|cdAlphanum|nnidentifier|nnpacp|nnacp|nn|nnp|adj|moleculeNoun)* nncampaign 	;
+
+campaignContent2
+	: acronymPhrase (time|cd|nnpacp|nnacp|nnp|adj|moleculeNoun)* nnstudy 	;
+//	: acronymPhrase (time|cd|nnacp|nn|nnp|adj)* nncampaign 	;
+//	: (parentheticalPhraseAcronym|nnp|nnps|acronym)+ nounStructure? adj? nncampaign 	;
+	
+//model:	(modelContent|modelContent2)	->^(MODEL modelContent? modelContent2?);
+model:	(modelContent1|modelContent2)	->^(MODEL modelContent1? modelContent2?);
+
+//modelContent
+//	: (parentheticalPhraseAcronym|nnp|nnps|acronym|nnpmodel)+ nounStructure? adj? nnmodel	;
+//	: (acronymPhrase|parentheticalPhraseAcronym|nnp|nnps|acronym|nnpmodel)+ nounStructure? adj? nnmodel	;
+//note just nnpmodel alone or with parenthetical phrase should also be maked as model - fine for post processing
+modelContent1
+//	: (nnpmodel|nnp) (parentheticalPhrase)? nnmodel 	;
+	: (acronymPhrase|nnp|nnps|nnpacp|nnpacronym|nnsacp|nnpmodel|parentheticalPhrase)+ (time|cd|cdAlphanum|nnidentifier|nnpacp|nnacp|nn|nnp|moleculeNoun|adj)* nnmodel 	;
+
+
+modelContent2
+	: nnpmodel parentheticalPhrase 	;
 
 nounphrase
 	:	nounphraseStructure ->  ^(NounPhrase  nounphraseStructure);	
@@ -94,26 +183,19 @@ nounphraseStructure
 otherStructure
 	:	(nn|nnp|nnacp|molecule|verb|dt|dtTHE|advAdj|comma|cc|lrb|rrb|inAll)+;
 	
-referencePhrase
-   : (bracketedReferencePhraseStructure|referencePhraseStructure) ->  ^(ReferencePhrase  bracketedReferencePhraseStructure? referencePhraseStructure?);
-bracketedReferencePhraseStructure
-   : lrb referencePhraseStructure rrb ;   
-referencePhraseStructure
-   : nnp+ fw+ (comma time)+ ;
-//   : nnp+ fw+ comma (cdyear|cdyearRange)+ ;
-// need to add and rather than cc
 conjunction 
 	:	 cc|comma;
 verbphrase
 	:	verbphraseStructure ->  ^(VerbPhrase  verbphraseStructure);
 verbphraseStructure :  dt? to? inAll? inafter? (md* rbconj? advAdj* verb+ md* advAdj* neg? )+ inoff? (cc? comma? prepphrase)*   ;
-verb : vbindicate|vbmeasure|vbacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange;
+verb : vbindicate|vbmeasure|vbacp|vbdacp|vbgacp|vbnacp|vbpacp|vbzacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange;
 
-number : cd|cdAlphanum|cddegrees;
+number : cd|cdAlphanum|cdref|cddegrees;
 //noun1 	:	(dtTHE|dt)? advAdj* to? (nounStructure|nncampaign|nnParts|nnmeter|cdaltitude)(dash nounStructure)*;
-noun1 	:	 advAdj* to? (nounStructure|nnplatform|nncampaign|nnphysical|nnaerosol|nnmodel|nnParts|nnmeter|nnarea|nnperarea|nnpartsperarea|nnpertimeunit|nntimeunit|nnunits|nnmoles|cdaltitude)(dash nounStructure)*;
-noun	:	(dtTHE|dt)? (model|campaign|acronymPhrase|noun1);
-nounStructure : (acronymPhrase|nn|nns|model|campaign|parentheticalPhraseAcronym|referencePhrase|expression|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase);
+noun1 	:	 advAdj* to? (nounStructure {!followedByetal(input)}?|nnplatform|nncampaign|nnphysical|nnaerosol|nnmodel|nnParts|nnmeter|nnarea|nnperarea|nnpartsperarea|nnpertimeunit|nntimeunit|nnunits|nnmoles|cdaltitude)(dash nounStructure)*;
+noun	:	(dtTHE|dt)? (campaign|model|noun1|referencePhrase);
+nounStructure : (nn|nns|acronymPhrase|parentheticalPhraseAcronym|nnstudy|mathEquation|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase);
+//nounStructure : (nn|nns|model|campaign|parentheticalPhraseAcronym|referencePhrase|expression|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase);
 acpNoun:location|nnpcountry;
 conditionNoun : nntime|nnatmosphere|nntemp;
 experimentNoun : nnflash|nngeneral|nnmethod|nnpressure|nncolumn|nnchromatography|nnvacuum|nncycle|nntimes|nnmixture|nnexample;
@@ -129,7 +211,7 @@ moleculeNoun
 	:	(molecule|nnchementity);
 range: number dash number;
 
-adj	:	(jj|jjr|jjs|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjcomp) (cc (jj|jjr|jjs|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjcomp))*;
+adj	:	(jj|jjr|jjs|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjracp|jjsacp|jjcomp) (cc (jj|jjr|jjs|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjracp|jjsacp|jjcomp))*;
 
 adv	:	(rb|rbr|rp|rbs|wrb);
 
@@ -145,25 +227,21 @@ apparatusContent
 prepphrase 
 	: 	neg? (prepphrasePressure|prepphraseAtmosphere|prepphraseTime|prepphraseLocation|prepphraseTemp|prepphraseIN|prepphraseRole|prepphraseOther)  ;
 
-expression 
-	:lrb expressionContent  rrb->^(EXPRESSION  lrb expressionContent  rrb)	;
+//expression 
+//	:lrb expressionContent  rrb->^(EXPRESSION  lrb expressionContent  rrb)	;
 
-expressionContent 
-	:nn sym cd prepphrase? verb* nnpdirection? prepphrase?;
+//expressionContent 
+//	:nn sym cd prepphrase? verb* nnpdirection? prepphrase?;
 
+mathEquationContentBrackets 
+	:lrb mathEquationContent rrb ;
+
+//now brackets will not be split off thisngs like A(b/c) - see Formatter.java. mathContent currently ,uch like any other nounPhrase - will have to treat like citations?
 mathEquationContent 
-	:cd* sym (cd|sym)+ ;
-mathEquation	:	mathEquationContent -> ^(EQUATION mathEquationContent);	
-campaign:	campaignContent	->^(CAMPAIGN campaignContent);
-
-campaignContent
-	: (acronymPhrase|parentheticalPhraseAcronym|nnp|nnps|acronym)+ nounStructure? adj? nncampaign 	;
-	
-model:	modelContent	->^(MODEL modelContent);
-
-modelContent
-	: ((acronymPhrase|parentheticalPhraseAcronym|nnp|nnps|acronym|nnpmodel)+ nounStructure? nnmodel)	;
-//note just nnpmodel alone or with parenthetical phrase should also be maked as model - fine for post processing
+	:(number|quantityNoun|nn|moleculeNoun)* (sym|tmunicode)+ (number|sym|tmunicode|quantityNoun|nn|moleculeNoun)+ (lrb (number|sym|tmunicode|quantityNoun|nn|moleculeNoun)+ rrb)* (number|sym|tmunicode|quantityNoun|nn|moleculeNoun)* nnpdirection?;
+//	:cd* sym (cd|sym)+ ;
+//mathEquation	:	mathEquationContent -> ^(EQUATION mathEquationContent);	
+mathEquation	:	(mathEquationContentBrackets|mathEquationContent) -> ^(EXPRESSION mathEquationContentBrackets? mathEquationContent?);	
 	
 advAdj	: (adv|adj)  ;	
 prepphraseOther
@@ -188,18 +266,12 @@ prepphraseAtmosphere
 prepphraseAtmosphereContent
 	:inunder  dt? advAdj* molecule nnatmosphere?	;
 
-//parentheticalPhraseAcronymModel
-//	: nnpmodel  parentheticalAcronymStructure ->^(AcronymPhrase  nnpmodel  parentheticalAcronymStructure);
-
-parentheticalPhraseAcronym
-	: (nnpacronym|apparatus) parentheticalAcronymStructure ->^(AcronymPhrase  nnpacronym? apparatus?  parentheticalAcronymStructure);
-parentheticalAcronymStructure
-	: lrb (advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+ ((cc|inAll|comma)+(advAdj|properNoun|moleculeNoun|cdAlphanum|cd)+)* rrb;	
-		
 prepphrasePressure 
 	: prepphrasePressureContent  ->  ^(PressurePhrase  prepphrasePressureContent ) ;
 prepphrasePressureContent
 	:inAll  dt? advAdj* cd nnpressure;
+
+		
 parentheticalPhrase
 : parentheticalPhraseBrackets|parentheticalPhraseComma|parentheticalPhraseEmpty;
 
@@ -213,7 +285,7 @@ parentheticalPhraseEmpty
 	: lrb rrb ->^(ParentheticalPhraseEmpty lrb rrb);
 
 parentheticalContent
-	:  dtTHE? colon? (advAdj|nounStructure|verb|inAll)  conjunction? stop?;			
+	:  dtTHE? colon? (advAdj|verb|inAll|nounStructure {!followedByetal(input)}?)+  conjunction? stop?;			
 
 inAll	: in|inafter|inas|inbefore|inby|infor|infrom|inin|ininto|inof|inoff|inon|inover|inunder|invia|inwith|inwithout|to|inbetween|innear|inabove|inaround|inat;
 prepphraseTemp:  prepphraseTempContent ->  ^(TempPhrase   prepphraseTempContent);
@@ -236,7 +308,7 @@ concentrationMeasurement
 percent	: cd nnpercent ( dash cd nnpercent)? -> ^(PERCENT   cd nnpercent dash? cd? nnpercent?);
 volume	: cd+ nnvol -> ^(VOLUME   cd+ nnvol );
 molar	: cd* nnmolar -> ^(MOLAR   cd* nnmolar );
-
+// shoudl all of teh following be cd plusminus cd?
 perSecond
 	: cd* nnpersecond -> ^(PERSECOND cd* nnpersecond);
 
@@ -387,6 +459,8 @@ nnsacp
 
 nncampaign
 	: 'NN-CAMPAIGN' TOKEN -> ^('NN-CAMPAIGN' TOKEN)	;	
+nnstudy
+	: 'NN-STUDY' TOKEN -> ^('NN-STUDY' TOKEN)	;	
 nnpacronym
 	: 'NNP-ACRONYM' TOKEN -> ^('NNP-ACRONYM' TOKEN)	;
 nnpsatellite
@@ -421,10 +495,14 @@ jjcountry
 	: 'JJ-COUNTRY' TOKEN -> ^('JJ-COUNTRY' TOKEN)	;
 
 jjacp	:'JJ-ACP' TOKEN -> ^('JJ-ACP' TOKEN);
+jjracp	:'JJR-ACP' TOKEN -> ^('JJR-ACP' TOKEN);
+jjsacp	:'JJS-ACP' TOKEN -> ^('JJS-ACP' TOKEN);
 
 cddegrees
 	: 'CD-DEGREES' TOKEN -> ^('CD-DEGREES' TOKEN)	;
 
+cdref
+	: 'CD-REF' TOKEN -> ^('CD-REF' TOKEN)	;
 cdyear
 	: 'CD-YEAR' TOKEN -> ^('CD-YEAR' TOKEN)	;
 cdyearRange
@@ -450,8 +528,12 @@ vbinvestigate
 vbindicate
 	: 'VB-INDICATE' TOKEN -> ^('VB-INDICATE' TOKEN)	;
 	
-vbacp
-	: 'VB-ACP' TOKEN -> ^('VB-ACP' TOKEN)	;
+vbacp: 'VB-ACP' TOKEN -> ^('VB-ACP' TOKEN)	;
+vbdacp: 'VBD-ACP' TOKEN -> ^('VBD-ACP' TOKEN)	;
+vbgacp: 'VBG-ACP' TOKEN -> ^('VBG-ACP' TOKEN)	;
+vbnacp: 'VBN-ACP' TOKEN -> ^('VBN-ACP' TOKEN)	;
+vbpacp: 'VBP-ACP' TOKEN -> ^('VBP-ACP' TOKEN)	;
+vbzacp: 'VBZ-ACP' TOKEN -> ^('VBZ-ACP' TOKEN)	;
 
 		
 		

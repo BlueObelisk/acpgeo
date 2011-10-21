@@ -68,7 +68,7 @@ public class RecogniseLocationsTest {
 
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testRecogniseLocation2() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
@@ -118,7 +118,7 @@ public class RecogniseLocationsTest {
 	@Test
 	public void testSeasonandContinent() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "a field campaign was performed in Spring in Europe";
+		String sentence = "a field campaign was performed in spring in Europe";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);

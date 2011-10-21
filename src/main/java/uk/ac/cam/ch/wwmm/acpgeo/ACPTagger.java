@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+//import uk.ac.cam.ch.wwmm.acpgeo.ChemistryPOSTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.ChemistryPOSTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.OpenNLPTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.OscarTagger;
@@ -48,7 +49,7 @@ public class ACPTagger {
 	}
 
 	public POSContainer runTaggers(String inputSentence) {
-
+		
 		POSContainer posContainer = posTagger.runTaggers(inputSentence,false,false);
 		List<Token> tokenlist = posContainer.getWordTokenList();
 		int count = 0;
@@ -59,10 +60,18 @@ public class ACPTagger {
 				if (currentTag.contains("-") && !currentTag.startsWith("-")) {
 					currentTag = currentTag.split("-")[0];
 				}
-				if (!(currentTag.contains("NN") ||currentTag.contains("VB")||currentTag.contains("JJ"))) currentTag = "NN";
+				if (!(currentTag.contains("NN") || currentTag.contains("VB")||currentTag.contains("JJ"))) currentTag = "NN";
+
+//				if (!(currentTag.contains("NN") && !(currentTag.contains("VB")) && !(currentTag.contains("JJ")))) currentTag = "NN";
+//				if (!(currentTag.contains("NN|VB|JJ"))) currentTag = "NN";
 				posContainer.getCombinedTagsList().set(count,currentTag + "-ACP");
 			}
-			
+//			JJR-ACP
+//			JJS-ACP
+//			VBD-ACP
+//			VBN-ACP
+//			VBP-ACP
+//			VBZ-ACP
 
 			count++;
 		}

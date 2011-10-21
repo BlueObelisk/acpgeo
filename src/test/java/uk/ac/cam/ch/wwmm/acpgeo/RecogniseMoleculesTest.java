@@ -14,7 +14,7 @@ public class RecogniseMoleculesTest {
 	@Test
 	public void testMultiMolecules() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "The simulated fields of ozone carbon monoxide, nitrogen oxides and sulfur dioxide are compared with aircraft and surface station measurements";
+		String sentence = "The simulated fields of ozone, carbon monoxide, nitrogen oxides and sulfur dioxide are compared with aircraft and surface station measurements";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);

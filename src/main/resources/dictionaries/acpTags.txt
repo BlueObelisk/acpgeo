@@ -21,7 +21,8 @@ NN-MODEL---^((box)?model(s)?|Mechanism)$---Model - could be preceded by NNP-Mode
 NN-AEROSOL---^(CCN|CN|IN|PM\d+\.\d*|SOA|aerosol|particle)$---
 NN-PHYSICAL---^(temperature|pressure|humidity|velocity)$---
 #NN-MEASUREMENT---measurement(s)?$---Measurement;
-NN-CAMPAIGN---^((EU-)?(p|P)re)?((C|c)ampaign|(EU-)?(p|P)roject|(EU-)?(p|P)rogram(me)?|Study)$---Campaigns
+NN-CAMPAIGN---^((EU-)?(p|P)re)?((C|c)ampaign|(EU-)?(p|P)roject|(EU-)?(p|P)rogram(me)?)$---Campaigns;
+NN-STUDY---^(experiment|[Ss]tudy)$---Campaigns;
 NN-ACP---^(W|w)aters|box$---;
 NNP---^(II|del|Cape|de|Ny|St\.|bei|La|Le|lac|San|san|sur|Monte|Mt\.?)$---proper nouns that precede stations;
 #
@@ -45,7 +46,7 @@ NN-TIMEUNIT---^\d{0,3}(\-)?(s)$--- Time units
 NN-MASS---^\d*(\-)?((T|k|m|n|p|\u00B5|\u03BC)?g|k?t(on)?(ne)?)$---Mass
 NN-PERMASS---^\d*((T|k|m|n|p|\u00B5|\u03BC)?g|k?t(on)?(ne)?)(\-)1$---PerMass
 NN-PERTIMEUNIT---^\d*(Yr|yr|y|Y|a|min|Hr|hr|H|h|d|day)(\-)1$--- Time units
-NN-UNITS---^\d*(DU|Mm(\-)1|W/m2)$---any unit not above
+NN-UNITS---^\d*(DU|Mm(\-)1|W\/m2)$---any unit not above
 #
 OSCAR-CM---^(\d+(H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg|[R|r]adon))+$---Oscar tokens that sometimes go wrong;
 OSCAR-CM---^((H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg)+\d+)+(H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg)*\d*$---Oscar tokens that sometimes go wrong;
@@ -56,7 +57,7 @@ OSCAR-CM---^(N2O|DMS|DMSO|MSA|([Mm]|[Pp])?PAN|D2O|HDO|DHO|DO|DO2|SAT|SAD|NAT|NAD
 OSCAR-CM---^((O|o|B|b)?VOC|NMHC|(H)?CFC|PCB|POP|[Hh]alon)(s)?$---List of common ACP chemical groups - not really correct assignment but good enough for present some will be caught by regex above
 NNP-ACRONYM---^([A-Z][A-Z]+(\-|\\|\/)?[A-Z]+[0-9]*(s)?[0-9]*)$---Acronyms
 NNP-ACRONYM---^(1|2|3|4)D----Acronyms
-#NNP-ACRONYM---^(RHamble|RH|dp|Ev(\-)K2(\-)CNR|AR5|TdF|MOHp|CLaMS|GF|AOT(\-)?(\()?\d*(\))?|LBA(\-)CLAIRE(\-)2001|Po|HWM(\-)93|TM5|T1|T2|IMF|ABS|ERA(\-)?40)$--_ACP type acronyms
+NNP-ACRONYM---^(RHamble|RH|dp|Ev(\-)K2(\-)CNR|AR5|TdF|MOHp|CLaMS|GF|AOT(\-)?(\()?\d*(\))?|LBA(\-)CLAIRE(\-)2001|Po|HWM(\-)93|TM5|T1|T2|IMF|ABS|ERA(\-)?40)$--_ACP type acronyms
 WP---^(T|t)hose$--- those;
 #CD
 NN-TIME---((\d+:\d\d)(\-\d+:\d\d)?|afternoon|morning|night|evening|UTC|GMT)---time;
@@ -66,13 +67,14 @@ CD-DEGREES---((~)?(\d|\-)?\d+\.?\d*(\u2103|\u2109|\u00B0|\u00BA|\u2218|'))---Deg
 NN-METER---^\d*(\-)?(k|c|m|n|\u00B5|\u03BC)?m$---Meters;
 NN-PERMETER---^(k|c|m|n||\u00B5|\u03BC)?m(\-)1$---Meters;
 CD-ALTITUDE---(^~?(\d|-)?\d+\.?\d*m)?\(?((A|a)\.?(S|s|G|g)\.?(L|l)\.?)|(alt.)\)?$---Altitude Metres (Above Sea/Ground Level);
-SYM---^(\u002B|\u2715|\*|\u00B1|x|\u2030)$---Plus and minus signs - put any html symbol in here?;
+#SYMPM---^(\u00B1)$---Plus and minus signs - put any html symbol in here?;
+#SYMEQ---^(=|<|>)$---Plus and minus signs - put any html symbol in here?;
+SYM---^(\u002B|\u2715|\*|x|\u00B1|\u2030|÷)$---Plus and minus signs - put any html symbol in here?;
 #if a.s.l. is optional is there then a problem - m is usually taken as molar not metres?
 #To include observations at higher levels could require feet (ft) or pressure height but unlikely 
-#CD-YEAR---^(1|2)(0|9)\d\d$---Valid Year;
-#CD-YEAR-RANGE---^(1|2)(0|9)\d\d\-(1|2)(0|9)\d\d$---Valid Year;
 CD-YEAR-RANGE---^((19\d\d)|(20\d\d))(\-|\/)((19\d\d)|(20\d\d))|((19\d\ds)|(20\d\ds))$---Valid Year;
 CD-YEAR---^((19)\d\d)|((20)\d\d)$---Valid Year;
+CD-REF---^(19\d\d[a-z])|(20\d\d[a-z])$---Valid Year for reference e.g. 2000a;
 JJ---^(t|T)hat$---demonstrative adjective;
 JJ-ACP---^(M|m)arine$---demonstrative adjective;
 NN-ACP---^Ni(\u00F1)o$---AtmosChemMetGlossary with special characters;
