@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
-import uk.ac.cam.ch.wwmm.chemicaltagger.Formatter;
 
 public class ACPTaggerTest {
 
@@ -21,7 +20,6 @@ public class ACPTaggerTest {
 		String expected = Utils
 				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/ref1.txt");
 		sentence = Utils.cleanHTMLText(sentence);
-		sentence = Formatter.normaliseText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals("Correct Markup", expected,
 				posContainer.getTokenTagTupleAsString());
@@ -59,7 +57,6 @@ public class ACPTaggerTest {
 	}
 
 	@Test
-//	@Ignore
 	public void testSentence3() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils
@@ -67,7 +64,6 @@ public class ACPTaggerTest {
 		String expected = Utils
 				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/ref3.txt");
 		sentence = Utils.cleanHTMLText(sentence);
-		sentence = Formatter.normaliseText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals("Correct Markup", expected,
 				posContainer.getTokenTagTupleAsString());
@@ -81,7 +77,6 @@ public class ACPTaggerTest {
 	}
 
 	@Test
-//	@Ignore
 	public void testSentence4() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = Utils
@@ -89,7 +84,6 @@ public class ACPTaggerTest {
 		String expected = Utils
 				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/ref4.txt");
 		sentence = Utils.cleanHTMLText(sentence);
-		sentence = Formatter.normaliseText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals("Correct Markup", expected,
 				posContainer.getTokenTagTupleAsString());
@@ -114,7 +108,6 @@ public class ACPTaggerTest {
 		String expected = Utils
 				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/ref5.txt");
 		sentence = Utils.cleanHTMLText(sentence);
-		sentence = Formatter.normaliseText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals("Correct Markup", expected,
 				posContainer.getTokenTagTupleAsString());

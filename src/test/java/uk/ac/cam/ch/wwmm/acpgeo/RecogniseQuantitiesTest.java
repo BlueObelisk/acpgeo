@@ -3,17 +3,12 @@ package uk.ac.cam.ch.wwmm.acpgeo;
 import junit.framework.Assert;
 import nu.xom.Document;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
-import uk.ac.cam.ch.wwmm.chemicaltagger.Formatter;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 
 public class RecogniseQuantitiesTest {
-
-	
-		
 	
 	@Test
 	public void testQuantities1(){
@@ -50,7 +45,6 @@ public class RecogniseQuantitiesTest {
 		String sentence = "15 ppb h-1";
 		sentence = "0.5 nmol m-2 hr-1";
 		sentence = Utils.cleanHTMLText(sentence);
-		sentence = Formatter.normaliseText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
         ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
@@ -66,7 +60,6 @@ public class RecogniseQuantitiesTest {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "We measured a flux of 24 ppb/hr";
 		sentence = Utils.cleanHTMLText(sentence);
-		sentence = Formatter.normaliseText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
         ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
@@ -77,5 +70,5 @@ public class RecogniseQuantitiesTest {
 		Assert.assertEquals("Found only 1 quantity",doc.query("//QUANTITY").size(),1);
 
 	}
-	
-	}
+
+}

@@ -5,7 +5,6 @@ import nu.xom.Document;
 
 import org.junit.Test;
 
-import uk.ac.cam.ch.wwmm.chemicaltagger.Formatter;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 
@@ -30,7 +29,6 @@ public class RecogniseMoleculesTest {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "HCOOH and HNO3 are compounds. We studied molecules CH4 and N2O. Our results show they are definitely molecules.";
 		sentence = Utils.cleanHTMLText(sentence);
-		sentence = Formatter.normaliseText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals(
 				"OSCAR-CM HCOOH CC and OSCAR-CM HNO3 VBP are NN-CHEMENTITY compounds STOP . PRP We VBD studied NN-MOLES molecules OSCAR-CM CH4 CC and OSCAR-CM N2O STOP . PRP$ Our NNS results VBP show PRP they VBP are RB definitely NN-MOLES molecules STOP .",
@@ -47,7 +45,6 @@ public class RecogniseMoleculesTest {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "The results show that oxygenated VOCs such as ethanal and methanol are very significant sources of formaldehyde in the air masses reaching Mace Head .";
 		sentence = Utils.cleanHTMLText(sentence);
-		sentence = Formatter.normaliseText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();

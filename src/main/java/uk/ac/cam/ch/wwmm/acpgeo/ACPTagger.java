@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-//import uk.ac.cam.ch.wwmm.acpgeo.ChemistryPOSTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.ChemistryPOSTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.OpenNLPTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.OscarTagger;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Tagger;
-import uk.ac.cam.ch.wwmm.chemicaltagger.WhiteSpaceTokeniser;
 import uk.ac.cam.ch.wwmm.oscar.Oscar;
 import uk.ac.cam.ch.wwmm.oscar.document.Token;
 
@@ -40,7 +38,7 @@ public class ACPTagger {
 		acpTaggerList.add(acpRegexTagger);
 		acpTaggerList.add(new OscarTagger(new Oscar()));
 		acpTaggerList.add(OpenNLPTagger.getInstance());
-		posTagger = new ChemistryPOSTagger(new WhiteSpaceTokeniser(),acpTaggerList);
+		posTagger = new ChemistryPOSTagger(new ACPTokeniser(), acpTaggerList);
 		
 	}
 
@@ -50,7 +48,7 @@ public class ACPTagger {
 
 	public POSContainer runTaggers(String inputSentence) {
 		
-		POSContainer posContainer = posTagger.runTaggers(inputSentence,false,false);
+		POSContainer posContainer = posTagger.runTaggers(inputSentence, false);
 		List<Token> tokenlist = posContainer.getWordTokenList();
 		int count = 0;
 		for (Token token : tokenlist) {

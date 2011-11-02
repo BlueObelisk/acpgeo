@@ -9,10 +9,6 @@ import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 
 public class RecogniseConcentrationsTest {
 
-	
-
-
-
 	@Test
 	public void testRecogniseConcentrations1() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
