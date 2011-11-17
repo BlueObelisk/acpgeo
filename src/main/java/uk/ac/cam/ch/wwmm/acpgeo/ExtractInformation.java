@@ -41,8 +41,17 @@ public class ExtractInformation {
 	public void runQueries(File[] files) {
 		
 
+		
 		getQuery(files, "//CAMPAIGN", "CAMPAIGN.csv");
-//		getQuery(files, "//CD[.=3580]", "test.csv");
+		getQuery(files, "//UnmatchedPhrase", "UnmatchedPhrase.csv");
+		getQuery(files, "//PALAEOTIME", "PALAEOTIME.csv");
+		getQuery(files, "//NN-TEMP", "NN-TEMP.csv");
+		getQuery(files, "//TempPhrase", "TempPhrase.csv");
+		getQuery(files, "//VB-HEAT", "VB-Heat.csv");
+		getQuery(files, "//VB-INCREASE", "VB-Increase.csv");
+		getQuery(files, "//NNP-TIMEPERIOD", "NNP-TIMEPERIOD.csv");
+		getQuery(files, "//VB-COOL", "VB-COOL.csv");
+		getQuery(files, "//Document[contains(.,'cal')]", "cal.csv");
 		getQuery(files, "//RATIO", "RATIO.csv");
 		getQuery(files, "//APPARATUS", "APPARATUS.csv");
 		getQuery(files, "//NN-IDENTIFIER", "IDENTIFIER.csv");
@@ -103,7 +112,7 @@ public class ExtractInformation {
 				files,
 				"//ActionPhrase[@type='Observation'][descendant-or-self::MOLECULE]",
 				"ACTIONPHRASEobservationMOLECULE.csv");
-		// É paperId, affiliation, publication year,campaignName,campaignLocation, campaignYear, molecules
+		// ï¿½ paperId, affiliation, publication year,campaignName,campaignLocation, campaignYear, molecules
 		String fileName = "MappingDataAll.csv";
 		FileWriter filewriter = null;
 		if (!new File(outputFolder).exists())

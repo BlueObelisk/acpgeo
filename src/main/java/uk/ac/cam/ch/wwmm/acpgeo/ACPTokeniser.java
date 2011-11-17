@@ -23,7 +23,7 @@ import uk.ac.cam.ch.wwmm.oscar.document.Token;
  *
  * *****************************************/
 public class ACPTokeniser implements ChemicalTaggerTokeniser {
-	private static Pattern SPLIT_CHARACTER_PATTERN = Pattern.compile("[;<>\u00d7]");
+	private static Pattern SPLIT_CHARACTER_PATTERN = Pattern.compile("[;<>]");
 	private static Pattern PRESERVE_RATIO_WITHIN_BRACKETS_PATTERN = Pattern.compile("[^/]+[(][^/]+[/]\\S+[)]|[(][^/]+[/]\\S+[)][^/]+");
 	private static Pattern PRESERVE_HYDROCARBON_PATTERN = Pattern.compile("[^=]*[CNHOP]+[0-9]*=[CNOP].*");
 	private static Set<String> ABV_LIST = new HashSet<String>(Arrays.asList("et.", "al.", "etc.", "e.g.", "i.e.", "vol.", "ca.", "wt.", "aq.", "mt.", "e.g.:", "eq.", "equiv.", "mp.", "m.p.", "conc.", "approx.", "anh.", "sat.", "lit.", "dil.","sol.","liq."));

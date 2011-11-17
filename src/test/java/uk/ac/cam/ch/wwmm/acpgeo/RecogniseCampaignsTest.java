@@ -101,7 +101,7 @@ public class RecogniseCampaignsTest {
 		String sentence = "We used the WRF-Chem (Weather Research and Forecasting with Chemistry) model and MOZART (Model for Ozone and Related chemical Tracers) were able to approximate the observed MCMA daytime patterns and absolute values of the VOC OH reactivity.";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-        Assert.assertEquals("PRP We VBD used DT-THE the NNP WRF-Chem -LRB- ( NNP-ACP Weather NNP Research CC and NNP Forecasting IN-WITH with NNP Chemistry -RRB- ) NN-MODEL model CC and NNP-MODEL MOZART -LRB- ( NNP Model IN-FOR for OSCAR-CM Ozone CC and JJ Related NN chemical NNPS Tracers -RRB- ) VBD were JJ able TO to NN approximate DT-THE the JJ observed NNP-ACRONYM MCMA JJ daytime NNS patterns CC and JJ absolute NNS values IN-OF of DT-THE the OSCAR-CM VOC OSCAR-CM OH NN reactivity STOP ." , posContainer.getTokenTagTupleAsString());
+        Assert.assertEquals("PRP We VBD used DT-THE the NNP WRF-Chem -LRB- ( NNP-ACP Weather NNP Research CC and NNP Forecasting IN-WITH with NNP Chemistry -RRB- ) NN-MODEL model CC and NNP-MODEL MOZART -LRB- ( NN-MODEL Model IN-FOR for OSCAR-CM Ozone CC and JJ Related NN chemical NNPS Tracers -RRB- ) VBD were JJ able TO to NN approximate DT-THE the JJ observed NNP-ACRONYM MCMA JJ daytime NNS patterns CC and JJ absolute NNS values IN-OF of DT-THE the OSCAR-CM VOC OSCAR-CM OH NN reactivity STOP ." , posContainer.getTokenTagTupleAsString());
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Document doc = sentenceParser.makeXMLDocument();

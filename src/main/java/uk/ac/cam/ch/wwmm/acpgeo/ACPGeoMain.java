@@ -83,8 +83,10 @@ public class ACPGeoMain {
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
+					
 					Element rootElement = new Element("ACPABSTRACT");
 					acpAbstract = new Document(rootElement);
+					
 					AbstractReader abReader = new AbstractReader(xmlInputStream);
 					System.out.println(abReader.getAbstractString());
                     try{
@@ -111,6 +113,7 @@ public class ACPGeoMain {
         						+ " skipping");
                     	e.printStackTrace();
                     }
+                    
 				}
 			}
 		}
