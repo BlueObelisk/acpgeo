@@ -53,7 +53,7 @@ public class RecogniseEquationsAndCDTest {
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals("n > 1", Utils.tokensToSpaceDelimitedStr(posContainer.getWordTokenList()));
-		Assert.assertEquals("NN n SYMEQ > CD 1",
+		Assert.assertEquals("CD-ALPHANUM n SYMEQ > CD 1",
 				posContainer.getTokenTagTupleAsString());
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 
@@ -68,7 +68,7 @@ public class RecogniseEquationsAndCDTest {
 	@Test
 	public void recogniseSimpleEquations() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "10 = 5 + 5, 10 = 5\u2715 5, a = Bc, a=bc, a=b \u00d7 10 and k=Aexp(-100/RT) are all equations, (56/123) is a ratio. b=33(26/71) is not a ratio. (ethyl)benzene, (ethyl)benzene and (1-2diethyl)benzene arechemicals. The period 1999/2000 was useful for me. I can write soem sill tests like 12=6+6 or 12=2(24/8)";
+		String sentence = "10 = 5 + 5, 10 = 5 \u2715 5, 3a ( k + 2b ) = r(4+3), (20 = 10 + 10), (2 + 8), r = Bc, k=bc, g=b \u00d7 10 and k=Aexp(-100/RT) are all equations, (56/123) is a ratio. b=33(26/71) is not a ratio. (ethyl)benzene, (ethyl)benzene and (1-2diethyl)benzene arechemicals. The period 1999/2000 was useful for me. I can write soem sill tests like 12=6+6 or 12=2(24/8)";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
@@ -98,6 +98,21 @@ public class RecogniseEquationsAndCDTest {
 	public void recogniseNumbersInBrackets1() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "2(30/63), (2a/b) and (2+a)/(3+c)  ";
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc, "target/NumberInBrackets.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+
+	}
+	
+	@Test
+	public void recogniseformaul() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "The following are silly: heli3, XY and the formula ABC1. Also vi, vii and ix are labels but the formula vi is aslo possible, as is he2 but this is not true for teh new formula . The value of 30 d, given at 298 K is 3.3. ";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
@@ -143,12 +158,13 @@ public class RecogniseEquationsAndCDTest {
 	@Test
 	public void testEquationPowerCD() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "3x10^9 or 3\u00d710^9 or 3 \u00d7 10 ^ 9.";
+//		String sentence = "3x10^9 or 3\u00d710^9 or 3 \u00d7 10 ^ 9.";
+		String sentence = "3x10^9 or 3×10^9 or 3 × 10 ^ 9.";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-//		Assert.assertEquals("3x10^9", Utils.tokensToSpaceDelimitedStr(posContainer.getWordTokenList()));
-//		Assert.assertEquals("CD 3x10^9",
-//				posContainer.getTokenTagTupleAsString());
+		Assert.assertEquals(
+				"CD 3x10^9 CC or CD 3×10^9 CC or CD 3 SYM × CD 10 NN ^ CD 9 STOP .",
+				posContainer.getTokenTagTupleAsString());
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Document doc = sentenceParser.makeXMLDocument();
@@ -173,5 +189,27 @@ public class RecogniseEquationsAndCDTest {
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
 	}
+	
+	
+	@Test
+	public void resolution1() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+//		String sentence = "A grid with a horizontal resolution of 2.5\u00B0 \u00d7 2.5\u00B0 was used and 17 levels were used in the vertical.";
+		String sentence = "A grid with a horizontal resolution of 2.5° × 2.5° was used and 17 levels were used in the vertical.";
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		Assert.assertEquals(
+							"DT A NN grid IN-WITH with DT a JJ-HORIZONTAL horizontal NN-RESOLUTION resolution IN-OF of CD-DEGREES 2.5° SYM × CD-DEGREES 2.5° VBD was VBN used CC and CD 17 NNS-LEVELS levels VBD were VBN used IN-IN in DT-THE the JJ-VERTICAL vertical STOP .",
+				posContainer.getTokenTagTupleAsString());
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc, "target/resolution1.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+	}
+	
+	
 
+	
 }

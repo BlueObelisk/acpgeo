@@ -63,11 +63,12 @@ public class ACPTagger {
 					currentTag = currentTag.split("-")[0];
 				}
 				if (!(currentTag.contains("NN") || currentTag.contains("VB")||currentTag.contains("JJ"))) currentTag = "NN";
+				if (currentTag.contains("NNPS")) currentTag = "NNP";
 //				if (!(currentTag.contains("NN|VB|JJ"))) currentTag = "NN";
 				posContainer.getCombinedTagsList().set(count,currentTag + "-ACP");
 			}
 //			JJR-ACP
-//			JJS-ACP
+//			JJS-ACP 
 //			VBD-ACP
 //			VBN-ACP
 //			VBP-ACP

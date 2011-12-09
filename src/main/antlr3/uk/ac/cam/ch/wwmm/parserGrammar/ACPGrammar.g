@@ -31,6 +31,9 @@ OSCARCM;
 MOLECULE;
 QUANTITY;
 MATHEXPRESSION;
+MATHEQUATION;
+HorizontalResolution;
+VerticalResolution;
 METER;
 APPARATUS;
 YEARS;
@@ -94,7 +97,22 @@ public boolean followedByetal(TokenStream stream){
 			}
    return false;
 }
+
+public boolean followedBySym(TokenStream stream){
+        String firstAheadTokenTypeStr = stream.LT(1).getText();
+               if ("SYM".equals(firstAheadTokenTypeStr) || "SYMEXP".equals(firstAheadTokenTypeStr)){
+                     return true;
+              }
+        String scndAheadTokenTypeStr = stream.LT(3).getText();
+               if ("SYM".equals(scndAheadTokenTypeStr) || "SYMEXP".equals(scndAheadTokenTypeStr)){
+                     return true;
+               }
+   return false;
 }
+
+}
+
+
 
 WS :  (' ')+ {skip();};
 TOKEN : (~' ')+;
@@ -139,7 +157,7 @@ acronymPhraseStructure
 	: (advAdj|properNoun|moleculeNoun|cdAlphanum|cd|nnstudy)+ ((cc|inAll) dtTHE? (advAdj|properNoun|moleculeNoun|cdAlphanum|cd|nnstudy)+)? acronym;	
 
 parentheticalPhraseAcronym
-	: (nnpacronym|apparatus|nnpmodel) parentheticalPhrase;
+	: (nnpacronym|apparatus|nnpmodel|properNoun+) parentheticalPhrase;
 //	: (nnpacronym|apparatus|nnpmodel) parentheticalPhrase {!ReferencePhrase} ;
 //	: (nnpacronym|apparatus|nnpmodel) parentheticalPhrase ->^(AcronymPhrase  nnpacronym? apparatus? nnpmodel? parentheticalPhrase);
 //	: (nnpacronym|apparatus|nnpmodel) parentheticalAcronymStructure ->^(AcronymPhrase  nnpacronym? apparatus? nnpmodel? parentheticalAcronymStructure);
@@ -180,7 +198,7 @@ nounphrase
 	
 
 nounphraseStructure
-	:	dtTHE? dt?    noun+   (conjunction*  noun)*   ((prepphraseOf| prepphraseIN|prepphraseAtmosphere|prepphraseTemp|prepphraseTime|prepphraseLocation) )*  ;
+	:	dtTHE? dt?    noun+   (conjunction*  noun)*   ((prepphraseOf|prepphraseIN|prepphraseAtmosphere|prepphraseTemp|prepphraseTime|prepphraseLocation) )*  ;
 otherStructure
 	:	(nn|nnp|nnacp|molecule|verb|dt|dtTHE|advAdj|comma|cc|lrb|rrb|inAll)+;
 	
@@ -192,26 +210,27 @@ verbphraseStructure :  dt? to? inAll? inafter? (md* rbconj? advAdj* verb+ md* ad
 verb : vbindicate|vbmeasure|vbacp|vbdacp|vbgacp|vbnacp|vbpacp|vbzacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange;
 
 number : cd|cdAlphanum|cdref|cddegrees|cdunicode;
-noun1 	:	 advAdj* to? (nounStructure {!followedByetal(input)}?|nnplatform|nncampaign|nnphysical|nnaerosol|nnmodel|nnParts|nnmeter|nnarea|nnperarea|nnpartsperarea|nnpertimeunit|nntimeunit|nnunits|nnmoles|cdaltitude)(dash nounStructure)*;
-noun	:	(dtTHE|dt)? (campaign|model|noun1|referencePhrase);
-nounStructure : (nn|nns|acronymPhrase|parentheticalPhraseAcronym|nnstudy|mathEquation|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|symeq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase);
-//nounStructure : (nn|nns|acronymPhrase|parentheticalPhraseAcronym|nnstudy|mathEquation|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|nneq|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|parentheticalPhrase);
+//noun1 	:	 advAdj* to? (nounStructure {!followedByetal(input) && !followedBySym(input)}?|nnplatform|nncampaign|nnphysical|nnaerosol|nnmodel|nnParts|nnmeter|nnarea|nnperarea|nnpartsperarea|nnpertimeunit|nntimeunit|nnunits|nnmoles|cdaltitude)(dash nounStructure)*;
+noun1 	:	 advAdj* to? (nounStructure {!followedByetal(input)}?|symeq|nnplatform|nncampaign|nnphysical|nnaerosol|nnmodel|nnParts|nnmeter|nnarea|nnperarea|nnpartsperarea|nnpertimeunit|nntimeunit|nnunits|nnmoles|cdaltitude)(dash nounStructure)*;
+noun	:	(dtTHE|dt)? (campaign|model|referencePhrase|mathEquation|noun1);
+nounStructure : (nn|nns|acronymPhrase|acpNoun|mathExpression|range|fwSymbolNoun|nnstudy|time|moleculeNoun|quantityNoun|properNoun|prpNoun|number|conditionNoun|actionNoun|clauseNoun|atmosHorizontalResolution|atmosVerticalResolution|parentheticalPhrase);
+//nounStructure : (nn|nns|acronymPhrase|mathEquation|fwSymbolNoun|symeq|nnstudy|time|moleculeNoun|acpNoun|quantityNoun|properNoun|prpNoun|number|range|conditionNoun|experimentNoun|actionNoun|clauseNoun|atmosHorizontalResolution|atmosVerticalResolution|parentheticalPhrase);
 acpNoun:location|nnpcountry;
-conditionNoun : nntime|nnatmosphere|nntemp;
+conditionNoun : nntime|nnatmosphere|nntemp|nnresolution|nnslevels;
 experimentNoun : nnflash|nngeneral|nnmethod|nnpressure|nncolumn|nnchromatography|nnvacuum|nncycle|nntimes|nnmixture|nnexample;
 quantityNoun:amount|quantity|measurements|nnvol|nnamount|unit|nnpalaeotimequalifier|timePeriod;
 actionNoun : nnyield|nnstate|nnadd|nnextract|nnfilter|nnprecipitate|nnremove|nnsynthesize|nndry|nnconcentrate|nnpurify;
 fwSymbolNoun : fw|sym|tmunicode|symexp;
 clauseNoun:wdt|wp_poss|wrb|ex|pdt|wp;
 
-properNoun
-	:	(nnps|apparatus|nnpmodel|nnpstation|nnpacronym|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp|nnidentifier|nnmethod);
+properNoun	:	(nnps|apparatus|nnpstation|nnpacronym|nnpmodel|nnstation|nnpmonth|nnacp|nnpacp|nnmeasurement|nnptechnique|nnpdirection|nnp|fwSymbolNoun|nnsacp|nnidentifier|experimentNoun);
 prpNoun :	prp|prp_poss;
 moleculeNoun
 	:	(molecule|nnchementity);
 range: number dash number;
+//does above cause problems with equations?
 
-adj	:	(jj|jjr|jjs|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjracp|jjsacp|jjcomp) (cc (jj|jjr|jjs|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjracp|jjsacp|jjcomp))*;
+adj	:	(jj|jjr|jjs|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjracp|jjsacp|jjcomp|jjvertical|jjhorizontal) (cc (jj|jjr|jjs|oscarcj|jjchem|oscarrn|jjcountry|jjacp|jjracp|jjsacp|jjcomp|jjvertical|jjhorizontal))*;
 
 adv	:	(rb|rbr|rp|rbs|wrb);
 
@@ -233,16 +252,45 @@ prepphrase
 //expressionContent 
 //	:nn sym cd prepphrase? verb* nnpdirection? prepphrase?;
 
+//mathExpress	:	(number|fw|quantityNoun|nn|oscarcm)* (sym|symexp|dash)+ (number|fwSymbolNoun|dash|quantityNoun|nn|oscarcm)* ;	
+mathExpress	:	(number|fw|quantityNoun|nn|oscarcm)* (sym|symexp)+ (number|fwSymbolNoun|quantityNoun|nn|oscarcm)* ;	
+//I think that this  will look for a number first so if K 3 + 6 M, will find 3 + 6 M .
+mathExpressBrackets	:	lrb mathExpress+ rrb ;	
+mathExpression	:	(mathExpressBrackets|mathExpress) -> ^(MATHEXPRESSION mathExpressBrackets? mathExpress?);	
 mathEquationContentBrackets 
 	:lrb mathEquationContent rrb ;
 
 //now brackets will not be split off thisngs like A(b/c) - see Formatter.java. mathContent currently ,uch like any other nounPhrase - will have to treat like citations?
-mathEquationContent 
-	:(number|fwSymbolNoun|quantityNoun|nn|moleculeNoun)* (symeq) (number|fwSymbolNoun|quantityNoun|nn|moleculeNoun)+ (lrb (number|fwSymbolNoun|quantityNoun|nn|moleculeNoun)+ rrb)* (number|fwSymbolNoun|quantityNoun|nn|moleculeNoun)* nnpdirection?;
+//mathEquationContent1
+//	:(mathExpression|number|nn|moleculeNoun) symeq mathExpression+ nnpdirection?;
+mathEquationContent
+	:(mathExpression|number|nn)+ symeq (mathExpression|number|nn)+ nnpdirection?;
+//	:(mathExpression|number|nn|oscarcm|quantityNoun)+ symeq (mathExpression|number|nn|oscarcm|quantityNoun)+ nnpdirection?;
+
+//I think that this will find a math Expression e.g. ( 2 + 3 ) but not 2 ( 2 + 3 ), as it will look for the expression first.
+	//:(number|fwSymbolNoun|quantityNoun|nn|moleculeNoun)+ (symeq) (number|fwSymbolNoun|quantityNoun|nn|moleculeNoun)+ (lrb (number|fwSymbolNoun|quantityNoun|nn|moleculeNoun)+ rrb)* (number|fwSymbolNoun|quantityNoun|nn|moleculeNoun)* nnpdirection?;
+// This will no longer catch things like > 10 deg N
+//mathExpression	:	number+ (sym|symexp)+ number+ ;	
+
 //	:(number|quantityNoun|nn|moleculeNoun)* (sym|tmunicode)+ (number|sym|tmunicode|quantityNoun|nn|moleculeNoun)+ (lrb (number|sym|tmunicode|quantityNoun|nn|moleculeNoun)+ rrb)* (number|sym|tmunicode|quantityNoun|nn|moleculeNoun)* nnpdirection?;
 //	:cd* sym (cd|sym)+ ;
 //mathEquation	:	mathEquationContent -> ^(EQUATION mathEquationContent);	
-mathEquation	:	(mathEquationContentBrackets|mathEquationContent) -> ^(MATHEXPRESSION mathEquationContentBrackets? mathEquationContent?);	
+//mathEquation	:	(mathEquationContentBrackets|mathEquationContent|mathExpressionBrackets|mathExpression) -> ^(MATHEXPRESSION mathEquationContentBrackets? mathEquationContent? mathExpressionBrackets? mathExpression?);	
+mathEquation	:	(mathEquationContentBrackets|mathEquationContent) -> ^(MATHEQUATION mathEquationContentBrackets? mathEquationContent? );	
+
+
+atmosHorizontalResolution : horizontalResolutionStructure -> ^(HorizontalResolution  horizontalResolutionStructure);
+
+horizontalResolutionStructure  : jjhorizontal nnresolution inof mathExpression;
+// above on works if given as axb could be a in lat bi in long etc.
+
+atmosVerticalResolution  : verticalResolutionStructure -> ^(VerticalResolution  verticalResolutionStructure);
+
+verticalResolutionStructure    : cd jjvertical? nnslevels inin? dt? jjvertical? ;
+//Need to note whether resoltion refers to ocean or atmosphere!!!1
+
+
+
 	
 advAdj	: (adv|adj)  ;	
 prepphraseOther
@@ -277,7 +325,10 @@ parentheticalPhrase
 : parentheticalPhraseBrackets|parentheticalPhraseComma|parentheticalPhraseEmpty;
 
 parentheticalPhraseComma
- : comma nounStructure  comma ->^(ParentheticalPhrase comma nounStructure comma);
+ : comma parentheticalContent1  comma ->^(ParentheticalPhrase comma parentheticalContent1 comma);
+
+parentheticalContent1
+	:  (nounStructure {!followedByetal(input)}?|noun1)+ ;			
  	
 parentheticalPhraseBrackets
 	: lrb parentheticalContent+  rrb ->^(ParentheticalPhrase lrb parentheticalContent+ rrb);
@@ -285,8 +336,8 @@ parentheticalPhraseBrackets
 parentheticalPhraseEmpty
 	: lrb rrb ->^(ParentheticalPhraseEmpty lrb rrb);
 
-parentheticalContent
-	:  dtTHE? colon? (advAdj|verb|inAll|nounStructure {!followedByetal(input)}?)+  conjunction? stop?;			
+parentheticalContent	:  dtTHE? colon? (advAdj|verb|inAll|nounStructure {!followedByetal(input) && !followedBySym(input)}?|noun1)+  conjunction? stop?;			
+//	:  dtTHE? colon? (advAdj|verb|inAll|nounStructure {!followedByetal(input)}?|noun1)+  conjunction? stop?;			
 
 inAll	: in|inafter|inas|inbefore|inby|infor|infrom|inin|ininto|inof|inoff|inon|inover|inunder|invia|inwith|inwithout|to|inbetween|innear|inabove|inaround|inat;
 prepphraseTemp:  prepphraseTempContent ->  ^(TempPhrase   prepphraseTempContent);
@@ -331,6 +382,7 @@ pertimeunit
 
 moles 	: cd nnmoles	->^(MOLES cd nnmoles);
 units
+//   : cd* nnunits mathEquation? nnmoles? perarea? -> ^(UNITS cd* nnunits mathEquation? nnmoles? perarea?);
    : cd* nnunits mathEquation? nnmoles? perarea? -> ^(UNITS cd* nnunits mathEquation? nnmoles? perarea?);
 
 measurements
@@ -405,7 +457,8 @@ locationContent: (nnpcountry|nnpcontinent|locationContent1|locationContent2|loca
 locationContent1
 	:	cd? nnmeter cdaltitude;
 locationContent2
-	:	cddegrees apost? nnpdirection? cdaltitude?;
+	:	cddegrees apost? nnpdirection cdaltitude?;
+//change to force direction -see if this works! - ot avoid mix up with grid scales and possibly temperatures
 locationContent3
 	:	nnpdirection nnp;	
 	
@@ -553,6 +606,10 @@ vbnacp: 'VBN-ACP' TOKEN -> ^('VBN-ACP' TOKEN)	;
 vbpacp: 'VBP-ACP' TOKEN -> ^('VBP-ACP' TOKEN)	;
 vbzacp: 'VBZ-ACP' TOKEN -> ^('VBZ-ACP' TOKEN)	;
 
+jjhorizontal: 'JJ-HORIZONTAL' TOKEN -> ^('JJ-HORIZONTAL' TOKEN)   ;
+nnresolution: 'NN-RESOLUTION' TOKEN -> ^('NN-RESOLUTION' TOKEN)   ;
+jjvertical: 'JJ-VERTICAL' TOKEN -> ^('JJ-VERTICAL' TOKEN)   ;
+nnslevels: 'NNS-LEVELS' TOKEN -> ^('NNS-LEVELS' TOKEN)   ;
 		
 		
 //Tags---Pattern---Description

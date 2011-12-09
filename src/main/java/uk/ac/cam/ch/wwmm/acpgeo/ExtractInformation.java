@@ -44,6 +44,7 @@ public class ExtractInformation {
 		
 		getQuery(files, "//CAMPAIGN", "CAMPAIGN.csv");
 		getQuery(files, "//UnmatchedPhrase", "UnmatchedPhrase.csv");
+		getQuery(files, "//HorizontalResolution", "resolution.csv");
 		getQuery(files, "//PALAEOTIME", "PALAEOTIME.csv");
 		getQuery(files, "//NN-TEMP", "NN-TEMP.csv");
 		getQuery(files, "//TempPhrase", "TempPhrase.csv");
