@@ -20,9 +20,12 @@ import static junit.framework.Assert.assertEquals;
 
 import java.util.List;
 
+//import junit.framework.Assert;
+
 import org.junit.Test;
 
 import uk.ac.cam.ch.wwmm.acpgeo.ACPTokeniser;
+//import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 import uk.ac.cam.ch.wwmm.oscar.document.Token;
 
@@ -43,6 +46,7 @@ public class ACPTokeniserTest {
 		assertEquals("e.g.", acpTokenise("e.g."));
 		assertEquals("A.M.", acpTokenise("A.M."));
 	}
+	
 	
 	@Test	
 	public void testSplitPeriodAfterDegrees() {

@@ -42,12 +42,21 @@ public class ExtractInformation {
 		
 
 		
-		getQuery(files, "//CAMPAIGN", "CAMPAIGN.csv");
+		getQuery(files, "//CAMPAIGN", "CAMPAIGN.csv");		
+		getQuery(files, "//IN", "in.csv");		
+
+		getQuery(files, "//ReferencePhrase", "CITATION.csv");		
+
+		getQuery(files, "//QUANTITY", "QUANTITY.csv");
+		getQuery(files, "//UNITS", "UNITS.csv");
 		getQuery(files, "//UnmatchedPhrase", "UnmatchedPhrase.csv");
-		getQuery(files, "//HorizontalResolution", "resolution.csv");
+		getQuery(files, "//HorizontalResolution", "Hresolution.csv");
+		getQuery(files, "//VerticalResolution", "Vresolution.csv");
+
 		getQuery(files, "//PALAEOTIME", "PALAEOTIME.csv");
 		getQuery(files, "//NN-TEMP", "NN-TEMP.csv");
 		getQuery(files, "//TempPhrase", "TempPhrase.csv");
+		getQuery(files, "//PrepPhrase", "PrepPhrase.csv");
 		getQuery(files, "//VB-HEAT", "VB-Heat.csv");
 		getQuery(files, "//VB-INCREASE", "VB-Increase.csv");
 		getQuery(files, "//NNP-TIMEPERIOD", "NNP-TIMEPERIOD.csv");
@@ -69,7 +78,9 @@ public class ExtractInformation {
 		getQuery(files, "//NN-PERTIMEUNIT", "NN-PERTIMEUNIT.csv");
 		getQuery(files, "//NN-TIMEUNIT", "NN-TIMEUNIT.csv");
 		getQuery(files, "//ReferencePhrase", "ReferencePhrase.csv");
-		getQuery(files, "//CD-YEAR", "YEARS.csv");
+		getQuery(files, "//CD-YEAR", "CDYEARS.csv");
+		getQuery(files, "//YEARS", "YEARS.csv");
+
 		getQuery(files, "//CD-YEAR-RANGE", "YEAR-RANGE.csv");
 		getQuery(files, "//CD-YEAR[not(preceding::CD-YEAR >= . or following::CD-YEAR >= . or descendant::CD-YEAR >= .)]", "YEAR-MAX.csv");
 		getQuery(files, "//CD-YEAR[not(ancestor::ReferencePhrase)]", "YEAR-notREf.csv");
@@ -78,6 +89,8 @@ public class ExtractInformation {
 		getQuery(files, "//ParentheticalPhrase", "PARENTHETICALPHRASE.csv");
 		getQuery(files, "//LOCATION", "LOCATION.csv");
 		getQuery(files, "//LocationPhrase", "LocationPhrase.csv");
+		getQuery(files, "//TimePhrase", "TimePhrase.csv");
+
 		getQuery(files, "//MOLECULE", "MOLECULE.csv");
 		getQuery(files, "//MOLECULE[not(child::JJ-ACP)][not(child::JJ)][not(child::JJ-CHEM)]", "MOLECULE1.csv");
 		getQuery(files, "//MOLECULE[child::JJ-ACP|JJ|JJ-CHEM]/OSCARCM[1]", "MOLECULE2.csv");

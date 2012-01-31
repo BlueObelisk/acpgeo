@@ -1,0 +1,3 @@
+# List of words which have specific meaning in context
+# Will be added to when needed
+present:: change NN to NN-PRESENT, to use with time phrases.

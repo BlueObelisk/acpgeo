@@ -77,7 +77,9 @@ public class ACPSentenceParser extends SentenceParser {
 		
 		/************************8
 		 * Commented out the actionphrase highlighting.
+		 * 
 		 *********************************/
+//		actionMap.put("NNP-REFS", "Citation");
 //		actionMap.put("VB-RECOVER", "Collection");
 //		actionMap.put("VB-ANALYSE", "Analysis");
 //		actionMap.put("VB-MEASURE", "Measurement");

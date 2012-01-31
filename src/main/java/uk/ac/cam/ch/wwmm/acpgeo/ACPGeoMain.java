@@ -14,6 +14,7 @@ import java.util.List;
 import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Element;
+import nu.xom.Elements;
 import nu.xom.Nodes;
 import nu.xom.ParsingException;
 import nu.xom.ValidityException;
@@ -22,6 +23,13 @@ import org.apache.commons.io.IOUtils;
 
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
+
+/****************************************
+ * 
+ * @author lh359, hrb29
+ * 
+ * Version of Chemical Tagger for atmospheric science
+ ***************************************/
 
 public class ACPGeoMain {
 
@@ -88,6 +96,7 @@ public class ACPGeoMain {
 					acpAbstract = new Document(rootElement);
 					
 					AbstractReader abReader = new AbstractReader(xmlInputStream);
+					System.out.println(file.getName());
 					System.out.println(abReader.getAbstractString());
                     try{
 					POSContainer posContainer = posTagger.runTaggers(abReader
@@ -105,7 +114,10 @@ public class ACPGeoMain {
 					addListToParentNode(rootElement, abReader.getYear());
 					addListToParentNode(rootElement, abReader.getTitleNode());
 					addListToParentNode(rootElement, abReader.getArticleURL());
+					removeChildfromParentNode(parsedDoc);
 					rootElement.appendChild(parsedDoc.getRootElement().copy());
+
+
 					Utils.writeXMLToFile(acpAbstract,"target/" + file.getName());
                     }
                     catch (Exception e){
@@ -119,6 +131,30 @@ public class ACPGeoMain {
 		}
 	}
 
+	/****************************************************
+	 * Removing added tags for citations and full stops
+	 * @param parsedDoc
+	 ****************************************************/
+		private static void removeChildfromParentNode(Document parsedDoc) {
+		//  - must be more efficient way to do this?
+		// TODO Auto-generated method stub
+	
+				Elements sentences = parsedDoc.getRootElement().getChildElements();
+			    Element referencephrase = null;
+			    
+			    for (int i = 0 ; i < sentences.size() ; i ++) {
+			      referencephrase = sentences.get(i).getFirstChildElement("ReferencePhrase");
+			      if (referencephrase != null) {
+					Element refstart = null;
+				    refstart = referencephrase.getFirstChildElement("NNP-REFS");
+					Element refend = null;
+					refend = referencephrase.getFirstChildElement("NNP-REFE");
+					sentences.get(i).getFirstChildElement("ReferencePhrase").removeChild(refstart);
+					sentences.get(i).getFirstChildElement("ReferencePhrase").removeChild(refend);
+			      }
+			    }			
+		    }
+	
 	
 	/****************************************************
 	 * Adds a list of Elements to a parent node.
@@ -129,6 +165,7 @@ public class ACPGeoMain {
 		for (int i = 0; i < nodeList.size(); i++) {
 	        
 			rootElement.appendChild(nodeList.get(i).copy());
+
 		}
 
 	}

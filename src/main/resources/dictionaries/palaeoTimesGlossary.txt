@@ -198,9 +198,9 @@ LGM:: Last Glacial Maximum:: SOURCE: Wikipedia
 #
 Glacial::A glacial period (or alternatively glacial or glaciation) is an interval of time (thousands of years) within an ice age that is marked by colder temperatures and glacier advances. 
 Interglacial::Interglacials are periods of warmer climate within an ice age. 
-Holocene::Interglacials are periods of warmer climate within an ice age. 
 Stadial:: A stadial is a period of lower temperatures during an interglacial (warm period):: 
 Interstadial:: An interstadial is a warm period during a glacial period of an ice age that is of insufficient duration or intensity to be considered an interglacial.
+#
 #
 #
 # Nouns  - but here used as proper nouns - may repeat lower case versions elsewhere.
@@ -211,4 +211,7 @@ Oscillation:: A climate oscillation is any oscillation within global or regional
 #centennial:: An adjective relating to a period of time of 100 years.
 #decadal:: An adjective relating to a period of time of 10 years.
 #seasonal:: An adjective relating to seasons.
+#
+#Others added as going along!
+Dryas:: The Younger Dryas stadial, also referred to as the Big Freeze,[1] was a geologically brief (1,300 ± 70 years) period of cold climatic conditions and drought which occurred between approximately 12,800 and 11,500 years BP (Before Present). The Oldest Dryas was a climatic period, which occurred during the coldest stadial after the Weichselian glaciation in north Europe. 
 #

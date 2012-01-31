@@ -2,6 +2,11 @@ package uk.ac.cam.ch.wwmm.acpgeo;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import nu.xom.Builder;
 import nu.xom.Document;
@@ -82,6 +87,10 @@ public class AbstractReader {
 
 	private void loadDocument() {
 		abstractString =Utils.cleanHTMLText(xmlDoc.query("//abstract").get(0).getValue());
+		abstractString =forceStop(abstractString);
+		abstractString =highLightCitations(abstractString);
+		System.out.println("Complete Abstract String" + abstractString);
+	
 		titleNode =xmlDoc.query("//article_title");
 		titleString = Utils.cleanHTMLText(xmlDoc.query("//article_title").get(0).getValue());
 		references = xmlDoc.query("//reference");
@@ -91,8 +100,42 @@ public class AbstractReader {
 		articleURL = xmlDoc.query("//article_url");
 		year = xmlDoc.query("//publication_year");
 	}
+	
+	public String highLightCitations(CharSequence abstractString) {
 
+		Pattern PRESERVE_CITATION_PATTERNAll = Pattern.compile("(([.][a-z][.]\\s+)|([^.]\\s+)|([^ A-Za-z]))((\\p{Lu}\\p{Ll}+[-]?\\s*){1,2}(((et\\s+al[.])|(and))\\s*(\\p{Lu}\\p{Ll}+[-]?\\s*){0,2})?(([(]\\d{4,4}[a-z]?(([,;]|(\\s*and))\\s*(\\d{4,4})?[a-z]?)*[)])|(,\\s*\\d{4,4}[a-z]?(([,;]|\\s*(and))\\s*(\\d{4,4})[a-z]?)*)))", Pattern.CANON_EQ);
+// Pattern does not allow Kasting et al., 2000a,b but does allow Kasting (2000a,b) this is because it would be harder to find the ending otherwise (could do but more regex required).
 
+		Matcher preserveCitationAll = PRESERVE_CITATION_PATTERNAll.matcher(abstractString);
+		StringBuffer sb = new StringBuffer(abstractString.length());
+		
+		  while (preserveCitationAll.find()) {
+		    String text = preserveCitationAll.group(5);
+		    String text1 = preserveCitationAll.group(1);
+		    text = text1 + " CITation " + text + " citatION ";
+		    preserveCitationAll.appendReplacement(sb, Matcher.quoteReplacement(text));
+		}
+		    preserveCitationAll.appendTail(sb);
+			return sb.toString();
+	}
+	
+	public String forceStop(CharSequence abstractString) {
+	
+	Set<String> ABV_LIST = new HashSet<String>(Arrays.asList("Prof.", "e.g.", "i.e.", "vol.", "aq.", "e.g.:", "eq.", "St.", "Mt.", "equiv.", "conc.", "anh.", "sat.", "lit.", "dil.","sol.","liq.","Cal."));
+	Pattern FORCE_STOP_PATTERN = Pattern.compile("(((\\s+)(\\p{L}+))([.]\\s+\\p{Lu}))", Pattern.CANON_EQ);
 
+	Matcher forceStop = FORCE_STOP_PATTERN.matcher(abstractString);
+	StringBuffer sb = new StringBuffer(abstractString.length());
+	
+	  while (forceStop.find()) {
+	//	    String textEndSentence = forceStop.group(2);
+	//	    String textBeginSentence = forceStop.group(5);
+		  if (!ABV_LIST.contains(forceStop.group(4) + '.')){
+			  forceStop.appendReplacement(sb, Matcher.quoteReplacement(forceStop.group(2) + ' ' + forceStop.group(5)));
+		  }
+	  }
+	  forceStop.appendTail(sb);
+		return sb.toString();
+	}
 	
 }
