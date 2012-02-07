@@ -20,6 +20,7 @@ import nu.xom.ParsingException;
 import nu.xom.ValidityException;
 
 import org.apache.commons.io.IOUtils;
+//import org.w3c.dom.NodeList;
 
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
@@ -117,6 +118,9 @@ public class ACPGeoMain {
 					removeChildfromParentNode(parsedDoc);
 					rootElement.appendChild(parsedDoc.getRootElement().copy());
 
+//					InputStream acpAbstractModifiedInput = null;
+//					acpAbstractModifiedInput = IOUtils.toInputStream(acpAbstract.toXML(), "UTF-8");
+//					PIMMSXMLModifier pimmsModifier = new PIMMSXMLModifier(acpAbstractModifiedInput);
 
 					Utils.writeXMLToFile(acpAbstract,"target/" + file.getName());
                     }
@@ -131,30 +135,72 @@ public class ACPGeoMain {
 		}
 	}
 
+
+
 	/****************************************************
 	 * Removing added tags for citations and full stops
 	 * @param parsedDoc
 	 ****************************************************/
 		private static void removeChildfromParentNode(Document parsedDoc) {
+			
+			
 		//  - must be more efficient way to do this?
+			// Easier to use xslt?
 		// TODO Auto-generated method stub
 	
 				Elements sentences = parsedDoc.getRootElement().getChildElements();
 			    Element referencephrase = null;
+			    Elements referencephrases = null;
+
+			    Elements prepphrases = null;
+			    Elements verbphrases = null;
+
 			    
 			    for (int i = 0 ; i < sentences.size() ; i ++) {
-			      referencephrase = sentences.get(i).getFirstChildElement("ReferencePhrase");
-			      if (referencephrase != null) {
-					Element refstart = null;
-				    refstart = referencephrase.getFirstChildElement("NNP-REFS");
-					Element refend = null;
-					refend = referencephrase.getFirstChildElement("NNP-REFE");
-					sentences.get(i).getFirstChildElement("ReferencePhrase").removeChild(refstart);
-					sentences.get(i).getFirstChildElement("ReferencePhrase").removeChild(refend);
+			      referencephrases = sentences.get(i).getChildElements("ReferencePhrase");
+			      if (referencephrases != null) {
+					    for (int j = 0 ; j < referencephrases.size() ; j ++) {
+			    	  Element refstart = null;
+			    	  refstart = referencephrases.get(j).getFirstChildElement("NNP-REFS");
+			    	  Element refend = null;
+			    	  refend = referencephrases.get(j).getFirstChildElement("NNP-REFE");
+			    	  referencephrases.get(j).removeChild(refstart);
+			    	  referencephrases.get(j).removeChild(refend); 
+					    }
 			      }
-			    }			
-		    }
-	
+			      prepphrases = sentences.get(i).getChildElements("PrepPhrase");
+			      if (prepphrases != null) {
+			    	  	for (int x = 0 ; x < prepphrases.size() ; x ++) { 
+			    	  		referencephrase = prepphrases.get(x).getFirstChildElement("ReferencePhrase");
+			    	  		if (referencephrase != null) {
+			    	  			Element refstart = null;
+			    	  			refstart = referencephrase.getFirstChildElement("NNP-REFS");
+			    	  			Element refend = null;
+			    	  			refend = referencephrase.getFirstChildElement("NNP-REFE");
+			    	  			prepphrases.get(x).getFirstChildElement("ReferencePhrase").removeChild(refstart);
+			    	  			prepphrases.get(x).getFirstChildElement("ReferencePhrase").removeChild(refend);
+						      	}
+			    	  		}
+			      		}
+			      verbphrases = sentences.get(i).getChildElements("VerbPhrase");
+			      if (verbphrases != null) {
+			    	  	for (int y = 0 ; y < verbphrases.size() ; y ++) {
+						      prepphrases = verbphrases.get(y).getChildElements("PrepPhrase");
+						      for (int x = 0 ; x < prepphrases.size() ; x ++) {
+					    	  		referencephrase = prepphrases.get(x).getFirstChildElement("ReferencePhrase");
+					    	  		if (referencephrase != null) {
+					    	  			Element refstart = null;
+					    	  			refstart = referencephrase.getFirstChildElement("NNP-REFS");
+					    	  			Element refend = null;
+					    	  			refend = referencephrase.getFirstChildElement("NNP-REFE");
+					    	  			prepphrases.get(x).getFirstChildElement("ReferencePhrase").removeChild(refstart);
+					    	  			prepphrases.get(x).getFirstChildElement("ReferencePhrase").removeChild(refend);
+								      	}
+					    	  		}
+			    	  		}
+			      		}
+			    	} 
+				}
 	
 	/****************************************************
 	 * Adds a list of Elements to a parent node.

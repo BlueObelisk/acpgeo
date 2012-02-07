@@ -111,7 +111,7 @@ JJ---^(t|T)hat$--- demonstrative adjective;
 JJ-ACP---^(M|m)arine$--- demonstrative adjective;
 JJ-VERTICAL---^[V|v]ertical$--- ;
 JJ-HORIZONTAL---^[H|h]orizontal$--- ;
-NN-RESOLUTION---^resolution$--- ;
+NN-RESOLUTION---resolution$--- ;
 NNS-LEVELS---^[L|l]evel(s)?$--- ;
 NN-ACP---^Ni(\u00F1)o$--- AtmosChemMetGlossary with special characters;
 JJ-CHEM---^(i|I)nfrared$--- demonstrative adjective;
