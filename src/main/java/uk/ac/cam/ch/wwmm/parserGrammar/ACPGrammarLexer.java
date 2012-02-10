@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 14:05:07 uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g 2012-01-31 16:36:11
+// $ANTLR 3.2 Sep 23, 2009 14:05:07 uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g 2012-02-10 16:33:34
 package uk.ac.cam.ch.wwmm.parserGrammar;
 
 import org.antlr.runtime.*;
@@ -10,7 +10,7 @@ public class ACPGrammarLexer extends Lexer {
     public static final int T__159=159;
     public static final int T__158=158;
     public static final int T__257=257;
-    public static final int ParentheticalPhraseEmpty=21;
+    public static final int ParentheticalPhraseEmpty=22;
     public static final int T__160=160;
     public static final int T__167=167;
     public static final int T__168=168;
@@ -42,6 +42,7 @@ public class ACPGrammarLexer extends Lexer {
     public static final int T__255=255;
     public static final int T__256=256;
     public static final int T__154=154;
+    public static final int CITATION=30;
     public static final int T__155=155;
     public static final int T__156=156;
     public static final int LocationPhrase=9;
@@ -63,7 +64,7 @@ public class ACPGrammarLexer extends Lexer {
     public static final int T__81=81;
     public static final int T__82=82;
     public static final int T__83=83;
-    public static final int AEROSOL=32;
+    public static final int AEROSOL=33;
     public static final int T__141=141;
     public static final int T__85=85;
     public static final int T__142=142;
@@ -75,7 +76,7 @@ public class ACPGrammarLexer extends Lexer {
     public static final int T__89=89;
     public static final int T__146=146;
     public static final int T__88=88;
-    public static final int TimePhrase=24;
+    public static final int TimePhrase=25;
     public static final int T__143=143;
     public static final int T__144=144;
     public static final int T__126=126;
@@ -87,10 +88,9 @@ public class ACPGrammarLexer extends Lexer {
     public static final int WS=34;
     public static final int T__129=129;
     public static final int T__72=72;
-    public static final int PALAEOTIME=28;
+    public static final int PALAEOTIME=29;
     public static final int T__70=70;
-    public static final int COMPOSITEUNIT=33;
-    public static final int MONTHS=27;
+    public static final int MONTHS=28;
     public static final int LOCATION=8;
     public static final int T__76=76;
     public static final int T__75=75;
@@ -131,11 +131,12 @@ public class ACPGrammarLexer extends Lexer {
     public static final int T__221=221;
     public static final int T__220=220;
     public static final int T__202=202;
-    public static final int TIME=25;
+    public static final int TIME=26;
     public static final int T__203=203;
     public static final int T__204=204;
     public static final int T__205=205;
     public static final int T__206=206;
+    public static final int MOLECULE=13;
     public static final int T__207=207;
     public static final int T__208=208;
     public static final int T__209=209;
@@ -157,7 +158,7 @@ public class ACPGrammarLexer extends Lexer {
     public static final int T__237=237;
     public static final int T__238=238;
     public static final int T__235=235;
-    public static final int TransitionPhrase=22;
+    public static final int TransitionPhrase=23;
     public static final int T__236=236;
     public static final int T__102=102;
     public static final int T__101=101;
@@ -168,7 +169,7 @@ public class ACPGrammarLexer extends Lexer {
     public static final int T__242=242;
     public static final int T__241=241;
     public static final int T__240=240;
-    public static final int VerticalResolution=18;
+    public static final int VerticalResolution=19;
     public static final int T__228=228;
     public static final int T__229=229;
     public static final int T__224=224;
@@ -181,16 +182,16 @@ public class ACPGrammarLexer extends Lexer {
     public static final int T__234=234;
     public static final int T__233=233;
     public static final int T__230=230;
-    public static final int HorizontalResolution=17;
-    public static final int QUANTITY=13;
-    public static final int UNITS=14;
-    public static final int APPARATUS=19;
-    public static final int YEARS=26;
-    public static final int MATHEQUATION=16;
+    public static final int HorizontalResolution=18;
+    public static final int QUANTITY=14;
+    public static final int UNITS=15;
+    public static final int APPARATUS=20;
+    public static final int YEARS=27;
+    public static final int MATHEQUATION=17;
     public static final int T__200=200;
     public static final int T__201=201;
-    public static final int PHYSICAL=31;
-    public static final int ParentheticalPhrase=20;
+    public static final int PHYSICAL=32;
+    public static final int ParentheticalPhrase=21;
     public static final int T__68=68;
     public static final int T__69=69;
     public static final int T__66=66;
@@ -201,9 +202,8 @@ public class ACPGrammarLexer extends Lexer {
     public static final int T__63=63;
     public static final int T__61=61;
     public static final int T__60=60;
-    public static final int MATHEXPRESSION=15;
+    public static final int MATHEXPRESSION=16;
     public static final int T__55=55;
-    public static final int ReferencePhrase=29;
     public static final int T__56=56;
     public static final int T__199=199;
     public static final int T__57=57;
@@ -222,7 +222,7 @@ public class ACPGrammarLexer extends Lexer {
     public static final int T__191=191;
     public static final int T__190=190;
     public static final int T__59=59;
-    public static final int MODEL=30;
+    public static final int MODEL=31;
     public static final int T__50=50;
     public static final int T__184=184;
     public static final int T__42=42;
@@ -243,7 +243,7 @@ public class ACPGrammarLexer extends Lexer {
     public static final int T__49=49;
     public static final int AcronymPhrase=11;
     public static final int T__180=180;
-    public static final int CAMPAIGN=23;
+    public static final int CAMPAIGN=24;
     public static final int T__182=182;
     public static final int T__181=181;
     public static final int T__175=175;
@@ -4943,10 +4943,10 @@ public class ACPGrammarLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g:92:4: ( ( ' ' )+ )
-            // uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g:92:6: ( ' ' )+
+            // uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g:93:4: ( ( ' ' )+ )
+            // uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g:93:6: ( ' ' )+
             {
-            // uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g:92:6: ( ' ' )+
+            // uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g:93:6: ( ' ' )+
             int cnt1=0;
             loop1:
             do {
@@ -4962,7 +4962,7 @@ public class ACPGrammarLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g:92:7: ' '
+            	    // uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g:93:7: ' '
             	    {
             	    match(' '); 
 
@@ -4995,10 +4995,10 @@ public class ACPGrammarLexer extends Lexer {
         try {
             int _type = TOKEN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g:93:7: ( (~ ' ' )+ )
-            // uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g:93:9: (~ ' ' )+
+            // uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g:94:7: ( (~ ' ' )+ )
+            // uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g:94:9: (~ ' ' )+
             {
-            // uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g:93:9: (~ ' ' )+
+            // uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g:94:9: (~ ' ' )+
             int cnt2=0;
             loop2:
             do {
@@ -5012,7 +5012,7 @@ public class ACPGrammarLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g:93:10: ~ ' '
+            	    // uk/ac/cam/ch/wwmm/parserGrammar/ACPGrammar.g:94:10: ~ ' '
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\u001F')||(input.LA(1)>='!' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();

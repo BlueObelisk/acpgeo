@@ -118,9 +118,10 @@ public class ACPGeoMain {
 					removeChildfromParentNode(parsedDoc);
 					rootElement.appendChild(parsedDoc.getRootElement().copy());
 
-//					InputStream acpAbstractModifiedInput = null;
-//					acpAbstractModifiedInput = IOUtils.toInputStream(acpAbstract.toXML(), "UTF-8");
-//					PIMMSXMLModifier pimmsModifier = new PIMMSXMLModifier(acpAbstractModifiedInput);
+					InputStream acpAbstractModifiedInput = null;
+					acpAbstractModifiedInput = IOUtils.toInputStream(acpAbstract.toXML(), "UTF-8");
+					String fileName = file.getName();
+					PIMMSXMLModifier pimmsModifier = new PIMMSXMLModifier(acpAbstractModifiedInput, fileName);
 
 					Utils.writeXMLToFile(acpAbstract,"target/" + file.getName());
                     }
@@ -138,7 +139,7 @@ public class ACPGeoMain {
 
 
 	/****************************************************
-	 * Removing added tags for citations and full stops
+	 * Removing added tags for citations
 	 * @param parsedDoc
 	 ****************************************************/
 		private static void removeChildfromParentNode(Document parsedDoc) {

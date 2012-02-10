@@ -17,6 +17,7 @@ LocationPhrase;
 PrepPhrase;
 AcronymPhrase;
 OSCARCM;
+MOLECULE;
 QUANTITY;
 UNITS;
 MATHEXPRESSION;
@@ -33,11 +34,11 @@ TIME;
 YEARS;
 MONTHS;
 PALAEOTIME;
-ReferencePhrase;
+CITATION;
 MODEL;
 PHYSICAL;
 AEROSOL;
-COMPOSITEUNIT;
+//COMPOSITEUNITS;
 }
 
 @header {
@@ -110,7 +111,7 @@ transitionalPhrase	: transitionalContent+ comma ->^(TransitionPhrase transitiona
 transitionalContent	:	(inAll jj?)|(dt| rb|rbconj)+;
 //won't get "On the contrary" etc.
 
-referencephrase : referencePhraseStructure -> ^(ReferencePhrase referencePhraseStructure);
+referencephrase : referencePhraseStructure -> ^(CITATION referencePhraseStructure);
 referencePhraseStructure : nnpRefStart (nounphraseStructure comma? stop?)* nnpRefEnd;
 prepphraseReference	: inAll dt? dtTHE? verb? inAll? referencephrase -> ^(PrepPhrase inAll dt? dtTHE? verb? inAll? referencephrase);
 
@@ -266,7 +267,9 @@ palaeoStructure2 : (cdyear|cdyearRange|cd+) nnpalaeotimequalifier? (nnpalaeotime
 palaeoStructure3 : (cd) (dash cd)? (cc (cd (dash cd)?))* nnpalaeotimeunit  nnpalaeotimequalifier? ;
 //palaeoStructure4 : palaeoStructure1 (comma|lrb) (palaeoStructure2|palaeoStr
 
-molecule : adj* (oscarCompound1|oscarCompound2|oscarCompound3|oscaracp) adj? ;
+moleculeplus : molecule+ -> ^(MOLECULE molecule+ );
+molecule : oscarCompound1|oscarCompound2|oscarCompound3|oscaracp ;
+//molecule : adj* (oscarCompound1|oscarCompound2|oscarCompound3|oscaracp) adj? ;
 oscarCompound3 :	lrb oscarcm+ rrb -> ^(OSCARCM lrb oscarcm+ rrb );
 oscarCompound2 :	oscarCompound2Structure -> ^(OSCARCM oscarCompound2Structure );
 oscarCompound1 :	oscarcm oscarcm* -> ^(OSCARCM oscarcm oscarcm*);
