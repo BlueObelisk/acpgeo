@@ -267,8 +267,8 @@ palaeoStructure2 : (cdyear|cdyearRange|cd+) nnpalaeotimequalifier? (nnpalaeotime
 palaeoStructure3 : (cd) (dash cd)? (cc (cd (dash cd)?))* nnpalaeotimeunit  nnpalaeotimequalifier? ;
 //palaeoStructure4 : palaeoStructure1 (comma|lrb) (palaeoStructure2|palaeoStr
 
-moleculeplus : molecule+ -> ^(MOLECULE molecule+ );
-molecule : oscarCompound1|oscarCompound2|oscarCompound3|oscaracp ;
+molecule : moleculeSingle+ -> ^(MOLECULE moleculeSingle+ );
+moleculeSingle : oscarCompound1|oscarCompound2|oscarCompound3|oscaracp ;
 //molecule : adj* (oscarCompound1|oscarCompound2|oscarCompound3|oscaracp) adj? ;
 oscarCompound3 :	lrb oscarcm+ rrb -> ^(OSCARCM lrb oscarcm+ rrb );
 oscarCompound2 :	oscarCompound2Structure -> ^(OSCARCM oscarCompound2Structure );
