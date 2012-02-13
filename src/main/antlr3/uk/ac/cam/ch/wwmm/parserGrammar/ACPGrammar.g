@@ -192,7 +192,8 @@ prepphrasePosition: advAdj? inAll (inAll|advAdj)* dtTHE (jjvertical|jjhorizontal
 prepphraseOf 	: inof advAdj* to? nounphrase-> ^(PrepPhrase inof advAdj* to? nounphrase);
 	
 
-mathExpress : (number|fw|oscarcm)* (sym|symexp|dash)+ (number|fwSymbolNoun|oscarcm|dash)* ;
+//mathExpress : (number|fw|oscarcm)* (sym|symexp|dash)+ (number|fwSymbolNoun|oscarcm|dash)* ;
+mathExpress : (number|fw)* (sym|symexp|dash)+ (number|fwSymbolNoun|dash)* ;
 //I have decided not to have units (and hence quantities) within expressions (rather I have math expression within quantities at times e.g. where you have 100+/-10 kj/mol etc.)
 //I think that this will look for a number first so if K 3 + 6 M, will find 3 + 6 M .
 mathExpressBrackets : lrb mathExpress+ rrb ;
@@ -267,8 +268,9 @@ palaeoStructure2 : (cdyear|cdyearRange|cd+) nnpalaeotimequalifier? (nnpalaeotime
 palaeoStructure3 : (cd) (dash cd)? (cc (cd (dash cd)?))* nnpalaeotimeunit  nnpalaeotimequalifier? ;
 //palaeoStructure4 : palaeoStructure1 (comma|lrb) (palaeoStructure2|palaeoStr
 
-molecule : moleculeSingle+ -> ^(MOLECULE moleculeSingle+ );
-moleculeSingle : oscarCompound1|oscarCompound2|oscarCompound3|oscaracp ;
+//molecule : moleculeSingle+ -> ^(MOLECULE moleculeSingle+ );
+//moleculeSingle : oscarCompound1|oscarCompound2|oscarCompound3|oscaracp ;
+molecule : (oscaracp|oscarCompound3|oscarCompound2|oscarCompound1) -> ^(MOLECULE oscaracp? oscarCompound3? oscarCompound2? oscarCompound1?);
 //molecule : adj* (oscarCompound1|oscarCompound2|oscarCompound3|oscaracp) adj? ;
 oscarCompound3 :	lrb oscarcm+ rrb -> ^(OSCARCM lrb oscarcm+ rrb );
 oscarCompound2 :	oscarCompound2Structure -> ^(OSCARCM oscarCompound2Structure );
