@@ -1,30 +1,52 @@
 #Tags---Pattern---Description;
 # Regular expressions useful for environmental chemistry;
 #Nouns;
+#conservation|dissipation|propagation|modification|
+#temporal|spatial
+JJ---^[Ww]arm|[Cc]ool$---
 NNP-REFS---^CITation$---
 NNP-REFE---^citatION$---
-NNP-MONTH---January|February|March|April|May|June|July|August|September|October|November|December---Months of a year;
+NN-EQUATION---^[Ee]quation|approximation|formulation$---
+NNP-EQUATIONTYPE---^Boussinesq|[Pp]rimitive|Navier\-Stokes|[Cc]ontinuity|[Dd]ifferential|([Nn]on(\-)?)?([Qq]uasi(\-)?)?[Hh]ydrostatic|[Aa]nelastic$---
+NN-PROGNOSTIC---^[Pp]rognostic$---;
+NN-DIAGNOSTIC---^[Dd]iagnostic$---;
+JJ-COUPLE---^[c|C]oupled$---
+NN-GRID---^([Ss]ub|B|C|D|E)?(\-)?[Gg]rid$---
+JJ-MODELMETHOD---^finite$---
+NN-MODELMETHOD---^[Dd]iscreti[zs]ation|finite(\-(difference|element)(s)?)|[Ss]ingularity|[Pp]arametri[zs]ation$---
+NN-RADMODELMETHOD---^[Tt]wo\-stream|layer\-interaction|wide\-band|K\-correlated|K\-distribution|RRTM$---
+NNP-MODELMETHOD---^Laplacian|Lagrangian|[Ss]emi-Lagrangian|Eulerian|(modified\-)?Euler|UTOPIA|SUPG$---  (diffusion/advection of tracers and momentum not including those most likely to be found in citations e.g. Heun, Prather etc.)
+NN-SCIENCEFIELD---^[Oo]rography|([Mm]icro)?[Pp]hysics|[Cc]hemistry$---;
+NN-PHYSICAL---^(temperature|pressure|humidity|velocity|momentum)$--- ;
+NN-PHYSICALPROCESSMAIN---^([Aa]dvection|[Cc]onvection|[Dd]iffusion|[Rr]adiation|[Pp]recipitation|[Tt]urbulence)$--- ;
+JJ-PHYSICALPROCESS---^[Aa]dvective|[Cc]onvective|[Dd]iffus(e|ive)|[Rr]adiative$---;
+NN-PHYSICALPROCESS---^([Dd]issipation|[Pp]ropagation|[Ff]ormation|[Tt]ransport|[Tt]ransfer|[Ww]ind)$--- ;
+NN-CLOUD---^[Cc]loud$---;
+NNP-CLOUD---^([Aa]lto|[Cc]irro|[Cc]umulo)?([Cc]umulus|[Ss]tratus|[Cc]irrus|[Nn]imbus)$---;
+NNP-TIMESTEPMETHOD---^Runge\-Kutta|Runge|Kutta|[Ll]eap\-[Ff]rog|[Ee]xplicit|[Ii]mplicit|[Ss]emi\-[Ii]mplicit|[Mm]ulti\-step$---;
+NN-METHOD---^([Tt]ime)?\-step(s)?$---
+NN-DOMAIN---^([t|T]ropospher|[S|s]tratospher|[M|m]esospher|[Ii]onospher|atmospher|ocean|sea|biospher|Sea-Ice|geospher|ice-biospher)(e|ic)?(\-([t|T]ropospher|[S|s]tratospher|[M|m]esospher|[Ii]onospher|atmospher|sea|ice|ocean|biospher|Sea-Ice|geospher)(e|ic)?)*$---
+NNP-MONTH---January|February|March|April|May|June|July|August|September|October|November|December$--- Months of a year;
 NNP-SEASON---^([wW]inter|[Ss]ummer|[Ss]pring|[Aa]utumn|[Ff]all)time?|[Ss]eason$--- Seasons;
 NNP-DIRECTION---^\d*(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)(ern|(\-))?(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)*(ern)?$---Directions;
+NN-DIRECTION---^[Ll]atitude|[Ll]ongitude?$---Directions;
 NNP-LOCATIONTYPE---^([Ll]ake|[Ss]ea|[Mm]ountain|Hill|Bay|[Vv]illage|[Tt]own|[Cc]ity|[Cc]ount(r)?y|State|Ocean|Plain|[Ff]arm|[Pp]lantation|[Ff]actory|[Ff]orest|[Ii]sland|[Ii]sle|[Pp]eninsula|[Pp]lateau)(s)?$---  could have some surnames in here - do I dare have Field, State, Hill, Wood, Point?;
-#NNP-LOCATIONTYPE---^([Ll]ake|[Ss]ea)$---  could have some surnames in here - do I dare have Field, State, Hill, Wood, Point?;
 # Need rule to say N and S can be treated as OSCARCM under certain conditions e.g. in quantities, in lists N,S and P? and W can be Watts;
 NNP-CONTINENT---^([Aa]sia|[aA]frica|[aA]merica|[Aa]ntarctica|[Ee]urope|[aA]ustralia)$---  continents;
 NNP-APPARATUS---^(ACR|ACRIM|AIS|AMS|AOL|ATLID|AVIRIS|CCD|CIMS|CRDS|DF|DIAL|(MAX\-)?DOAS|DOPLID|DWS|ECC|ECD|EPR|FAGE|FTS|FTIR|FT\-IR|GC|HPLC|IFOV|(E\-)?LIDAR|LIF|LMR|MS|MST|PEM|PERCA|PID|PLP|PMC|PMIR|PPR|PRARE(E)?|RADAR|(A|X)?(\-)SAR|SEM|SUSIM|TDLS|TOF|WFOV|GCxGC|GC(\u00D7)GC)(\-)?(ACR|ACRIM|AIS|AMS|AOL|ATLID|AVIRIS|CCD|CIMS|CRDS|DF|DIAL|(MAX\-)?DOAS|DOPLID|DWS|ECC|ECD|EPR|FAGE|FTS|FTIR|FT\-IR|GC|HPLC|IFOV|(E\-)?LIDAR|LIF|LMR|MS|MST|PEM|PERCA|PID|PLP|PMC|PM|PMIR|PPR|PRARE(E)?|RADAR|(A|X)?(\-)SAR|SEM|SUSIM|TDLS|TOF|WFOV|GCxGC|GC(\u00D7)GC)?$--- Apparatus Equipment;
-NN-METHOD---^([Ss]pectroscop(e|y|ic)|[Cc]hromatograph(y|ic)?|[Ss]pectromet(ry|ric|er)|([Ss]pectro)?[Pp]hotomet(ry|ric|er)|[Hh]ygrometer(y)?|[Tt]hermomet(er|ry)|[Aa]nalyser|[Ss]ampler]|[Ss]ensor|[Mm]apper)$--- instrument techniques;
+NN-ANALYTICALMETHOD---^([Ss]pectroscop(e|y|ic)|[Cc]hromatograph(y|ic)?|[Ss]pectromet(ry|ric|er)|([Ss]pectro)?[Pp]hotomet(ry|ric|er)|[Hh]ygrometer(y)?|[Tt]hermomet(er|ry)|[Aa]nalyser|[Ss]ampler]|[Ss]ensor|[Mm]apper)$--- instrument techniques;
 NNP-APPARATUS---^((A)?(\-)?SCAT|(A)?ATSR-|AIRS|AMI|AMRIR|AMSR|AMSU(\-)?(A|B)?|AMTS|ASTER|ATMOS|ATS|AVCS|AVHRR(\-)?(LAC|GAC)?|AVNIR|CERES|CLAES|CRISTA|CZCS|DLS|DORIS|DRS|DSB|DSN|EOSDIS|EOSP|ERBE|ERBS|ERL|ESMR|ETM|GERB|GLAS|GLI|GLRS(\-)?(A|R)?|GMS|GOME(\-1)?(\-2)?|GOMOS|GOMR|GOOS|GOS|GPS|GPSDR|GTS|HALOE|HCMM\/AEM(\-)1|HIMSS|HIRDLS|HIRIS|HIRLAM|HIRS|HIS|HMMR|HRDI|HROI|HRPT|HRV|IASI|ILAS|IRIS|IRTS|ISAMS|ISCCP|ISEE|ITIR|JEM|LAWS|LEFI|LIMS|LIS|MAPS|MERIS|MESSR|MFE\/MAGNOLIA|MHS|MIMR|MIPAS|MISR|MLS|MODIS(\-)?(N|T)?|MOPITT|MSS|MTS|NSCAT|RIS|SAGE|SAMS|SIR(\-)?(C)?|SISEX|SLIES|SME|SMM|SMMR|SOGE|SOLSTICE|SSALT|SYNAER|TES|TGT|VAS|VIRS|VIRSR|VIRTEM|VISSR|IMG|IPEI|MSU|OLS|POAM|POEM|POEMS|POES|POGO|POLDER|SAM|SCANSCAT|SCATT|SCIAMACHY|SeaWiFS|SSBUV|SWIRLS|TERSE|TMR|TOMS|TOMUIS|TOVS|WINDII)$--- ;
 NNP-SATELLITE---^(Satellite|ADEOS|Deimos|ENVISAT|EOS(\-AM(1)?|\-CHEM|\-PM(1)?)?|EO(\-)1|EPOP|EROS|ERS(\-)(1|2)?|ERTS(\-)1|EUMETSAT|Geosat|GOES|GOCE|JEOS|JERS(\-)1|JPOP|LAGEOS|Landsat|LITE|Magsat|METEOR|Meteor|METEOSAT|Meteosat|Met[Oo]p(\-A)?|MOS(\-)1|Nimbus|NPOP|Radarsat|S(\-)?GCOS|SARSAT|Scisat(\-1)?|Seasat|SeaStar|SPOT|Terra|Aqua|EOS|PM1|TIROS|UARS)$--- ;
 #NNP-APPARATUS---^((A)?(\-)?SCAT|(A)?ATSR-|AIRS|AMI)$--- ;
 #NNP-SATELLITE---^(Satellite|ADEOS)$--- ;
 NN-PLATFORM---^(satellite(s)?|[Aa]ircraft|[Aa]irborne|[Bb]alloon(\-)?(borne)?|([Rr]adio)?[Ss]onde|[Tt]ower|[Pp]latform|[Ss]hip(\-)?(borne)?)$--- ;
-NN-STATION---^station(s)?|[O|o]bservato(ry|ire|rio)$--- Field stations;
-NNP-MODEL---^(ECHAM5\/MESSy1|(p)?(\-)?TOMCAT|MOCHA|MCM|ATM|CCM|CTM|GCM|HadCM|IFS|OCCM|UM|SLIMCAT|CLaMS|REPROBUS|GLOMAP|NAME|UKCA|HadG(E|A)?M(\-)?\d?|GEOS-Chem|MECCA|MECO|KASIMA|MOZART)$--- Models;
+NN-STATION---^station(s)?|[O|o]bservato(ry|ire|rio)|Site$--- Field stations;
+NNP-MODEL---^(AGCM|GCM|OGCM|AOGCM|RCM|ECHAM5\/MESSy1|(p)?(\-)?TOMCAT|MOCHA|MCM|ATM|CCM|CTM|HadCM|IFS|OCCM|UM|SLIMCAT|CLaMS|REPROBUS|GLOMAP|NAME|UKCA|HadG(E|A)?M(\-)?\d?|GEOS-Chem|MECCA|MECO|KASIMA|MOZART)$--- Models;
 #NNP-MODEL---^(ECHAM5\/MESSy1|(p)?(\-)?TOMCAT|MOCHA)$--- ;
-NN-MODEL---^((box)?[Mm]odel(s)?|[Mm]echanism)$--- Model - could be preceded by NNP-Model, NNP e.g. Lagrangian, Eulerian, NN/cc e.g. trajectory, box, aerosol, chemistry and transport DT. What about scheme?;
-NN-PHYSICAL---^(temperature|pressure|humidity|velocity)$--- ;
+NN-MODEL---^((box)?[Mm]odel|[Mm]echanism|[Ss]cheme|[Ss]imulator)(s)?$--- Model - could be preceded by NNP-Model, NNP e.g. Lagrangian, Eulerian, NN/cc e.g. trajectory, box, aerosol, chemistry and transport DT. What about scheme - in regex tags as method ?;
 NN-MEASUREMENT---measurement(s)?$--- Measurement;
 NN-CAMPAIGN---^((EU-)?(p|P)re)?((C|c)ampaign|(EU-)?(p|P)roject|(EU-)?(p|P)rogram(me)?)$--- Campaigns;
-NN-STUDY---^(experiment|[Ss]tudy)$--- Campaigns;
+NN-STUDY---^(experiment|[Ss]tudy)$--- Campaigns; 
 NN-ACP---^((W|w)aters|box)$--- ;
 NNP---^(II|del|Cape|de|Ny|St\.|bei|La|Le|lac|San|san|sur|Monte|Mt\.?)$--- proper nouns that precede stations chane II for nnidentifier;
 #
@@ -45,7 +67,7 @@ NN-MASSSPERAREA---^\d*((T|k|m|n|p|\u00B5|\u03BC)?g\/?\.?c?m?m(\-)?2)$---  mass p
 NN-MOLES---^(n|p)?mol(e)?(cule)?(s)?$--- (n)moles/(n)molecules;
 NN-MOLAR---^M$---  need to add milli molar etc.;
 NN-PERSECOND---^((S|s)(\-)1|Hz)$--- per second (hz);
-NN-TIMEUNIT---^\d*((\-)?(Yr(s)?|yr(s)?|[Yy]ear(s)?|y|Y|[mM]in(uite)?(s)?|Hr|hr|H|h|[Hh]our(s)|d|[Dd]ay(s)?))$---  Time units move century millenuium here?;
+NN-TIMEUNIT---^\d*((\-)?(Yr(s)?|yr(s)?|[Yy]ear(s)?|y|Y|[mM]in(ute)?(s)?|Hr|hr|H|h|[Hh]our(s)|d|[Dd]ay(s)?))$---  Time units move century millenuium here?;
 NN-PALAEOTIMEUNIT---^\d*((\-)?((k|t)(\.)?(y)(\.)?))$---  Longer Time units;
 NN-PALAEOTIMEUNIT---^\d*((\-)?((m|b)(\.)(y)(\.)))$---  Longer Time units;
 NN-PALAEOTIMEUNIT---^((\d*((\-)?((k|m|b|t)(\.)?(ya|yr|a)(\.)?)))|century|millen(ium|nia))$---  Longer Time units. If cal appears to be a probelm with calories may have a unique tag for it at present assume we all use joules!;
@@ -57,30 +79,22 @@ NN-TIMEUNIT---^\d{0,3}(\-)?(s)$---  Time units;
 NN-MASS---^\d*(\-)?((T|k|m|n|p|\u00B5|\u03BC)?g|k?t(on)?(ne)?)$--- Mass;
 NN-PERMASS---^\d*((T|k|m|n|p|\u00B5|\u03BC)?g|k?t(on)?(ne)?)(\-)1$--- PerMass;
 NN-PERTIMEUNIT---^\d*(Yr|yr|y|Y|a|min|Hr|hr|H|h|d|day)(\-)1$---  Time units;
-NN-UNITS---^\d*(DU|Mm(\-)1|W\/m2|J)$--- any unit not above;
-#
+NN-UNITS---^\d*(DU|Mm(\-)1|W\/m2|W\.m2|Wm\.2|J)$--- any unit not above;
+# add K / K-1???
 NN-AEROSOL---^([Aa]erosol(s)?|[Pp]article(s)?|CCN|CN|IN|BOA|SOA|PM(\d+\.?\d*)?|[Nn]uclei|[Dd]ust)$---  words associated with aerosols etc, what about cloud e.g. PSC?;
 #NN-AEROSOL---^(CCN|CN|IN|PM\d+\.\d*|SOA|aerosol|particle)$--- ;
 #
-OSCAR-CM---^(\d+(H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg|[R|r]adon))+$--- Oscar tokens that sometimes go wrong;
-OSCAR-CM---^((H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg)+\d+)+(H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg)*\d*$--- Oscar tokens that sometimes go wrong;
-OSCAR-CM---^(C|N|O|H)+\d*((C|N|O|H)+\d*)+$--- Oscar tokens that sometimes go wrong;
-# We may miss some sulfur compounds like this but can't add too many letters or would have bigger acronym problems e.g.COSH would become a chemical.
-OSCAR-CM---^(((C|N|O|H)+\d*(I|Br|Cl|F)+\d*)|((I|Br|Cl|F)+\d*(C|N|O|H)+\d*)|((C|N|O|H)+\d*(I|Br|Cl|F)+\d*(C|N|O|H)+\d*))$--- Oscar tokens that sometimes go wrong - to make sure common I compounds are identified - but will not fin I alone need to rely on Oscar for this;
-OSCAR-CM---^(N2O|DMS|DMSO|MSA|([Mm]|[Pp])?PAN|D2O|HDO|DHO|DO|DO2|SAT|SAD|NAT|NAD)$--- List of common ACP molecules not easily identified elsewhere;
-OSCAR-CM---^((O|o|B|b)?VOC|NMHC|(H)?CFC(\-)?(\d+[abc]?)?|PCB|POP|[Hh]alon|[Ff]reon(\-)?(\d+)?)(s)?$--- List of common ACP chemical groups - not really correct assignment but good enough for present some will be caught by regex above;
-NNP-ACRONYM---^([A-Z][A-Z]+(\-|\\|\/)?[A-Z]+[0-9]*(s)?[0-9]*)$--- Acronyms;
-NNP-ACRONYM---^(1|2|3|4)(\-)?D$--- Acronyms;
-#
+JJ-ORDER---^linear|quadratic|cubic|quartic|quintic|first$---
 CD-YEAR---^(((19)\d\d)|((20)\d\d))$--- Valid Year;
 CD-YEAR-RANGE---^((19\d\d)|(20\d\d))(\-|\/)((19\d\d)|(20\d\d))|((19\d\ds)|(20\d\ds))$--- Valid Year;
 CD-REF---^((19\d\d[a-z])|(20\d\d[a-z]))$--- Valid Year for reference e.g. 2000a;
 #CD---(^[~]?[\-]?(\d+\.)?\d+[\-|±][\-]?(\d+\.)?\d+)---non-year range numbers;
-CD---half|third|quarter|fifth|sixth|seventh|eigth|ninth|tenth---misc
+CD---half|third|quarter|fifth|sixth|seventh|eighth|ninth|tenth$---misc
 CD---^\d+th$---misc
 #
-CD-ALPHANUM---^[abcdefghijklnopqrtuvwxyzAEGQRUVWXYZ][0-9]+$---  single letters with numbers- d,h,s,m and g excluded as common units;
-CD-ALPHANUM---^[0-9]+[abcdefhijknopqrtuvwxyzAGQRUVXYZ]$--- single letters with numbers;
+CD-ALPHANUM---^[abcdefhijklnopqrtuvwxyzAEGQTRUVWXYZ][0-9]+$---  single letters with numbers- d,h,s,m and g excluded as common units;
+CD-ALPHANUM---^[gsmDNJLM][0-9][0-9]+$---  single letters with numbers- d,h,s,m and g excluded as common units;
+CD-ALPHANUM---^[0-9]+[abcdefhijknopqrtuvwxyzAEGQRUVXYZ]$--- single letters with numbers;
 CD-ALPHANUM---^([bcdefhijknopqrtuvwxyzGPQRTXYZ])$--- single letters without numbers;
 #ELEMENT-CM---^(B|C|D|F|O|H|P|U)$---  I dealt with elsewhere, NSW dealt with elsewhere, K dealt with elsewhere -I think these likely to be found anyway as OSCAR-CM
 #NN-IDENTIFIER---^(X{2,3}(IX|IV|V?I{0,3})|II|III|IV|VI|VII|VIII|IX|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX)$--- Non words that are believed to be identifiers. Single letter roman digits are assigned by PostProcessTags;
@@ -88,10 +102,25 @@ CD-ALPHANUM---^([bcdefhijknopqrtuvwxyzGPQRTXYZ])$--- single letters without numb
 #NN-IDENTIFIER---^\d+\.(\d+[.]?[a-z]|[a-z])$--- e.g. 4.3a or 4.3.a or 4.b;
 #NN-IDENTIFIER---^[a-f]\d$--- e.g. A2, B3 etc.;
 #NN-IDENTIFIER---^\d+\(([a-z]|X{2,3}(IX|IV|V?I{0,3})|II|III|IV|VI|VII|VIII|IX|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX)\)$--- e.g. 81(d) or 3(iii);
-NNP-ACRONYM---^(RHamble|RH|dp|Ev(\-)K2(\-)CNR|AR5|TdF|MOHp|CLaMS|GF|AOT(\-)?(\()?\d*(\))?|LBA(\-)CLAIRE(\-)2001|Po|HWM(\-)93|TM5|T1|T2|IMF|ABS|ERA(\-)?40)$--_ACP type acronyms;
+#
+OSCAR-CM---^(\d+(H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg|[R|r]adon))+$--- Oscar tokens that sometimes go wrong;
+OSCAR-CM---^((H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg)+\d+)+(H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|Ge|As|Se|Br|Kr|Rb|Sr|Y|Zr|Nb|Mo|Tc|Ru|Rh|Pd|Ag|Cd|In|Sn|Sb|Te|I|Au|Hg)*\d*$--- Oscar tokens that sometimes go wrong;
+OSCAR-CM---^(C|N|O|H)+\d*((C|N|O|H)+\d*)+$--- Oscar tokens that sometimes go wrong;
+# We may miss some sulfur compounds like this but can't add too many letters or would have bigger acronym problems e.g.COSH would become a chemical.
+OSCAR-CM---^(((C|N|O|H)+\d*(I|Br|Cl|F)+\d*)|((I|Br|Cl|F)+\d*(C|N|O|H)+\d*)|((C|N|O|H)+\d*(I|Br|Cl|F)+\d*(C|N|O|H)+\d*))$--- Oscar tokens that sometimes go wrong - to make sure common I compounds are identified - but will not fin I alone need to rely on Oscar for this;
+OSCAR-CM---^(NOx|NOy|N2O|DMS|DMSO|MSA|([Mm]|[Pp])?PAN|D2O|HDO|DHO|DO|DO2|SAT|SAD|NAT|NAD)$--- List of common ACP molecules not easily identified elsewhere;
+OSCAR-CM---^((O|o|B|b)?VOC|NMHC|(H)?CFC(\-)?(\d+[abc]?)?|PCB|POP|[Hh]alon|[Ff]reon(\-)?(\d+)?)(s)?$--- List of common ACP chemical groups - not really correct assignment but good enough for present some will be caught by regex above;
+#
+NNP-ACRONYM---^(RHamble|RH|dp|Ev(\-)K2(\-)CNR|AR5|TdF|MOHp|CLaMS|GF|AOT(\-)?(\()?\d*(\))?|LBA(\-)CLAIRE(\-)2001|Po|HWM(\-)93|TM5|T1|T2|IMF|ABS|ERA(\-)?40)$--- ACP type acronyms;
+#NNP-ACRONYM---^([a-z]*[A-Z][A-Z]+(\-|\\|\/)?[A-Z]+[0-9]*(s)?[a-z]?[0-9]*)$--- Acronyms;
+NNP-ACRONYM---^([a-z]*[A-Z][A-Z]+(\-|\\|\/)?[A-Z0-9]*[a-z]?[0-9]*)$--- Acronyms;
+NNP-ACRONYM---^([a-z]+[0-9]+[a-z]+)$--- Acronyms;
+#GENIE-1 PRISM3D CLIMBER-2
+NNP-ACRONYM---^(1|2|3|4)(\-)?D$--- Acronyms;
+#
 WP---^(T|t)hose$---  those;
 #CD;
-NN-TIME---^((\d+:\d\d)(\-\d+:\d\d)?|afternoon|morning|night|evening|UTC|GMT|present\-day)$--- time;
+NN-TIME---^((\d+:\d\d)(\-\d+:\d\d)?|[Tt]ime\-step|afternoon|morning|night|evening|UTC|GMT|present\-day)$--- time;
 # could have LT in here (local time but this might also be used for Lower Troposphere or other acronym);
 NN-TEMP---^\-?\d*.?\d*(°|\u2103|\u2109|\u00B0|\u00BA|\u2218)C\-?\d*$---  to avoid having deg C in location;
 CD-DEGREES---^~?(\d|\-)?\d+\.?(\d*(°|'|"|\u00B0|\u00BA|\u2218))+$--- Degrees;78°55'19";
@@ -109,8 +138,9 @@ SYMEXP---^[^ 	(]*[(][^ 	]*[/]--- to catch Arrhenius type expressions;
 #To include observations at higher levels could require feet (ft) or pressure height but unlikely ;
 JJ---^(t|T)hat$--- demonstrative adjective;
 JJ-ACP---^(M|m)arine$--- demonstrative adjective;
-JJ-VERTICAL---^[V|v]ertical$--- ;
-JJ-HORIZONTAL---^[H|h]orizontal$--- ;
+#JJ-VERTICAL---^[V|v]ertical$--- ;
+#JJ-HORIZONTAL---^[H|h]orizontal$--- ;
+JJ-DIRECTIONAL---^[H|h]orizontal|[Vv]ertical|[Zz]onal|[Mm]eridional|latitudinal|longitudinal$--- ;
 NN-RESOLUTION---resolution$--- ;
 NNS-LEVELS---^[L|l]evel(s)?$--- ;
 NN-ACP---^Ni(\u00F1)o$--- AtmosChemMetGlossary with special characters;
@@ -121,11 +151,14 @@ JJ-CHEM---^(i|I)nfrared$--- demonstrative adjective;
 #VB-OBSERVE---^(observ|show)(e|ed)?$--- observation verbs;
 #VB-INVESTIGATE---^investigat(e|ed|ing)$--- investigate verbs;
 #VB-INDICATE---^(indicat|highlight|signif)(y|e|ied|ed|ing|ying|s|ies|es)?$--- indication verbs;
-IN-BETWEEN---^(B|b)etween$--- in;
-IN-NEAR---^(N|n)ear$--- in;
-IN-ABOVE---^(A|a)bove$--- in;
-IN-AT---^(A|a)t$--- in;
-IN-AROUND---^(A|a)round$--- in;
+IN-TIMLOC---^([Aa]t|[Aa]round|(B|b)etween|[Ww]ithin)$--- in;
+#IN-BETWEEN---^(B|b)etween$--- in;
+IN-LOC---^([Aa]bove|[Nn]ear)$---; in
+#IN-NEAR---^(N|n)ear$--- in;
+#IN-ABOVE---^(A|a)bove$--- in;
+#IN-AT---^(A|a)t$--- in;
+#IN-AROUND---^(A|a)round$--- in;
+#IN-WITHIN---^(W|w)ithin$--- in;
 IN-PER---^(P|p)er$--- in;
 IN-DURING---^(D|d)uring$--- in;
 IN-BECAUSE---^because$---I consider that because should generally be used as a suboridating conjunction. However, it currently comes up as IN or RB.  So I will make my own class and use it as if a conjunction.; 

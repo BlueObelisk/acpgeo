@@ -16,7 +16,7 @@ public class RecogniseApparatusTest {
 		String sentence = "FTIR, FT-IR, GCxGC, GC-MS, FAGE, AMS and DOAS are instrumental techniques used within atmospheric chemistry.";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-        Assert.assertEquals("NNP-APPARATUS FTIR COMMA , NNP-APPARATUS FT-IR COMMA , NNP-APPARATUS GCxGC COMMA , NNP-APPARATUS GC-MS COMMA , NNP-APPARATUS FAGE COMMA , NNP-APPARATUS AMS CC and NNP-APPARATUS DOAS VBP are JJ instrumental NN-METHOD techniques VBN used IN within JJ atmospheric NN chemistry STOP ." , posContainer.getTokenTagTupleAsString());
+        Assert.assertEquals("NNP-APPARATUS FTIR COMMA , NNP-APPARATUS FT-IR COMMA , NNP-APPARATUS GCxGC COMMA , NNP-APPARATUS GC-MS COMMA , NNP-APPARATUS FAGE COMMA , NNP-APPARATUS AMS CC and NNP-APPARATUS DOAS VBP are JJ instrumental NN-METHOD techniques VBN used IN-TIMLOC within NN-DOMAIN atmospheric NN-SCIENCEFIELD chemistry STOP ." , posContainer.getTokenTagTupleAsString());
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Document doc = sentenceParser.makeXMLDocument();
@@ -32,14 +32,14 @@ public class RecogniseApparatusTest {
 		String sentence = "ERS-2/GOME and DOAS are instrumental techniques used within atmospheric chemistry.";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
-        Assert.assertEquals("NNP-APPARATUS ERS-2/GOME CC and NNP-APPARATUS DOAS VBP are JJ instrumental NN-METHOD techniques VBN used IN within JJ atmospheric NN chemistry STOP ." , posContainer.getTokenTagTupleAsString());
+        Assert.assertEquals("NNP-APPARATUS ERS-2/GOME CC and NNP-APPARATUS DOAS VBP are JJ instrumental NN-METHOD techniques VBN used IN-TIMLOC within NN-DOMAIN atmospheric NN-SCIENCEFIELD chemistry STOP ." , posContainer.getTokenTagTupleAsString());
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
 		Document doc = sentenceParser.makeXMLDocument();
 		Utils.writeXMLToFile(doc,
 				"target/Apparatus2.xml");
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
-				.toStringTree().contains("<error"));
+			.toStringTree().contains("<error"));
 	}
 	
 	@Test
@@ -53,8 +53,8 @@ public class RecogniseApparatusTest {
 		Document doc = sentenceParser.makeXMLDocument();
 		Utils.writeXMLToFile(doc,
 				"target/Apparatus3.xml");
-//		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
-//				.toStringTree().contains("<error"));
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
 	}
 	
 	

@@ -88,7 +88,8 @@ public class ACPTagger {
 				if (currentTag.contains("-") && !currentTag.startsWith("-")) {
 					currentTag = currentTag.split("-")[0];
 				}
-				if (currentTag.contains("NNPS") || currentTag.contains("OSCAR")) currentTag = "NNP";
+				if (currentTag.contains("NNPS") || currentTag.contains("JJ") || currentTag.contains("OSCAR")) currentTag = "NNP";
+				// not ideal to change all JJ to NNP but otherwise have problems with mid-Pliocene etc. 
 				posContainer.getCombinedTagsList().set(count,currentTag + "-TIMEPERIOD");
 			}
 //			if (ContextDependentWordMap.containsKey(token.getSurface())) {

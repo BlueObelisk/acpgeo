@@ -43,6 +43,10 @@ public class ExtractInformation {
 
 		
 		getQuery(files, "//CAMPAIGN", "CAMPAIGN.csv");		
+		getQuery(files, "//JJ[.='Eulerian']", "Eulerian.csv");	
+		getQuery(files, "//*[.='Lagrangian']", "Lagrangian.csv");		
+
+
 		getQuery(files, "//IN", "in.csv");		
 
 		getQuery(files, "//ReferencePhrase", "CITATION.csv");		
@@ -55,6 +59,8 @@ public class ExtractInformation {
 
 		getQuery(files, "//PALAEOTIME", "PALAEOTIME.csv");
 		getQuery(files, "//NN-TEMP", "NN-TEMP.csv");
+		getQuery(files, "//NN-RESOLUTION", "NN-RESOLUTION.csv");
+
 		getQuery(files, "//TempPhrase", "TempPhrase.csv");
 		getQuery(files, "//PrepPhrase", "PrepPhrase.csv");
 		getQuery(files, "//VB-HEAT", "VB-Heat.csv");
@@ -70,6 +76,9 @@ public class ExtractInformation {
 		getQuery(files, "//EXPRESSION", "EXPRESSION.csv");
 		getQuery(files, "//NN-MODEL", "NN-MODEL.csv");
 		getQuery(files, "//MODEL", "MODEL.csv");
+		getQuery(files, "//PrepPhrase/NounPhrase/MODEL", "PrepMODEL.csv");
+		getQuery(files, "//LocationPhrase/NounPhrase/MODEL", "LocMODEL.csv");
+
 		getQuery(files, "//NNP-MODEL", "NNP-MODEL.csv");
 		getQuery(files, "//NN-AEROSOL", "NN-AEROSOL.csv");
 		getQuery(files, "//NN-PHYSICAL", "NN-PHYSICAL.csv");

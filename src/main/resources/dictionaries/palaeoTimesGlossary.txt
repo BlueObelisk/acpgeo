@@ -71,7 +71,7 @@ Ypresian:: Age within the Eocene Epoch.  	55.8 ± 0.2* ::  SOURCE: Wikipedia
 Thanetian:: Age within the Paleocene Epoch. 	58.7 ± 0.2* ::  SOURCE: Wikipedia
 Selandian:: Age within the Paleocene Epoch.  	61.7 ± 0.3* ::  SOURCE: Wikipedia
 Danian:: Age within the Paleocene Epoch.  	65.5 ± 0.3* ::  SOURCE: Wikipedia
-Maastrichtiann:: Age within the Late Cretaceous 70.6 ± 0.6* ::  SOURCE: Wikipedia
+Maastrichtian:: Age within the Late Cretaceous 70.6 ± 0.6* ::  SOURCE: Wikipedia
 Campanian:: Age within the Late Cretaceous 83.5 ± 0.7* ::  SOURCE: Wikipedia
 Santonian:: Age within the Late Cretaceous 85.8 ± 0.7* ::  SOURCE: Wikipedia
 Coniacian:: Age within the Late Cretaceous 89.3 ± 1.0* ::  SOURCE: Wikipedia
@@ -197,6 +197,7 @@ LGM:: Last Glacial Maximum:: SOURCE: Wikipedia
 #Adjectives  - but here used as proper nouns - may repeat lower case versions elsewhere.
 #
 Glacial::A glacial period (or alternatively glacial or glaciation) is an interval of time (thousands of years) within an ice age that is marked by colder temperatures and glacier advances. 
+Lateglacial::
 Interglacial::Interglacials are periods of warmer climate within an ice age. 
 Stadial:: A stadial is a period of lower temperatures during an interglacial (warm period):: 
 Interstadial:: An interstadial is a warm period during a glacial period of an ice age that is of insufficient duration or intensity to be considered an interglacial.
@@ -215,3 +216,89 @@ Oscillation:: A climate oscillation is any oscillation within global or regional
 #Others added as going along!
 Dryas:: The Younger Dryas stadial, also referred to as the Big Freeze,[1] was a geologically brief (1,300 ± 70 years) period of cold climatic conditions and drought which occurred between approximately 12,800 and 11,500 years BP (Before Present). The Oldest Dryas was a climatic period, which occurred during the coldest stadial after the Weichselian glaciation in north Europe. 
 #
+#
+#From Grerg Tourte's mindmaps
+#
+Markwick:: Recent author so careful not to confuse with citations. From Grerg Tourte's mindmap.May be sued as a proper noun following another palaeoterm.
+Kimmer201:: From Grerg Tourte's mindmap - not foudn in web search.
+Maastrictian:: Possible misspelling of Maastrictian?
+Pre-industrial:: Time before heavy industry.
+Preindustrial:: Time before heavy industry.
+Pre-Ind:: Time before heavy industry.
+#115k:: Interglacial in kiloyears before present, also known as 131k-11k BP. I think probably should be in this dictioanry but should be evalauted as number with units, likely to be palaeotime.
+#Tuonian - assume incorrect spelling of Turonion
+#Aptain - assume incorrect spelling of Aptian
+#
+#<node CREATED="1332934944583" FOLDED="true" ID="Freemind_Link_1913796316" MODIFIED="1332934949412" TEXT="Coastline Code">
+#<node CREATED="1332934950620" ID="Freemind_Link_1703289639" MODIFIED="1332934956620" TEXT="1 (Present Day)"/>
+#<node CREATED="1332934957157" ID="Freemind_Link_736065780" MODIFIED="1332934968146" TEXT="2 (Old Kimmeridgian)"/>
+#<node CREATED="1332934968637" ID="Freemind_Link_547640051" MODIFIED="1332934977493" TEXT="3 (Old Cenomanian)"/>
+#<node CREATED="1332934978035" ID="Freemind_Link_414624028" MODIFIED="1332934994604" TEXT="10 (High Resolution Present Day)"/>
+#<node CREATED="1332935002457" ID="Freemind_Link_1640733390" MODIFIED="1332935014265" TEXT="11 (Old Early Eocene)"/>
+#<node CREATED="1332935029051" ID="Freemind_Link_1891084626" MODIFIED="1332935041959" TEXT="23 (Pliocene -Robertsons)"/>  NB NNP following palaeoterm
+#<node CREATED="1332935042666" ID="Freemind_Link_1864622304" MODIFIED="1332935050431" TEXT="15 (Old Miocene)"/>
+#<node CREATED="1332935051312" ID="Freemind_Link_324461431" MODIFIED="1332935058825" TEXT="16 (8Ma Miocene)"/>
+#<node CREATED="1332935059251" ID="Freemind_Link_51377874" MODIFIED="1332935069513" TEXT="17 (10Ma Miocene)"/>
+#<node CREATED="1332935071697" ID="Freemind_Link_11220806" MODIFIED="1332935084309" TEXT="27 (27Ma Chattian)"/>
+#<node CREATED="1332935084938" ID="Freemind_Link_742211031" MODIFIED="1332935097538" TEXT="32 (32Ma Rupelian)"/>
+#<node CREATED="1332935098144" ID="Freemind_Link_1599470798" MODIFIED="1332935116476" TEXT="33 (33Ma Oligocene)"/>
+#<node CREATED="1332935116932" ID="Freemind_Link_2363999" MODIFIED="1332935128801" TEXT="38 (38Ma Eocene)"/>
+#<node CREATED="1332935129251" ID="Freemind_Link_433784423" MODIFIED="1332935142354" TEXT="52 (52Ma Eocene)"/>
+#<node CREATED="1332935143581" ID="Freemind_Link_809949823" MODIFIED="1332935152571" TEXT="53 (52Ma New Eocene)"/>
+#<node CREATED="1332935153071" ID="Freemind_Link_1171448217" MODIFIED="1332935165919" TEXT="61 (New Kimmeridgian)"/>
+#<node CREATED="1332935166390" ID="Freemind_Link_1949129312" MODIFIED="1332935187993" TEXT="62 (Markwick Recent)"/>
+#<node CREATED="1332935188499" ID="Freemind_Link_1250331681" MODIFIED="1332935198963" TEXT="63 (Norian)"/>
+#<node CREATED="1332935200242" ID="Freemind_Link_889472742" MODIFIED="1332935211595" TEXT="64 (Turonian)"/>
+#<node CREATED="1332935212503" ID="Freemind_Link_1413796051" MODIFIED="1332935793963" TEXT="91 (91Ma Tuonian - Robertson)"/>
+#<node CREATED="1332935228684" ID="Freemind_Link_1698248989" MODIFIED="1332935252010" TEXT="97 (297Ma Asselian)"/>
+#<node CREATED="1332935252560" ID="Freemind_Link_1708928953" MODIFIED="1332935264937" TEXT="119 (119Ma Aptian - Robertson)"/>
+#<node CREATED="1332935265518" ID="Freemind_Link_252816373" MODIFIED="1332935279113" TEXT="153 (153Ma Kimmer201)"/>
+#<node CREATED="1332935279642" ID="Freemind_Link_796032388" MODIFIED="1332935291611" TEXT="155 (55Ma Eocene)"/>
+#<node CREATED="1332935292196" ID="Freemind_Link_919624191" MODIFIED="1332935306205" TEXT="170 (70Ma Maastrictian)"/>
+#<node CREATED="1332935306798" ID="Freemind_Link_1315270622" MODIFIED="1332935317369" TEXT="188 (88Ma Coniacian)"/>
+#<node CREATED="1332935318053" ID="Freemind_Link_1034955269" MODIFIED="1332935329875" TEXT="192 (92Ma Cenomanian)"/>
+#<node CREATED="1332935330500" ID="Freemind_Link_889552620" MODIFIED="1332935343529" TEXT="216 (116Ma Aptain - Markwick)"/>
+#</node>
+#<node CREATED="1332935345957" ID="Freemind_Link_1060841327" MODIFIED="1332935368434" TEXT="Length_of_run (in years)"/>
+#<node CREATED="1332935402049" ID="Freemind_Link_362907624" MODIFIED="1332935421481" TEXT="Length_of_means (in years)"/>
+#<node CREATED="1332935415102" ID="Freemind_Link_1837649546" MODIFIED="1332935434872" TEXT="Length_of_spinup (in years)"/>
+#<node CREATED="1332935435461" FOLDED="true" ID="Freemind_Link_975984969" MODIFIED="1332935450343" TEXT="do you want to split the simulation into multiple averages">
+#<node CREATED="1332935459253" ID="Freemind_Link_1418915504" MODIFIED="1332935462231" TEXT="yes">
+#<node CREATED="1332935479850" ID="Freemind_Link_1045956934" MODIFIED="1332935489061" TEXT="start multiple averages at year"/>
+#<node CREATED="1332935489745" ID="Freemind_Link_850372874" MODIFIED="1332935498373" TEXT="multiple averages length year?"/>
+#<node CREATED="1332935499231" ID="Freemind_Link_794556024" MODIFIED="1332935511530" TEXT="gap between each average (in years)"/>
+#</node>
+#<node CREATED="1332935462750" ID="Freemind_Link_1238954733" MODIFIED="1332935464728" TEXT="no"/>
+#</node>
+#</node>
+#<node CREATED="1332935568677" ID="Freemind_Link_1850870635" MODIFIED="1333029930866" POSITION="right" TEXT="Keywords">
+#<hook NAME="accessories/plugins/NodeNote.properties">
+#<text>Era#</text>
+#</hook>
+#<node CREATED="1332935573542" FOLDED="true" ID="Freemind_Link_1835665891" MODIFIED="1332935580964" TEXT="Keyword 1">
+#<node CREATED="1332935580933" ID="Freemind_Link_1645176171" MODIFIED="1332935586109" TEXT="Pre-Industrial"/>
+#<node CREATED="1332935586490" ID="Freemind_Link_215678389" MODIFIED="1332935602569" TEXT="Present_Day"/>
+#<node CREATED="1332935603197" ID="Freemind_Link_839326196" MODIFIED="1332935606374" TEXT="Future"/>
+#<node CREATED="1332935606748" ID="Freemind_Link_1512619819" MODIFIED="1332935612950" TEXT="Quaternary"/>
+#<node CREATED="1332935613325" ID="Freemind_Link_148556043" MODIFIED="1332935617627" TEXT="Cenozoic"/>
+#<node CREATED="1332935618162" ID="Freemind_Link_1171187099" MODIFIED="1332935622888" TEXT="Cretaceous"/>
+#<node CREATED="1332935623350" ID="Freemind_Link_1867612448" MODIFIED="1332935626324" TEXT="Jurassic"/>
+#<node CREATED="1332935626780" ID="Freemind_Link_1977691546" MODIFIED="1332935629344" TEXT="Triassic"/>
+#<node CREATED="1332935629819" ID="Freemind_Link_388858107" MODIFIED="1332935641605" TEXT="pre-Mosozoic"/> assume pre-Mesozoic
+#<node CREATED="1332935642181" ID="Freemind_Link_14502482" MODIFIED="1332935644792" TEXT="Other"/>
+#<node CREATED="1332935645253" ID="Freemind_Link_411790192" MODIFIED="1332935650089" TEXT="None"/>
+#</node>
+#<node CREATED="1332935652299" FOLDED="true" ID="Freemind_Link_816095106" MODIFIED="1332935657685" TEXT="Keyword ">
+#<node CREATED="1332935657653" ID="Freemind_Link_407191384" MODIFIED="1332935663974" TEXT="Pre-Ind"/>
+#<node CREATED="1332935664388" ID="Freemind_Link_31490339" MODIFIED="1332935666766" TEXT="Present"/>
+#<node CREATED="1332935667145" ID="Freemind_Link_1819247528" MODIFIED="1332935672938" TEXT="2xCO2"/>
+#<node CREATED="1332935673613" ID="Freemind_Link_1369102378" MODIFIED="1332935676601" TEXT="Holocene"/>
+#<node CREATED="1332935676989" ID="Freemind_Link_1905230336" MODIFIED="1332935678557" TEXT="LGM"/>
+#<node CREATED="1332935679157" ID="Freemind_Link_762786642" MODIFIED="1332935683199" TEXT="115k"/>
+#<node CREATED="1332935683624" ID="Freemind_Link_834190726" MODIFIED="1332935686937" TEXT="Eocene"/>
+#<node CREATED="1332935687507" ID="Freemind_Link_1788913163" MODIFIED="1332935692548" TEXT="Maastrictian"/>
+#<node CREATED="1332935692974" ID="Freemind_Link_1288528030" MODIFIED="1332935698281" TEXT="Aptian"/>
+#<node CREATED="1332935698912" ID="Freemind_Link_1931311032" MODIFIED="1332935718864" TEXT="Turonian"/>
+#<node CREATED="1332935719352" ID="Freemind_Link_1479166358" MODIFIED="1332935731552" TEXT="Kimmeridgian"/>
+#<node CREATED="1332935732077" ID="Freemind_Link_1723372188" MODIFIED="1332935736071" TEXT="None"/>
+#</node>

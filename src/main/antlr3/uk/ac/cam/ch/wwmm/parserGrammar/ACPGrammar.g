@@ -1,5 +1,6 @@
 grammar ACPGrammar;
 //Palaeo version for PIMMS
+
 options {
     language=Java;
     output = AST;
@@ -15,6 +16,7 @@ ACRONYM;
 LOCATION;
 LocationPhrase;
 PrepPhrase;
+//PositionalPrepPhrase;
 AcronymPhrase;
 OSCARCM;
 MOLECULE;
@@ -22,13 +24,17 @@ QUANTITY;
 UNITS;
 MATHEXPRESSION;
 MATHEQUATION;
-HorizontalResolution;
+//HorizontalResolution;
+EquationName;
+ResolutionPhrase;
+HorizontalGrid;
 VerticalResolution;
 APPARATUS;
 ParentheticalPhrase;
 ParentheticalPhraseEmpty;
 TransitionPhrase;
 CAMPAIGN;
+//TimeStep;
 TimePhrase;
 TIME;
 YEARS;
@@ -102,9 +108,11 @@ sentencePref: ((sentenceStructure|otherStructure)+) stop*;
 //sentenceStructure: (referencephrase|nounphrase|verbphrase|prepphrase|transitionalPhrase)+ (conjunction|rbconj|inAll)* (advAdj|colon) * (conjunction|rbconj|comma)*;
 //sentenceStructure: (transitionalPhrase|nounphrase|verbphrase|prepphrase|referencephrase)+ (conjunction|rbconj|inAll)* (advAdj|colon) * (conjunction|rbconj|comma)*;
 //sentenceStructure: (transitionalPhrase|prepphrase|nounphrase|verbphrase|referencephrase)+ (conjunction|rbconj|inAll)* (advAdj|colon) * (conjunction|rbconj|comma)*;
-sentenceStructure: (transitionalPhrase|prepphrase|nounphrase|verbphrase|referencephrase)+ (conjunction|inas|infor|inwith|rbconj|to)* (advAdj|colon) * (conjunction|inas|infor|inwith|rbconj|to|comma)*; //possibly need to add 'in' with other conjunctions
+//sentenceStructure: (transitionalPhrase|prepphrase|nounphrase|verbphrase|referencephrase)+ (conjunction|inas|infor|inwith|rbconj|to)* (advAdj|colon)* (conjunction|inas|infor|inwith|rbconj|to|comma)*; //possibly need to add 'in' with other conjunctions
+sentenceStructure: (transitionalPhrase|prepphrase|nounphrase|verbphrase|referencephrase)+ (conjunction|inas|infor|inwith|rbconj|to|in)* (advAdj|colon)* (conjunction|inas|infor|inwith|rbconj|to|comma)*; //possibly need to add 'in' with other conjunctions
 
-otherStructure	:	(dt|dtTHE|advAdj|comma|cc|lrb|rrb|md|neg);
+//otherStructure	:	(dt|dtTHE|advAdj|comma|cc|lrb|rrb|md|neg);
+otherStructure	:	(dt|dtTHE|advAdj|comma|cc|lrb|rrb|md|neg|inAll);
 
 transitionalPhrase	: transitionalContent+ comma ->^(TransitionPhrase transitionalContent+ comma);
 //transitionalContent	:	(inAll dt| rb|rbconj)+;
@@ -119,17 +127,53 @@ prepphraseReference	: inAll dt? dtTHE? verb? inAll? referencephrase -> ^(PrepPhr
 
 
 acronymPhrase :(parentheticalPhraseAcronym|acronymPhraseStructure) -> ^(AcronymPhrase parentheticalPhraseAcronym? acronymPhraseStructure?) ;
-acronymPhraseStructure : (advAdj|properNoun|moleculeNoun|cdAlphanum|cd|nnstudy)+ ((cc|inAll) dtTHE? (advAdj|properNoun|moleculeNoun|cdAlphanum|cd|nnstudy)+)? acronym;
-parentheticalPhraseAcronym : adj? (nn|properNoun)+ (cd|cdAlphanum|nnidentifier)? parentheticalPhrase;
+//acronymPhraseStructure : (advAdj|properNoun|moleculeNoun|cdAlphanum|cd|nnstudy)+ ((cc|inAll) dtTHE? (advAdj|properNoun|moleculeNoun|cdAlphanum|cd|nnstudy)+)? acronym;
+acronymPhraseStructure : (advAdj|properNoun|nnp|nnps|moleculeNoun|cdAlphanum|cd|nnstudy)+ ((cc|inAll) dtTHE? (advAdj|properNoun|nnp|nnps|moleculeNoun|cdAlphanum|cd|nnstudy)+)? acronym;
+//parentheticalPhraseAcronym : adj? (nn|properNoun)+ (cd|cdAlphanum|nnidentifier)? parentheticalPhrase;
+parentheticalPhraseAcronym : adj? (nn|nnp|nnps|properNoun)+ (cd|cdAlphanum|nnidentifier)? parentheticalPhrase;
 
 campaign: (campaignContent|campaignContent2) ->^(CAMPAIGN campaignContent? campaignContent2?);
-campaignContent : (acronymPhrase|nnp|nnplocationType|nnps|nnpacp|nnpacronym|nnsacp) (time|cd|cdAlphanum|nnidentifier|nnpacp|nnacp|nn|nnp|nnplocationType|adj|moleculeNoun)* nncampaign ;
-campaignContent2 : acronymPhrase (time|cd|nnpacp|nnacp|nnp|adj|moleculeNoun|nnplocationType)* nnstudy ;
+campaignContent : (acronymPhrase|nnp|nndomain|nnplocationType|nnps|nnpacp|nnpacronym|nnsacp) (time|cd|cdAlphanum|nnidentifier|nnpacp|nnacp|nn|nnp|nndomain|nnplocationType|adj|moleculeNoun)* nncampaign ;
+campaignContent2 : acronymPhrase (time|cd|nnpacp|nnacp|nnp|nndomain|adj|moleculeNoun|nnplocationType)* nnstudy ;
 
-model: (modelContent1|modelContent2) ->^(MODEL modelContent1? modelContent2?);
+//doesn't get 'model for XYZ'. 
+//model: (modelContent1|modelContent2|modelContent3) ->^(MODEL modelContent1? modelContent2? modelContent3?);
 //note just nnpmodel alone or with parenthetical phrase should also be maked as model - fine for post processing
-modelContent1 : (acronymPhrase|nnp|nnplocationType|nnps|nnpacp|nnpacronym|nnsacp|nnpmodel|parentheticalPhrase|nn)+ (time|cd|cdAlphanum|nnidentifier|nnpacp|nnacp|nn|nnp|nnplocationType|moleculeNoun|adj)* nnmodel;
-modelContent2 : (properNoun|nn|adj)+ nnmodel nn? (cd|cdAlphanum|nnidentifier)? parentheticalPhrase ;
+//modelContent1 : (jjcouple|jjacp|jjmodelmethod|jjphysicalprocess|jjchem|acronymPhrase|nnp|modelNoun|nndomain|moleculeNoun|nnplocationType|nnps|nnpacp|nnpacronym|nnsacp|nnpmodel|parentheticalPhrase|nnacp|nn)+ (time|cd|cdAlphanum|nnidentifier|nnpacp|nnacp|nn|nnp|nndomain|nnplocationType|moleculeNoun|adj)* nnmodel parentheticalPhrase? ;
+//modelContent2 : (jjcouple|jjacp|jjmodelmethod|jjphysicalprocess|properNoun|modelNoun|nn|moleculeNoun|adj)+ nnmodel nn? (cd|cdAlphanum|nnidentifier)? parentheticalPhrase ;
+//modelContent3 : nnpmodel parentheticalPhrase? ;
+
+
+
+//doesn't get 'model for XYZ'. ^M
+//model: (modelContent1|modelContent2) ->^(MODEL modelContent1? modelContent2?);
+//model: (modelContent1|modelContent2|modelContent3) ->^(MODEL modelContent1? modelContent2? modelContent3?);
+model: (modelContent1|modelContent3) ->^(MODEL modelContent1? modelContent3?);
+//modelContent1 : (acronymPhrase|nnp|nnplocationType|nnps|nnpacp|nnpacronym|nnsacp|nnpmodel|parentheticalPhrase|nn)+ (time|cd|cdAlphanum|nnidentifier|nnpacp|nnacp|nn|nnp|nnplocationType|moleculeNoun|adj)* nnmodel;
+//modelContent1 : (jjcouple|jjacp|jjmodelmethod|jjphysicalprocess|jjchem|acronymPhrase|nnp|modelNoun|nndomain|moleculeNoun|nnplocationType|nnps|nnpacp|nnpacronym|nnsacp|nnpmodel|parentheticalPhrase|nnacp|nn)+ (time|cd|cdAlphanum|nnidentifier|nnpacp|nnacp|nn|nnp|nndomain|nnplocationType|moleculeNoun|adj)* nnmodel parentheticalPhrase? ;
+//modelContent1 : (jjcouple|jjacp|jjmodelmethod|jjphysicalprocess|jjchem|acronymPhrase|nnplocationType|nndomain|nnpacronym|nnacp|nnpacp|nnsacp|modelNoun|nnps|nnp|nnpmodel|parentheticalPhrase|nn)+ (time|cd|cdAlphanum|nnidentifier|nnpacp|nnacp|nn|nnp|nndomain|nnplocationType|moleculeNoun|adj)* nnmodel nn? (cd|cdAlphanum|nnidentifier)?  parentheticalPhrase? ;
+modelContent1 : (jjcouple|jjacp|jjmodelmethod|jjphysicalprocess|jjchem|acronymPhrase|nnp|modelNoun|nndomain|moleculeNoun|nnplocationType|nnps|nnpacp|nnpacronym|nnsacp|nnpmodel|parentheticalPhrase|nnacp|nn)+ (time|cd|cdAlphanum|nnidentifier|nnpacp|nnacp|nn|nnp|nndomain|nnplocationType|moleculeNoun|adj)* nnmodel nn? (cd|cdAlphanum|nnidentifier)?  parentheticalPhrase? ;
+//modelContent1 : (jjcouple|jjacp|jjmodelmethod|jjphysicalprocess|jjchem|acronymPhrase|nnp|modelNoun|nndomain|moleculeNoun|nnplocationType|nnps|nnpacp|nnpacronym|nnsacp|nnpmodel|parentheticalPhrase|nnacp|nn)+ (time|cd|cdAlphanum|nnidentifier|nnpacp|nnacp|nn|nnp|nndomain|nnplocationType|moleculeNoun|adj)* nnmodel nn? (cd|cdAlphanum|nnidentifier)?  parentheticalPhrase? ;
+
+//properNoun : (nnpmonth|nnplocationType|nnpstation|nnstation|nnpdirection|nndomain|apparatus|nnpacronym|nnacp|nnpacp|nnmeasurement|nnptechnique|fwSymbolNoun|nnsacp|nnidentifier|modelNoun|experimentNoun|nnphysical|nnps|nnp);
+//properNounSub : (nnplocationType|nndomain|nnpacronym|nnacp|nnpacp|nnsacp|nnidentifier|modelNoun|nnps|nnp);
+
+//modelContent1 : (jjcouple|jjacp|jjmodelmethod|jjphysicalprocess|jjchem|acronymPhrase|nnplocationType|nndomain|nnpacronym|nnacp|nnpacp|nnsacp|modelNoun|nnps|nnp|nnpmodel|parentheticalPhrase|nn)+ (time|cd|cdAlphanum|nnidentifier|moleculeNoun|adj)* nnmodel nn? (cd|cdAlphanum|nnidentifier)?  parentheticalPhrase? ;
+//MAY POSSIBLY REINSTATE VERSION 2 AS BELOW, TAKING OUT PROPERNOUN FROM modelContent1 - WOULD LIKE TO ADD modelNoun|moleculeNoun|nndomain to first part but can't as this then fails (with any one option), as it overlaps with modelContent1
+//modelContent2 : (adj|properNoun|nn)+  nnmodel nn? (cd|cdAlphanum|nnidentifier)? parentheticalPhrase ;
+modelContent3 : nnpmodel parentheticalPhrase? ;
+
+
+//< model: (modelContent1|modelContent2|modelContent3) ->^(MODEL modelContent1? modelContent2? modelContent3?);^M
+//< modelContent1 : (jjcouple|jjacp|jjmodelmethod|jjphysicalprocess|jjchem|acronymPhrase|nnp|modelNoun|nndomain|moleculeNoun|nnplocationType|nnps|nnpacp|nnpacronym|nnsacp|nnpmodel|parentheticalPhrase|nnacp|nn)+ (time|cd|cdAlphanum|nnidentifier|nnpacp|nnacp|nn|nnp|nndomain|nnplocationType|moleculeNoun|adj)* nnmodel parentheticalPhrase? ;^M
+//< modelContent2 : (jjcouple|jjacp|jjmodelmethod|jjphysicalprocess|properNoun|modelNoun|nn|moleculeNoun|adj)+ nnmodel nn? (cd|cdAlphanum|nnidentifier)? parentheticalPhrase ;^M
+//< modelContent3 : nnpmodel parentheticalPhrase? ;^M
+//< model: (modelContent1|modelContent2|modelContent3) ->^(MODEL modelContent1? modelContent2? modelContent3?);^M
+
+
+
+
+
 
 nounphrase	:	nounphraseStructure -> ^(NounPhrase nounphraseStructure);
 //nounphraseStructure	:	dtTHE? dt? noun+ (conjunction* noun)* (prepphraseTime|prepphraseLocation|prepphraseOf)* ;
@@ -145,29 +189,52 @@ conjunction 	:	 cc|inbecause;
 
 verbphrase	:	verbphraseStructure -> ^(VerbPhrase verbphraseStructure);
 verbphraseStructure : inwith? infor? dt? to? inAll? inafter? (md* rbconj? advAdj* verb+ md* advAdj* neg? )+ (to|inoff|inon)? (cc? comma? prepphrase)* ;
-verb : vbindicate|vbmeasure|vbacp|vbdacp|vbgacp|vbnacp|vbpacp|vbzacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbcool|vbdegass|vbdissolve|vbdry|vbextract|vbfilter |vbheat|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange|nnpresent;
+verb : vbindicate|vbmeasure|vbacp|vbdacp|vbgacp|vbnacp|vbpacp|vbzacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbdrop|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbdegass|vbdissolve|vbdry|vbextract|vbfilter|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbyield|vbchange|nnpresent|vbdescriptive;
+vbdescriptive : vbcool|vbheat;
 
 //number : cd|cdyear|cdyearrange|cdAlphanum|cdref|cddegrees|cdunicode;
 number : cd|cdAlphanum|cdref|cddegrees|cdunicode;
 
-//noun1 : advAdj* to? (nounStructure|symeq|nncampaign|nnmodel|cdaltitude)(dash nounStructure)*;
-noun1 : (advAdj cc? advAdj?)* (nounStructure|symeq|nncampaign|nnmodel|cdaltitude)(dash nounStructure)*;
-//noun1 : advAdj* (nounStructure|symeq|nncampaign|nnmodel|cdaltitude)(dash nounStructure)*;
-noun	:	(dtTHE|dt)? (campaign|model|mathEquation|noun1);
-nounStructure : (time|location|acronymPhrase|quantity|atmosHorizontalResolution|atmosVerticalResolution|mathExpression|parentheticalPhrase|fwSymbolNoun|nnstudy|nnplatform|nnaerosol|nn|nns|moleculeNoun|properNoun|prpNoun|number|nnOther);
+//noun1 : (advAdj cc? advAdj?)* (nounStructure|symeq|nncampaign|nnmodel|nnpmodel|cdaltitude|conditionNoun)(dash nounStructure)*;
+//noun1 : (nounStructure|symeq|nncampaign|nnmodel|nnpmodel|cdaltitude|conditionNoun|locationNoun|nnp|nnps)(dash nounStructure)*;
+//noun1 : (advAdj cc? advAdj?)* (nounStructure|symeq|nncampaign|nnmodel|nnpmodel|cdaltitude|conditionNoun|locationNoun|nnp|nnps)(dash nounStructure)*;
+//noun1 : (advAdj cc? advAdj?)* (symeq|nncampaign|nnmodel|nnpmodel|cdaltitude|conditionNoun|locationNoun|nnp|nnps|nounStructure)+(dash nounStructure)*;
+//noun1 : (advAdj cc? advAdj?)* (symeq|nncampaign|nnmodel|nnpmodel|cdaltitude|conditionNoun|locationNoun|nnp|nnps|nounStructure)+;
+//noun1 : (advAdj cc? advAdj?)* (nounStructure|symeq|nncampaign|nnmodel|nnpmodel|cdaltitude|conditionNoun|locationNoun|nnp|nnps)+;
+noun1 : (advAdj cc? advAdj?)* (nounStructure|symeq|nncampaign|nnmodel|nnpmodel|cdaltitude|conditionNoun|locationNoun|nnp|nnps)+;
+noun2 : noun1 (dash noun1)*;
+//noun2 : noun1 ( (dash|cc) noun1)*;
+//noun	:	(dtTHE|dt)? (campaign|model|mathEquation|horizontalGrid|resolution|atmosVerticalResolution|noun1);
+//noun	:	(dtTHE|dt)? (campaign|model|location|mathEquation|horizontalGrid|resolution|atmosVerticalResolution|noun1);
+//noun	:	(campaign|model|location|mathEquation|horizontalGrid|resolution|atmosVerticalResolution|noun1);
+//noun	:	(dtTHE|dt)? (campaign|model|location|mathEquation|horizontalGrid|resolution|atmosVerticalResolution|noun2);
+noun	:	(advAdj cc? advAdj?)* (dtTHE|dt)? (campaign|model|location|mathEquation|horizontalGrid|resolution|atmosVerticalResolution|noun2);
+nounStructure : (time|acronymPhrase|quantity|mathExpression|equationName|parentheticalPhrase|fwSymbolNoun|nnstudy|nnplatform|nnaerosol|othermodelNoun|nn|nns|moleculeNoun|modelNoun|properNoun|prpNoun|number|nnOther);
+//nounStructure : (time|location|acronymPhrase|quantity|mathExpression|equationName|parentheticalPhrase|fwSymbolNoun|nnstudy|nnplatform|nnaerosol|othermodelNoun|nn|nns|moleculeNoun|modelNoun|properNoun|prpNoun|number|nnOther);
 
-nnOther: nneq|actionNoun|clauseNoun|conditionNoun|nnpalaeotimequalifier|timePeriodQualifier|nnpresent|jjtimePeriod;
+nnOther: nneq|actionNoun|clauseNoun|nndirection|nnpalaeotimequalifier|timePeriodQualifier|nnpresent|jjtimePeriod;
 //nnOther: actionNoun|clauseNoun|conditionNoun;
-conditionNoun : nnresolution|nnslevels;
-experimentNoun : nnflash|nngeneral|nnmethod|nnpressure|nncolumn|nnchromatography|nnvacuum|nncycle|nntimes|nnmixture|nnexample;
+conditionNoun : nnresolution|nnslevels|nngrid;
+experimentNoun : nnflash|nngeneral|nnanalyticalmethod|nnpressure|nncolumn|nnchromatography|nnvacuum|nncycle|nntimes|nnmixture|nnexample;
+modelNoun : nndiagnostic|nnprognostic|nnmodelmethod|nnphysicalprocessmain|nnphysicalprocess|nncloud|nnpequation|nnpmodelmethod|nnsciencefield|nnpcloud|nnptimestepmethod;
+//othermodelNoun : nnequation|nntimestep;
+othermodelNoun : nnequation|nnmethod;
 actionNoun : nnyield|nnstate|nnadd|nnextract|nnfilter|nnprecipitate|nnremove|nnsynthesize|nndry|nnconcentrate|nnpurify;
 fwSymbolNoun : fw|sym|tmunicode|symexp;
 clauseNoun:wdt|wp_poss|wrb|ex|pdt|wp;
-properNoun : (nnpmonth|nnplocationType|nnpstation|nnstation|nnpdirection|apparatus|nnpacronym|nnpmodel|nnacp|nnpacp|nnmeasurement|nnptechnique|fwSymbolNoun|nnsacp|nnidentifier|experimentNoun|nnphysical|nnps|nnp);
+//properNoun : (nnpmonth|nnplocationType|nnpstation|nnstation|nnpdirection|nndomain|apparatus|nnpacronym|nnacp|nnpacp|nnmeasurement|nnptechnique|fwSymbolNoun|nnsacp|nnidentifier|experimentNoun|nnphysical|nnps|nnp);
+//properNoun : (nnpmonth|nndomain|apparatus|nnpacronym|nnacp|nnpacp|nnmeasurement|nnptechnique|fwSymbolNoun|nnsacp|nnidentifier|experimentNoun|nnphysical|nnps|nnp);
+properNoun : (nnpmonth|nndomain|apparatus|nnpacronym|nnacp|nnpacp|nnmeasurement|nnptechnique|fwSymbolNoun|nnsacp|nnidentifier|experimentNoun|nnphysical);
+locationNoun : (nnplocationType|nnpstation|nnstation|nnpdirection);
 prpNoun :	prp|prp_poss;
 moleculeNoun	:	(molecule|nnchementity);
 
-adj : (jjcountry|jjacp|jjracp|jjsacp|jjcomp|jjvertical|jjhorizontal|oscarcj|jjchem|oscarrn|jj|jjr|jjs) (cc (jjcountry|jjacp|jjracp|jjsacp|jjcomp|jjvertical|jjhorizontal|oscarcj|jjchem|oscarrn|jj|jjr|jjs))*;
+
+//adj : (jjcountry|jjacp|jjracp|jjsacp|jjcomp|jjvertical|jjhorizontal|oscarcj|jjcouple|jjchem|oscarrn|jj|jjr|jjs) (cc (jjcountry|jjacp|jjracp|jjsacp|jjcomp|jjvertical|jjhorizontal|oscarcj|jjcouple|jjchem|oscarrn|jj|jjr|jjs))*;
+adj1 : (jjcountry|jjphysicalprocess|jjmodelmethod|jjorder|jjacp|jjracp|jjsacp|jjcomp|jjdirectional|oscarcj|jjcouple|jjchem|oscarrn|jj|jjr|jjs)+ ;
+//(cc (jjradmodelmethod|jjcountry|jjphysicalprocess|jjmodelmethod|jjorder|jjacp|jjracp|jjsacp|jjcomp|jjdirectional|oscarcj|jjcouple|jjchem|oscarrn|jj|jjr|jjs))*;
+adj : adj1 (cc adj1)*;
+//adj : (jjcountry|jjphysicalprocess|jjmodelmethod|jjorder|jjacp|jjracp|jjsacp|jjcomp|jjdirectional|oscarcj|jjcouple|jjchem|oscarrn|jj|jjr|jjs) (cc (jjcountry|jjphysicalprocess|jjmodelmethod|jjorder|jjacp|jjracp|jjsacp|jjcomp|jjdirectional|oscarcj|jjcouple|jjchem|oscarrn|jj|jjr|jjs))*;
 
 adv	:	(rb|rbr|rp|rbs|wrb);
 
@@ -176,9 +243,16 @@ advAdj	: (adv|adj) ;
 apparatus	:	apparatusContent+-> ^(APPARATUS apparatusContent+ );
 apparatusContent 	:	(nnapparatus|nnpapparatus|nnpsatellite)+ (dash (nnapparatus|nnpapparatus|nnpsatellite))* ;
 	
+equationName	:	equationNameContent-> ^(EquationName equationNameContent );
+equationNameContent 	: (nnpequation|nnp)+ nnequation ;
+
+//timeStep	:	timeStepContent-> ^(TimeStep timeStepContent);
+//timeStepContent 	:	(timeStepContent1|timeStepContent2) ;
+//timeStepContent1 	:	(nnsacp|nnacp|nnsciencefield|advAdj)? nntimestep ;
+//timeStepContent2 	:	(nnsacp|nnacp|nnsciencefield|advAdj)? nntime nnmethod ;
 // Different PrepPhrases
 //prepphrase : neg? (prepphraseTime|prepphraseLocation|prepphraseOf|prepphraseOther) ;
-prepphrase : neg? (prepphraseTime|prepphraseLocation|prepphraseReference|prepphrasePosition|prepphraseOf|prepphraseOther) ;
+prepphrase : neg? (prepphraseTime|prepphraseLocation|prepphraseReference|prepphraseOf|prepphraseOther) ;
 
 //prepphraseOther	: advAdj* inAll+ dt? dtTHE? nounphrase -> ^(PrepPhrase advAdj* inAll+ dt? dtTHE?  nounphrase);
 //prepphraseOther  : prepphraseOtherContent+ -> ^(PrepPhrase prepphraseOtherContent+);
@@ -186,7 +260,8 @@ prepphraseOther  : (prepphraseOtherContent1|prepphraseOtherContent2) -> ^(PrepPh
 //prepphraseOtherContent : advAdj? inAll (inAll|advAdj)* dt? dtTHE? (nounphrase|referencephrase) (to advAdj* nounphrase)?;
 prepphraseOtherContent1 : advAdj? inAll (inAll|advAdj|dt|dtTHE)* (nounphrase|referencephrase) (to advAdj* nounphrase)?;
 prepphraseOtherContent2 : advAdj? inAll advAdj? cc advAdj? inAll (advAdj|dt|dtTHE)* (nounphrase) ;// doesn't get "in all but one" (in dt cc noun) - not enough call for?
-prepphrasePosition: advAdj? inAll (inAll|advAdj)* dtTHE (jjvertical|jjhorizontal)?;
+//prepphrasePosition: prepphrasePositionStructure ->^(PositionalPrepPhrase prepphrasePositionStructure);
+//prepphrasePositionStructure: advAdj? inAll (inAll|advAdj)* dtTHE (jjdirectional)? nn?;
 //This may include timephrases and location phrases that have not been recognised as such but could be post-processed.
 
 prepphraseOf 	: inof advAdj* to? nounphrase-> ^(PrepPhrase inof advAdj* to? nounphrase);
@@ -207,22 +282,38 @@ mathEquationContent :(mathExpression|number)+ symeq (mathExpression|number)+ nnp
 mathEquation : (mathEquationContentBrackets|mathEquationContent) -> ^(MATHEQUATION mathEquationContentBrackets? mathEquationContent? );
 
 //should look at time resolution phrases?
-atmosHorizontalResolution : horizontalResolutionStructure -> ^(HorizontalResolution horizontalResolutionStructure);
-horizontalResolutionStructure : jjhorizontal nnresolution inof rb? inAll? mathExpression;
+resolution : (horizontalResolutionStructure|otherResolutionStructure|otherResolutionStructure1|otherResolutionStructure2) -> ^(ResolutionPhrase horizontalResolutionStructure? otherResolutionStructure? otherResolutionStructure1? otherResolutionStructure2?);
+//horizontalResolutionStructure : jjdirectional nnresolution inof rb? inAll? (mathExpression|number) ((inin|inon)? advAdj* dt? nndirection ((conjunction|inby) nndirection nngrid)?)?;
+horizontalResolutionStructure : jjdirectional nnresolution inof rb? inAll? (mathExpression|number);
+otherResolutionStructure : nnresolution inof rb? inAll? (quantity|mathExpression|number);
+otherResolutionStructure1 : quantity advAdj* nnresolution;
+otherResolutionStructure2 : jjdirectional nnresolution;
+
+horizontalGrid : horizontalGridStructure+ -> ^(HorizontalGrid horizontalGridStructure);
+horizontalGridStructure : horizontalGridStructure1|horizontalGridStructure2|horizontalGridStructure3 ;
+horizontalGridStructure1 : cd+ advAdj* nngrid nns (inin (dt|dtTHE)? jjdirectional nn)? conjunction?;
+horizontalGridStructure2 : (dt|dtTHE)? advAdj* nngrid nn? inof advAdj* (mathExpression|number);
+horizontalGridStructure3 : advAdj* dt? nndirection (conjunction|inby) nndirection nngrid?;
 
 // above on works if given as axb could be a in lat bi in long etc.
 atmosVerticalResolution : verticalResolutionStructure -> ^(VerticalResolution verticalResolutionStructure);
-verticalResolutionStructure : cd jjvertical? nnslevels inin? dt? jjvertical? ;
+//verticalResolutionStructure : cd jjdirectional? fwSymbolNoun? nnslevels inin? (dt|dtTHE)? jjdirectional? (infrom (dt|dtTHE)? nn to (dt|dtTHE) advAdj? (quantity|number|mathExpression|inof|inat|nn)+)?;
+verticalResolutionStructure : cd jjdirectional? fwSymbolNoun? nnslevels inin? (dt|dtTHE)? jjdirectional?;
 //Need to note whether resoltion refers to ocean or atmosphere!!!1
+//timeResolution : timeResolutionStructure -> ^(TimeResolution timeResolutionStructure);
+//timeResolutionStructure : cd jjdirectional? nnslevels inin? dt? jjdirectional? ;
+//time resolution better post processed but maybe done here for longer time periods?
 
 parentheticalPhrase: parentheticalPhraseBrackets|parentheticalPhraseComma|parentheticalPhraseEmpty;
 parentheticalPhraseComma : comma parentheticalContent1 comma ->^(ParentheticalPhrase comma parentheticalContent1 comma);
 parentheticalContent1	: noun1+ ;			//parentheticalContent1	: (nounStructure {!followedByetal(input)}?|noun1)+ ;
 parentheticalPhraseBrackets	: lrb parentheticalContent+ rrb ->^(ParentheticalPhrase lrb parentheticalContent+ rrb);
 parentheticalPhraseEmpty	: lrb rrb ->^(ParentheticalPhraseEmpty lrb rrb);
-parentheticalContent	: dtTHE? colon? (advAdj|verb|inAll|nounStructure {!followedBySym(input)}?|noun1)+ conjunction? (comma|stop)?;
+//parentheticalContent	: dtTHE? colon? (advAdj|verb|inAll|nounStructure {!followedBySym(input)}?|noun1)+ conjunction? (comma|stop)?;
+parentheticalContent	: dtTHE? colon? (advAdj|verb|inAll|noun1|nounStructure {!followedBySym(input)}?)+ conjunction? (comma|stop)?;
 
-inAll	: in|inafter|inas|inbefore|inby|infor|infrom|induring|inin|ininto|inof|inoff|inon|inper|inover|inunder|invia|inwith|inwithout|to|inbetween|innear|inabove|inaround|inat;
+//inAll	: in|inafter|inas|inbefore|inby|infor|infrom|induring|inin|ininto|inof|inoff|inon|inper|inover|inunder|invia|inwith|inwithout|inwithin|to|inbetween|innear|inabove|inaround|inat;
+inAll	: in|inafter|inas|inbefore|inby|infor|infrom|induring|inin|ininto|inof|inoff|inon|inper|invia|inwith|inwithout|to|inunder|inover|inloc|intimloc;
 
 unitStructure: (nnmeter|nnpermeter|nnvol|nnarea|nnperarea|nnpressure|nnparts|nnpartsperarea|nnmoles|nnmolar|nnmass|nnpermass|nnunits|nnpersecond|nntimeunit|nnpalaeotimeunit|nnpertimeunit|nnvolmix|nnmasspervol|nnmassperarea|nnpermass|nnpercent|nntemp|nnatmosphere);
 compositeUnitStructureContent : unitStructure ((dash|inper)? unitStructure)*;
@@ -242,15 +333,19 @@ quantity : (quantityStructure1|quantityStructure2|compositeUnitStructureContent)
 //TIME 
 //The last two palaeotimeStructures use nntimeunit and nnpalaeotimeunit tags directly - so need to put time before mathExpression now. 
 prepphraseTime 	:prepPhraseTimeStructure+ -> ^(TimePhrase prepPhraseTimeStructure+ );
-prepPhraseTimeStructure	: (in|inafter|inbefore|inby|infor|infrom|induring|inin|inof|inover|inbetween|inaround|inat|to)+ (dtTHE|dt)? advAdj* (time|nnpresent);
+//prepPhraseTimeStructure	: (in|inafter|inbefore|inby|infor|infrom|induring|inin|inof|inover|inbetween|inaround|inat|to)+ (dtTHE|dt)? advAdj* (time|nnpresent);
+prepPhraseTimeStructure	: (in|inafter|inbefore|inby|infor|infrom|induring|inin|inof|inover|intimloc|to)+ (dtTHE|dt)? advAdj* (time|nnpresent);
 //prepPhraseTimeStructure	:(advAdj* (in|inafter|inbefore|inby|infor|infrom|induring|inin|inof|inover|to|inbetween|inaround|inat) (dtTHE|dt)? advAdj* (time|nnpresent))+;
 	
 //time : (timeOther|timeMonth|nnpSeason|timeYear|palaeoTime)+ ((to|dash|cc)?(dtTHE|dt)? (adj|rb)* (timeOther|timeMonth|nnpSeason|timeYear|palaeoTime|nnpresent))* nncampaign?;
 //time : (palaeoTime|timeYear|timeMonth|nnpSeason|timeOther)+ ((to|dash|cc)?(dtTHE|dt)? (adj|rb)* (palaeoTime|timeYear|timeMonth|nnpSeason|timeOther|nnpresent))* nncampaign?;
 time : (palaeoTime|timeYear|timeMonth|nnpSeason|timeOther)+ ((to|dash|cc)? (palaeoTime|timeYear|timeMonth|nnpSeason|timeOther|nnpresent))* nncampaign?;
 //time : (timeOther|timeMonth|nnpSeason|timeYear|palaeoTime)+ ((dash|cc)?   (dtTHE|dt)? (adj|rb)* (timeOther|timeMonth|nnpSeason|timeYear|palaeoTime|nnpresent))* nncampaign?;
-timeOther : otherTimeStructure+ -> ^(TIME otherTimeStructure+);
-otherTimeStructure : cd? nntime;
+timeOther : otherTimeStructure -> ^(TIME otherTimeStructure);
+//otherTimeStructure2 : cd? nntime;
+//otherTimeStructure : (otherTimeStructure1|otherTimeStructure2);
+otherTimeStructure : cd? nntime nnmethod?;
+//otherTimeStructure : cd? nntime nnmethod? ;
 timeMonth : monthStructure+ -> ^(MONTHS monthStructure+);
 monthStructure : nnpmonth (cc nnpmonth)*;
 timeYear : yearStructure+ -> ^(YEARS yearStructure+);
@@ -260,7 +355,8 @@ palaeoTime : (palaeoStructure1|palaeoStructure2|palaeoStructure3)+ -> ^(PALAEOTI
 //palaeoTime : (palaeoStructure1|palaeoStructure1a|palaeoStructure2|palaeoStructure3)+ -> ^(PALAEOTIME palaeoStructure1? palaeoStructure1a? palaeoStructure2? palaeoStructure3?);
 //palaeoTime : (palaeoStructure4|palaeoStructure1|palaeoStructure2|palaeoStructure3)+ -> ^(PALAEOTIME palaeoStructure4? palaeoStructure1? palaeoStructure2? palaeoStructure3?);
 //palaeoStructure1 : adj? nnp? nnps? (timePeriod|timePeriodQualifier)+ adj? (cc dtTHE? dt? adj? nnp? nnps? (timePeriod|timePeriodQualifier)+ adj? )*;
-palaeoStructure1 : dtTHE? jjtimePeriod* cd* (nnp|nnps)* nnchementity? (timePeriod|timePeriodQualifier)+ adj? ;
+//palaeoStructure1 : dtTHE? jjtimePeriod* cd* (nnp|nnps)* nnchementity? (timePeriod|timePeriodQualifier)+ adj? ;
+palaeoStructure1 : dtTHE? jjtimePeriod* cd* (nnp|nnps|nnpcountry)* nnchementity? (timePeriod|timePeriodQualifier)+ adj? ;
 //palaeoStructure1 : dtTHE?  jjtimePeriod* cd* (nnp|nnps)* timePeriod+ jjtimePeriod? ;
 //palaeoStructure1a : dtTHE? (adj|rb)* cd* (nnp|nnps)+ timePeriodQualifier+ adj? ;
 //palaeoStructure1a : dtTHE? jjtimePeriod* cd* (nnp|nnps)+ timePeriodQualifier+ ;
@@ -280,28 +376,80 @@ oscarCompound2Structure 	: oscarcm (dash oscarcm)+ dash?;
 //LOCATION
 location : locationStructure+ ->^(LOCATION locationStructure+) ;
 locationStructure : (locationStructure1+|bracketedLocationStructure);
-locationStructure1 : locationContent comma? dash?;
+//locationStructure1 : locationContent comma? dash?;
+//locationStructure1 :dtTHE? (nnpdirection|jj)* locationContent (comma|dash|to|inof|innear|inoff|inin|cc)?;
+//locationStructure1 :dtTHE? (nnpdirection|nnp|jj)* locationContent nnp* (comma|dash|to|inof|innear|inoff|inin|cc)?;
+//locationStructure1 :dtTHE? (nnpdirection|nnp|jj)* locationContent nnp* (comma|dash|to|inof|innear|inoff|inin|cc)? nnp*;
+//locationStructure1 :dtTHE? locationContent nnp* (comma|dash|to|inof|innear|inoff|inin|cc)? nnp*;
+locationStructure1 :dtTHE? locationContent nnp* (comma|dash|to|inof|inloc|inoff|inin|cc)? nnp*;
 bracketedLocationStructure : lrb locationStructure1+ rrb ;
-locationContent: (nnpcountry|nnpcontinent|locationContent1|locationContent2|locationContent3|locationContent4|locationContent5|locationContent6|locationContent7|locationContent8);
+locationContent: (nnpcountry|nnpcontinent|locationContent1|locationContent2|locationContent3|locationContent4|locationContent5|locationContent6|locationContent7|locationContent8|locationContent9|locationContent10);
+//locationContent: (nnpcountry|nnpcontinent|locationContent1|locationContent2|locationContent3|locationContent4|locationContent5|locationContent6|locationContent7|locationContent8);
 locationContent1 : cd? nnmeter cdaltitude;
 locationContent2 : cddegrees apost? nnpdirection cdaltitude?;
 //change to force direction -see if this works! - ot avoid mix up with grid scales and possibly temperatures
-locationContent3 :(quantityStructure1|quantityStructure2)? nnpdirection inof? (nnp|nnpcountry|nnpcontinent)+;
+//locationContent3 :(quantityStructure1|quantityStructure2)? nnpdirection inof? (nnp|nnpcountry|nnpcontinent)+;
+locationContent3 :(quantityStructure1|quantityStructure2)? nnpdirection+ inof? (nnp|nnpcountry|nnpcontinent)+;
 locationContent4 : nnpstation nnp? nnstation? cdaltitude?;
 locationContent5 : nnpacronym+ nnp? nnstation;
-locationContent6 : nnp nnstation;
+//locationContent6 : nnp (nnstation|nnplocationType|(inof nnp+)) ;
+locationContent6 : nnp nnstation ;
 locationContent7 : nnstation nnp;
-locationContent8 : nnp+ nnplocationType+ ;
+locationContent8 : (nnp|nnpdirection|jj)* nnplocationType+ ;
+//locationContent8 : jj* nnpdirection+ (nnplocationType|nnp|nnps)+ ;
+//locationContent9 : nnpdirection+ nnp+ ;
+locationContent9 : nnpdirection+ (nnp|nnps)+ ;
+//locationContent10 : nnp+ inof nnp+ ;
+locationContent10 : (nnp|nnps)+ inof (nnp|nnps)+ ;
 
 prepphraseLocation :prepPhraseLocationStructure -> ^(LocationPhrase prepPhraseLocationStructure);
-prepPhraseLocationStructure :(inin|inat|inover|inabove|inaround|innear|infrom|inbetween|inoff) (dt|dtTHE)? advAdj* nnpdirection? (nnp|nnpstation|nnpcountry|nnpcontinent|nnplocationType)+ ((comma|to|inof|innear|inoff|inin|cc)? nnpdirection? (bracketedLocationStructure|nnp|nnpstation|nnpcountry|nnpcontinent|nnplocationType))*;
+//prepPhraseLocationStructure :(inin|inat|inover|inabove|inaround|innear|infrom|inbetween|inoff) (dt|dtTHE)? advAdj* nnpdirection? (nnp|nnpstation|nnpcountry|nnpcontinent|nnplocationType)+ ((comma|to|inof|innear|inoff|inin|cc)? nnpdirection? (bracketedLocationStructure|nnp|nnpstation|nnpcountry|nnpcontinent|nnplocationType))*;
+//prepPhraseLocationStructure :(inin|inat|inover|inabove|inaround|innear|infrom|inbetween|inoff) (dt|dtTHE)? advAdj* nnpdirection* (nnp|nnpstation|nnpcountry|nnpcontinent|nnplocationType)+ ((comma|to|inof|innear|inoff|inin|cc)? nnpdirection* (bracketedLocationStructure|nnp|nnpstation|nnpcountry|nnpcontinent|nnplocationType))*;
 
-acronym	: lrb (nn|properNoun) rrb ->^(ACRONYM lrb nn? properNoun? rrb)	;
+//prepPhraseLocationStructure :(inin|inat|inover|inabove|inaround|inwithin|innear|infrom|inbetween|inoff) (dt|dtTHE)? advAdj* (location|nnp)+;
+prepPhraseLocationStructure : rb? (inin|inloc|intimloc|inover|inunder|infrom|inoff) (dt|dtTHE)? advAdj* (location|nnp|nnps|nnpacronym)+;
+//prepPhraseTimeStructure	: (in|inafter|inbefore|inby|infor|infrom|induring|inin|inof|inover|inbetween|inaround|inat|to)+ (dtTHE|dt)? advAdj* (time|nnpresent);
+//in parts of/ regions of /areas of South West Spain - doesn't get.
+
+//acronym	: lrb (nn|properNoun) rrb ->^(ACRONYM lrb nn? properNoun? rrb)	;
+acronym	: lrb (nn|nnp|nnps|properNoun) rrb ->^(ACRONYM lrb nn? nnp? nnps? properNoun? rrb)	;
 
 //Tags---Pattern---Description
 // need to add and rather than cc
 //REmoved tokens:
 //nnamount:'NN-AMOUNT' TOKEN -> ^('NN-AMOUNT' TOKEN);
+
+//Couple Tokens
+jjcouple:'JJ-COUPLE' TOKEN -> ^('JJ-COUPLE' TOKEN);
+
+
+//to integrate:
+
+nnequation:'NN-EQUATION' TOKEN -> ^('NN-EQUATION' TOKEN);
+nnpequation:'NNP-EQUATIONTYPE' TOKEN -> ^('NNP-EQUATIONTYPE' TOKEN);
+nnprognostic:'NN-PROGNOSTIC' TOKEN -> ^('NN-PROGNOSTIC' TOKEN);
+nndiagnostic:'NN-DIAGNOSTIC' TOKEN -> ^('NN-DIAGNOSTIC' TOKEN);
+jjmodelmethod:'JJ-MODELMETHOD' TOKEN -> ^('JJ-MODELMETHOD' TOKEN);
+nnmodelmethod:'NN-MODELMETHOD' TOKEN -> ^('NN-MODELMETHOD' TOKEN);
+nnpmodelmethod:'NNP-MODELMETHOD' TOKEN -> ^('NNP-MODELMETHOD' TOKEN);
+//jjradmodelmethod:'JJ-RADMODELMETHOD' TOKEN -> ^('JJ-RADMODELMETHOD' TOKEN);
+//nnradmodelmethod:'NN-RADMODELMETHOD' TOKEN -> ^('NN-RADMODELMETHOD' TOKEN);
+nnsciencefield:'NN-SCIENCEFIELD' TOKEN -> ^('NN-SCIENCEFIELD' TOKEN);
+nnphysicalprocessmain:'NN-PHYSICALPROCESSMAIN' TOKEN -> ^('NN-PHYSICALPROCESSMAIN' TOKEN);
+nnphysicalprocess:'NN-PHYSICALPROCESS' TOKEN -> ^('NN-PHYSICALPROCESS' TOKEN);
+jjphysicalprocess:'JJ-PHYSICALPROCESS' TOKEN -> ^('JJ-PHYSICALPROCESS' TOKEN);
+nncloud:'NN-CLOUD' TOKEN -> ^('NN-CLOUD' TOKEN);
+nnpcloud:'NNP-CLOUD' TOKEN -> ^('NNP-CLOUD' TOKEN);
+//nntimestep:'NN-TIMESTEP' TOKEN -> ^('NN-TIMESTEP' TOKEN);
+nnptimestepmethod:'NNP-TIMESTEPMETHOD' TOKEN -> ^('NNP-TIMESTEPMETHOD' TOKEN);
+
+jjorder:'JJ-ORDER' TOKEN -> ^('JJ-ORDER' TOKEN);
+
+
+
+
+
+
 nneq:'NN-EQ' TOKEN -> ^('NN-EQ' TOKEN);
 
 //Citation
@@ -309,6 +457,8 @@ nnpRefStart : 'NNP-REFS' TOKEN -> ^('NNP-REFS' TOKEN);
 nnpRefEnd : 'NNP-REFE' TOKEN -> ^('NNP-REFE' TOKEN);
 
 //Modified Nouns
+nngrid	: 'NN-GRID' TOKEN -> ^('NN-GRID' TOKEN)	;
+nndomain	: 'NN-DOMAIN' TOKEN -> ^('NN-DOMAIN' TOKEN)	;
 nnpacp	: 'NNP-ACP' TOKEN -> ^('NNP-ACP' TOKEN)	;
 nnacp	: 'NN-ACP' TOKEN -> ^('NN-ACP' TOKEN)	;
 nnsacp	: 'NNS-ACP' TOKEN -> ^('NNS-ACP' TOKEN)	;
@@ -324,6 +474,7 @@ nnexample:'NN-EXAMPLE' TOKEN -> ^('NN-EXAMPLE' TOKEN);
 nnptechnique	: 'NNP-TECHNIQUE' TOKEN -> ^('NNP-TECHNIQUE' TOKEN)	;
 nnmeasurement	: 'NN-MEASUREMENT' TOKEN -> ^('NN-MEASUREMENT' TOKEN)	;
 nnmethod:'NN-METHOD' TOKEN -> ^('NN-METHOD' TOKEN);
+nnanalyticalmethod:'NN-ANALYTICALMETHOD' TOKEN -> ^('NN-ANALYTICALMETHOD' TOKEN);
 nnplatform : 'NN-PLATFORM' TOKEN -> ^('NN-PLATFORM' TOKEN) ;
 nnpsatellite : 'NNP-SATELLITE' TOKEN -> ^('NNP-SATELLITE' TOKEN) ;
 nnflash:'NN-FLASH' TOKEN -> ^('NN-FLASH' TOKEN);
@@ -340,9 +491,10 @@ nnpapparatus:'NNP-APPARATUS' TOKEN -> ^('NNP-APPARATUS' TOKEN);
 //Model
 nnpmodel : 'NNP-MODEL' TOKEN -> ^('NNP-MODEL' TOKEN) ;
 nnmodel : 'NN-MODEL' TOKEN -> ^('NN-MODEL' TOKEN) ;
-jjhorizontal: 'JJ-HORIZONTAL' TOKEN -> ^('JJ-HORIZONTAL' TOKEN) ;
+jjdirectional: 'JJ-DIRECTIONAL' TOKEN -> ^('JJ-DIRECTIONAL' TOKEN) ;
+//jjhorizontal: 'JJ-HORIZONTAL' TOKEN -> ^('JJ-HORIZONTAL' TOKEN) ;
 nnresolution: 'NN-RESOLUTION' TOKEN -> ^('NN-RESOLUTION' TOKEN) ;
-jjvertical: 'JJ-VERTICAL' TOKEN -> ^('JJ-VERTICAL' TOKEN) ;
+//jjvertical: 'JJ-VERTICAL' TOKEN -> ^('JJ-VERTICAL' TOKEN) ;
 nnslevels: 'NNS-LEVELS' TOKEN -> ^('NNS-LEVELS' TOKEN) ;
 	
 oscaracp	: 'OSCAR-ACP' TOKEN -> ^('OSCAR-ACP' TOKEN)	;
@@ -362,6 +514,7 @@ nnpcountry	: 'NNP-COUNTRY' TOKEN -> ^('NNP-COUNTRY' TOKEN)	;
 nnplocationType : 'NNP-LOCATIONTYPE' TOKEN -> ^('NNP-LOCATIONTYPE' TOKEN) ;
 nnpcontinent	: 'NNP-CONTINENT' TOKEN -> ^('NNP-CONTINENT' TOKEN)	;
 nnpdirection	: 'NNP-DIRECTION' TOKEN -> ^('NNP-DIRECTION' TOKEN)	;
+nndirection	: 'NN-DIRECTION' TOKEN -> ^('NN-DIRECTION' TOKEN)	;
 cdaltitude	: 'CD-ALTITUDE' TOKEN ->	^('CD-ALTITUDE' TOKEN)	;
 
 //Time
@@ -434,11 +587,6 @@ vbindicate	: 'VB-INDICATE' TOKEN -> ^('VB-INDICATE' TOKEN)	;
 //In Prepositions
 inas:'IN-AS' TOKEN -> ^('IN-AS' TOKEN);
 inbecause:'IN-BECAUSE' TOKEN -> ^('IN-BECAUSE' TOKEN);
-inat:'IN-AT' TOKEN -> ^('IN-AT' TOKEN);
-inabove:'IN-ABOVE' TOKEN -> ^('IN-ABOVE' TOKEN);
-inaround:'IN-AROUND' TOKEN -> ^('IN-AROUND' TOKEN);
-inbetween:'IN-BETWEEN' TOKEN -> ^('IN-BETWEEN' TOKEN);
-innear:'IN-NEAR' TOKEN -> ^('IN-NEAR' TOKEN);
 inbefore:'IN-BEFORE' TOKEN -> ^('IN-BEFORE' TOKEN);
 inafter:'IN-AFTER' TOKEN -> ^('IN-AFTER' TOKEN);
 inin:'IN-IN' TOKEN -> ^('IN-IN' TOKEN);
@@ -453,9 +601,20 @@ inon:'IN-ON' TOKEN -> ^('IN-ON' TOKEN);
 infor:'IN-FOR' TOKEN -> ^('IN-FOR' TOKEN);
 infrom:'IN-FROM' TOKEN -> ^('IN-FROM' TOKEN);
 induring:'IN-DURING' TOKEN -> ^('IN-DURING' TOKEN);
-inunder:'IN-UNDER' TOKEN -> ^('IN-UNDER' TOKEN);
-inover:'IN-OVER' TOKEN -> ^('IN-OVER' TOKEN);
 inoff:'IN-OFF' TOKEN -> ^('IN-OFF' TOKEN);
+inloc:'IN-LOC' TOKEN -> ^('IN-LOC' TOKEN);
+inunder:'IN-UNDER' TOKEN -> ^('IN-UNDER' TOKEN);
+//inabove:'IN-ABOVE' TOKEN -> ^('IN-ABOVE' TOKEN);
+//innear:'IN-NEAR' TOKEN -> ^('IN-NEAR' TOKEN);
+intimloc:'IN-TIMLOC' TOKEN -> ^('IN-TIMLOC' TOKEN);
+//inat:'IN-AT' TOKEN -> ^('IN-AT' TOKEN);
+inover:'IN-OVER' TOKEN -> ^('IN-OVER' TOKEN);
+//inwithin:'IN-WITHIN' TOKEN -> ^('IN-WITHIN' TOKEN);
+//inaround:'IN-AROUND' TOKEN -> ^('IN-AROUND' TOKEN);
+//inbetween:'IN-BETWEEN' TOKEN -> ^('IN-BETWEEN' TOKEN);
+
+//prepPhraseLocationStructure :(inin|inat|inover|inabove|inaround|inwithin|innear|infrom|inbetween|inoff) (dt|dtTHE)? advAdj* (location|nnp)+;
+//prepPhraseTimeStructure	: (in|inafter|inbefore|inby|infor|infrom|induring|inin|inof|inover|inbetween|inaround|inat|to)+ (dtTHE|dt)? advAdj* (time|nnpresent);
 
 //Verbs
 vbuse:'VB-USE' TOKEN -> ^('VB-USE' TOKEN);

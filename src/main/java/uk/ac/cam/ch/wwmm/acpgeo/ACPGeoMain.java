@@ -118,10 +118,12 @@ public class ACPGeoMain {
 					removeChildfromParentNode(parsedDoc);
 					rootElement.appendChild(parsedDoc.getRootElement().copy());
 
-//					InputStream acpAbstractModifiedInput = null;
-//					acpAbstractModifiedInput = IOUtils.toInputStream(acpAbstract.toXML(), "UTF-8");
-//					String fileName = file.getName();
-//					PIMMSXMLModifier pimmsModifier = new PIMMSXMLModifier(acpAbstractModifiedInput, fileName);
+					InputStream acpAbstractModifiedInput = null;
+					acpAbstractModifiedInput = IOUtils.toInputStream(acpAbstract.toXML(), "UTF-8");
+					String fileName = file.getName();
+					new PIMMSFilter(acpAbstractModifiedInput, fileName);
+
+//					PIMMSFilter pimmsModifier = new PIMMSFilter(acpAbstractModifiedInput, fileName);
 
 					Utils.writeXMLToFile(acpAbstract,"target/" + file.getName());
                     }
