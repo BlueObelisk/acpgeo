@@ -70,7 +70,7 @@ NN-PERSECOND---^((S|s)(\-)1|Hz)$--- per second (hz);
 NN-TIMEUNIT---^\d*((\-)?(Yr(s)?|yr(s)?|[Yy]ear(s)?|y|Y|[mM]in(ute)?(s)?|Hr|hr|H|h|[Hh]our(s)|d|[Dd]ay(s)?))$---  Time units move century millenuium here?;
 NN-PALAEOTIMEUNIT---^\d*((\-)?((k|t)(\.)?(y)(\.)?))$---  Longer Time units;
 NN-PALAEOTIMEUNIT---^\d*((\-)?((m|b)(\.)(y)(\.)))$---  Longer Time units;
-NN-PALAEOTIMEUNIT---^((\d*((\-)?((k|m|b|t)(\.)?(ya|yr|a)(\.)?)))|century|millen(ium|nia))$---  Longer Time units. If cal appears to be a probelm with calories may have a unique tag for it at present assume we all use joules!;
+NN-PALAEOTIMEUNIT---^((\d*((\-)?((k|m|M|b|t)(\.)?(ya|yr|a)(\.)?)))|century|millen(ium|nia))$---  Longer Time units. If cal appears to be a probelm with calories may have a unique tag for it at present assume we all use joules!;
 NN-TIMEPERIODQUALIFIER---^(sub|inter)?\-?(era|epoch|eon|supereon|[P|p]eriod|Age|Time|[Ii]nterval|stadial|deglacial|glacial|decadal|centennial|timescales)(s?)$--- Time period classes my add age and period.;
 JJ-TIMEPERIOD---^(Early|Middle|Late)$--- Time period adjectives;
 NN-PALAEOTIMEQUALIFIER---^(AD|BC|BP|B\.P\.|cal(\.)?|ago)$--- may clash with other acronyms. ;

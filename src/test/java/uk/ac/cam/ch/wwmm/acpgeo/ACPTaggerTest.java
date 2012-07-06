@@ -3,7 +3,7 @@ package uk.ac.cam.ch.wwmm.acpgeo;
 import junit.framework.Assert;
 import nu.xom.Document;
 
-//import org.junit.Ignore;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
@@ -115,6 +115,26 @@ public class ACPTaggerTest {
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
 				"target/file5.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+
+	}
+	@Test
+	@Ignore
+	public void testSentence6() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = Utils
+				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/test6.txt");
+		String expected = Utils
+				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/ref6.txt");
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		Assert.assertEquals("Correct Markup", expected,
+				posContainer.getTokenTagTupleAsString());
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+				"target/file6.xml");
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
 

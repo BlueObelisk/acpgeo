@@ -89,6 +89,7 @@ public class ACPTagger {
 					currentTag = currentTag.split("-")[0];
 				}
 				if (currentTag.contains("NNPS") || currentTag.contains("JJ") || currentTag.contains("OSCAR")) currentTag = "NNP";
+
 				// not ideal to change all JJ to NNP but otherwise have problems with mid-Pliocene etc. 
 				posContainer.getCombinedTagsList().set(count,currentTag + "-TIMEPERIOD");
 			}
