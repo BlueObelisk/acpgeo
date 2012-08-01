@@ -28,9 +28,9 @@ public class ACPRegexTagger extends RegexTagger {
 	String acpTagFile = "dictionaries/acpTags.txt";
 	private List<Rule> rules;
 	private static String STATION_COORDS_FILE = "dictionaries/StationCoords.csv";
-	private List<String> ignoredTags;
-	public ACPRegexTagger() {
-		super();
+	private static List<String> ignoredTags =  Arrays.asList("VB-YIELD","VB-DEGASS","NN-CONCENTRATE","VB-RECOVER");
+	public ACPRegexTagger(List<String> ignoredTags) {
+		super(ignoredTags);
 		ignoredTags = new ArrayList<String>();
 
 		CoordinatesLoader gawCoordinates = new CoordinatesLoader(STATION_COORDS_FILE);
@@ -47,8 +47,6 @@ public class ACPRegexTagger extends RegexTagger {
 		appendRules();
 		
 		rules.addAll(superrules);
-		ignoredTags = Arrays.asList("VB-YIELD","VB-DEGASS","NN-CONCENTRATE","VB-RECOVER");
-		super.setIgnoredTags(ignoredTags);
 		super.setRules(rules);
 	}
 
