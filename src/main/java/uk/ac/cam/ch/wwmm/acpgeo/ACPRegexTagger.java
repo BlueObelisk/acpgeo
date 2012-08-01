@@ -29,7 +29,7 @@ public class ACPRegexTagger extends RegexTagger {
 	private List<Rule> rules;
 	private static String STATION_COORDS_FILE = "dictionaries/StationCoords.csv";
 	private static List<String> ignoredTags =  Arrays.asList("VB-YIELD","VB-DEGASS","NN-CONCENTRATE","VB-RECOVER");
-	public ACPRegexTagger(List<String> ignoredTags) {
+	public ACPRegexTagger() {
 		super(ignoredTags);
 		ignoredTags = new ArrayList<String>();
 
