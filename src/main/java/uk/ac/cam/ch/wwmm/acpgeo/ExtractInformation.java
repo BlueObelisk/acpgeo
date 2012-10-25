@@ -42,22 +42,29 @@ public class ExtractInformation {
 		
 
 		
-		getQuery(files, "//CAMPAIGN", "CAMPAIGN.csv");		
+		getQuery(files, "//CAMPAIGN", "CAMPAIGN.csv");	
+		getQuery(files, "//TransitionPhrase", "transitionalPhrase.csv");		
+
 		getQuery(files, "//JJ[.='Eulerian']", "Eulerian.csv");	
 		getQuery(files, "//*[.='Lagrangian']", "Lagrangian.csv");		
 
 
 		getQuery(files, "//IN", "in.csv");		
 
-		getQuery(files, "//ReferencePhrase", "CITATION.csv");		
+		getQuery(files, "//CITATION", "CITATION.csv");		
 
 		getQuery(files, "//QUANTITY", "QUANTITY.csv");
 		getQuery(files, "//UNITS", "UNITS.csv");
 		getQuery(files, "//UnmatchedPhrase", "UnmatchedPhrase.csv");
-		getQuery(files, "//HorizontalResolution", "Hresolution.csv");
+		getQuery(files, "//ResolutionPhrase", "resolution.csv");
+		getQuery(files, "//HorizontalGrid", "HorizontalGrid.csv");
+		getQuery(files, "//EquationName", "equationName.csv");
+
 		getQuery(files, "//VerticalResolution", "Vresolution.csv");
 
 		getQuery(files, "//PALAEOTIME", "PALAEOTIME.csv");
+		getQuery(files, "//NNP-ACRONYMPHRASESTART", "ACRONYMPHRASESTART.csv");
+
 		getQuery(files, "//NN-TEMP", "NN-TEMP.csv");
 		getQuery(files, "//NN-RESOLUTION", "NN-RESOLUTION.csv");
 
@@ -92,13 +99,25 @@ public class ExtractInformation {
 
 		getQuery(files, "//CD-YEAR-RANGE", "YEAR-RANGE.csv");
 		getQuery(files, "//CD-YEAR[not(preceding::CD-YEAR >= . or following::CD-YEAR >= . or descendant::CD-YEAR >= .)]", "YEAR-MAX.csv");
+		getQuery(files, "//NN-PALAEOTIMEUNIT[not(ancestor::PALAEOTIME)]", "PALAEOTIMEUNIT.csv");
+		getQuery(files, "//NN-TIMEPERIODQUALIFIER[not(ancestor::PALAEOTIME)]", "TIMEPERIODQUALIFIER.csv");
+
 		getQuery(files, "//CD-YEAR[not(ancestor::ReferencePhrase)]", "YEAR-notREf.csv");
+		getQuery(files, "//SetAcronymPhrase", "SETACRONYMPHRASES.csv");
 		getQuery(files, "//AcronymPhrase", "ACRONYMPHRASES.csv");
 		getQuery(files, "//NNP-ACRONYM", "NNP-ACRONYM.csv");
 		getQuery(files, "//ParentheticalPhrase", "PARENTHETICALPHRASE.csv");
+		getQuery(files, "//ParentheticalPhraseSimple", "PARENTHETICALPHRASESimple.csv");
+
 		getQuery(files, "//LOCATION", "LOCATION.csv");
 		getQuery(files, "//LocationPhrase", "LocationPhrase.csv");
 		getQuery(files, "//TimePhrase", "TimePhrase.csv");
+		getQuery(files, "//TIME", "TIME.csv");
+		getQuery(files, "//TIME/*[.='(']", "TIMELRB.csv");
+		getQuery(files, "//TIME/*[.=')']", "TIMERRB.csv");
+
+
+
 
 		getQuery(files, "//MOLECULE", "MOLECULE.csv");
 		getQuery(files, "//MOLECULE[not(child::JJ-ACP)][not(child::JJ)][not(child::JJ-CHEM)]", "MOLECULE1.csv");

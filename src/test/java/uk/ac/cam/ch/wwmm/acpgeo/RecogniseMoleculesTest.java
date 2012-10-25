@@ -31,7 +31,7 @@ public class RecogniseMoleculesTest {
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals(
-				"DT A NN-STUDY study IN-OF of OSCAR-CM HCOOH COMMA , OSCAR-CM HNO3 CC and OSCAR-CM α-pinene NNS shows PRP they VBP are VBN compounds! PRP We VBD studied OSCAR-CM I2 -LRB- ( NN-STATE g -RRB- ) CC and OSCAR-CM I2 -LRB- ( NN-STATE s -RRB- ) IN-OVER over DT a NN-TIMEPERIODQUALIFIER period IN-OF of CD 10 NNP D.",
+				"DT A NN-STUDY study IN-OF of OSCAR-CM HCOOH COMMA , OSCAR-CM HNO3 CC and OSCAR-CM α-pinene NNS shows PRP they VBP are VBN compounds! PRP We VBD studied OSCAR-CM I2 -LRB- ( NN-STATE g -RRB- ) CC and OSCAR-CM I2 -LRB- ( NN-STATE s -RRB- ) IN-OVER over DT a NN-TIMEPERIODQUALIFIER period IN-OF of CD 10 NN-IDENTIFIER D.",
 				posContainer.getTokenTagTupleAsString());
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();

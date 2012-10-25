@@ -33,13 +33,15 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.Transformer;
+
+//import org.xml.sax.ContentHandler;
 //import java.io.File;
 
 public class PIMMSFilter {
 	 FileWriter filewriter = null;
    	 //       FileWriter outputFileName = null;
 
-        private String outputFolder = "target/PIMMS/";
+        private String outputFolder = "target/PIMMS/New/";
 
     	public String getOutputFolder() {
     		return outputFolder;
@@ -48,12 +50,11 @@ public class PIMMSFilter {
     		this.outputFolder = outputFolder;
     	}
     	
-    public PIMMSFilter(InputStream acpAbstractModifiedInput, String fileName) throws javax.xml.transform.TransformerConfigurationException, javax.xml.transform.TransformerException, IOException{
-        SAXTransformerFactory stf = (SAXTransformerFactory)TransformerFactory.newInstance();
-       
-       
-        FileWriter filewriter = null;
     	
+     	
+    public PIMMSFilter(InputStream acpAbstractModifiedInput1, String fileName) throws javax.xml.transform.TransformerConfigurationException, javax.xml.transform.TransformerException, IOException{
+        SAXTransformerFactory stf = (SAXTransformerFactory)TransformerFactory.newInstance();
+	    	
    	        if (!new File(outputFolder).exists())
    				new File(outputFolder).mkdir();
    			String newFileName = outputFolder + fileName;
@@ -63,8 +64,8 @@ public class PIMMSFilter {
    				// TODO Auto-generated catch block
    				e.printStackTrace();
    			}  
-   		 BufferedWriter out = new BufferedWriter(filewriter);
-   		 
+  		 BufferedWriter out = new BufferedWriter(filewriter);
+		 
         // These templates objects could be reused and obtained from elsewhere.
         Templates templates1 = stf.newTemplates(new StreamSource( new File("/Volumes/Hannah Work/workspace/acpgeo/src/main/xslt/PIMMSStyleFirst.xsl")));
         Templates templates2 = stf.newTemplates(new StreamSource(new File("/Volumes/Hannah Work/workspace/acpgeo/src/main/xslt/PIMMSStyle.xsl")));
@@ -72,16 +73,19 @@ public class PIMMSFilter {
         TransformerHandler th1 = stf.newTransformerHandler(templates1);
         TransformerHandler th2 = stf.newTransformerHandler(templates2);
 
-        th1.setResult(new SAXResult(th2));
-        th2.setResult(new StreamResult(out));
+//        th1.setResult(new SAXResult(th2));
+
+         th1.setResult(new SAXResult(th2));
+         th2.setResult(new StreamResult(out));
 
         Transformer t = stf.newTransformer();
+
 
             //SETTING PARAMETERS HERE
      //   t.setParameter("foo","this is from param 1");
        // t.setParameter("bar","this is from param 2");
 
-	       t.transform(new StreamSource(acpAbstractModifiedInput), new SAXResult(th1));
+	       t.transform(new StreamSource(acpAbstractModifiedInput1), new SAXResult(th2));   //If there were more than one would be first one here i.e. th1
 
 
         

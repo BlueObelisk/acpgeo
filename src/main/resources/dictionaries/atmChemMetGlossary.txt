@@ -372,6 +372,8 @@ Downstream:: In the same direction as a stream or other flow, or toward the dire
 Downwash:: As applied to the action of chimney gases, it is the downward motion of the chimney gases brought on by eddies which form in the lee of a chimney when the wind is blowing. It may result in bringing the flue gases to the ground prematurely. Source = Calvert Atmos Chem Glossary.
 Drifting snow:: Uneven distribution of snowfall caused by strong surface winds. Drifting snow does not reduce visibility. Source = NOAA Met Glossary.
 Drizzle:: Small, slowly falling water droplets, with diameters between .2 and .5 millimeters. Source = NOAA Met Glossary.
+drop:: This is just here to indicate that drop is more likely to follow normal usage in atmospheric texts than it is in synthetic chemsitry texts.
+drops:: This is just here to indicate that drop is more likely to follow normal usage in atmospheric texts than it is in synthetic chemsitry texts.
 Droplet:: A small liquid particle. The size of droplets encountered in the atmosphere extends over a wide range; e.g., liquid aerosol solutions which make up the fine particle fraction of continental tropospheric aerosol are usually &lt;2 &#109;m in diameter. Cloud water droplets usually have diameters in the range of 5 to 70 &#109;m, while rain droplets commonly have diameters ranging from 0.1 to 3 mm. Source = Calvert Atmos Chem Glossary.
 Drought:: Abnormally dry weather in a region over an extended period   sufficient to cause a serious hydrological (water cycle) imbalance in the affected area. This can cause such problems as crop damage and water-supply shortage. Source = NOAA Met Glossary.
 Dry Adiabat:: A line of constant potential temperature on a thermodynamic chart. Source = NOAA Met Glossary.
@@ -404,11 +406,11 @@ Effective stack height:: A height used for the purposes of calculating the dispe
 Efflorescence:: The reverse of deliquescence: the drying of a salt solution when the vapour pressure of water in the saturated solution of a substance is greater than the partial pressure of water in the ambient air. Also refers to the loss of water of crystallization from a solid salt such as Na<sub>2</sub>CO<sub>3</sub>&#183;10H<sub>2</sub>O.	Source = Calvert Atmos Chem Glossary.
 Effluent:: Any spent liquors or other waste material which are emitted by a source (waste from plating shops, pickling tanks, sewage treatment plants, chemical manufacturing plants, etc.).	Source = Calvert Atmos Chem Glossary.
 Einstein unit:: 1 mole (6.02213 x 10<sup>23</sup>) of quanta or photons of electromagnetic radiation; for monochromatic light of wavelength &#108;, a light beam of energy <i>E</i> (J s<sup>-1</sup>) striking a surface, will have <i>E</i>/(6.022 x 10<sup>23</sup> x <i>hc</i>/&#108;) Einstein striking per sec; <i>h</i> is the Planck constant (6.626 x 10<sup>-34</sup> J s) and <i>c</i> is the velocity of light (2.998 x 10<sup>8</sup> m s<sup>-1</sup>).	Source = Calvert Atmos Chem Glossary.
-El Niï¿½o:: A major warming of the equatorial waters in the eastern Pacific Ocean. El Niï¿½o events usually occur every 3 to 7 years, and are related to shifts in global weather patterns. (Spanish for the "Christ Child", named this because it often begins around Christmas.). Source = NOAA Met Glossary.
-El Ni�o:: A major warming of the equatorial waters in the eastern Pacific Ocean. El Ni�o  events usually occur every 3 to 7 years, and are related to shifts in global weather patterns. (Spanish for the "Christ Child", named this because it often begins around Christmas.). Source = NOAA Met Glossary.
-Niï¿½o:: A major warming of the equatorial waters in the eastern Pacific Ocean. El Niï¿½o events usually occur every 3 to 7 years, and are related to shifts in global weather patterns. (Spanish for the "Christ Child", named this because it often begins around Christmas.). Source = NOAA Met Glossary.
-Ni�o:: A major warming of the equatorial waters in the eastern Pacific Ocean. El Ni�o  events usually occur every 3 to 7 years, and are related to shifts in global weather patterns. (Spanish for the "Christ Child", named this because it often begins around Christmas.). Source = NOAA Met Glossary.
-Ni\U+00F1o:: A major warming of the equatorial waters in the eastern Pacific Ocean. El Ni�o  events usually occur every 3 to 7 years, and are related to shifts in global weather patterns. (Spanish for the "Christ Child", named this because it often begins around Christmas.). Source = NOAA Met Glossary.
+#El Niï¿½o:: A major warming of the equatorial waters in the eastern Pacific Ocean. El Niï¿½o events usually occur every 3 to 7 years, and are related to shifts in global weather patterns. (Spanish for the "Christ Child", named this because it often begins around Christmas.). Source = NOAA Met Glossary.
+#El Ni�o:: A major warming of the equatorial waters in the eastern Pacific Ocean. El Ni�o  events usually occur every 3 to 7 years, and are related to shifts in global weather patterns. (Spanish for the "Christ Child", named this because it often begins around Christmas.). Source = NOAA Met Glossary.
+#Niï¿½o:: A major warming of the equatorial waters in the eastern Pacific Ocean. El Niï¿½o events usually occur every 3 to 7 years, and are related to shifts in global weather patterns. (Spanish for the "Christ Child", named this because it often begins around Christmas.). Source = NOAA Met Glossary.
+#Ni�o:: A major warming of the equatorial waters in the eastern Pacific Ocean. El Ni�o  events usually occur every 3 to 7 years, and are related to shifts in global weather patterns. (Spanish for the "Christ Child", named this because it often begins around Christmas.). Source = NOAA Met Glossary.
+#Ni\U+00F1o:: A major warming of the equatorial waters in the eastern Pacific Ocean. El Ni�o  events usually occur every 3 to 7 years, and are related to shifts in global weather patterns. (Spanish for the "Christ Child", named this because it often begins around Christmas.). Source = NOAA Met Glossary.
 Electrical hygrometer:: A hygrometer whose sensitive element has electrical properties which vary with the humidity of the gas which traverses the hygrometer.	Source = Calvert Atmos Chem Glossary.
 Electrolytic hygrometer:: Hygrometer using a hygroscopic substance (for example, diphosphorus pentoxide, P<sub>2</sub>O<sub>5</sub>) which is transformed into an electrolyte (phosphoric acid, H<sub>3</sub>PO<sub>4</sub>) in contact with the moisture in the gas. The electrolyte (phosphoric acid) is electrolysed continuously and the electrolysis current is measured. At a constant flow of the gas to be analysed, the electrolysis current is a linear function of the water concentration.	Source = Calvert Atmos Chem Glossary.
 Electron charge:: The negative electric charge which appears on the electron or univalent ions [1.602 x 10<sup>-19</sup> coulombs or 4.803 x 10<sup>-10</sup> electrostatic units (esu)].	Source = Calvert Atmos Chem Glossary.
@@ -674,10 +676,10 @@ Kinetics:: The study of the rates at which reactions occur, the influence of con
 Knot:: A measure of speed. It is one nautical mile per hour (1.15 mph).  A nautical mile is one minute of one degree of latitude. Source = NOAA Met Glossary.
 Knuckles:: Lumpy protrusions on the edges, and sometimes the underside, of a thunderstorm anvil. They usually appear on the upwind side of a back-sheared anvil, and indicate rapid expansion of the anvil due to the presence of a very strong updraft. They are not mammatus clouds. Source = NOAA Met Glossary.
 LIDAR:: An acronym for LIght Detection And Ranging. It is a real time remote sensing technique for the determination of aerosol and trace gas concentrations in air by measurement of scattered laser radiation.	Source = Calvert Atmos Chem Glossary.
-La Nina:: A cooling of the equatorial waters in the Pacific Ocean. Source = NOAA Met Glossary.
-La Ni�a:: A cooling of the equatorial waters in the Pacific Ocean. Source = NOAA Met Glossary.
-La Ni�a:: A cooling of the equatorial waters in the Pacific Ocean. Source = NOAA Met Glossary.
-Ni�a:: A cooling of the equatorial waters in the Pacific Ocean. Source = NOAA Met Glossary.
+#La Nina:: A cooling of the equatorial waters in the Pacific Ocean. Source = NOAA Met Glossary.
+#La Ni�a:: A cooling of the equatorial waters in the Pacific Ocean. Source = NOAA Met Glossary.
+#La Ni�a:: A cooling of the equatorial waters in the Pacific Ocean. Source = NOAA Met Glossary.
+#Ni�a:: A cooling of the equatorial waters in the Pacific Ocean. Source = NOAA Met Glossary.
 Lachrymator:: A substance which produces a flow of tears in a person or animal (e.g., acetyl chloride, acrylaldehyde, etc.).	Source = Calvert Atmos Chem Glossary.
 Lake effect:: The effect of a lake (usually a large one) in modifying the weather near the shore and down wind. It is often refers to the enhanced rain or snow that falls downwind from the lake.  This effect can also result in enhanced snowfall along the east coast of New England in winter. Source = NOAA Met Glossary.
 Laminar flow::Laminar flow, a form of fluid flow (i.e. the movement of air or other fluid in the open or in a duct, pipe, or passage), in which the mass of fluid may be considered separate laminae (sheets) with simple shear existing at the surface of contact of laminae if there is any difference in mean speed of the separate laminaeSource = Calvert Atmos Chem Glossary.
@@ -1037,7 +1039,7 @@ Secondary Cold Front:: A front that follows a primary cold front and ushers in e
 Sedimentation:: In the atmospheric sciences, the process of removal of an air borne particle from the atmosphere due to the effect of gravity.	Source = Calvert Atmos Chem Glossary.
 Selectivity:: The degree of independence of a measured quantity (X) of an air quality characteristic <i>C</i><sub>a</sub> from interferants (<i>C</i><sub>1</sub>, <i>C</i><sub>2</sub>,..., <i>C</i><sub>n</sub>). NB Could have other meansings depending on context	Source = Calvert Atmos Chem Glossary. :: #could have other meanings - note there was an equation in original definition. 
 Sensible Heat:: The excess radiative energy that has passed from the Earth's surface to the atmosphere through advection, conduction, and convection processes. Source = NOAA Met Glossary.
-Sensitivity:: The rate of change of instrument reading with respect to the change of the value of the air quality characteristic. See also <i>calibration function</i>.&#9;	Source = Calvert Atmos Chem Glossary.
+#Sensitivity:: The rate of change of instrument reading with respect to the change of the value of the air quality characteristic. See also <i>calibration function</i>.&#9;	Source = Calvert Atmos Chem Glossary.
 Sequential Sampling:: Repetitive sampling from the same gas to be analysed or from several gases to be analysed successively. Source = Calvert Atmos Chem Glossary.
 Sequential measurement cell:: A measuring cell which operates according to a succession of operations on the sample or on the sensitive elements (or on both), these operations being carried out according to one or more repetitive programs. Source = Calvert Atmos Chem Glossary.
 Settling chamber:: Chamber designed to reduce the velocity of gases in order to permit the settling out of fly ash. It may be either part of, adjacent to, or external to an incinerator.	Source = Calvert Atmos Chem Glossary.
@@ -1187,7 +1189,7 @@ Temperature:: The temperature measured on the thermodynamic scale, designated in
 Temperature:: a measure of the warmth or coldness of an object or substance with reference to a standard value. Source = NOAA Met Glossary.
 #Temporal resolution::When refering to atmospheric measurements, the frequency at which a measurement is made.	Source = Calvert Atmos Chem Glossary. :: #added
 Terrestrial Radiation:: The total infrared radiation emitted by the Earth. Source = NOAA Met Glossary.
-Thermal:: A small rising parcel of warm air produced when the earth's surface is unevenly heated. Source = NOAA Met Glossary.
+#Thermal:: A small rising parcel of warm air produced when the earth's surface is unevenly heated. Source = NOAA Met Glossary.
 Thermodynamics:: In general, the relationships between heat and other properties (such as temperature, pressure, density, etc.) In forecast discussions, thermodynamics usually refers to the distribution of temperature and moisture (both vertical and horizontal) as related to the diagnosis of atmospheric instability. Source = NOAA Met Glossary.
 Thermometer:: An instrument for measuring temperature. Source = NOAA Met Glossary.
 Thermosphere:: Atmospheric shell extending from the top of the mesosphere to outer space. It is a region of more or less steadily increasing temperature with height, starting at 70 or 80 km. It includes the exosphere and most or all of the ionosphere (not the D region).	Source = Calvert Atmos Chem Glossary.
@@ -1366,7 +1368,7 @@ UT:: Acronym for Upper Troposphere (there are always other possible expansions o
 #ng/m3:: nanogram per cubic metre
 #s-1:: per second
 #y-1:: per year
-Wm-2:: Watts per square metre
+#Wm-2:: Watts per square metre
 #
 # Others that have been found to come up as MOLECULE
 #

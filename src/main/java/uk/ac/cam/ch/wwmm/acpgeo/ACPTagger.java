@@ -81,6 +81,9 @@ public class ACPTagger {
 			if (token.getSurface().contains("-") && !token.getSurface().startsWith("-") && !token.getSurface().endsWith("-")) {
 				tokenLastPart = token.getSurface().split("-")[1];
 			}
+			else if (token.getSurface().contains("/") && !token.getSurface().startsWith("/") && !token.getSurface().endsWith("/")) {
+				tokenLastPart = token.getSurface().split("/")[1];
+			}
 			else tokenLastPart = token.getSurface();
 			if (palaeoGlossaryMap.containsKey(tokenLastPart)) {
 				String currentTag = posContainer.getCombinedTagsList()
@@ -88,10 +91,11 @@ public class ACPTagger {
 				if (currentTag.contains("-") && !currentTag.startsWith("-")) {
 					currentTag = currentTag.split("-")[0];
 				}
-				if (currentTag.contains("NNPS") || currentTag.contains("JJ") || currentTag.contains("OSCAR")) currentTag = "NNP";
-
+				if (currentTag.contains("NNPS") || currentTag.contains("JJ")  || currentTag.contains("NN") || currentTag.contains("DT") || currentTag.contains("OSCAR")) currentTag = "NNP";
+				if (!currentTag.contains("VB")) {
 				// not ideal to change all JJ to NNP but otherwise have problems with mid-Pliocene etc. 
 				posContainer.getCombinedTagsList().set(count,currentTag + "-TIMEPERIOD");
+				}
 			}
 //			if (ContextDependentWordMap.containsKey(token.getSurface())) {
 //				String currentTag = posContainer.getCombinedTagsList()

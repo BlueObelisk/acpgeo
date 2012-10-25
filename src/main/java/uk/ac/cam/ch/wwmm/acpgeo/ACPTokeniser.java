@@ -23,13 +23,20 @@ import uk.ac.cam.ch.wwmm.oscar.document.Token;
  *
  * *****************************************/
 public class ACPTokeniser implements ChemicalTaggerTokeniser {
-	private static Pattern SPLIT_CHARACTER_PATTERN = Pattern.compile("[;<>]");
+	private static Pattern REMOVE_NBS = Pattern.compile("\\S+[\u00a0]");
+	private static Pattern SPLIT_CHARACTER_PATTERN = Pattern.compile("[;<>‱‰%?]");
+
 	private static Pattern PRESERVE_RATIO_WITHIN_BRACKETS_PATTERN = Pattern.compile("[^/]+[(][^/]+[/]\\S+[)]|[(][^/]+[/]\\S+[)][^/]+");
 	private static Pattern PRESERVE_HYDROCARBON_PATTERN = Pattern.compile("[^=]*[CNHOP]+[0-9]*=[CNOP].*");
-	private static Set<String> ABV_LIST = new HashSet<String>(Arrays.asList("et.", "al.", "etc.", "e.g.", "i.e.", "vol.", "ca.", "wt.", "aq.", "mt.", "st.", "e.g.:", "eq.", "equiv.", "mp.", "m.p.","b.p.", "conc.", "approx.", "anh.", "sat.", "lit.", "dil.","sol.","liq.", "Cal.", "Prof."));
+	private static Set<String> ABV_LIST = new HashSet<String>(Arrays.asList("et.", "al.", "etc.","e.g.", "i.e.", "vol.", "ca.", "wt.", "aq.", "mt.", "st.", "e.g.:", "eq.", "equiv.", "mp.", "m.p.","b.p.", "conc.", "approx.", "anh.", "sat.", "lit.", "dil.","sol.","liq.", "Cal.", "cal.", "Prof."));
 	private static Pattern ABBREVIATION_PATTERN = Pattern.compile("-?[A-Z]+[a-z]{0,2}\\.");
 	private static Pattern CONCAT_HYPHENED_DIRECTION_PATTERN = Pattern.compile("^[A-Z]\\-\\d+[\u00b0\u00ba]");
 	private static Pattern TIME_EXPRESSION = Pattern.compile("^([01]?[1-9]|2[123]):[0-5]\\d([ap]m)?$", Pattern.CASE_INSENSITIVE);
+//	private static Pattern IDENTIFIERS_BRACKETS = Pattern.compile("^([(][A-Za-z][)]|[(][0-9]+[)]|[(][0-9]+[A-Za-f][)]|[(][ivx]+[)]|[(][IVX][)])$");
+//	private static Pattern IDENTIFIERS_BRACKETS = Pattern.compile("^[(][A-Za-z][)]$");
+
+	private static Pattern IDENTIFIERS = Pattern.compile("^([A-Za-z]|[0-9]{1,2}|[0-9]{1,2}[A-Za-z]|[ivx]+|[IVX]+)$");
+
 	
 	/*****************************
 	 * Default constructor method.
@@ -85,13 +92,31 @@ public class ACPTokeniser implements ChemicalTaggerTokeniser {
 					return splitAtRegion(tokenSurface, tokenSurface.length()-1, tokenSurface.length()-1);
 				}
 			}
-
-			if (tokenSurface.startsWith("(") && tokenSurface.endsWith(")")) {// splits brackets off a word enclosed by brackets
+//			if  (!IDENTIFIERS_BRACKETS.matcher(tokenSurface).matches())  {   // splits brackets off a word enclosed by brackets unless likely identifier
+				if  ( tokenSurface.startsWith("(") && tokenSurface.endsWith(")") )  {   // splits brackets off a word enclosed by brackets
 				return splitAtRegion(tokenSurface, 1, tokenSurface.length()-1);
-			}
+				}
+//			}
 			Matcher splitCharacterMatcher = SPLIT_CHARACTER_PATTERN.matcher(tokenSurface);
 			if (splitCharacterMatcher.find()){
+
 				return splitAtRegion(tokenSurface, splitCharacterMatcher.start(), splitCharacterMatcher.end());
+			}
+			Matcher removeNBSMatcher = REMOVE_NBS.matcher(tokenSurface);
+			if (removeNBSMatcher.find()){
+				//return splitAtRegion(tokeddnSurface, splitCharacterMatcher.start(), splitCharacterMatcher.end());
+				// removeNBSMatcher.appendReplacement(tokenSurface, Matcher.quoteReplacement(text));
+			//	StringUtils(tokensurface.replace(removeNBSMatcher, ""));
+				int indexOfNBS = tokenSurface.indexOf("\u00a0");
+				  return splitAtRegion(tokenSurface.replace("\u00a0", ""),indexOfNBS,indexOfNBS);
+				   // removeNBS.appendReplacement(sb, Matcher.quoteReplacement(text));
+				//	return splitAtRegion(tokenSurface, tokenSurface.length()-1, tokenSurface.length()-1);
+
+
+				  //return tokenSurface.replace("\u00a0", " ");
+
+				//	return splitAtRegion(tokenSurface, 1, 1);
+				//}
 			}
 			int indexOfForwardSlash = tokenSurface.indexOf("/");
 			if (indexOfForwardSlash !=-1 && !PRESERVE_RATIO_WITHIN_BRACKETS_PATTERN.matcher(tokenSurface).find()){
@@ -101,7 +126,7 @@ public class ACPTokeniser implements ChemicalTaggerTokeniser {
 			if (indexOfEquals !=-1 && !PRESERVE_HYDROCARBON_PATTERN.matcher(tokenSurface).matches()){
 				return splitAtRegion(tokenSurface, indexOfEquals, indexOfEquals +1);
 			}
-			if (tokenSurface.endsWith(".") && notAnAbbreviation(tokenSurface)){
+			if (tokenSurface.endsWith(".") && notAnAbbreviation(tokenSurface)  && !IDENTIFIERS.matcher(tokenSurface).matches()){
 				return splitAtRegion(tokenSurface, tokenSurface.length()-1, tokenSurface.length()-1);
 			}
 			if (tokenSurface.endsWith(".") && (tokenSurface.contains("\u00b0") || tokenSurface.contains("\u00ba"))) {//splits period after degrees e.g. 50oC. This period may be reattached in RecombineTokens
@@ -112,9 +137,19 @@ public class ACPTokeniser implements ChemicalTaggerTokeniser {
 					return splitAtRegion(tokenSurface, 1, 1);
 				}
 			}
-			if (tokenSurface.endsWith(",")) {//splits commas off
+			if (tokenSurface.endsWith(",")) {//splits commas off 
 				return splitAtRegion(tokenSurface, tokenSurface.length()-1, tokenSurface.length()-1);
 			}
+			//if (tokenSurface.endsWith("%")) {//splits % off 
+				//return splitAtRegion(tokenSurface, tokenSurface.length()-1, tokenSurface.length()-1);
+			//}
+			//if (tokenSurface.endsWith("‰")) {//splits % off 
+				//return splitAtRegion(tokenSurface, tokenSurface.length()-1, tokenSurface.length()-1);
+			//}
+		//	
+		//	if (tokenSurface.endsWith("‱")) {//splits % off 
+			//	return splitAtRegion(tokenSurface, tokenSurface.length()-1, tokenSurface.length()-1);
+			//}
 			Matcher concatHyphenDirectionMatcher = CONCAT_HYPHENED_DIRECTION_PATTERN.matcher(tokenSurface);//splits mistokenised direction coordinates  like  60° N-60°
 			if (concatHyphenDirectionMatcher.find()) {
 				int indexOfHyphen = tokenSurface.indexOf("-");

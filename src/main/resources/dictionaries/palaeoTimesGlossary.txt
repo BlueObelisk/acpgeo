@@ -1,51 +1,9 @@
 # Paleontology - Glossary of Time Periods
-Albian:: European stage of the uppermost Lower Cretaceous, spanning the time between 107 and 95 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Aptian:: European stage of the Lower Cretaceous, spanning the time between 114 and 107 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Archaean:: The middle era of Precambrian time, spanning the period between 3.8 and 2.5 billion years ago. Life arose on Earth during the early Archaean, as indicated by the appearance of fossil bacteria in rocks thought to be about 3.5 billion years old. Its name means "ancient." :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Barremian:: European stage of the Lower Cretaceous, spanning the time between 118 and 114 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Berriasian:: European stage of the lowermost Lower Cretaceous, spanning the time between 135 and 131 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Cambrian:: The earliest period of the Paleozoic era, spanning the time between 544 and 505 million years ago. It is named after Cambria, the Roman name for Wales, where rocks of this age were first studied. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Campanian:: European stage of the Upper Cretaceous, spanning the time between 84 and 72 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Carboniferous:: A period of time in the Paleozoic era that includes the Pennsylvanian and Mississippian periods and extended from 360 to 286 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Cenomanian:: European stage of the lowermost Upper Cretaceous, spanning the time between 95 and 91 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Cenozoic:: An era of geologic time from the beginning of the Tertiary period (65 million years ago) to the present. Its name is from Greek and means "new life." :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Coniacian:: European stage of the Upper Cretaceous, spanning the time between 90 and 88 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Cretaceous:: The final period of the Mesozoic era, spanning the time between 145 and 65 million years ago. The name is derived from the Latin word for chalk ("creta") and was first applied to extensive deposits of this age that form white cliffs along the English Channel between Great Britain and France. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Devonian:: A period of the Paleozoic era, spanning the time between 410 and 360 million years ago. It is named after Devonshire, England, where rocks of this age were first studied.Diagenesis :: All chemical, physical, and biological modifications undergone by a sediment after its initial deposition. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Eocene:: An epoch of the lower Tertiary period, spanning the time between 55.5 and 33.7 million years ago. Its name is from the Greek words "eos" (dawn) and "ceno" (new). :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Geologic Time:: The period of time extending from the formation of the earth to the present. An arbitrary chronologic sequence of geologic events, used as a measure of the age of any part of geologic time, usually presented in the form of a chart showing the names of the various rock-stratigraphic, time-stratigraphic, or geologic-time units. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Hadean:: The earliest subdivision of the Precambrian, spanning the time between the formation of the Earth, about 4.5 billion years ago, and the start of the Archaean era, 3.8 billion years ago. This interval predates the period of true geologic time since no rocks of this age are known on Earth, with the exception of a few meteorites. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Hauterivian:: European stage of the Lower Cretaceous, spanning the time between 122 and 118 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Holocene:: An epoch of the Quaternary period, spanning the time from the end of the Pleistocene (8,000 years ago) to the present. It is named after the Greek words "holos" (entire) and "ceno" (new). :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Jurassic:: The middle period of the Mesozoic era, spanning the time between 213 and 145 million years ago. It is named after the Jura Mountains between France and Switzerland, where rocks of this age were first studied. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Maastrichtian:: European stage of the Upper Cretaceous, spanning the time between 72 and 66 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Mesozoic:: An era of geologic time between the Paleozoic and the Cenozoic, spanning the time between 248 and 65 million years ago. The word Mesozoic is from Greek and means "middle life." :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Miocene:: A epoch of the upper Tertiary period, spanning the time between 23.8 and 5.3 million years ago. It is named after the Greek words "meion" (less) and "ceno" (new). :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Mississippian:: A period of the Paleozoic era, spanning the time between 360 and 325 million years ago. It is named after the Mississippi River valley, which contains good exposures of rocks of this age. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Oligocene:: An epoch of the early Tertiary period, spanning the time between 33.7 and 23.8 million years ago. It is named after the Greek words "oligos" (little, few) and "ceno" (new). :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Ordovician:: The second earliest period of the Paleozoic era, spanning the time between 505 and 440 million years ago. It is named after a Celtic tribe called the Ordovices. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Paleocene:: Earliest epoch of the Tertiary period, spanning the time between 65 and 55.5 million years ago. It is named after the Greek words "palaois" (old) and "ceno" (new). :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Paleozoic:: An era of geologic time, from the end of the Precambrian to the beginning of the Mesozoic, spanning the time between 544 and 248 million years ago. The word Paleozoic is from Greek and means "old life." :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Pennsylvanian:: A period of the Paleozoic era, spanning the time between 325 and 286 million years ago. It is named after the state of Pennsylvania where rocks of this age are widespread. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Permian:: The final period of the Paleozoic era, spanning the time between 286 and 248 million years ago. It is named after the province of Perm, Russia, where rocks of this age were first studied. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Phanerozoic:: The period of time, also known as an eon, between the end of the Precambrian and today, The Phanerozoic begins with the start of the Cambrian period, 544 million years ago. It encompasses the period of abundant, complex life on the Earth. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Pleistocene:: An epoch of the Quaternary period, spanning the time between 1.8 million years ago and the beginning of the Holocene at 8,000 years ago. It is named after the Greek words "pleistos" (most) and "ceno" (new). :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Pliocene:: Final epoch of the Tertiary period, spanning the time between 5.3 and 1.8 million years ago. It is named after the Greek words "pleion" (more) and "ceno" (new). :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Precambrian:: All geologic time before the beginning of the Paleozoic era. This includes about 90% of all geologic time and spans the time from the beginning of the earth, about 4.5 billion years ago, to 544 million years ago. Its name means "before Cambrian." :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Proterozoic:: The final era of the Precambrian, spanning the time between 2.5 billion and 544 million years ago. Fossils of both primitive single celled and more advanced multicellular organisms begin to appear in abundance in rocks from this era. Its name means "early life." :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Quaternary:: The second period of the Cenozoic era, spanning the time between 1.8 :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-million years ago and the present. It contains two epochs: the Pleistocene and the Holocene. It is named after the Latin word "quatern" (four at a time).:: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Santonian:: European stage of the Upper Cretaceous, spanning the time between 88 and 84 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Silurian:: A period of the Paleozoic, spanning the time between 440 and 410 million years ago. It is named after a Celtic tribe called the Silures. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Tertiary:: The first period of the Cenozoic era (after the Mesozoic era and before the Quaternary period), spanning the time between 65 and 1.8 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Triassic:: The earliest period of the Mesozoic era, spanning the time between 248 and 213 million years ago. The name Triassic refers to the threefold division of rocks of this age in Germany. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Turonian:: European stage of the Upper Cretaceous, spanning the time between 91 and 90 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Valanginian:: European stage of the Lower Cretaceous, spanning the time between 131 and 122 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-Vendian:: The latest period of the Proterozoic era, spanning the time between 650 and 544 million years ago. Sometimes referred to as the Ediacaran period, the Vendian is distinguished by fossils representing a characteristic collection of complex soft-bodied organisms found at several localities around the world.   :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
-#
+
 # The following from: http://en.wikipedia.org/wiki/Geologic_time_scale
 #
 #Subatlantic · Subboreal · Atlantic · Boreal · Preboreal - ages within the Holocene - difficult to use as time periods due to location confusion?
+Preboreal:: Age within the Holocene.::  SOURCE: Wikipedia
 Tarantian:: Age within the Pleistocene Epoch. 0.126 ± 0.005* ::  SOURCE: Wikipedia
 Tyrrhenian:: Age within the Pleistocene Epoch. 0.126 ± 0.005* ::  SOURCE: Wikipedia
 Eemian:: Age within the Pleistocene Epoch. 0.126 ± 0.005* ::  SOURCE: Wikipedia
@@ -78,7 +36,9 @@ Coniacian:: Age within the Late Cretaceous 89.3 ± 1.0* ::  SOURCE: Wikipedia
 Turonian:: Age within the Late Cretaceous 93.5 ± 0.8* ::  SOURCE: Wikipedia
 Cenomanian:: Age within the Late Cretaceous 99.6 ± 0.9* ::  SOURCE: Wikipedia
 Albian:: Age within the Early Cretaceous 112.0 ± 1.0* ::  SOURCE: Wikipedia
+Albian:: European stage of the uppermost Lower Cretaceous, spanning the time between 107 and 95 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
 Aptian:: Age within the Early Cretaceous 	125.0 ± 1.0* ::  SOURCE: Wikipedia
+Aptian:: European stage of the Lower Cretaceous, spanning the time between 114 and 107 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
 Barremian:: Age within the Early Cretaceous 	130.0 ± 1.5* ::  SOURCE: Wikipedia
 Hauterivian:: Age within the Early Cretaceous 	136.4 ± 2.0* ::  SOURCE: Wikipedia
 Valanginian:: Age within the Early Cretaceous 	140.2 ± 3.0* ::  SOURCE: Wikipedia
@@ -190,9 +150,55 @@ Archean:: Eon::  SOURCE: Wikipedia
 #Carboniferous/Mississipian::  SOURCE: Wikipedia
 #Carboniferous/Pennsylvanian::  SOURCE: Wikipedia
 #
+
+Barremian:: European stage of the Lower Cretaceous, spanning the time between 118 and 114 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Berriasian:: European stage of the lowermost Lower Cretaceous, spanning the time between 135 and 131 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Cambrian:: The earliest period of the Paleozoic era, spanning the time between 544 and 505 million years ago. It is named after Cambria, the Roman name for Wales, where rocks of this age were first studied. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Campanian:: European stage of the Upper Cretaceous, spanning the time between 84 and 72 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Carboniferous:: A period of time in the Paleozoic era that includes the Pennsylvanian and Mississippian periods and extended from 360 to 286 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Cenomanian:: European stage of the lowermost Upper Cretaceous, spanning the time between 95 and 91 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Cenozoic:: An era of geologic time from the beginning of the Tertiary period (65 million years ago) to the present. Its name is from Greek and means "new life." :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Coniacian:: European stage of the Upper Cretaceous, spanning the time between 90 and 88 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Cretaceous:: The final period of the Mesozoic era, spanning the time between 145 and 65 million years ago. The name is derived from the Latin word for chalk ("creta") and was first applied to extensive deposits of this age that form white cliffs along the English Channel between Great Britain and France. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Devonian:: A period of the Paleozoic era, spanning the time between 410 and 360 million years ago. It is named after Devonshire, England, where rocks of this age were first studied.Diagenesis :: All chemical, physical, and biological modifications undergone by a sediment after its initial deposition. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Eocene:: An epoch of the lower Tertiary period, spanning the time between 55.5 and 33.7 million years ago. Its name is from the Greek words "eos" (dawn) and "ceno" (new). :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Geologic Time:: The period of time extending from the formation of the earth to the present. An arbitrary chronologic sequence of geologic events, used as a measure of the age of any part of geologic time, usually presented in the form of a chart showing the names of the various rock-stratigraphic, time-stratigraphic, or geologic-time units. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Hadean:: The earliest subdivision of the Precambrian, spanning the time between the formation of the Earth, about 4.5 billion years ago, and the start of the Archaean era, 3.8 billion years ago. This interval predates the period of true geologic time since no rocks of this age are known on Earth, with the exception of a few meteorites. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Hauterivian:: European stage of the Lower Cretaceous, spanning the time between 122 and 118 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Holocene:: An epoch of the Quaternary period, spanning the time from the end of the Pleistocene (8,000 years ago) to the present. It is named after the Greek words "holos" (entire) and "ceno" (new). :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Jurassic:: The middle period of the Mesozoic era, spanning the time between 213 and 145 million years ago. It is named after the Jura Mountains between France and Switzerland, where rocks of this age were first studied. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Maastrichtian:: European stage of the Upper Cretaceous, spanning the time between 72 and 66 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Mesozoic:: An era of geologic time between the Paleozoic and the Cenozoic, spanning the time between 248 and 65 million years ago. The word Mesozoic is from Greek and means "middle life." :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Miocene:: A epoch of the upper Tertiary period, spanning the time between 23.8 and 5.3 million years ago. It is named after the Greek words "meion" (less) and "ceno" (new). :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Mississippian:: A period of the Paleozoic era, spanning the time between 360 and 325 million years ago. It is named after the Mississippi River valley, which contains good exposures of rocks of this age. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Oligocene:: An epoch of the early Tertiary period, spanning the time between 33.7 and 23.8 million years ago. It is named after the Greek words "oligos" (little, few) and "ceno" (new). :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Ordovician:: The second earliest period of the Paleozoic era, spanning the time between 505 and 440 million years ago. It is named after a Celtic tribe called the Ordovices. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Paleocene:: Earliest epoch of the Tertiary period, spanning the time between 65 and 55.5 million years ago. It is named after the Greek words "palaois" (old) and "ceno" (new). :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Paleozoic:: An era of geologic time, from the end of the Precambrian to the beginning of the Mesozoic, spanning the time between 544 and 248 million years ago. The word Paleozoic is from Greek and means "old life." :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Pennsylvanian:: A period of the Paleozoic era, spanning the time between 325 and 286 million years ago. It is named after the state of Pennsylvania where rocks of this age are widespread. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Permian:: The final period of the Paleozoic era, spanning the time between 286 and 248 million years ago. It is named after the province of Perm, Russia, where rocks of this age were first studied. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Phanerozoic:: The period of time, also known as an eon, between the end of the Precambrian and today, The Phanerozoic begins with the start of the Cambrian period, 544 million years ago. It encompasses the period of abundant, complex life on the Earth. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Pleistocene:: An epoch of the Quaternary period, spanning the time between 1.8 million years ago and the beginning of the Holocene at 8,000 years ago. It is named after the Greek words "pleistos" (most) and "ceno" (new). :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Pliocene:: Final epoch of the Tertiary period, spanning the time between 5.3 and 1.8 million years ago. It is named after the Greek words "pleion" (more) and "ceno" (new). :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Precambrian:: All geologic time before the beginning of the Paleozoic era. This includes about 90% of all geologic time and spans the time from the beginning of the earth, about 4.5 billion years ago, to 544 million years ago. Its name means "before Cambrian." :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Proterozoic:: The final era of the Precambrian, spanning the time between 2.5 billion and 544 million years ago. Fossils of both primitive single celled and more advanced multicellular organisms begin to appear in abundance in rocks from this era. Its name means "early life." :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Quaternary:: The second period of the Cenozoic era, spanning the time between 1.8 :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+million years ago and the present. It contains two epochs: the Pleistocene and the Holocene. It is named after the Latin word "quatern" (four at a time).:: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Santonian:: European stage of the Upper Cretaceous, spanning the time between 88 and 84 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Silurian:: A period of the Paleozoic, spanning the time between 440 and 410 million years ago. It is named after a Celtic tribe called the Silures. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Tertiary:: The first period of the Cenozoic era (after the Mesozoic era and before the Quaternary period), spanning the time between 65 and 1.8 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Triassic:: The earliest period of the Mesozoic era, spanning the time between 248 and 213 million years ago. The name Triassic refers to the threefold division of rocks of this age in Germany. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Turonian:: European stage of the Upper Cretaceous, spanning the time between 91 and 90 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Valanginian:: European stage of the Lower Cretaceous, spanning the time between 131 and 122 million years ago. :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+Vendian:: The latest period of the Proterozoic era, spanning the time between 650 and 544 million years ago. Sometimes referred to as the Ediacaran period, the Vendian is distinguished by fossils representing a characteristic collection of complex soft-bodied organisms found at several localities around the world.   :: SOURCE: USGS Paleontology - Glossary of Terms http://geology.er.usgs.gov/paleo/glossary.shtml
+#
+Bølling::	SOURCE: Wikipedia
+Allerød::	SOURCE: Wikipedia
 #Events
 #
 LGM:: Last Glacial Maximum:: SOURCE: Wikipedia
+MIS:: Marine isotope stages (MIS), marine oxygen-isotope stages, or oxygen isotope stages (OIS), are alternating warm and cool periods in the Earth's paleoclimate:: SOURCE: Wikipedia
+Termination:: e.g. Termination V, around 430,000 years ago.:: source http://www.newscientist.com/article/dn5094-record-ice-core-gives-fair-forecast.html
 #
 #Adjectives  - but here used as proper nouns - may repeat lower case versions elsewhere.
 #
@@ -201,12 +207,13 @@ Lateglacial::
 Interglacial::Interglacials are periods of warmer climate within an ice age. 
 Stadial:: A stadial is a period of lower temperatures during an interglacial (warm period):: 
 Interstadial:: An interstadial is a warm period during a glacial period of an ice age that is of insufficient duration or intensity to be considered an interglacial.
+pre-indstrial:: ::
 #
 #
 #
 # Nouns  - but here used as proper nouns - may repeat lower case versions elsewhere.
 #
-Oscillation:: A climate oscillation is any oscillation within global or regional climate. These fluctuations in atmospheric temperature, sea surface temperature, precipitation or other parameters can be quasi-periodic. 
+#Oscillation:: A climate oscillation is any oscillation within global or regional climate. These fluctuations in atmospheric temperature, sea surface temperature, precipitation or other parameters can be quasi-periodic. 
 #
 #millennial:: An adjective relating to a period of time of 1000 years.
 #centennial:: An adjective relating to a period of time of 100 years.
@@ -215,6 +222,11 @@ Oscillation:: A climate oscillation is any oscillation within global or regional
 #
 #Others added as going along!
 Dryas:: The Younger Dryas stadial, also referred to as the Big Freeze,[1] was a geologically brief (1,300 ± 70 years) period of cold climatic conditions and drought which occurred between approximately 12,800 and 11,500 years BP (Before Present). The Oldest Dryas was a climatic period, which occurred during the coldest stadial after the Weichselian glaciation in north Europe. 
+Medieval::
+Present-day::
+present-day::
+#Present::
+#present::
 #
 #
 #From Grerg Tourte's mindmaps

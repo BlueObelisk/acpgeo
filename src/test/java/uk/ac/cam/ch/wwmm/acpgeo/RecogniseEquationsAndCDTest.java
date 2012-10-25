@@ -53,7 +53,7 @@ public class RecogniseEquationsAndCDTest {
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals("n > 1", Utils.tokensToSpaceDelimitedStr(posContainer.getWordTokenList()));
-		Assert.assertEquals("CD-ALPHANUM n SYMEQ > CD 1",
+		Assert.assertEquals("NN-IDENTIFIER n SYMEQ > CD 1",
 				posContainer.getTokenTagTupleAsString());
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 

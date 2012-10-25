@@ -121,11 +121,16 @@ public class ACPGeoMain {
 					InputStream acpAbstractModifiedInput = null;
 					acpAbstractModifiedInput = IOUtils.toInputStream(acpAbstract.toXML(), "UTF-8");
 					String fileName = file.getName();
-					new PIMMSFilter(acpAbstractModifiedInput, fileName);
-
-//					PIMMSFilter pimmsModifier = new PIMMSFilter(acpAbstractModifiedInput, fileName);
+					new XMLFilter(acpAbstractModifiedInput, fileName);
+					
+				//	InputStream acpAbstractModifiedInput = null;
+				//	acpAbstractModifiedInput = IOUtils.toInputStream(acpAbstract.toXML(), "UTF-8");
+				//	String fileName1 = file.getName();
+				//	new PIMMSFilter(acpAbstractModifiedInput1, fileName1);
+			
 
 					Utils.writeXMLToFile(acpAbstract,"target/" + file.getName());
+
                     }
                     catch (Exception e){
                     	System.err.println("Can't do " + file.getName()

@@ -47,8 +47,9 @@ public class AbstractReaderTest {
 
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();
-		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(), "target/acp-9-6453-2009.xml");
-		
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(), "target/acp-9-6453-2009.xml");	
 		
 	}
+	
+	
 }

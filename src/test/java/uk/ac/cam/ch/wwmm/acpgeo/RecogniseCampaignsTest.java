@@ -30,7 +30,7 @@ public class RecogniseCampaignsTest {
 	@Test
 	public void testRecogniseCampaign2() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "North Atlantic Marine Boundary Layer Experiment (NAMBLEX) campaign";
+		String sentence = "During the North Atlantic Marine Boundary Layer Experiment (NAMBLEX) campaign";
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
 		sentenceParser.parseTags();

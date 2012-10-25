@@ -56,7 +56,24 @@ public class RecogniseApparatusTest {
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
 	}
-	
+	@Test
+	public void recogniseEquationName() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+	//	String sentence = "Boussinesq and hydrostatic approximations";
+		String sentence = "Primitive equations are solved on a sphere, where the Boussinesq and hydrostatic approximations are employed.";
+
+	//String sentence = "This work is solved on a sphere where the Boussinesq and hydrostatic approximations are employed.";
+	//	String sentence = "I will write anything here.";
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Document doc = sentenceParser.makeXMLDocument();
+		Utils.writeXMLToFile(doc,
+				"target/equationName.xml");
+//		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+	//			.toStringTree().contains("<error"));
+	} 
 	
 	@Test
 	public void recogniseModel() {

@@ -25,6 +25,24 @@ public class RecogniseTimesTest {
 	}
 	
 	@Test
+	public void testRecogniseTimeMonth() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "Throughout the year 2001, aerosol samples were collected continuously for 10 to 15 days at the French Antarctic Station Dumont d'Urville (DDU) (66°40' S, 40°0' E, 40 m above mean sea level). The autumn and winter (March to mid-July), nitrate concentrations attain a minimum between 10 and 30 ng m−3 (referred to as Period 2).";
+//		String sentence = "Throughout the year 2001, aerosol samples were collected continuously for 10 to 15 days at the French Antarctic Station Dumont d'Urville (DDU) (66°40' S, 40°0' E, 40 m above mean sea level). During austral autumn and early winter (March to mid-July), nitrate concentrations attain a minimum between 10 and 30 ng m−3 (referred to as Period 2).";
+
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+				"target/Month1.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+
+	}
+	
+	
+	@Test
 	public void testRecogniseYears() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "The campaign was carried out in 1999. We worked over the Atlantic in 2000 and summer 2003. We looked at work of Jones (2000) and Smith, 2001, togather with studying over Africa in 2006. ";
@@ -88,6 +106,26 @@ public class RecogniseTimesTest {
 
 	}
 	
+	@Test
+	public void testRecognisePalaeoTime4() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+	//	String sentence = "The four most outstanding events, affecting the highest number of settlements, were thunderstorms with hailstorms (25 June 1825, 20 May 1847 and 29 June 1890) and flooding of the River Morava (mid-June 1847).";
+	String sentence = "A major tipping point of Earth&apos;s history occurred during the mid-Pliocene: the onset of major Northern-Hemisphere Glaciation (NHG) and of pronounced, Quaternary-style cycles of glacial-to-interglacial climates, that contrast with more uniform climates over most of the preceding Cenozoic and continue until today (Zachos et al., 2001). The severe deterioration of climate occurred in three steps between 3.2 Ma (warm MIS K3) and 2.7 Ma (glacial MIS G6/4) (Lisiecki and Raymo, 2005).";
+		//String sentence = "A major tipping point of Earth&apos;s history occurred during the mid-Pliocene: the onset of major Northern-Hemisphere Glaciation (NHG) and of pronounced, Quaternary-style cycles of glacial-to-interglacial climates, that contrast with more uniform climates over most of the preceding Cenozoic and continue until today (Zachos et al., 2001).";
+
+	//String sentence = "The severe deterioration of climate occurred in three steps between 3.2 Ma (warm MIS K3) and 2.7 Ma (glacial MIS G6/4) (Lisiecki and Raymo, 2005).";
+	//String sentence = "G6/4 (Lisiecki and Raymo, 2005).";
+
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+				"target/Palaeo4.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+
+	}
 	
 	
 	

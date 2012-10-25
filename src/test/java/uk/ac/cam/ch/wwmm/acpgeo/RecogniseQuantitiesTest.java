@@ -58,7 +58,7 @@ public class RecogniseQuantitiesTest {
 	@Test
 	public void testQuantities4() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "We measured a flux of 24 ppb/hr";
+		String sentence = "We measured a flux of 24 ppb/hr and B/A and (B/A)";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
         ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);

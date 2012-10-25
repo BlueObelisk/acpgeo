@@ -71,6 +71,7 @@ public class ACPTokeniserTest {
 	@Test	
 	public void testSplitBracketsOff() {
 		assertEquals("( compound 5 )", acpTokenise("(compound 5)"));
+//		assertEquals("a sentence with (a) and (b)", acpTokenise("a sentence with (a) and (b)"));		
 		assertEquals("( solid )", acpTokenise("(solid)"));
 	}
 
