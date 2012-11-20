@@ -22,7 +22,9 @@ public class XMLFilter {
 	
 	 FileWriter filewriter = null;
 
-        private String outputFolder = "target/Post-Processed/";
+        private String outputFolder = "target/PostProcessed/";
+        
+        
 
     	public String getOutputFolder() {
     		return outputFolder;
@@ -62,16 +64,23 @@ public class XMLFilter {
         TransformerHandler th3 = stf.newTransformerHandler(templates3);
   //   TransformerHandler th4 = stf.newTransformerHandler(templates4);
 
-        th1.setResult(new SAXResult(th2));
-        th2.setResult(new SAXResult(th3));
-        th3.setResult(new StreamResult(out));
-       //th3.setResult(new SAXResult(th4));
-     //  th4.setResult(new StreamResult(out1));
+   //     th1.setResult(new SAXResult(th2));
+   //     th2.setResult(new SAXResult(th3));
+   //     th3.setResult(new StreamResult(out));
+ //      //th3.setResult(new SAXResult(th4));
+ //    //  th4.setResult(new StreamResult(out1));
 
+        th2.setResult(new SAXResult(th3));
+        th1.setResult(new SAXResult(th2));
+        th3.setResult(new StreamResult(out));
+
+        
+        
         Transformer t = stf.newTransformer();
 
-	       t.transform(new StreamSource(acpAbstractModifiedInput), new SAXResult(th3));
-	
+	  //     t.transform(new StreamSource(acpAbstractModifiedInput), new SAXResult(th3));
+	       t.transform(new StreamSource(acpAbstractModifiedInput), new SAXResult(th1));
+
 	     out.close();
 	     
 	}

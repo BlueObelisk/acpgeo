@@ -56,7 +56,20 @@ public class RecogniseTimesTest {
 				.toStringTree().contains("<error"));
 
 	}
-	
+	@Test
+	public void testRecogniseYears2() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "The campaign was carried out in 1999 AD. The sample, from 1950 BC, which was found by Blogs et al.  ";
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+				"target/Year2.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+
+	}
 		
 	@Test
 	public void testRecognisePalaeoTime1() {

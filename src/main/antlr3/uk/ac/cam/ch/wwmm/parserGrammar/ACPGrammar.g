@@ -29,12 +29,12 @@ HorizontalGrid;
 VerticalResolution;
 APPARATUS;
 ParentheticalPhrase;
-//ParentheticalPhraseEmpty;
 ParentheticalPhraseSimple;
 TransitionPhrase;
 CAMPAIGN;
 TimePhrase;
 TIME;
+QuantityTime;
 YEARS;
 MONTHS;
 PALAEOTIME;
@@ -56,52 +56,13 @@ public boolean isAtTokenPositionZero(TokenStream stream){
    return stream.index()==0;
 }
 
-public boolean followedByetal(TokenStream stream){
-         String twoAheadTokenText = stream.LT(4).getText();
-         if (twoAheadTokenText !=null && twoAheadTokenText.toLowerCase().equals("al.")){
-         	String oneAheadTokenText = stream.LT(2).getText();
-         	if (oneAheadTokenText !=null && oneAheadTokenText.toLowerCase().equals("et")){
-            	return true;
-         	}
-         }
-         String secondAheadTokenTypeStr = stream.LT(3).getText();
-					if ("CD-YEAR".equals(secondAheadTokenTypeStr) || "CD-REF".equals(secondAheadTokenTypeStr)){
-           				return true;
-         		}
-         String twoAheadTokenTypeStr = stream.LT(3).getText();
-         if ("NNP".equals(twoAheadTokenTypeStr) || "NNPS".equals(twoAheadTokenTypeStr)){
-         	String oneAheadTokenText = stream.LT(2).getText();
-         	if (oneAheadTokenText !=null && oneAheadTokenText.toLowerCase().equals("and")){
-         		String fourAheadTokenTypeStr = stream.LT(7).getText();
-					if ("CD-YEAR".equals(fourAheadTokenTypeStr) || "CD-REF".equals(fourAheadTokenTypeStr)){
-           				return true;
-         		}
-         	}
-			}
-   return false;
-}
-
-public boolean followedBySym(TokenStream stream){
-        String firstAheadTokenTypeStr = stream.LT(1).getText();
-               if ("SYM".equals(firstAheadTokenTypeStr) || "SYMEXP".equals(firstAheadTokenTypeStr)){
-                     return true;
-              }
-        String scndAheadTokenTypeStr = stream.LT(3).getText();
-               if ("SYM".equals(scndAheadTokenTypeStr) || "SYMEXP".equals(scndAheadTokenTypeStr)){
-                     return true;
-               }
-   return false;
-}
-
-public boolean isSingleNumber(TokenStream stream){
-        String firstAheadTokenType = stream.LT(1).getText();
-               if ("RRB".equals(firstAheadTokenType)){
-                     return true;
-              }
-   return false;
-}
-
-
+//public boolean followedByPresent(TokenStream stream){
+//        String nextTokenType = stream.LT(1).getText();
+//              if ("PRESENT".equals(nextTokenType)){
+//                     return true;
+//              }
+//   return false;
+//}
 
 }
 
@@ -111,17 +72,22 @@ TOKEN : (~' ')+;
 document: sentencePref+ -> ^(Sentence sentencePref)+ ;
 
 sentencePref: (sentenceStructure|otherStructure)+  stop*;
-//could force stop?
+//could force stop?  
+//Might be better to deal with brackets and other punctuation at a top level - this would require complete reworking.
+//listPhrase - would be nice to do BUT NOT SIMPLE TO DO - MORE INFO REQUIRED MOSTLY LISTS ARE NOUNS
 sentenceStructure: (verbphrase|prepphrase|nounphrase|transitionalPhrase|referencephrase)+ (conjunction|clauseNoun|inof|rbconj|comma|inas|infor|inwith|to|in|advAdj|colon)*; //possibly need to add 'in' with other conjunctions
 
-otherStructure	:	   (rbconj|dt|dtTHE|advAdj|comma|cc|lrb|rrb|md|neg|inAll|nnpACRONYMPhraseStart|nnpACRONYMPhraseEnd|apost|colon|clauseNoun|nnpequation);
-
+otherStructure	:	   (rbconj|dt|dtTHE|advAdj|comma|cc|lrb|rrb|md|neg|inAll|inbecause|nnpACRONYMPhraseStart|nnpACRONYMPhraseEnd|apost|colon|clauseNoun|nnpequation);
+//otherStructure	:	   (rbconj|dt|dtTHE|advAdj|comma|cc|lrb|rrb|md|neg|inAll|inbecause|nnpACRONYMPhraseStart|nnpACRONYMPhraseEnd|apost|colon|clauseNoun|nnpequation|uh);
+//add jjtimePeriod?
 transitionalPhrase	: transitionalContent comma ->^(TransitionPhrase transitionalContent comma);
 transitionalContent	:	(inAll jj?)|(rbconj|rb)+;
 //won't get "On the contrary" etc.
 
 referencephrase : referencePhraseStructure -> ^(CITATION referencePhraseStructure);
 referencePhraseStructure : nnpRefStart (nounphraseStructure comma? stop?)* nnpRefEnd;
+//NB I have one example with 'Held' as a name  - it is identified as a verb and hence, this structure will not hold. It is required to modify output. Citations are really not best done with ANTLR. Simple REGEX work better.
+
 prepphraseReference	: inAll dt? dtTHE? verb? inAll? referencephrase -> ^(PrepPhrase inAll dt? dtTHE? verb? inAll? referencephrase);
 
 nounphrase	:	(setAcronymPhrase|nounphraseStructure) -> ^(NounPhrase setAcronymPhrase? nounphraseStructure?);
@@ -130,15 +96,25 @@ nounphraseStructure	:	dtTHE? dt? noun+ (conjunction* inof? inas? infor? inwith? 
 conjunction 	:	 cc|inbecause;
 
 
+//verbphrase	:	(verbphraseStructure|verbphraseStructure2) -> ^(VerbPhrase verbphraseStructure? verbphraseStructure2?);
 verbphrase	:	verbphraseStructure -> ^(VerbPhrase verbphraseStructure);
 verbphraseStructure : inwith? infor? dt? to? inAll? inafter? (md* rbconj? advAdj* verb+ md* advAdj* neg? )+ (to|inoff|inon)? (cc? comma? prepphrase+)* ;
+//verbphraseStructure : inwith? infor? dt? to? inAll? inafter? (md* rbconj? advAdj* to? verb+ md* advAdj* neg? )+ (to|inoff|inon)? (cc? comma? prepphrase+)* ;
+//verbphraseStructure : inwith? infor? dt? to? inAll{!followedByPresent(input)}? inafter? (md* rbconj? advAdj* verb+ md* advAdj* neg? )+ (to|inoff|inon)? (cc? comma? prepphrase+)* ;
 verb : vbindicate|vbmeasure|vbacp|vbdacp|vbgacp|vbnacp|vbpacp|vbzacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|vbyield|vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbdegass|vbdissolve|vbdry|vbextract|vbfilter|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbchange|present|vbdescriptive;
+//verb : vbindicate|vbmeasure|vbacp|vbdacp|vbgacp|vbnacp|vbpacp|vbzacp|vbdetermine|vbanalyse|vbobserve|vbinvestigate|vbyield|vb|vbp|vbg|vbd|vbz|vbn|vbuse|vbsubmerge|vbimmerse|vbsubject|vbadd|vbdilute|vbcharge|vbcontain|vbfill|vbsuspend|vbtreat|vbapparatus|vbconcentrate|vbdegass|vbdissolve|vbdry|vbextract|vbfilter|vbincrease|vbpartition|vbprecipitate|vbpurify|vbquench|vbrecover|vbremove|vbstir|vbsynthesize|vbwait|vbwash|vbchange|vbdescriptive;
+
 vbdescriptive : vbcool|vbheat;
+// I HAVE TRIED PUTTING 'present' as a verb but not allowing a preposition before, i.e. so 'before present' is not a verb, (md rbconj? present) but this exceeds memory
+
 
 number : cd|cdAlphanum|cdref|cddegrees|cdunicode|cdyear;
 nnidentifierAll : nnidentifier|cdAlphanum;
 
-noun1a : (advAdj cc? advAdj?)* (nounStructure1|symeq|nncampaign|nnmodel|nnpmodel|cdaltitude|conditionNoun|locationNoun|nnp|nnps|nnpacronym)+;
+//noun1a : (advAdj cc? advAdj?)* (nounStructure1|symeq|nncampaign|nnmodel|nnpmodel|cdaltitude|conditionNoun|locationNoun|nnp|nnps|nnpacronym|time)+;
+noun1a : (advAdj cc? advAdj?)* (nounStructure1|symeq|nncampaign|nnmodel|nnpmodel|cdaltitude|conditionNoun|locationNoun|nnp|nnps|time)+;
+//noun1a : (advAdj cc? advAdj?)* (nounStructure1|nncampaign|nnmodel|nnpmodel|cdaltitude|conditionNoun|locationNoun|nnp|nnps|time)+;
+//noun1a : (advAdj cc? advAdj?)* (nounStructure1|symeq|nncampaign|nnmodel|nnpmodel|cdaltitude|conditionNoun|locationNoun|nnp|nnps)+;
 
 noun1c : (advAdj cc? advAdj?)* (nounStructure1c|nncampaign|nnpmodel|nnmodel|cdaltitude|locationNoun|conditionNoun|symeq|jjtimePeriod)+;
 
@@ -146,34 +122,38 @@ noun1d : noun1c ((dash|cc) (dt|dtTHE)? noun1c)*;
 
 noun  :  (advAdj cc? advAdj?)* (dtTHE|dt)? (campaign|model|location|mathEquation|horizontalGrid|resolution|atmosVerticalResolution|jjdirectional|noun1d)+;
 
-nounStructure1 : (acronymPhrase|equationName|parentheticalPhrase|parentheticalPhraseSimple|symbolNoun|nnstudy|nnplatform|nnaerosol|othermodelNoun|moleculeNoun|modelNoun|properNoun|prpNoun|nnOther|cdref|cddegrees|cdunicode|nns|nn);
+//nounStructure1 : (acronymPhrase|equationName|parentheticalPhrase|parentheticalPhraseSimple|symbolNoun|nnstudy|nnplatform|nnaerosol|othermodelNoun|moleculeNoun|modelNoun|properNoun|prpNoun|nnOther|nns|nn|cdunicode|cddegrees);
+nounStructure1 : (acronymPhrase|equationName|parentheticalPhrase|parentheticalPhraseSimple|symbolNoun|nnstudy|nnplatform|nnaerosol|othermodelNoun|moleculeNoun|modelNoun|properNoun|prpNoun|nnOther|cddegrees|cdunicode|nns|nn);
+//nounStructure1 : (acronymPhrase|equationName|parentheticalPhrase|symbolNoun|nnstudy|nnplatform|nnaerosol|othermodelNoun|moleculeNoun|modelNoun|properNoun|prpNoun|nnOther|cddegrees|cdunicode|nns|nn);
+//nounStructure1c : (time|acronymPhrase|acronym|captionLabel|quantity|mathExpression|equationName|parentheticalPhrase|parentheticalPhraseSimple|nnpacronym|nnp|nnps|fwSymbolNoun|properNoun|nnstudy|nnOther|nnplatform|nnaerosol|othermodelNoun|nnidentifier|moleculeNoun|modelNoun|prpNoun|number|nn|nns|pos|ls);
 nounStructure1c : (time|acronymPhrase|acronym|captionLabel|quantity|mathExpression|equationName|parentheticalPhrase|parentheticalPhraseSimple|nnpacronym|nnp|nnps|fwSymbolNoun|properNoun|nnstudy|nnOther|nnplatform|nnaerosol|othermodelNoun|nnidentifier|moleculeNoun|modelNoun|prpNoun|number|nn|nns);
 
-nnOther: nneq|actionNoun|nndirection|nnpalaeotimequalifier|timePeriodQualifier|present;
-conditionNoun : nnresolution|nnslevels|nngrid;
-experimentNoun : nngeneral|nnanalyticalmethod|nnpressure|nncolumn|nnflash|nnchromatography|nnvacuum|nncycle|nntimes|nnmixture|nnexample;
-modelNoun : nndiagnostic|nnprognostic|nnmodelmethod|nnphysicalprocessmain|nnphysicalprocess|nncloud|nnpmodelmethod|nnsciencefield|nnpcloud|nnptimestepmethod;
-othermodelNoun : nnequation|nnmethod;
+nnOther: nneq|actionNoun|nndirection|timePeriodQualifier|present;
 actionNoun : nnyield|nnstate|nnadd|nnextract|nnfilter|nnprecipitate|nnremove|nnsynthesize|nndry|nnconcentrate|nnpurify;
+conditionNoun : nnresolution|nnslevels|nngrid;
+properNoun : (nnpmonth|nndomain|apparatus|nnacp|nnpacp|nnmeasurement|nnptechnique|nnsacp|experimentNoun|nnphysical|nnplabel);
+otherProperNoun : (nnpmodelmethod|nnpradmodelmethod|nnpcloud|nnptimestepmethod);
+experimentNoun : nngeneral|nnanalyticalmethod|nnpressure|nncolumn|nnflash|nnchromatography|nnvacuum|nncycle|nntimes|nnmixture|nnexample;
+moleculeNoun	:	(molecule|nnchementity);
+locationNoun : (nnplocationType|nnpstation|nnstation|nnpdirection);
+modelNoun : nndiagnostic|nnprognostic|nnmodelmethod|nnphysicalprocessmain|nnphysicalprocess|nncloud|nnpmodelmethod|nnpradmodelmethod|nnsciencefield|nnpcloud|nnptimestepmethod;
+othermodelNoun : nnequation|nnmethod;
 fwSymbolNoun : fw|sym|tmunicode|symexp|apost;
 symbolNoun : sym|tmunicode;
 clauseNoun:wdt|wp_poss|wrb|ex|pdt|wp;
-properNoun : (nnpmonth|nndomain|apparatus|nnacp|nnpacp|nnmeasurement|nnptechnique|nnsacp|experimentNoun|nnphysical|nnplabel);
-locationNoun : (nnplocationType|nnpstation|nnstation|nnpdirection);
 prpNoun :	prp|prp_poss;
-moleculeNoun	:	(molecule|nnchementity);
 
-acronym	: lrb (nnpacronym|nn|nnp|nnps|properNoun) rrb ->^(ACRONYM lrb nnpacronym? nn? nnp? nnps? properNoun? rrb)	;
+//acronym	: lrb (nnpacronym|nn|nnp|nnps|properNoun) rrb ->^(ACRONYM lrb nnpacronym? nn? nnp? nnps? properNoun? rrb)	;
+acronym	: lrb (nnpacronym|nn|nnp|nnps|properNoun|otherProperNoun) nnidentifierAll? rrb ->^(ACRONYM lrb nnpacronym? nn? nnp? nnps? properNoun? otherProperNoun? nnidentifierAll? rrb)	;
+//acronym	: acronymStructure -> ^(ACRONYM acronymStructure)   ;
+//acronymStructure	: lrb (nnpacronym|nn|nnp|nnps|properNoun) nnidentifierAll? rrb;
 setAcronymPhrase : setAcronymPhraseStructure -> ^(SetAcronymPhrase setAcronymPhraseStructure);
 setAcronymPhraseStructure : nnpACRONYMPhraseStart (nounphraseStructure)* nnpACRONYMPhraseEnd;
-//listPhrase : listStructure -> ^(ListStructure listStructure);
-//listStructure : nnpListStart (nounphraseStructure comma?)* nnpListEnd;
-//NOT SIMPLE TO DO LIKE THIS BECAUSE MORE INFO REQUIRED MOSTLY LISTS ARE NOUNS
 
 acronymPhrase :(parentheticalPhraseAcronym|acronymPhraseStructure) -> ^(AcronymPhrase parentheticalPhraseAcronym? acronymPhraseStructure?) ;
-acronymPhraseStructure : (advAdj|nnpacronym|properNoun|nnp|nnps|moleculeNoun|nnidentifierAll|cd|nnstudy)+ ((cc|inAll) dtTHE? (advAdj|nnpacronym|properNoun|nnp|nnps|moleculeNoun|nnidentifierAll|cd|nnstudy)+)? acronym;
+acronymPhraseStructure : (advAdj|nnpacronym|properNoun|otherProperNoun|nnp|nnps|moleculeNoun|nnidentifierAll|cd|nnstudy)+ ((cc|inAll) dtTHE? (advAdj|nnpacronym|properNoun|otherProperNoun|nnp|nnps|moleculeNoun|nnidentifierAll|cd|nnstudy)+)? acronym;
 //COULD PUT PALAEOTIME IN HERE
-parentheticalPhraseAcronym : (nnp|nnps|nnpacronym|properNoun|nn)+ (cd|nnidentifierAll)* parentheticalPhrase;
+parentheticalPhraseAcronym : (nnp|nnps|nnpacronym|properNoun|otherProperNoun|nn)+ (cd|nnidentifierAll)* parentheticalPhrase;
 //should be more noun possibilities above - tried adding moleculeNoun above but wouldn't build grammar
 
 campaign: (campaignContent|campaignContent2) ->^(CAMPAIGN campaignContent? campaignContent2?);
@@ -182,13 +162,19 @@ campaignContent2 : acronymPhrase (time|cd|nnpacp|nnacp|nnp|nndomain|adj|molecule
 
 //doesn't get 'model for XYZ'. 
 model: (modelContent1|modelContent3) ->^(MODEL modelContent1? modelContent3?);
-modelContent1 : (jjcouple|jjacp|jjmodelmethod|jjphysicalprocess|jjtimePeriod|jjchem|nngeneral|acronymPhrase|nnp|modelNoun|nndomain|moleculeNoun|nnplocationType|nnps|nnpacp|nnpacronym|nnsacp|nnpmodel|parentheticalPhrase|nnacp|nn)+ (time|cd|nnidentifierAll|nnpacp|nnacp|nnp|nn|nnatmosphere|nndomain|nnplocationType|moleculeNoun|adj)* nnmodel nn? (cd|nnidentifierAll)?  (parentheticalPhrase|nnpacronym)? ;
-// adding acronym at teh end of this will prevent compilation hence if campaign part of acronymphrase (likewise for model)m then extend campaign/model to equal acronymphrase.
+modelContent1 : (jjcouple|jjacp|jjmodelmethod|jjphysicalprocess|jjtimePeriod|jjchem|nngeneral|acronymPhrase|nnp|modelNoun|nndomain|moleculeNoun|nnplocationType|nnps|nnpacp|nnpacronym|nnsacp|nnpmodel|parentheticalPhrase|nnacp|nn)+ (time|cd|nnidentifierAll|nnpacp|nnacp|nnp|nn|nndomain|nnplocationType|moleculeNoun|adj)* nnmodel nn? (cd|nnidentifierAll)?  (parentheticalPhrase|nnpacronym)? ;
+// adding acronym at the end of this will prevent compilation hence if campaign part of acronymphrase (likewise for model)m then extend campaign/model to equal acronymphrase.
 //MAY POSSIBLY REINSTATE VERSION 2 AS BELOW, TAKING OUT PROPERNOUN FROM modelContent1 - WOULD LIKE TO ADD modelNoun|moleculeNoun|nndomain to first part but can't as this then fails (with any one option), as it overlaps with modelContent1
 modelContent3 : nnpmodel parentheticalPhrase? ;
+//modelContent3 : nnpmodel nnidentifierAll? parentheticalPhrase? ;
 
 captionLabel : captionLabelContent+ -> ^(CaptionLabel captionLabelContent+);
 captionLabelContent : (nnplabel (nnidentifierAll|cd|dt|prp) (conjunction|nnidentifierAll|cd|prp)*);
+//captionLabelContent : (nnplabel (nnidentifierAll|cd|dt|prp) (conjunction|nnidentifierAll|cd|prp)*);
+//captionLabelContent : (nnplabel (nnidentifierAll|cd|dt|prp) (cc|nnidentifierAll|cd|dt|prp)*);
+//parentheticalPhraseSimpleContent
+
+//remember nnidentifier may already have brackets
 
 adj1 : (jjcountry|jjphysicalprocess|jjmodelmethod|jjorder|jjacp|jjracp|jjsacp|jjcomp|oscarcj|jjcouple|jjchem|oscarrn|jj|jjr|jjs)+ ;
 adj : adj1 (cc adj1)*;
@@ -217,9 +203,7 @@ prepphraseOf 	: inof advAdj* to? nounphrase-> ^(PrepPhrase inof advAdj* to? noun
 
 mathExpress : (number1|fw|nnidentifier)* (sym|symexp|dash)+ (number1|fwSymbolNoun|dash|nnidentifier)* ;
 number1 : cd|cdAlphanum|cddegrees|cdunicode;
-// does this now muck up location?
 //I have decided not to have units (and hence quantities) within expressions (rather I have math expression within quantities at times e.g. where you have 100+/-10 kj/mol etc.)
-//I think that this will look for a number first so if K 3 + 6 M, will find 3 + 6 M .
 mathExpressBrackets : lrb mathExpress+ rrb ;
 mathExpression : (mathExpressBrackets|mathExpress) -> ^(MATHEXPRESSION mathExpressBrackets? mathExpress?);
 mathEquationContentBrackets :lrb mathEquationContent rrb ;
@@ -252,24 +236,39 @@ verticalResolutionStructure : cd jjdirectional? fwSymbolNoun? nnslevels inin? (d
 
 parentheticalPhrase: parentheticalPhraseBrackets|parentheticalPhraseComma;
 parentheticalPhraseComma : comma (nnpacronym|nnp|nnps|apparatus|nnpmodel) comma ->^(ParentheticalPhrase comma nnpacronym? nnp? nnps? apparatus? nnpmodel? comma);
-//REALLY NEED TO SEPARATE FROM LISTS - this simplifies things a lot and will miss a  umber of acronymphrases
 parentheticalPhraseBrackets	: lrb parentheticalContent+ rrb ->^(ParentheticalPhrase lrb parentheticalContent+ rrb);
-//parentheticalPhraseEmpty	: lrb rrb ->^(ParentheticalPhraseEmpty lrb rrb);
 parentheticalPhraseSimple	: lrb parentheticalPhraseSimpleContent? rrb ->^(ParentheticalPhraseSimple lrb parentheticalPhraseSimpleContent? rrb);
-parentheticalPhraseSimpleContent	: nnidentifierAll|cd;
+parentheticalPhraseSimpleContent	: ((nnidentifierAll|cd|cdref|dt|prp) (cc|comma|stop)?)+;
+//parentheticalPhraseSimpleContent	: ((nnidentifierAll|cd|cdref) (cc|comma|stop)?)+;
+//nnidentifier often include brackets already (a) and (I) are part of nnidentifier
+
+//parentheticalContent : dtTHE? colon? (advAdj|verb|inAll|noun1a+|nnpacronym)+ conjunction? (comma|stop)?;
 parentheticalContent	: dtTHE? colon? (advAdj|verb|inAll|noun1a+)+ conjunction? (comma|stop)?;
-//need to get quantity out of here!
-//mathexpression and quantity will not appear as parenthetical phrase
+//parentheticalContent	: dtTHE? colon? (advAdj|verb|inAll|noun1a+)+ (conjunction|comma|stop)?;
+//parentheticalContent	: dtTHE? colon? (advAdj|verb|inAll|noun1a+)+ (conjunction|comma|stop|nnpacronym|cd|cdAlphanum)*;
+//mathexpression and quantity will not appear in parenthetical phrase at presemt
 
 inAll	: in|inafter|inas|inbefore|inby|infor|infrom|induring|inin|ininto|inof|inoff|inon|inper|invia|inwith|inwithout|to|inunder|inover|inloc|intimloc;
 
-unitStructure: (nnunits|nnmeter|nnpersecond|nntimeunit|nnpalaeotimeunit|nnpertimeunit|nnpressure|nntemp);
+unitStructure: (nnunits|nnmeter|nnpersecond|nntimeunit|nnpertimeunit|nnpressure|nntemp);
+yearUnitStructure: nnpalaeotimequalifier? (nnpalaeotimeunit | (nntimeunit nnpalaeotimequalifier)) (nnpalaeotimequalifier|timePeriodQualifier)*;
+//yearUnitStructure: nnpalaeotimequalifier? (nnpalaeotimeunit | (nntimeunit (nnpalaeotimequalifier|inbefore present))) (nnpalaeotimequalifier|inbefore present|timePeriodQualifier)*;
+
 compositeUnitStructureContent : unitStructure ((dash|inper)? unitStructure)*;
-compositeUnitStructure: compositeUnitStructureContent -> ^(UNITS compositeUnitStructureContent);
+//compositeUnitStructureContent : (yearUnitStructure|unitStructure) ((dash|inper)? (yearUnitStructure|unitStructure))*;
+compositeUnitStructureContentB : lrb unitStructure ((dash|inper)? unitStructure)* rrb;
+compositeUnitStructure: (compositeUnitStructureContent|yearUnitStructure) -> ^(UNITS compositeUnitStructureContent? yearUnitStructure?);
 //may need to extend to include nouns/ propernouns/oscar CM e.g. 24g N per day. 
 quantityStructure1: mathExpression (to mathExpression)? compositeUnitStructureContent;
-quantityStructure2: cd+ (to cd+)? compositeUnitStructureContent;
-quantity : (quantityStructure1|quantityStructure2|compositeUnitStructureContent) -> ^(QUANTITY quantityStructure1? quantityStructure2? compositeUnitStructureContent?);
+quantityStructure1B: lrb mathExpression (to mathExpression)? compositeUnitStructureContent rrb;
+quantityStructure2: (cdyear|cdyearRange|cd)+ ((cc|to|dash) cd+ )*  compositeUnitStructureContent;
+quantityStructure2B: lrb (cdyear|cdyearRange|cd)+ ((cc|to|dash) cd+ )*  compositeUnitStructureContent rrb;
+quantityStructure3: (cdyear|cdyearRange|cd)+ ((cc|to|dash) cd+ )*  (yearUnitStructure|nnpalaeotimequalifier)+;
+quantityStructure3B: lrb (cdyear|cdyearRange|cd)+ ((cc|to|dash) cd+ )*  (yearUnitStructure|nnpalaeotimequalifier)+ rrb;
+quantity : (quantityStructure1B|quantityStructure2B|compositeUnitStructureContentB|quantityStructure1|quantityStructure2|compositeUnitStructure) -> ^(QUANTITY quantityStructure1B? quantityStructure2B? compositeUnitStructureContentB? quantityStructure1? quantityStructure2?  compositeUnitStructure?);
+// or put bracketed structures into parentheticalSimple
+
+quantityTime : (quantityStructure3B|quantityStructure3) -> ^(QuantityTime quantityStructure3B? quantityStructure3?);
 
 //NB UNITS may actually be qauntities because they may have associated numbers - in which case post process to separate.into QUANTITY - CD - UNIT
 //proabably better this way round rather than starting with a quantuity as still noice to separate CD from units. 
@@ -284,25 +283,25 @@ prepPhraseTimeStructure	: (in|inafter|inbefore|inby|infor|infrom|induring|inin|i
 
 time : timeStructure -> ^(TIME timeStructure);
 timeStructure : (bracketedtimeStructure|timeStructure1);
+//bracketedtimeStructure : lrb jjtimePeriod? (palaeoTime|timeYear|monthStructure|seasonStructure|otherTimeStructure)+ ((to|cc|dash|comma)? (jjtimePeriod|advAdj)? (palaeoTime|timeYear|monthStructure|seasonStructure|otherTimeStructure|present))* rrb;
 bracketedtimeStructure : lrb jjtimePeriod? (palaeoTime|timeYear|monthStructure|seasonStructure|otherTimeStructure)+ ((to|cc|dash)? (jjtimePeriod|advAdj)? (palaeoTime|timeYear|monthStructure|seasonStructure|otherTimeStructure|present))* rrb;
+//Above will compile with comma in but will hang on meeeting a test example.
 timeStructure1 : jjtimePeriod? (palaeoTime|timeYear|monthStructure|seasonStructure|otherTimeStructure)+ ((to|cc|dash)? (jjtimePeriod|advAdj)? (palaeoTime|timeYear|monthStructure|seasonStructure|otherTimeStructure|present))* ;
 otherTimeStructure : cd? nntime nnmethod?;
 timeMonth : monthStructure+ -> ^(MONTHS monthStructure+);
 monthStructure : cd? nnpmonth cd? ((cc|dash)? (jjtimePeriod|jj)? nnpmonth)*;
 seasonStructure : nnpSeason ((cc|dash)? (jjtimePeriod|jj)? nnpSeason)*;
-timeYear : yearStructure+ -> ^(YEARS yearStructure+);
-yearStructure : nnpSeason? (nnpalaeotimequalifier|timePeriodQualifier)? (cdyear|cdyearRange) (nnpalaeotimequalifier|timePeriodQualifier)?;
-palaeoTime : (palaeoStructure1|palaeoStructure2|palaeoStructure3)+ -> ^(PALAEOTIME palaeoStructure1? palaeoStructure2? palaeoStructure3?);
+timeYear : (quantityTime|yearStructure|yearUnitStructure)+ -> ^(YEARS quantityTime? yearStructure? yearUnitStructure?);
+yearStructure : (nnpalaeotimequalifier? (cdyear|cdyearRange)) | (nnpalaeotimequalifier cd);
+palaeoTime : palaeoStructure1+ -> ^(PALAEOTIME palaeoStructure1+);
 palaeoStructure1 : dtTHE? ( ((jjtimePeriod|nnp|nnps|nnpacronym|nnchementity|jj)* (timePeriod)+ (nnidentifier|cd|mathExpress)?) |((jjtimePeriod|cd|nnp|nnps|nnpacronym|nnchementity)+ timePeriodQualifier+))+ (timePeriodQualifier|jjtimePeriod)* ;
-palaeoStructure2 : (cdyear|cdyearRange|cd)+ nnpalaeotimequalifier? (nnpalaeotimeunit|nntimeunit)? nnpalaeotimequalifier;
-palaeoStructure3 : cd+ (dash cd+)? ((cc|to) (cd+ (dash cd+)?))* nnpalaeotimeunit  (nnpalaeotimequalifier|timePeriodQualifier)? ;
-
+//presentStructure: inbefore? present;
 molecule : (oscaracp|oscarCompound3|oscarCompound2|oscarCompound1) -> ^(MOLECULE oscaracp? oscarCompound3? oscarCompound2? oscarCompound1?);
 oscarCompound3 :	lrb oscarcm+ rrb -> ^(OSCARCM lrb oscarcm+ rrb );
 oscarCompound2 :	oscarCompound2Structure -> ^(OSCARCM oscarCompound2Structure );
 oscarCompound1 :	oscarcm oscarcm* -> ^(OSCARCM oscarcm oscarcm*);
 oscarCompound2Structure 	: oscarcm (dash oscarcm)+ dash?;
-//chemicaltagger has quaantity in with molecule but not so appropriate here.
+//chemicaltagger has quantity in with molecule but not so appropriate here.
 
 
 //LOCATION
@@ -343,6 +342,7 @@ nndiagnostic:'NN-DIAGNOSTIC' TOKEN -> ^('NN-DIAGNOSTIC' TOKEN);
 jjmodelmethod:'JJ-MODELMETHOD' TOKEN -> ^('JJ-MODELMETHOD' TOKEN);
 nnmodelmethod:'NN-MODELMETHOD' TOKEN -> ^('NN-MODELMETHOD' TOKEN);
 nnpmodelmethod:'NNP-MODELMETHOD' TOKEN -> ^('NNP-MODELMETHOD' TOKEN);
+nnpradmodelmethod:'NNP-RADMODELMETHOD' TOKEN -> ^('NNP-RADMODELMETHOD' TOKEN);
 nnsciencefield:'NN-SCIENCEFIELD' TOKEN -> ^('NN-SCIENCEFIELD' TOKEN);
 nnphysicalprocessmain:'NN-PHYSICALPROCESSMAIN' TOKEN -> ^('NN-PHYSICALPROCESSMAIN' TOKEN);
 nnphysicalprocess:'NN-PHYSICALPROCESS' TOKEN -> ^('NN-PHYSICALPROCESS' TOKEN);
@@ -468,7 +468,7 @@ nnmeter	: 'NN-METER' TOKEN -> ^('NN-METER' TOKEN)	;
 //nnparts : 'NN-PARTSPERNOTATION' TOKEN -> ^('NN-PARTSPERNOTATION' TOKEN);
 //nnpercent : 'NN-PERCENT' TOKEN -> ^('NN-PERCENT' TOKEN);
 nntemp:'NN-TEMP' TOKEN -> ^('NN-TEMP' TOKEN);
-nnatmosphere:'NN-ATMOSPHERE' TOKEN -> ^('NN-ATMOSPHERE' TOKEN);
+//nnatmosphere:'NN-ATMOSPHERE' TOKEN -> ^('NN-ATMOSPHERE' TOKEN);
 nnpressure:'NN-PRESSURE' TOKEN -> ^('NN-PRESSURE' TOKEN);
 nnstate:'NN-STATE' TOKEN -> ^('NN-STATE' TOKEN);
 nntimeunit : 'NN-TIMEUNIT' TOKEN -> ^('NN-TIMEUNIT' TOKEN);
@@ -512,17 +512,8 @@ induring:'IN-DURING' TOKEN -> ^('IN-DURING' TOKEN);
 inoff:'IN-OFF' TOKEN -> ^('IN-OFF' TOKEN);
 inloc:'IN-LOC' TOKEN -> ^('IN-LOC' TOKEN);
 inunder:'IN-UNDER' TOKEN -> ^('IN-UNDER' TOKEN);
-//inabove:'IN-ABOVE' TOKEN -> ^('IN-ABOVE' TOKEN);
-//innear:'IN-NEAR' TOKEN -> ^('IN-NEAR' TOKEN);
 intimloc:'IN-TIMLOC' TOKEN -> ^('IN-TIMLOC' TOKEN);
-//inat:'IN-AT' TOKEN -> ^('IN-AT' TOKEN);
 inover:'IN-OVER' TOKEN -> ^('IN-OVER' TOKEN);
-//inwithin:'IN-WITHIN' TOKEN -> ^('IN-WITHIN' TOKEN);
-//inaround:'IN-AROUND' TOKEN -> ^('IN-AROUND' TOKEN);
-//inbetween:'IN-BETWEEN' TOKEN -> ^('IN-BETWEEN' TOKEN);
-
-//prepPhraseLocationStructure :(inin|inat|inover|inabove|inaround|inwithin|innear|infrom|inbetween|inoff) (dt|dtTHE)? advAdj* (location|nnp)+;
-//prepPhraseTimeStructure	: (in|inafter|inbefore|inby|infor|infrom|induring|inin|inof|inover|inbetween|inaround|inat|to)+ (dtTHE|dt)? advAdj* (time|nnpresent);
 
 //Verbs
 vbuse:'VB-USE' TOKEN -> ^('VB-USE' TOKEN);

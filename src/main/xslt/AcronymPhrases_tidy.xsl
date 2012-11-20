@@ -9,7 +9,6 @@
 </xsl:template>
 
 <!-- makes sure if NN-MODEL within brackets then is assigned to MODEL -->
-
 <xsl:template match="SetAcronymPhrase">
 <xsl:choose>
 <xsl:when test="child::*[1][self::AcronymPhrase]">

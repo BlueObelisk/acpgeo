@@ -20,7 +20,7 @@ JJ-COUPLE---^[c|C]oupled$---
 NN-GRID---^([Ss]ub|B|C|D|E)?(\-)?[Gg]rid$---
 JJ-MODELMETHOD---^finite$---
 NN-MODELMETHOD---^[Dd]iscreti[zs]ation|finite(\-(difference|element)(s)?)|[Ss]ingularity|[Pp]arametri[zs]ation$---
-NN-RADMODELMETHOD---^[Tt]wo\-stream|layer\-interaction|wide\-band|K\-correlated|K\-distribution|RRTM$---
+NNP-RADMODELMETHOD---^[Tt]wo\-stream|layer\-interaction|wide\-band|K\-correlated|K\-distribution|RRTM$---
 NNP-MODELMETHOD---^Laplacian|Lagrangian|[Ss]emi-Lagrangian|Eulerian|(modified\-)?Euler|UTOPIA|SUPG$---  (diffusion/advection of tracers and momentum not including those most likely to be found in citations e.g. Heun, Prather etc.)
 NN-SCIENCEFIELD---^[Oo]rography|([Mm]icro)?[Pp]hysics|[Cc]hemistry$---;
 NN-PHYSICAL---^(temperature|pressure|humidity|velocity|momentum)$--- ;
@@ -31,13 +31,13 @@ NN-CLOUD---^[Cc]loud$---;
 NNP-CLOUD---^([Aa]lto|[Cc]irro|[Cc]umulo)?([Cc]umulus|[Ss]tratus|[Cc]irrus|[Nn]imbus)$---;
 NNP-TIMESTEPMETHOD---^Runge\-Kutta|Runge|Kutta|[Ll]eap\-[Ff]rog|[Ee]xplicit|[Ii]mplicit|[Ss]emi\-[Ii]mplicit|[Mm]ulti\-step$---;
 NN-METHOD---^([Tt]ime)?\-step(s)?$---
-NN-DOMAIN---^(Earth|[t|T]ropospher|[S|s]tratospher|[M|m]esospher|[Ii]onospher|atmospher|ocean|sea|biospher|Sea-Ice|geospher|ice-biospher)(e|ic)?(\-([t|T]ropospher|[S|s]tratospher|[M|m]esospher|[Ii]onospher|atmospher|sea|ice|ocean|biospher|Sea-Ice|geospher)(e|ic)?)*$---;
+NN-DOMAIN---^(Earth|[t|T]ropospher|[S|s]tratospher|[M|m]esospher|[Ii]onospher|ocean|sea|[bB]iospher|Sea-Ice|[Gg]eospher|[Ii]ce-biospher|[Aa]tmospher|[Aa]tmsopheres)(e|ic)?(\-([t|T]ropospher|[S|s]tratospher|[M|m]esospher|[Ii]onospher|atmospher|sea|ice|ocean|biospher|Sea-Ice|geospher)(e|ic)?)*$---;
 NNP-MONTH---(([Mm]id|[Ll]ate|[Ee]arly)?(\-)?(January|February|March|April|May|June|July|August|September|October|November|December))(\-(to\-)?([Mm]id|[Ll]ate|[Ee]arly)?(\-)?(January|February|March|April|May|June|July|August|September|October|November|December))?$--- Months of a year;
 #NNP-SEASON---^([Mm]id|[Ll]ate|[Ee]arly)?(\-)?([wW]inter|[Ss]ummer|[Ss]pring|[Aa]utumn|[Ff]all)(time)?|[Ss]eason$--- Seasons;
 NNP-SEASON---^winter|summer|spring|autumn$--- Seasons;
 NNP-DIRECTION---^\d*(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est|(C|c)entral)(ern|(\-))?(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)*(ern)?$---Directions;
 NN-DIRECTION---^[Ll]atitude|[Ll]ongitude?$---Directions;
-NNP-LOCATIONTYPE---^([Ss]ub|[Mm]id)?\-?([Pp]olar|[Tt]ropic(al|s)?|[Ee]quator(ial)?|[Tt]emperate|marine|[Aa]tlantic|Pacific|Indian|[Oo]ceanic|[Aa]rctic|latitude(s))$--- Should really be JJ;
+NNP-LOCATIONTYPE---^([Ss]ub|[Mm]id)?\-?([Pp]olar|[Tt]ropic(al|s)?|[Ee]quator(ial)?|[Tt]emperate|marine|[Aa]tlantic|Pacific|Indian|[Oo]ceanic|[Aa]rctic|latitudes)|[Mm]id\-latitude$--- Should really be JJ;
 NNP-LOCATIONTYPE---^California$--- Should really be renamed;
 NNP-LOCATIONTYPE---^([Dd]esert|[Ss]avanna||[Tt]undra|[Gg]lacier|[Ll]ake|[Ss]ea|[Ss]eaway|[Rr]iver|[Ww]aters|[Cc]oast|Basin|[Rr]eef|[Hh]arbour|[Mm]ountain|[Mm]ontane|Hill|Bay|[Vv]illage|[Tt]own|[Cc]ity|[Cc]ount(r)?y|State|Ocean|Plain|[Ff]arm(land)?|Land|[Pp]lantation|[Ff]actory|[Ff]orest|[Ii]sland|[Ii]sle|[Pp]eninsula|[Pp]lateau|[Cc]ontinent|Ridge|Sound|Volcano|[Ww]ood(land)?)(s)?$---  could have some surnames in here - do I dare have region, Sound, Field, State, Hill, Wood, Point, chain, belt ?;
 # Need rule to say N and S can be treated as OSCARCM under certain conditions e.g. in quantities, in lists N,S and P? and W can be Watts;
@@ -100,13 +100,13 @@ NN-TIMEUNIT---^\d*((\-)?(Yr(s)?|yr(s)?|[Yy]ear(s)?|y|Y|[mM]in(ute)?(s)?|Hr|hr|H|
 NN-PALAEOTIMEUNIT---^\d*\.?\d*((\-)?((k|t)(\.)?(y)(\.)?))$---  Longer Time units;
 NN-PALAEOTIMEUNIT---^\d*\.?\d*((\-)?((m|b)(\.)(y)(\.)))$---  Longer Time units;
 #NN-PALAEOTIMEUNIT---^((\d*((\-)?((k|m|M|b|t)(\.)?(ya|yr|a)(\.)?)))|decade(s)|centur(y|ies)|millen(ium|nia))$---  Longer Time units. If cal appears to be a probelm with calories may have a unique tag for it at present assume we all use joules!;
-NN-PALAEOTIMEUNIT---\d*\.?\d*(\-)?(decade(s)|centur(y|ies)|millen(ium|nia))$---  Longer Time units. If cal appears to be a probelm with calories may have a unique tag for it at present assume we all use joules!;
+NN-PALAEOTIMEUNIT---\d*\.?\d*(\-)?(decade(s)|centur(y|ies)|millenn(ium|ia))$---  Longer Time units. If cal appears to be a probelm with calories may have a unique tag for it at present assume we all use joules!;
 NN-PALAEOTIMEUNIT---^((\d*\.?\d*((\-)?((k|m|M|b|t)(\.)?(ya|yr|a)(\.)?))))$---  Longer Time units. If cal appears to be a probelm with calories may have a unique tag for it at present assume we all use joules!;
 #NN-TIMEPERIODQUALIFIER---^(sub|inter|mid)?\-?(era|epoch|eon|supereon|[P|p]eriod|Age|Time|[Ii]nterval|stadial|deglacial|glacial|decadal|centennial|timescales)(s?)$--- Time period classes my add age and period.;
-NN-TIMEPERIODQUALIFIER---^(sub|inter|mid)?\-?(era|epoch|eon|supereon|[P|p]eriod|Age|Time|[Ii]nterval|timescales|[Gg]laciation)(s?)$--- Time period classes my add age and period.;
-JJ-TIMEPERIOD---^(sub|inter|mid|pre)?\-?(stadial|deglacial|glacial|decadal|centennial|pre-anthropogenic)$--- Time period classes my add age and period.;
-JJ-TIMEPERIOD---^([Ee]arly|Middle|[Ll]ate|[Ll]ast|[Rr]ecent|Thermal|Maximum)$--- Time period adjectives;
-NN-PALAEOTIMEQUALIFIER---^(AD|BC|BP|B\.P\.|[Cc]al(\.)?|ago)(\-[Pp]resent)?$--- may clash with other acronyms. ;
+NN-TIMEPERIODQUALIFIER---^(sub|inter|mid|pre)?\-?((era|epoch|eon|supereon|[P|p]eriod|[Aa]ge|Time|[Ii]nterval|[Gg]laciation)(s?)|(timescales|stadials|deglacials|glacials))$--- Time period classes my add age and period.;
+JJ-TIMEPERIOD---^(sub|inter|mid|pre)?\-?(stadial|deglacial|glacial|decadal|centennial|pre\-?anthropogenic)$--- Time period classes my add age and period.;
+JJ-TIMEPERIOD---^([Ee]arly|Middle|[Ll]ate|[Ll]ast|[Rr]ecent|Thermal|Maximum|[Pp]enultimate)$--- Time period adjectives;
+NN-PALAEOTIMEQUALIFIER---^(A\.?D\.?|B\.?C\.?|B\.?P\.?|[Cc]al(\.)?|ago)(\-[Pp]resent)?$--- may clash with other acronyms. ;
 PRESENT---^present$--- look in ACPTagger.java;
 NN-TIMEUNIT---^\d{0,3}(\-)?(s)$---  Time units;
 #NN-UNITS---^\d*(\-)?((T|k|m|n|p|\u00B5|\u03BC)?g|k?t(on)?(ne)?)$--- Mass;

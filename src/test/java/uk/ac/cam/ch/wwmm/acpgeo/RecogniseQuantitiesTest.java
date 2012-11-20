@@ -27,7 +27,7 @@ public class RecogniseQuantitiesTest {
 	@Test
 	public void testQuantities2(){
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "carboxylic acids (up to 62 ngm-3)";
+		String sentence = "carboxylic acids (up to 2000 ngm-3)";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
@@ -38,6 +38,19 @@ public class RecogniseQuantitiesTest {
 		
 	}
 	
+	@Test
+	public void testQuantities2a(){
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "(up to 2000 BC)";
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),"target/Quantity2.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+		
+	}
 
 	@Test
 	public void testQuantities3() {

@@ -40,6 +40,20 @@ public class RecogniseCaptionsTest {
 	}
 	
 	@Test
+	public void citation(){
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "According to Smoth (2000, 2001) we have things to learn. ";
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),"target/citation.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+		
+	}
+	
+	@Test
 	public void testTables(){
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "Figure 5 shows the sea ice mass per unit area for the control and mid-Pliocene cases during February and August. A summary can be found in Table 1. Table A3. Proxy records of SST based on the radiolaria fauna in- cluded in this study. Each record is identified by the site label.";

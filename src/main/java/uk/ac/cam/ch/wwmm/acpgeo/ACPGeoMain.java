@@ -159,13 +159,14 @@ public class ACPGeoMain {
 				Elements sentences = parsedDoc.getRootElement().getChildElements();
 			    Element referencephrase = null;
 			    Elements referencephrases = null;
-
+			 //   Element setacronymphrase = null;
+			//    Elements setacronymphrases = null;
 			    Elements prepphrases = null;
 			    Elements verbphrases = null;
 
 			    
 			    for (int i = 0 ; i < sentences.size() ; i ++) {
-			      referencephrases = sentences.get(i).getChildElements("ReferencePhrase");
+			      referencephrases = sentences.get(i).getChildElements("CITATION");
 			      if (referencephrases != null) {
 					    for (int j = 0 ; j < referencephrases.size() ; j ++) {
 			    	  Element refstart = null;
@@ -179,14 +180,14 @@ public class ACPGeoMain {
 			      prepphrases = sentences.get(i).getChildElements("PrepPhrase");
 			      if (prepphrases != null) {
 			    	  	for (int x = 0 ; x < prepphrases.size() ; x ++) { 
-			    	  		referencephrase = prepphrases.get(x).getFirstChildElement("ReferencePhrase");
+			    	  		referencephrase = prepphrases.get(x).getFirstChildElement("CITATION");
 			    	  		if (referencephrase != null) {
 			    	  			Element refstart = null;
 			    	  			refstart = referencephrase.getFirstChildElement("NNP-REFS");
 			    	  			Element refend = null;
 			    	  			refend = referencephrase.getFirstChildElement("NNP-REFE");
-			    	  			prepphrases.get(x).getFirstChildElement("ReferencePhrase").removeChild(refstart);
-			    	  			prepphrases.get(x).getFirstChildElement("ReferencePhrase").removeChild(refend);
+			    	  			prepphrases.get(x).getFirstChildElement("CITATION").removeChild(refstart);
+			    	  			prepphrases.get(x).getFirstChildElement("CITATION").removeChild(refend);
 						      	}
 			    	  		}
 			      		}
@@ -195,14 +196,14 @@ public class ACPGeoMain {
 			    	  	for (int y = 0 ; y < verbphrases.size() ; y ++) {
 						      prepphrases = verbphrases.get(y).getChildElements("PrepPhrase");
 						      for (int x = 0 ; x < prepphrases.size() ; x ++) {
-					    	  		referencephrase = prepphrases.get(x).getFirstChildElement("ReferencePhrase");
+					    	  		referencephrase = prepphrases.get(x).getFirstChildElement("CITATION");
 					    	  		if (referencephrase != null) {
 					    	  			Element refstart = null;
 					    	  			refstart = referencephrase.getFirstChildElement("NNP-REFS");
 					    	  			Element refend = null;
 					    	  			refend = referencephrase.getFirstChildElement("NNP-REFE");
-					    	  			prepphrases.get(x).getFirstChildElement("ReferencePhrase").removeChild(refstart);
-					    	  			prepphrases.get(x).getFirstChildElement("ReferencePhrase").removeChild(refend);
+					    	  			prepphrases.get(x).getFirstChildElement("CITATION").removeChild(refstart);
+					    	  			prepphrases.get(x).getFirstChildElement("CITATION").removeChild(refend);
 								      	}
 					    	  		}
 			    	  		}

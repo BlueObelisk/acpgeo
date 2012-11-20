@@ -108,21 +108,15 @@ public class AbstractReader {
 	
 	public String removeNBS(CharSequence abstractString) {
 
-		//Pattern NBS_PATTERN = Pattern.compile("[&]amp;nbsp;");
 		Pattern NBS_PATTERN = Pattern.compile("U+00A0");
-
-// Pattern does not allow Kasting et al., 2000a,b but does allow Kasting (2000a,b) this is because it would be harder to find the ending otherwise (could do but more regex required).
 
 		Matcher removeNBS = NBS_PATTERN.matcher(abstractString);
 		StringBuffer sb = new StringBuffer(abstractString.length());
 		
 		  while (removeNBS.find()) {
-		//    String text = removeNBS.group(0);
-		//    String text1 = preserveCitationAll.group(1);
 		   String text = " ";
 		    removeNBS.appendReplacement(sb, Matcher.quoteReplacement(text));
 			System.out.println("found NBS" + removeNBS.group(0) );
-
 		}
 		  removeNBS.appendTail(sb);
 			return sb.toString();
@@ -130,8 +124,8 @@ public class AbstractReader {
 	
 	public String highLightCitations(CharSequence abstractString) {
 
-		Pattern PRESERVE_CITATION_PATTERNAll = Pattern.compile("(([.][a-z][.]\\s+)|([^.]\\s+)|([^ A-Za-z]))((\\p{Lu}\\p{Ll}+[-]?\\s*){1,2}(((et\\s+al[.])|(and))\\s*(\\p{Lu}\\p{Ll}+[-]?\\s*){0,2})?(([(]\\d{4,4}[a-z]?(([,;]|(\\s*and))\\s*(\\d{4,4})?[a-z]?)*[)])|(,\\s*\\d{4,4}[a-z]?(([,;]|\\s*(and))\\s*(\\d{4,4})[a-z]?)*)))", Pattern.CANON_EQ);
-// Pattern does not allow Kasting et al., 2000a,b but does allow Kasting (2000a,b) this is because it would be harder to find the ending otherwise (could do but more regex required).
+		Pattern PRESERVE_CITATION_PATTERNAll =   Pattern.compile("(([.][a-z][.]\\s+)|([^.]\\s+)|([^ A-Za-z]))((\\p{Lu}\\p{M}*(\\p{Ll}\\p{M}*)\\s+)?(\\p{Lu}\\p{M}*(\\p{Ll}\\p{M}*)+[-]?(\\p{Lu}\\p{M}*)?(\\p{Ll}\\p{M}*)*\\s+)(((et\\s+al[.])|(and))\\s*((\\p{Lu}\\p{M}*(\\p{Ll}\\p{M}*)\\s+)?\\p{Lu}\\p{M}*(\\p{Ll}\\p{M}*)+[-]?(\\p{Lu}\\p{M}*)?(\\p{Ll}\\p{M}*)*\\s*){0,1})?(([(]\\d{4,4}[a-z]?(([,;]|(\\s*and))\\s*(\\d{4,4})?[a-z]?)*[)])|(,\\s*\\d{4,4}[a-z]?(([,;]|\\s*(and))\\s*(\\d{4,4})[a-z]?)*)))", Pattern.CANON_EQ);
+		// Pattern does not allow Kasting et al., 2000a,b but does allow Kasting (2000a,b) this is because it would be harder to find the ending otherwise (could do but more regex required).
 
 		Matcher preserveCitationAll = PRESERVE_CITATION_PATTERNAll.matcher(abstractString);
 		StringBuffer sb = new StringBuffer(abstractString.length());
@@ -141,6 +135,8 @@ public class AbstractReader {
 		    String text1 = preserveCitationAll.group(1);
 		    text = text1 + " CITation " + text + " citatION ";
 		    preserveCitationAll.appendReplacement(sb, Matcher.quoteReplacement(text));
+			System.out.println("found CITATION PHRASE" + preserveCitationAll.group(0) );
+
 
 		}
 		    preserveCitationAll.appendTail(sb);
@@ -150,9 +146,8 @@ public class AbstractReader {
 
 	public String highLightAcronymPhrases(CharSequence abstractString) {
 
-//		Pattern PRESERVE_ACRONYMPHRASE_PATTERNAll = Pattern.compile("(([A-Z][a-z]+[-/]?[A-Z]?[a-z]*)\\s+(([A-Z][a-z]+[-/]?[A-Z]?[a-z]*)\\s+|((and|in|for)\\s+)){1,8}[(][ ]?[-A-Za-z/]+[0-9]*[ ]?[)])", Pattern.CANON_EQ);
+		Pattern PRESERVE_ACRONYMPHRASE_PATTERNAll = Pattern.compile("((\\p{Lu}\\p{M}*(\\p{Ll}\\p{M}*)+[-/]?(\\p{Lu}\\p{M}*)?(\\p{Ll}\\p{M}*)*)\\s+((\\p{Lu}\\p{M}*(\\p{Ll}\\p{M}*)+[-/]?(\\p{Lu}\\p{M}*)?(\\p{Ll}\\p{M}*)*)\\s+|((and|in|for)\\s+)){1,8}([0-9]{1,4}\\s+)?[(][ ]?[A-Z]+[-A-Za-z/]+[-A-Za-z0-9/]*[ ]?[)])", Pattern.CANON_EQ);
 
-		Pattern PRESERVE_ACRONYMPHRASE_PATTERNAll = Pattern.compile("((\\p{Lu}\\p{M}*(\\p{Ll}\\p{M}*)+[-/]?(\\p{Lu}\\p{M}*)?(\\p{Ll}\\p{M}*)*)\\s+((\\p{Lu}\\p{M}*(\\p{Ll}\\p{M}*)+[-/]?(\\p{Lu}\\p{M}*)?(\\p{Ll}\\p{M}*)*)\\s+|((and|in|for)\\s+)){1,8}([0-9]{1,4}\\s+)?[(][ ]?[-A-Za-z/]+[0-9]*[ ]?[)])", Pattern.CANON_EQ);
 		Matcher preserveAcronym = PRESERVE_ACRONYMPHRASE_PATTERNAll.matcher(abstractString);
 		StringBuffer sb = new StringBuffer(abstractString.length());
 		
@@ -195,8 +190,6 @@ public class AbstractReader {
 	StringBuffer sb = new StringBuffer(abstractString.length());
 	
 	  while (forceStop.find()) {
-	//	    String textEndSentence = forceStop.group(2);
-	//	    String textBeginSentence = forceStop.group(5);
 		  if (!ABV_LIST.contains(forceStop.group(4) + '.')){
 			  forceStop.appendReplacement(sb, Matcher.quoteReplacement(forceStop.group(2) + ' ' + forceStop.group(5)));
 		  }

@@ -31,7 +31,9 @@ public class ACPTokeniser implements ChemicalTaggerTokeniser {
 	private static Set<String> ABV_LIST = new HashSet<String>(Arrays.asList("et.", "al.", "etc.","e.g.", "i.e.", "vol.", "ca.", "wt.", "aq.", "mt.", "st.", "e.g.:", "eq.", "equiv.", "mp.", "m.p.","b.p.", "conc.", "approx.", "anh.", "sat.", "lit.", "dil.","sol.","liq.", "Cal.", "cal.", "Prof."));
 	private static Pattern ABBREVIATION_PATTERN = Pattern.compile("-?[A-Z]+[a-z]{0,2}\\.");
 	private static Pattern CONCAT_HYPHENED_DIRECTION_PATTERN = Pattern.compile("^[A-Z]\\-\\d+[\u00b0\u00ba]");
-	private static Pattern TIME_EXPRESSION = Pattern.compile("^([01]?[1-9]|2[123]):[0-5]\\d([ap]m)?$", Pattern.CASE_INSENSITIVE);
+//	private static Pattern TIME_EXPRESSION = Pattern.compile("^([01]?[1-9]|2[123]):[0-5]\\d([ap]m)?$", Pattern.CASE_INSENSITIVE);
+	private static Pattern TIME_EXPRESSION = Pattern.compile("^(([01]?[1-9]|2[123]):[0-5]\\d\\-?){1,2}([ap]m)?$", Pattern.CASE_INSENSITIVE);
+
 //	private static Pattern IDENTIFIERS_BRACKETS = Pattern.compile("^([(][A-Za-z][)]|[(][0-9]+[)]|[(][0-9]+[A-Za-f][)]|[(][ivx]+[)]|[(][IVX][)])$");
 //	private static Pattern IDENTIFIERS_BRACKETS = Pattern.compile("^[(][A-Za-z][)]$");
 

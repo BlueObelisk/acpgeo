@@ -54,6 +54,8 @@ public class ExtractInformation {
 		getQuery(files, "//CITATION", "CITATION.csv");		
 
 		getQuery(files, "//QUANTITY", "QUANTITY.csv");
+		getQuery(files, "//QUANTITY-TIME", "QUANTITY-TIME.csv");
+
 		getQuery(files, "//UNITS", "UNITS.csv");
 		getQuery(files, "//UnmatchedPhrase", "UnmatchedPhrase.csv");
 		getQuery(files, "//ResolutionPhrase", "resolution.csv");
@@ -69,12 +71,11 @@ public class ExtractInformation {
 		getQuery(files, "//NN-RESOLUTION", "NN-RESOLUTION.csv");
 
 		getQuery(files, "//TempPhrase", "TempPhrase.csv");
-		getQuery(files, "//PrepPhrase", "PrepPhrase.csv");
+	    getQuery(files, "//PrepPhrase", "PrepPhrase.csv");
 		getQuery(files, "//VB-HEAT", "VB-Heat.csv");
 		getQuery(files, "//VB-INCREASE", "VB-Increase.csv");
 		getQuery(files, "//NNP-TIMEPERIOD", "NNP-TIMEPERIOD.csv");
 		getQuery(files, "//VB-COOL", "VB-COOL.csv");
-		getQuery(files, "//Document[contains(.,'cal')]", "cal.csv");
 		getQuery(files, "//RATIO", "RATIO.csv");
 		getQuery(files, "//APPARATUS", "APPARATUS.csv");
 		getQuery(files, "//NN-IDENTIFIER", "IDENTIFIER.csv");
@@ -113,8 +114,17 @@ public class ExtractInformation {
 		getQuery(files, "//LocationPhrase", "LocationPhrase.csv");
 		getQuery(files, "//TimePhrase", "TimePhrase.csv");
 		getQuery(files, "//TIME", "TIME.csv");
-		getQuery(files, "//TIME/*[.='(']", "TIMELRB.csv");
-		getQuery(files, "//TIME/*[.=')']", "TIMERRB.csv");
+		//getQuery(files, "//TIME[child::YEARS]../", "TIMEYears.csv");		
+		//getQuery(files, "//TIME/YEARS[not(parent/child::*[.=not(YEARS)])]", "TIMEYears.csv");
+		getQuery(files, "//TIME[YEARS and not(*[not(self::YEARS)])]", "TIMEYears.csv");
+		getQuery(files, "//QUANTITY/TIME[YEARS and not(*[not(self::YEARS)])]", "QuantityTimeYears.csv");
+		getQuery(files, "//QuantityTime", "QuantityTime1.csv");
+
+		getQuery(files, "//QUANTITY/CDYEAR", "QuantityCDYear.csv");
+		getQuery(files, "//TIME/YEARS", "TimeQuantity3.csv");
+
+
+		
 
 
 
