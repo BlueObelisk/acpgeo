@@ -86,7 +86,7 @@ public class RecogniseLocationsTest {
 	@Test
 	public void testRecogniseLocations3() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "The northern hemisphere. We studied London and New York. Studies show they are place names.";
+		String sentence = "The northern hemisphere. The Northern Hemisphere. We studied London and New York. Studies show they are place names.";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
@@ -109,6 +109,21 @@ public class RecogniseLocationsTest {
 		sentenceParser.parseTags();
 		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
 				"target/Location4.xml");
+		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
+				.toStringTree().contains("<error"));
+
+	}
+	
+	@Test
+	public void testRecogniseLocationCoords() {
+		ACPTagger acpTagger = ACPTagger.getInstance();
+		String sentence = "Arenosillo station (37.1° N, 6.7° W, 20 m a.s.l)";
+		sentence = Utils.cleanHTMLText(sentence);
+		POSContainer posContainer = acpTagger.runTaggers(sentence);
+		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
+		sentenceParser.parseTags();
+		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
+				"target/LocationCoords.xml");
 		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
 				.toStringTree().contains("<error"));
 

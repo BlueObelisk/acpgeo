@@ -8,58 +8,123 @@
   </xsl:copy>
 </xsl:template>
 
+<xsl:template match="//NOTES/NOTE[1]">
+<NOTE>THIS IS THE SECOND TRANSFORMATION</NOTE>
+<xsl:copy-of select="."/>
+</xsl:template>
 <!-- makes sure if NN-MODEL within brackets then is assigned to MODEL -->
-<xsl:template match="SetAcronymPhrase">
-<xsl:choose>
-<xsl:when test="child::*[1][self::AcronymPhrase]">
-<xsl:copy-of select="child::AcronymPhrase"/>
-</xsl:when>
-<xsl:otherwise>
-<AcronymPhrase>
-<!-- or descendant::ParentheticalPhrase/descendant::MATHEXPRESSION"-->
-<xsl:copy-of select="child::*[not(self::AcronymPhrase) and not(self::NNP-ACRONYMPHRASESTART) and not(self::NNP-ACRONYMPHRASEEND)]"/>
+
+<xsl:template match="SetAcronymPhrase/NounPhrase">
+<xsl:copy-of select="child::*[not(self::AcronymPhrase)]"/>
 <xsl:copy-of select="child::AcronymPhrase/child::*"/>
-</AcronymPhrase>
-</xsl:otherwise>
-</xsl:choose>
 </xsl:template>
 
 <!-- DO ABOVE FIRST BEFORE BELOW AS MAY GET MORE MODESL ETC -->
+    
+    
+    <xsl:template match="//CITATION/*[not(self::NounPhrase or self::FW or self::TIME or self::COMMA or self::ParentheticalPhrase or self::CC or self::AcronymPhrase )]">
+        <NNP-SURNAME>
+            <xsl:value-of select="."/>
+        </NNP-SURNAME>
+    </xsl:template>
+    
+    <xsl:template match="//CITATION/*[self::NounPhrase or self::FW or self::TIME or self::COMMA or self::ParentheticalPhrase or self::CC]">
+            <xsl:copy-of select="."/>        
+    </xsl:template>
+
+    
+    <!--xsl:copy-of select="*"/-->
+    
+    <xsl:template match="//CITATION/AcronymPhrase">
+        <xsl:apply-templates select="../../CITATION/AcronymPhrase/*[not(self::FW or self::TIME or self::COMMA or self::ParentheticalPhrase or self::CC)]" />
+        <xsl:apply-templates select="../../CITATION/AcronymPhrase/*[self::FW or self::TIME or self::COMMA or self::ParentheticalPhrase or self::CC]" />
+    </xsl:template>
+    
+    
+    <xsl:template match="CITATION/AcronymPhrase/*[not(self::FW or self::TIME or self::COMMA or self::ParentheticalPhrase or self::CC)]">
+        <NNP-SURNAME>
+            <xsl:value-of select="."/>
+        </NNP-SURNAME>
+    </xsl:template>
+    
+    
+    <xsl:template match="CITATION/AcronymPhrase/*[self::FW or self::TIME or self::COMMA or self::ParentheticalPhrase or self::CC]">
+        <xsl:copy-of select="."/>
+    </xsl:template>
+    
+
 
 
 <xsl:template match="AcronymPhrase">
 <xsl:choose>
 <xsl:when test="descendant::*[self::NN-MODEL]">
-<xsl:copy-of select="."/>
+    <MODEL>
+        <xsl:copy-of select="."/>
+    </MODEL>
 </xsl:when>
 <xsl:when test="descendant::*[self::NN-CAMPAIGN]">
-<xsl:copy-of select="."/>
+    <CAMPAIGN>
+        <xsl:copy-of select="."/>
+    </CAMPAIGN>
 </xsl:when>
-<xsl:when test="descendant::ParentheticalPhrase/descendant::QUANTITY">
-<!-- or descendant::ParentheticalPhrase/descendant::MATHEXPRESSION"-->
+    <!-- or descendant::ParentheticalPhrase/descendant::MATHEXPRESSION"-->
+
+<!--xsl:when test="descendant::ParentheticalPhrase/descendant::QUANTITY">
 <xsl:copy-of select="child::*"/>
-</xsl:when>
+</xsl:when-->
 <xsl:when test="descendant::ParentheticalPhrase/descendant::*[1][text()='e.g.' or text()='i.e.']">
-<!-- or descendant::ParentheticalPhrase/descendant::MATHEXPRESSION"-->
+<!-- THEN NOT ACRONYMPHRASE ????? -->
+    <ExamplePhrase>
 <xsl:copy-of select="child::*"/>
+    </ExamplePhrase>
 </xsl:when>
 <xsl:when test="descendant::ParentheticalPhrase/descendant::CD-DEGREES">
-<!-- or descendant::ParentheticalPhrase/descendant::MATHEXPRESSION"-->
 <xsl:copy-of select="child::*"/>
 </xsl:when>
 <xsl:otherwise>
 <xsl:copy-of select="."/>
 </xsl:otherwise>
 </xsl:choose>
-
 </xsl:template>
+    
+    
+    <xsl:template match="SetAcronymPhrase">
+        <xsl:choose>
+            <xsl:when test="descendant::*[self::NN-MODEL]">
+                <MODEL>
+                    <xsl:copy-of select="."/>
+                </MODEL>
+            </xsl:when>
+            <xsl:when test="descendant::*[self::NN-CAMPAIGN]">
+                <CAMPAIGN>
+                    <xsl:copy-of select="."/>
+                </CAMPAIGN>
+            </xsl:when>
+            <xsl:when test="descendant::ParentheticalPhrase/descendant::QUANTITY">
+                <xsl:copy-of select="child::*"/>
+            </xsl:when>
+            <xsl:when test="descendant::ParentheticalPhrase/descendant::*[1][text()='e.g.' or text()='i.e.']">
+                <ExamplePhrase>
+                    <xsl:copy-of select="child::*"/>
+                </ExamplePhrase>
+            </xsl:when>
+            <xsl:when test="descendant::ParentheticalPhrase/descendant::CD-DEGREES">
+                <xsl:copy-of select="child::*"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy-of select="."/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
 
-<xsl:variable name="ns1" select="//NNP-ACRONYMPHRASESTART[1]/following-sibling::*"/>
+    
+    <!-- only works if one incidence per Sentence and both start and end are within one sentence-->
+
+<!--xsl:variable name="ns1" select="//NNP-ACRONYMPHRASESTART[1]/following-sibling::*"/>
 <xsl:variable name="ns2" select="//NNP-ACRONYMPHRASESTART[1]/following-sibling::NNP-ACRONYMPHRASEEND[1]/preceding-sibling::*"/>
 
 
 <xsl:template match="Sentence[child::NNP-ACRONYMPHRASESTART and child::NNP-ACRONYMPHRASEEND]">
-<!-- only works if one incidence per Sentence and both start and end are within one sentence-->
 <xsl:variable name="s1" select="NNP-ACRONYMPHRASESTART[1]/following-sibling::*"/>
 <xsl:variable name="s2" select="NNP-ACRONYMPHRASESTART[1]/following-sibling::NNP-ACRONYMPHRASEEND[1]/preceding-sibling::*"/>
 <Sentence>
@@ -69,6 +134,7 @@
 </AcronymPhrase>
 <xsl:copy-of select="./NNP-ACRONYMPHRASEEND/following-sibling::*"/>
 </Sentence>
-</xsl:template>
+</xsl:template!-->
+   
 
 </xsl:stylesheet>

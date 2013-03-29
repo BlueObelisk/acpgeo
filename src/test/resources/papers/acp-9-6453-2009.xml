@@ -54,7 +54,7 @@
 		<affiliation numeration="3" content_type="html">German Meteorological Service, Meteorological Observatory, Lindenberg, Germany</affiliation>
 		<affiliation numeration="4" content_type="html">Integrated Project Office, Silver Spring, Maryland, USA</affiliation>
 	</affiliations>
-	<abstract content_type="html">The METOP-A satellite Infrared Atmospheric Sounding Interferometer (IASI)
+	<abstract content_type="html">To a stirred solution of 4-hydroxypiperidine (0.97 g, 9.60 mmol) in anhydrous dimethylformamide (20 mL) at 0°C was added 1-(bromomethyl)-4-methoxybenzene (1.93 g, 9.60 mmol) and triethylamine (2.16 g, 21.4 mmol). The METOP-A satellite Infrared Atmospheric Sounding Interferometer (IASI)
 Level 2 products comprise retrievals of vertical profiles of temperature and
 water vapor. The error covariance matrices and biases of the most recent
 version (4.3.1) of the L2 data were assessed, and the assessment was
@@ -68,7 +68,7 @@ the reference radiosondes. For temperatures above 900 mb and water
 retrievals above 700 mb, level expected and assessed errors are in good
 agreement. Below those levels, noticeable excess in assessed error is
 observed, possibly due to inaccurate surface parameters and undetected
-clouds/haze.</abstract>
+clouds/haze.  Now lets add some more acronyms e.g. This Is An Acronym (TIAA) and now we also have A New Aconym (ANA). We also like Some Silly Acronym (SSA). Let us also have some numbers, such as 5 x 10<sup>4</sup> and 3.6<sup>10</sup>.</abstract>
 	<references>
 		<reference numeration="1" content_type="text"> Barret, B., De Maziere, M., and Mahieu, M: Ground-based FTIR measurements of CO from Jungfraujoch: characterization and comparison with in situ surface and MOPITT data, Atmos. Chem. Phys., 3, 4857–4878, 2003. </reference>
 		<reference numeration="2" content_type="text"> Calbet, X., Schlüssel, P., Hultberg, T., Phillips, P., and August, T.: &quot;Validation of the operational IASI level 2 processor using AIRS and ECMWF data&quot;, Adv. Space Res., 37, 2299–2305, 2006. </reference>

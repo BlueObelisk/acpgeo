@@ -124,6 +124,7 @@ public class ACPRegexTagger extends RegexTagger {
 				if (StringUtils.isNotEmpty(suffices))
 					rules.add(new Rule(tagName, "^"+value + "(" + suffices
 							+ ")$",false));
+
 				else
 					rules.add(new Rule(tagName, "^"+value + "$",false));
 			}

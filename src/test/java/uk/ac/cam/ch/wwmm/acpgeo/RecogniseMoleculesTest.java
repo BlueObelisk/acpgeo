@@ -43,7 +43,7 @@ public class RecogniseMoleculesTest {
 	@Test
 	public void recogniseOscarRNandCJ() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "The results show that oxygenated VOCs such as ethanal and methanol are very significant sources of formaldehyde in the air masses reaching Mace Head .";
+		String sentence = "The results show that oxygenated VOCs such as ethanal, CH3C(O)OH and methanol are very significant sources of formaldehyde in the air masses reaching Mace Head .";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);

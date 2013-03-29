@@ -127,6 +127,8 @@ public class ACPTaggerTest {
 		String expected = Utils
 				.readSentence("uk/ac/cam/ch/wwmm/acpgeo/tagTest/ref6.txt");
 		sentence = Utils.cleanHTMLText(sentence);
+    	System.out.println("Sentence " + sentence );
+
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		Assert.assertEquals("Correct Markup", expected,
 				posContainer.getTokenTagTupleAsString());

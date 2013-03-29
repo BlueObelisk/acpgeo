@@ -42,7 +42,7 @@ public class RecogniseCaptionsTest {
 	@Test
 	public void citation(){
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "According to Smoth (2000, 2001) we have things to learn. ";
+		String sentence = "According to Smoth (2000, 2001) we have things to learn. It's OK with Jones and Smith (2000) and also Smith et al., 2001. ";
 		sentence = Utils.cleanHTMLText(sentence);
 		POSContainer posContainer = acpTagger.runTaggers(sentence);
 		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);

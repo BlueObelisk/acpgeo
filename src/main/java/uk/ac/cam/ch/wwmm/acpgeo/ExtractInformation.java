@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -34,7 +35,15 @@ public class ExtractInformation {
 	}
 
 	public ExtractInformation(String fileLocation) {
-		File[] files = new File(fileLocation).listFiles();
+		File[] files = new File(fileLocation).listFiles(new FilenameFilter() {
+		    public boolean accept(File fileLocation, String name) {
+		//        return name.toLowerCase().startsWith("postprocessed");
+		        return name.toLowerCase().startsWith("cp");
+
+		    }
+		});
+		
+		
 		runQueries(files);
 	}
 
@@ -51,7 +60,9 @@ public class ExtractInformation {
 
 		getQuery(files, "//IN", "in.csv");		
 
-		getQuery(files, "//CITATION", "CITATION.csv");		
+		getQuery(files, "//CITATION", "CITATION.csv");	
+		getQuery(files, "//AEROSOL", "AEROSOL.csv");		
+
 
 		getQuery(files, "//QUANTITY", "QUANTITY.csv");
 		getQuery(files, "//QUANTITY-TIME", "QUANTITY-TIME.csv");
@@ -81,7 +92,8 @@ public class ExtractInformation {
 		getQuery(files, "//NN-IDENTIFIER", "IDENTIFIER.csv");
 		getQuery(files, "//CD", "CD.csv");
 		getQuery(files, "//CD-ALPHANUM", "CD-ALPHANUM.csv");
-		getQuery(files, "//EXPRESSION", "EXPRESSION.csv");
+		getQuery(files, "//MATHEXPRESSION", "MATHEXPRESSION.csv");
+		getQuery(files, "//MATHEQUATION", "MATHEQUATION.csv");
 		getQuery(files, "//NN-MODEL", "NN-MODEL.csv");
 		getQuery(files, "//MODEL", "MODEL.csv");
 		getQuery(files, "//PrepPhrase/NounPhrase/MODEL", "PrepMODEL.csv");
@@ -105,6 +117,10 @@ public class ExtractInformation {
 
 		getQuery(files, "//CD-YEAR[not(ancestor::ReferencePhrase)]", "YEAR-notREf.csv");
 		getQuery(files, "//SetAcronymPhrase", "SETACRONYMPHRASES.csv");
+		getQuery(files, "//SetAcronymPhrase[(ancestor::CAMPAIGN)]", "CAMPAIGN_SETACRONYMPHRASES.csv");
+		getQuery(files, "//SetAcronymPhrase[(ancestor::MODEL)]", "MODEL_SETACRONYMPHRASES.csv");
+
+
 		getQuery(files, "//AcronymPhrase", "ACRONYMPHRASES.csv");
 		getQuery(files, "//NNP-ACRONYM", "NNP-ACRONYM.csv");
 		getQuery(files, "//ParentheticalPhrase", "PARENTHETICALPHRASE.csv");
@@ -114,6 +130,8 @@ public class ExtractInformation {
 		getQuery(files, "//LocationPhrase", "LocationPhrase.csv");
 		getQuery(files, "//TimePhrase", "TimePhrase.csv");
 		getQuery(files, "//TIME", "TIME.csv");
+		getQuery(files, "//NNP-TIMEPERIOD", "NNP-TIMEPERIOD.csv");
+
 		//getQuery(files, "//TIME[child::YEARS]../", "TIMEYears.csv");		
 		//getQuery(files, "//TIME/YEARS[not(parent/child::*[.=not(YEARS)])]", "TIMEYears.csv");
 		getQuery(files, "//TIME[YEARS and not(*[not(self::YEARS)])]", "TIMEYears.csv");
@@ -122,12 +140,6 @@ public class ExtractInformation {
 
 		getQuery(files, "//QUANTITY/CDYEAR", "QuantityCDYear.csv");
 		getQuery(files, "//TIME/YEARS", "TimeQuantity3.csv");
-
-
-		
-
-
-
 
 		getQuery(files, "//MOLECULE", "MOLECULE.csv");
 		getQuery(files, "//MOLECULE[not(child::JJ-ACP)][not(child::JJ)][not(child::JJ-CHEM)]", "MOLECULE1.csv");

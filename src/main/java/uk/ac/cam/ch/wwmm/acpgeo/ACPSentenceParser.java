@@ -28,12 +28,12 @@ public class ACPSentenceParser extends SentenceParser {
 
 	public ACPSentenceParser(InputStream taggedTokenInStream) {
 		super(taggedTokenInStream);
-		
+
 	}
 	public ACPSentenceParser(POSContainer posContainer) {
 		super(posContainer);
-		
-		
+
+
 	}
 	public ACPSentenceParser(String taggedSentence) {
 		super(taggedSentence);
@@ -67,32 +67,32 @@ public class ACPSentenceParser extends SentenceParser {
 			setParseTree((Tree) result.getTree());
 		}
 	}
-	
-	
+
+
 	/*************************
 	 *  Creates the XML document from the parse tree.
 	 */
 	public Document makeXMLDocument() {
 		HashMap<String, String> actionMap = new HashMap<String, String>();
-		
+
 		/************************8
 		 * Commented out the actionphrase highlighting.
 		 * 
 		 *********************************/
-//		actionMap.put("NNP-REFS", "Citation");
-//		actionMap.put("VB-RECOVER", "Collection");
-//		actionMap.put("VB-ANALYSE", "Analysis");
-//		actionMap.put("VB-MEASURE", "Measurement");
-//		actionMap.put("NN-MEASUREMENT", "Measurement");
-//		actionMap.put("VB-DETERMINE", "Analysis");
-//		actionMap.put("VB-INVESTIGATE", "Analysis");
-//		actionMap.put("VB-OBSERVE", "Observation");	
-//
-//		actionMap.put("VB-SHOW", "Observation");	
-//		actionMap.put("found", "Observation");
-//		actionMap.put("MASSVOLUME", "Concentration");
-//		actionMap.put("MASSVOLUME", "Concentration");
-//		actionMap.put("VB-INDICATE", "Indication");
+		//		actionMap.put("NNP-REFS", "Citation");
+		//		actionMap.put("VB-RECOVER", "Collection");
+		//		actionMap.put("VB-ANALYSE", "Analysis");
+		//		actionMap.put("VB-MEASURE", "Measurement");
+		//		actionMap.put("NN-MEASUREMENT", "Measurement");
+		//		actionMap.put("VB-DETERMINE", "Analysis");
+		//		actionMap.put("VB-INVESTIGATE", "Analysis");
+		//		actionMap.put("VB-OBSERVE", "Observation");	
+		//
+		//		actionMap.put("VB-SHOW", "Observation");	
+		//		actionMap.put("found", "Observation");
+		//		actionMap.put("MASSVOLUME", "Concentration");
+		//		actionMap.put("MASSVOLUME", "Concentration");
+		//		actionMap.put("VB-INDICATE", "Indication");
 		return new ASTtoXML().convert(getParseTree(), false,actionMap);
 	}
 

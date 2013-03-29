@@ -4,13 +4,20 @@
 #conservation|dissipation|propagation|modification|
 #temporal|spatial
 #VB---^drop(s)?$--- unlike synthetic chemistry where this is more likely to represent volume
-JJ---^[Ww]arm|[Cc]ool$---
-NNP-REFS---^CITation$---
-NNP-REFE---^citatION$---
-NNP-ACRONYMPHRASESTART---^_ACRphrase_$---
-NNP-ACRONYMPHRASEEND---^_phraseACR_$---
-NNP-LISTSTART---^LISTphrase$---
-NNP-LISTEND---^phraseLIST$---
+JJ---^[Ww]arm|[Cc]ool$---;
+#NNP-REFS---^CITation$---;
+#NNP-CLOUD---^Zachos[^ ]*$---;
+#NNP-CLOUD---^[A-Z][-a-z]*((\u00A0)[^ ]+)+$---;
+#NNP-CLOUD---^((\\p{Lu}\\p{M}*(\\p{Ll}\\p{M}*)(\u00A0)+)?(\\p{Lu}\\p{M}*(\\p{Ll}\\p{M}*)+[-]?(\\p{Lu}\\p{M}*)?(\\p{Ll}\\p{M}*)*(\00A0)+)(((et(\u00A0)+al[.])|(and))(\u00A0)*((\p{Lu}\p{M}*(\p{Ll}\p{M}*)(\u00A0)+)?\p{Lu}\p{M}*(\p{Ll}\p{M}*)+[-]?(\p{Lu}\p{M}*)?(\p{Ll}\p{M}*)*(\u00A0)*){0,1})?(([(]\d{4,4}[a-z]?(([,;]|((\u00A0)*and))(\u00A0)*(\d{4,4})?[a-z]?)*[)])|(,(\u00A0)*\d{4,4}[a-z]?(([,;]|(\u00A0)*(and))(\u00A0)*(\d{4,4})[a-z]?)*)))$---;
+#NNP-CLOUD---^((\p{Lu}\p{M}*(\p{Ll}\p{M}*)(\u00A0)+)?(\p{Lu}\p{M}*(\p{Ll}\p{M}*)+[-]?(\p{Lu}\p{M}*)?(\p{Ll}\p{M}*)*(\u00A0)+)(((et(\u00A0)+al[.])|(and))(\u00A0)*((\p{Lu}\p{M}*(\p{Ll}\p{M}*)(\u00A0)+)?\p{Lu}\p{M}*(\p{Ll}\p{M}*)+[-]?(\p{Lu}\p{M}*)?(\p{Ll}\p{M}*)*(\u00A0)*){0,1})?(([(]\d{4,4}[a-z]?(([,;]|((\u00A0)*and))(\u00A0)*(\d{4,4})?[a-z]?)*[)])|(,(\u00A0)*\d{4,4}[a-z]?(([,;]|(\u00A0)*(and))(\u00A0)*(\d{4,4})[a-z]?)*)))$---;
+#REFCITATION---^((\p{Lu}\p{M}*(\p{Ll}\p{M}*)(\u00A0))?(\p{Lu}\p{M}*(\p{Ll}\p{M}*)+[-]?(\p{Lu}\p{M}*)?(\p{Ll}\p{M}*)*(\u00A0))(((et(\u00A0)al[.])|(and))(\u00A0)*((\p{Lu}\p{M}*(\p{Ll}\p{M}*)(\u00A0))?\p{Lu}\p{M}*(\p{Ll}\p{M}*)+[-]?(\p{Lu}\p{M}*)?(\p{Ll}\p{M}*)*(\u00A0)*){0,1})?(([(]\d{4,4}[a-z]?(([,;]|((\u00A0)*and))(\u00A0)*(\d{4,4})?[a-z]?)*[)])|(,(\u00A0)*\d{4,4}[a-z]?(([,;]|(\u00A0)*(and))(\u00A0)*(\d{4,4})[a-z]?)*)))$---;
+#NNP-REFS---^((\p{Lu}\p{M}*(\p{Ll}\p{M}*)\s+)?(\p{Lu}\p{M}*(\p{Ll}\p{M}*)+[-]?(\p{Lu}\p{M}*)?(\p{Ll}\p{M}*)*\s+)(((et\s+al[.])|(and))\s*((\p{Lu}\p{M}*(\p{Ll}\p{M}*)\s+)?\p{Lu}\p{M}*(\p{Ll}\p{M}*)+[-]?(\p{Lu}\p{M}*)?(\p{Ll}\p{M}*)*\s*){0,1})?(([(]\d{4,4}[a-z]?(([,;]|(\s*and))\s*(\d{4,4})?[a-z]?)*[)])|(,\s*\d{4,4}[a-z]?(([,;]|\s*(and))\s*(\d{4,4})[a-z]?)*)))$---;
+#NNP-REFE---^citatION$---
+NNP-REF---^_citatION_$---
+#NNP-ACRONYMPHRASESTART---^_ACRphrase_$---
+NNP-ACRONYMPHRASE---^_phraseACR_$---
+#NNP-LISTSTART---^LISTphrase$---
+#NNP-LISTEND---^phraseLIST$---
 NNP-LABEL---^Fig\.|Figure|Table$---
 NN-EQUATION---^([Ee]quation|approximation|formulation)(s)?$---
 NNP-EQUATION---^Boussinesq|[Pp]rimitive|Navier\-Stokes|[Cc]ontinuity|[Dd]ifferential|([Nn]on(\-)?)?([Qq]uasi(\-)?)?[Hh]ydrostatic|[Aa]nelastic$---
@@ -37,9 +44,9 @@ NNP-MONTH---(([Mm]id|[Ll]ate|[Ee]arly)?(\-)?(January|February|March|April|May|Ju
 NNP-SEASON---^winter|summer|spring|autumn$--- Seasons;
 NNP-DIRECTION---^\d*(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est|(C|c)entral)(ern|(\-))?(N|S|W|E|(n|N)orth|(S|s)outh|(E|e)ast|(W|w)est)*(ern)?$---Directions;
 NN-DIRECTION---^[Ll]atitude|[Ll]ongitude?$---Directions;
-NNP-LOCATIONTYPE---^([Ss]ub|[Mm]id)?\-?([Pp]olar|[Tt]ropic(al|s)?|[Ee]quator(ial)?|[Tt]emperate|marine|[Aa]tlantic|Pacific|Indian|[Oo]ceanic|[Aa]rctic|latitudes)|[Mm]id\-latitude$--- Should really be JJ;
+NNP-LOCATIONTYPE---^([Ss]ub|[Mm]id)?\-?([Pp]olar|[Tt]ropic(al|s)?|[Ee]quator(ial)?|[Tt]emperate|[Mm]arine|[Aa]tlantic|Pacific|Indian|[Oo]ceanic|[Aa]rctic|latitudes|\-latitude)$--- Should really be JJ;
 NNP-LOCATIONTYPE---^California$--- Should really be renamed;
-NNP-LOCATIONTYPE---^([Dd]esert|[Ss]avanna||[Tt]undra|[Gg]lacier|[Ll]ake|[Ss]ea|[Ss]eaway|[Rr]iver|[Ww]aters|[Cc]oast|Basin|[Rr]eef|[Hh]arbour|[Mm]ountain|[Mm]ontane|Hill|Bay|[Vv]illage|[Tt]own|[Cc]ity|[Cc]ount(r)?y|State|Ocean|Plain|[Ff]arm(land)?|Land|[Pp]lantation|[Ff]actory|[Ff]orest|[Ii]sland|[Ii]sle|[Pp]eninsula|[Pp]lateau|[Cc]ontinent|Ridge|Sound|Volcano|[Ww]ood(land)?)(s)?$---  could have some surnames in here - do I dare have region, Sound, Field, State, Hill, Wood, Point, chain, belt ?;
+NNP-LOCATIONTYPE---^([Dd]esert|[Ss]avanna|[Tt]undra|[Gg]lacier|[Ll]ake|[Ss]ea|[Ss]eaway|[Rr]iver|[Ww]aters|[Cc]oast|Basin|[Rr]eef|[Hh]arbour|[Mm]ountain|[Mm]ontane|Hill|Bay|[Vv]illage|[Tt]own|[Cc]ity|[Cc]ount(r)?y|State|Ocean|Plain|[Ff]arm(land)?|Land|[Pp]lantation|[Ff]actory|[Ff]orest|[Ii]sland|[Ii]sle|[Pp]eninsula|[Pp]lateau|[Cc]ontinent|Ridge|Sound|Volcano|[Ww]ood(land)?)(s)?$---  could have some surnames in here - do I dare have region, Sound, Field, State, Hill, Wood, Point, chain, belt ?;
 # Need rule to say N and S can be treated as OSCARCM under certain conditions e.g. in quantities, in lists N,S and P? and W can be Watts;
 NNP-CONTINENT---^([Aa]sia|[aA]frica|[aA]merica|[Aa]ntarctica|[Ee]urope(an)?|[aA]ustralia)(n)?$---  continents (Africa may also come up as country due to south africa in coords file;
 NNP-COUNTRY---^Algerian|Antiguan|Argentinian|Armenian|Australian|Austrian|Barbadian|Belarusian|Belgian|Bermudan|Bolivian|Bosnian|Botswanan|Brazilian|Bulgarian|Canadian|Chilean|Chinese|Colombian|Chinese|Congolese|Rican|Croatian|Cuban|Cypriot|Dannish|Ecuadorian|Egyptian|Estonian|Fijian|Finnish|French|Guianan|Polynesian|Georgian|German|Greek|Hungarian|Icelandic|Indian|Indonesian|Iranian|Iraqi|Irish|Israelian|Italian|Japanese|Kenyan|Korean|Latvian|Lithuanian|Macedonian|Malawan|Malaysian|Maldovian|Mexican|Mongolian|Montenegran|Moroccan|Namibian|Nepalese|Dutch|Nigerian|Norwegian|Pakistani|Paraguayan|Peruvian|Philippino|Polish|Portuguese|Romanian|Russian|Arabian|Serbian|Senegalese|Singaporean|Slovakian|Slovenian|African|Spanish|Swedish|Swiss|Syrian|Thai|Tunisian|Turkish|Ukrainian|Scottish|Welsh|British|English|American|Uruguayan|Vietnamese$--- should be adjectives but will do as is.
@@ -106,7 +113,7 @@ NN-PALAEOTIMEUNIT---^((\d*\.?\d*((\-)?((k|m|M|b|t)(\.)?(ya|yr|a)(\.)?))))$---  L
 NN-TIMEPERIODQUALIFIER---^(sub|inter|mid|pre)?\-?((era|epoch|eon|supereon|[P|p]eriod|[Aa]ge|Time|[Ii]nterval|[Gg]laciation)(s?)|(timescales|stadials|deglacials|glacials))$--- Time period classes my add age and period.;
 JJ-TIMEPERIOD---^(sub|inter|mid|pre)?\-?(stadial|deglacial|glacial|decadal|centennial|pre\-?anthropogenic)$--- Time period classes my add age and period.;
 JJ-TIMEPERIOD---^([Ee]arly|Middle|[Ll]ate|[Ll]ast|[Rr]ecent|Thermal|Maximum|[Pp]enultimate)$--- Time period adjectives;
-NN-PALAEOTIMEQUALIFIER---^(A\.?D\.?|B\.?C\.?|B\.?P\.?|[Cc]al(\.)?|ago)(\-[Pp]resent)?$--- may clash with other acronyms. ;
+NN-PALAEOTIMEQUALIFIER---^([(]B\.?P\.?|A\.?D\.?|B\.?C\.?[)]|A\.?D\.?|B\.?C\.?|B\.?P\.?|[Cc]al(\.)?|ago)(\-[Pp]resent)?$--- may clash with other acronyms. ;
 PRESENT---^present$--- look in ACPTagger.java;
 NN-TIMEUNIT---^\d{0,3}(\-)?(s)$---  Time units;
 #NN-UNITS---^\d*(\-)?((T|k|m|n|p|\u00B5|\u03BC)?g|k?t(on)?(ne)?)$--- Mass;
@@ -143,7 +150,7 @@ NN-IDENTIFIER---^([(]?[bcdefhijknopqrtuvwxyzGPQRTXYZ][)]?)$--- single letters wi
 NN-IDENTIFIER---^(X{2,3}(IX|IV|V?I{0,3})|II|III|IV|VI|VII|VIII|IX|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX)$--- Non words that are believed to be identifiers. Single letter roman digits are assigned by PostProcessTags;
 NN-IDENTIFIER---^(\d+[A-Za-z]\-\d*[A-Za-z])$--- Identifiers for a range of compounds e.g. 12a-12e or 12a-e;
 NN-IDENTIFIER---^\d+\.(\d+[.]?[A-Za-z]|[A-Za-z])$--- e.g. 4.3a or 4.3.a or 4.b;
-NN-IDENTIFIER---^[a-fhiknopqrstuvwxyzA-GJKLMNOPQRSTUVQXYZ]\d$--- e.g. A2, B3 etc.; probs with C3 C5 etc.?
+NN-IDENTIFIER---^[a-fhiknopqrstuvwxyzA-GJKLMNPQRSTUVQXYZ]\d$--- e.g. A2, B3 etc.; probs with C3 C5 etc.?
 NN-IDENTIFIER---^\d+\(([a-z]|X{2,3}(IX|IV|V?I{0,3})|II|III|IV|VI|VII|VIII|IX|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX)\)$--- e.g. 81(d) or 3(iii);
 #
 NNP-ACRONYM---^[A-Z]\/[A-Z]$--- Acronyms;
@@ -152,8 +159,8 @@ OSCAR-CM---^((H|Li|Be|B|C|N|O|F|Na|Mg|Al|Si|P|S|Cl|K|Ca|Ti|Mn|Fe|Co|Ni|Cu|Zn|Ga|
 OSCAR-CM---^(C|N|O|H)+\d*((C|N|O|H)+\d*)+$--- Oscar tokens that sometimes go wrong;
 # We may miss some sulfur compounds like this but can't add too many letters or would have bigger acronym problems e.g.COSH would become a chemical.
 OSCAR-CM---^(((C|N|O|H)+\d*(I|Br|Cl|F)+\d*)|((I|Br|Cl|F)+\d*(C|N|O|H)+\d*)|((C|N|O|H)+\d*(I|Br|Cl|F)+\d*(C|N|O|H)+\d*))$--- Oscar tokens that sometimes go wrong - to make sure common I compounds are identified - but will not fin I alone need to rely on Oscar for this;
-OSCAR-CM---^(NOx|NOy|N2O|DMS|DMSO|MSA|([Mm]|[Pp])?PAN|D2O|HDO|DHO|DO|DO2|SAT|SAD|NAT|NAD)$--- List of common ACP molecules not easily identified elsewhere;
-OSCAR-CM---^((O|o|B|b)?VOC|NMHC|(H)?CFC(\-)?(\d+[abc]?)?|PCB|POP|[Hh]alon|[Ff]reon(\-)?(\d+)?)(s)?$--- List of common ACP chemical groups - not really correct assignment but good enough for year some will be caught by regex above;
+OSCAR-ACP---^(NOx|NOy|N2O|DMS|DMSO|MSA|([Mm]|[Pp])?PAN|D2O|HDO|DHO|DO|DO2|SAT|SAD|NAT|NAD)$--- List of common ACP molecules not easily identified elsewhere;
+OSCAR-ACP---^((O|o|B|b)?VOC|NMHC|(H)?CFC(\-)?(\d+[abc]?)?|PCB|POP|[Hh]alon|[Ff]reon(\-)?(\d+)?)(s)?$--- List of common ACP chemical groups - not really correct assignment but good enough for year some will be caught by regex above;
 #
 NNP-ACRONYM---^(B\/A|RHamble|RH|dp|Ev(\-)K2(\-)CNR|AR5|TdF|MOHp|CLaMS|GF|AOT(\-)?(\()?\d*(\))?|LBA(\-)CLAIRE(\-)2001|Po|HWM(\-)93|TM5|T1|T2|IMF|ABS|ERA(\-)?40)$--- ACP type acronyms;
 #NNP-ACRONYM---^([a-z]*[A-Z][A-Z]+(\-|\\|\/)?[A-Z]+[0-9]*(s)?[a-z]?[0-9]*)$--- Acronyms;
@@ -186,13 +193,15 @@ SYMEXP---^[^ 	(]*[(][^ 	]*[/]--- to catch Arrhenius type expressions;
 #if a.s.l. is optional is there then a problem - m is usually taken as molar not metres?
 #To include observations at higher levels could require feet (ft) or pressure height but unlikely ;
 JJ---^(t|T)hat$--- demonstrative adjective;
-JJ-ACP---^(M|m)arine$--- demonstrative adjective;
+#JJ-ACP---^(M|m)arine$--- demonstrative adjective;
+#JJ---^(M|m)arine$--- demonstrative adjective;
 #JJ-VERTICAL---^[V|v]ertical$--- ;
 #JJ-HORIZONTAL---^[H|h]orizontal$--- ;
 JJ-DIRECTIONAL---^[H|h]orizontal|[Vv]ertical|[Zz]onal|[Mm]eridional|latitudinal|longitudinal$--- ;
-NN-RESOLUTION---resolution(s)?$--- ;
+NN-RESOLUTION---resolution(s)?$--- ; 
 NNS-LEVELS---^[L|l]evel(s)?$--- ;
-NN-ACP---^Ni(\u00F1)o$--- AtmosChemMetGlossary with special characters;
+#NN-ACP---^Ni(\u00F1)o$--- AtmosChemMetGlossary with special characters;
+NNP---^Ni(\u00F1)o$--- AtmosChemMetGlossary with special characters;
 JJ-CHEM---^(i|I)nfrared$--- demonstrative adjective;
 #VB-ANALYSE---^analy(s|z)(ed|e)$--- analysis verbs;
 #VB-MEASURE---^measur(ed|e)$--- measurement verbs;

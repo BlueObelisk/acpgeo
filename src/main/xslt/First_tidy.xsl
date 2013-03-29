@@ -9,22 +9,32 @@ xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="//NNP-REFS"></xsl:template>
+  <xsl:template match="//Document/Sentence[1]">
+      <NOTES><NOTE>TRANSFORMATION 1: PLEASE NOTE THIS HAS BEEN TRANSFORMED - THERE ARE POSSIBLE CHANGES RELATIVE TO THE ORIGINAL PUBLICATION</NOTE></NOTES>
+        <xsl:copy-of select="." />
+	</xsl:template>
+  
+	<!--xsl:template match="//NNP-REFS"></xsl:template>
 
-  <xsl:template match="//NNP-REFE"></xsl:template>
+  <xsl:template match="//NNP-REFE"></xsl:template!-->
+
+    <xsl:template match="//CITATION/NounPhrase">
+            <xsl:copy-of select="*"/>        
+    </xsl:template>
 
 
-   <xsl:template match="//CITATION/*[not(self::FW or self::TIME or self::COMMA or self::ParentheticalPhrase or self::CC or self::AcronymPhrase )]">
+   <!--xsl:template match="//CITATION/*[not(self::NounPhrase or self::FW or self::TIME or self::COMMA or self::ParentheticalPhrase or self::CC or self::AcronymPhrase )]">
                <NNP-SURNAME>
                   <xsl:value-of select="."/>
                </NNP-SURNAME>
                   
-  </xsl:template>
- 
-<xsl:template match="//CITATION/AcronymPhrase">
-                  <!--xsl:copy-of select="*"/-->
-      <xsl:apply-templates select="../../CITATION/AcronymPhrase/*[not(self::FW or self::TIME or self::COMMA or self::ParentheticalPhrase or self::CC)]" />
-      <xsl:apply-templates select="../../CITATION/AcronymPhrase/*[self::FW or self::TIME or self::COMMA or self::ParentheticalPhrase or self::CC]" />
+  </xsl:template-->
+    
+    <!--xsl:copy-of select="*"/-->
+
+<!--xsl:template match="//CITATION/AcronymPhrase">
+      <xsl:apply-templates select="../../../CITATION/AcronymPhrase/*[not(self::FW or self::TIME or self::COMMA or self::ParentheticalPhrase or self::CC)]" />
+      <xsl:apply-templates select="../../../CITATION/AcronymPhrase/*[self::FW or self::TIME or self::COMMA or self::ParentheticalPhrase or self::CC]" />
   </xsl:template>
  
 
@@ -37,7 +47,7 @@ xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
  
 <xsl:template match="CITATION/AcronymPhrase/*[self::FW or self::TIME or self::COMMA or self::ParentheticalPhrase or self::CC]">
                   <xsl:copy-of select="."/>
-  </xsl:template>
+  </xsl:template-->
 
 <xsl:template match="QUANTITY">
     <xsl:choose>
@@ -57,7 +67,7 @@ xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
 <!--Need to add phrases such as before present etc. -->
 
 
-  <xsl:template match="NNP-ACRONYMPHRASESTART">
+  <!--xsl:template match="NNP-ACRONYMPHRASESTART">
     <xsl:choose>
       <xsl:when test="ancestor::*[1][self::SetAcronymPhrase]">
       </xsl:when>
@@ -75,7 +85,7 @@ xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
         <xsl:copy-of select="." />
       </xsl:otherwise>
     </xsl:choose>
-  </xsl:template>
+  </xsl:template-->
 
   <!--xsl:template match="//NNP-MODEL[not(ancestor::AcronymPhrase)]">
     <xsl:copy-of select="." />

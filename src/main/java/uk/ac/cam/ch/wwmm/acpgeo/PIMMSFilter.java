@@ -67,16 +67,33 @@ public class PIMMSFilter {
   		 BufferedWriter out = new BufferedWriter(filewriter);
 		 
         // These templates objects could be reused and obtained from elsewhere.
-        Templates templates1 = stf.newTemplates(new StreamSource( new File("/Volumes/Hannah Work/workspace/acpgeo/src/main/xslt/PIMMSStyleFirst.xsl")));
-        Templates templates2 = stf.newTemplates(new StreamSource(new File("/Volumes/Hannah Work/workspace/acpgeo/src/main/xslt/PIMMSStyle.xsl")));
+  		 
+  		 
+  	//	 Templates templates1 = stf.newTemplates(new StreamSource( new File("src/main/xslt/First_tidy.xsl")));
+      ///   Templates templates2 = stf.newTemplates(new StreamSource( new File("src/main/xslt/AcronymPhrases_tidy.xsl")));
+      //   Templates templates3 = stf.newTemplates(new StreamSource(new File("src/main/xslt/ModelPhrase_tidy.xsl")));
+         // 	Templates templates4 = stf.newTemplates(new StreamSource(new File("src/main/xslt/ACPXML_HTML.xsl")));
+         Templates templates1a = stf.newTemplates(new StreamSource( new File("src/main/xslt/PIMMSStyleFirst.xsl")));
+         Templates templates2b = stf.newTemplates(new StreamSource(new File("/Volusrc/main/xslt/PIMMSStyle.xsl")));
 
-        TransformerHandler th1 = stf.newTransformerHandler(templates1);
-        TransformerHandler th2 = stf.newTransformerHandler(templates2);
+       
+      //  TransformerHandler th1 = stf.newTransformerHandler(templates1);
+      //  TransformerHandler th2 = stf.newTransformerHandler(templates2);
+      //  TransformerHandler th3 = stf.newTransformerHandler(templates3);
+        TransformerHandler th1a = stf.newTransformerHandler(templates1a);
+        TransformerHandler th2b = stf.newTransformerHandler(templates2b);
+
+  		 
+        
+
+      //  th2.setResult(new SAXResult(th3));
+     //   th1.setResult(new SAXResult(th2));
+     //   th3.setResult(new SAXResult(th1a));
 
 //        th1.setResult(new SAXResult(th2));
 
-         th1.setResult(new SAXResult(th2));
-         th2.setResult(new StreamResult(out));
+         th1a.setResult(new SAXResult(th2b));
+         th2b.setResult(new StreamResult(out));
 
         Transformer t = stf.newTransformer();
 
@@ -85,7 +102,7 @@ public class PIMMSFilter {
      //   t.setParameter("foo","this is from param 1");
        // t.setParameter("bar","this is from param 2");
 
-	       t.transform(new StreamSource(acpAbstractModifiedInput1), new SAXResult(th2));   //If there were more than one would be first one here i.e. th1
+	       t.transform(new StreamSource(acpAbstractModifiedInput1), new SAXResult(th2b));   //If there were more than one would be first one here i.e. th1
 
 
         

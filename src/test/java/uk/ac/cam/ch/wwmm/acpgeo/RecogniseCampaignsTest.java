@@ -42,20 +42,6 @@ public class RecogniseCampaignsTest {
 	}
 	
 	@Test
-	public void testRecogniseCampaign3() {
-		ACPTagger acpTagger = ACPTagger.getInstance();
-		String sentence = "Arenosillo station (37.1° N, 6.7° W, 20 m a.s.l)";
-		sentence = Utils.cleanHTMLText(sentence);
-		POSContainer posContainer = acpTagger.runTaggers(sentence);
-		ACPSentenceParser sentenceParser = new ACPSentenceParser(posContainer);
-		sentenceParser.parseTags();
-		Utils.writeXMLToFile(sentenceParser.makeXMLDocument(),
-				"target/Campaign3.xml");
-		Assert.assertTrue("Error-free parse", !sentenceParser.getParseTree()
-				.toStringTree().contains("<error"));
-
-	}
-	@Test
 	public void testRecogniseNonTitledCampaigns() {
 		ACPTagger acpTagger = ACPTagger.getInstance();
 		String sentence = "A field campaign was performed";

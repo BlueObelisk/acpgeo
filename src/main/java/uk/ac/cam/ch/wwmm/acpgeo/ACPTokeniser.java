@@ -23,28 +23,37 @@ import uk.ac.cam.ch.wwmm.oscar.document.Token;
  *
  * *****************************************/
 public class ACPTokeniser implements ChemicalTaggerTokeniser {
-	private static Pattern REMOVE_NBS = Pattern.compile("\\S+[\u00a0]");
+	//static boolean DEFAULT_USE_CITATION = true;
+
+
+	//private static Pattern PRESERVE_CITATION_PATTERNAll =   Pattern.compile("(([.][a-z][.]\\s+)|([^.]\\s+)|([^ A-Za-z]))((\\p{Lu}\\p{M}*(\\p{Ll}\\p{M}*)\\s+)?(\\p{Lu}\\p{M}*(\\p{Ll}\\p{M}*)+[-]?(\\p{Lu}\\p{M}*)?(\\p{Ll}\\p{M}*)*\\s+)(((et\\s+al[.])|(and))\\s*((\\p{Lu}\\p{M}*(\\p{Ll}\\p{M}*)\\s+)?\\p{Lu}\\p{M}*(\\p{Ll}\\p{M}*)+[-]?(\\p{Lu}\\p{M}*)?(\\p{Ll}\\p{M}*)*\\s*){0,1})?(([(]\\d{4,4}[a-z]?(([,;]|(\\s*and))\\s*(\\d{4,4})?[a-z]?)*[)])|(,\\s*\\d{4,4}[a-z]?(([,;]|\\s*(and))\\s*(\\d{4,4})[a-z]?)*)))", Pattern.CANON_EQ);
+
+	//private static Pattern REMOVE_NBS = Pattern.compile("\\S+[\u00a0]");
 	private static Pattern SPLIT_CHARACTER_PATTERN = Pattern.compile("[;<>‱‰%?]");
 
 	private static Pattern PRESERVE_RATIO_WITHIN_BRACKETS_PATTERN = Pattern.compile("[^/]+[(][^/]+[/]\\S+[)]|[(][^/]+[/]\\S+[)][^/]+");
 	private static Pattern PRESERVE_HYDROCARBON_PATTERN = Pattern.compile("[^=]*[CNHOP]+[0-9]*=[CNOP].*");
-	private static Set<String> ABV_LIST = new HashSet<String>(Arrays.asList("et.", "al.", "etc.","e.g.", "i.e.", "vol.", "ca.", "wt.", "aq.", "mt.", "st.", "e.g.:", "eq.", "equiv.", "mp.", "m.p.","b.p.", "conc.", "approx.", "anh.", "sat.", "lit.", "dil.","sol.","liq.", "Cal.", "cal.", "Prof."));
+	private static Set<String> ABV_LIST = new HashSet<String>(Arrays.asList("et.", "al.", "etc.","e.g.", "i.e.", "vol.", "ca.", "wt.", "aq.", "mt.", "st.", "e.g.:", "eq.", "equiv.", "mp.", "m.p.","b.p.","(bp)", "conc.", "approx.", "anh.", "sat.", "lit.", "dil.","sol.","liq.", "Cal.", "cal.", "Prof."));
 	private static Pattern ABBREVIATION_PATTERN = Pattern.compile("-?[A-Z]+[a-z]{0,2}\\.");
 	private static Pattern CONCAT_HYPHENED_DIRECTION_PATTERN = Pattern.compile("^[A-Z]\\-\\d+[\u00b0\u00ba]");
-//	private static Pattern TIME_EXPRESSION = Pattern.compile("^([01]?[1-9]|2[123]):[0-5]\\d([ap]m)?$", Pattern.CASE_INSENSITIVE);
 	private static Pattern TIME_EXPRESSION = Pattern.compile("^(([01]?[1-9]|2[123]):[0-5]\\d\\-?){1,2}([ap]m)?$", Pattern.CASE_INSENSITIVE);
 
-//	private static Pattern IDENTIFIERS_BRACKETS = Pattern.compile("^([(][A-Za-z][)]|[(][0-9]+[)]|[(][0-9]+[A-Za-f][)]|[(][ivx]+[)]|[(][IVX][)])$");
-//	private static Pattern IDENTIFIERS_BRACKETS = Pattern.compile("^[(][A-Za-z][)]$");
+	//	private static Pattern IDENTIFIERS_BRACKETS = Pattern.compile("^([(][A-Za-z][)]|[(][0-9]+[)]|[(][0-9]+[A-Za-f][)]|[(][ivx]+[)]|[(][IVX][)])$");
+	//	private static Pattern IDENTIFIERS_BRACKETS = Pattern.compile("^[(][A-Za-z][)]$");
+	//	private static Pattern PRESERVE_CERTAIN_BRACKETS = Pattern.compile("^[(]B\\.?P\\.?|A\\.?D\\.?|B\\.?C\\.?[)]$");
+	private static Pattern PRESERVE_CERTAIN_BRACKETS = Pattern.compile("[(]BP[)]", Pattern.CASE_INSENSITIVE);
+
+	//preserve these as required for time phrases.
 
 	private static Pattern IDENTIFIERS = Pattern.compile("^([A-Za-z]|[0-9]{1,2}|[0-9]{1,2}[A-Za-z]|[ivx]+|[IVX]+)$");
 
-	
+
 	/*****************************
 	 * Default constructor method.
+	 * @param citationString 
 	 ***************************/
 	public ACPTokeniser(){
-		
+		//	boolean citationString = false;
 	}
 
 	/********************************************
@@ -52,8 +61,35 @@ public class ACPTokeniser implements ChemicalTaggerTokeniser {
 	 * @param  inputSentence (String)
 	 * @return List<Token>
 	 *****************************************/
+	//	public String highLightCitations(CharSequence inputSentence, boolean citationString) {
+	//		public String highLightCitations(CharSequence inputSentence) {
+
+
+	// removeNBSMatcher = REMOVE_NBS.matcher(inputSentence);
+	//		if (removeNBSMatcher.find()){
+	//			inputSentence.toString().replaceAll("\u00a0+", " ");
+	//			}
+	//if (citationString == false) {
+	//Matcher preserveCitationAll = PRESERVE_CITATION_PATTERNAll.matcher(inputSentence);
+
+	//StringBuffer sb = new StringBuffer(inputSentence.length());
+	//  while (preserveCitationAll.find()) {
+	//		String text2 = preserveCitationAll.group(5).replaceAll("\\s+", "\u00a0");			
+	//	    preserveCitationAll.appendReplacement(sb, Matcher.quoteReplacement(text2));			
+	//		}
+	//		preserveCitationAll.appendTail(sb);	
+	//		return sb.toString();
+	//}
+	//return inputSentence.toString();
+	//	}
+
+
+
+	//public List<Token> tokenise(String inputSentence, boolean citationString){
 	public List<Token> tokenise(String inputSentence){
+
 		List<Token> tokens = new WhiteSpaceTokeniser().tokenise(inputSentence);
+
 		int i = 0;
 		while (i < tokens.size()) {
 			Token token = tokens.get(i);
@@ -78,8 +114,14 @@ public class ACPTokeniser implements ChemicalTaggerTokeniser {
 		for (Token token : tokens) {
 			token.setIndex(id++);
 		}
-		return tokens;
+
+		return tokens;		
+
+		//			return null;
+		//	}
 	}
+
+
 
 	private String[] subTokenise(String tokenSurface, String previousTokensurface) {
 		if (tokenSurface.length() >1 ){
@@ -94,32 +136,29 @@ public class ACPTokeniser implements ChemicalTaggerTokeniser {
 					return splitAtRegion(tokenSurface, tokenSurface.length()-1, tokenSurface.length()-1);
 				}
 			}
-//			if  (!IDENTIFIERS_BRACKETS.matcher(tokenSurface).matches())  {   // splits brackets off a word enclosed by brackets unless likely identifier
-				if  ( tokenSurface.startsWith("(") && tokenSurface.endsWith(")") )  {   // splits brackets off a word enclosed by brackets
-				return splitAtRegion(tokenSurface, 1, tokenSurface.length()-1);
+			//			Matcher bpMatcher = PRESERVE_CERTAIN_BRACKETS.matcher(tokenSurface);//
+			//			if (bpMatcher.find()) {
+			//				System.out.println("BP FOUND");
+			//			}
+			//			if  (!bpMatcher.find())  {   // splits brackets off a word enclosed by brackets unless likely identifier
+			if  (!PRESERVE_CERTAIN_BRACKETS.matcher(tokenSurface).matches())  {   
+				if  ( tokenSurface.startsWith("(") && tokenSurface.endsWith(")") )  { // splits brackets off a word enclosed by brackets - this appears to happen anyway later in processing			
+					//splits brackets off a word enclosed by brackets
+					return splitAtRegion(tokenSurface, 1, tokenSurface.length()-1);
 				}
-//			}
+			}
 			Matcher splitCharacterMatcher = SPLIT_CHARACTER_PATTERN.matcher(tokenSurface);
 			if (splitCharacterMatcher.find()){
-
 				return splitAtRegion(tokenSurface, splitCharacterMatcher.start(), splitCharacterMatcher.end());
 			}
-			Matcher removeNBSMatcher = REMOVE_NBS.matcher(tokenSurface);
-			if (removeNBSMatcher.find()){
-				//return splitAtRegion(tokeddnSurface, splitCharacterMatcher.start(), splitCharacterMatcher.end());
-				// removeNBSMatcher.appendReplacement(tokenSurface, Matcher.quoteReplacement(text));
-			//	StringUtils(tokensurface.replace(removeNBSMatcher, ""));
-				int indexOfNBS = tokenSurface.indexOf("\u00a0");
-				  return splitAtRegion(tokenSurface.replace("\u00a0", ""),indexOfNBS,indexOfNBS);
-				   // removeNBS.appendReplacement(sb, Matcher.quoteReplacement(text));
-				//	return splitAtRegion(tokenSurface, tokenSurface.length()-1, tokenSurface.length()-1);
 
+			//Matcher removeNBSMatcher = REMOVE_NBS.matcher(tokenSurface);
+			//if (removeNBSMatcher.find()){
 
-				  //return tokenSurface.replace("\u00a0", " ");
+			//int indexOfNBS = tokenSurface.indexOf("\u00a0");
+			//return splitAtRegion(tokenSurface.replace("\u00a0", ""),indexOfNBS,indexOfNBS);
+			//}
 
-				//	return splitAtRegion(tokenSurface, 1, 1);
-				//}
-			}
 			int indexOfForwardSlash = tokenSurface.indexOf("/");
 			if (indexOfForwardSlash !=-1 && !PRESERVE_RATIO_WITHIN_BRACKETS_PATTERN.matcher(tokenSurface).find()){
 				return splitAtRegion(tokenSurface, indexOfForwardSlash, indexOfForwardSlash +1);
@@ -142,16 +181,7 @@ public class ACPTokeniser implements ChemicalTaggerTokeniser {
 			if (tokenSurface.endsWith(",")) {//splits commas off 
 				return splitAtRegion(tokenSurface, tokenSurface.length()-1, tokenSurface.length()-1);
 			}
-			//if (tokenSurface.endsWith("%")) {//splits % off 
-				//return splitAtRegion(tokenSurface, tokenSurface.length()-1, tokenSurface.length()-1);
-			//}
-			//if (tokenSurface.endsWith("‰")) {//splits % off 
-				//return splitAtRegion(tokenSurface, tokenSurface.length()-1, tokenSurface.length()-1);
-			//}
-		//	
-		//	if (tokenSurface.endsWith("‱")) {//splits % off 
-			//	return splitAtRegion(tokenSurface, tokenSurface.length()-1, tokenSurface.length()-1);
-			//}
+
 			Matcher concatHyphenDirectionMatcher = CONCAT_HYPHENED_DIRECTION_PATTERN.matcher(tokenSurface);//splits mistokenised direction coordinates  like  60° N-60°
 			if (concatHyphenDirectionMatcher.find()) {
 				int indexOfHyphen = tokenSurface.indexOf("-");
@@ -176,7 +206,7 @@ public class ACPTokeniser implements ChemicalTaggerTokeniser {
 		return  !ABV_LIST.contains(tokenSurface.toLowerCase()) &&
 				(Utils.containsNumber(tokenSurface) || !ABBREVIATION_PATTERN.matcher(tokenSurface).find());
 	}
-	
+
 	/************************************
 	 * Find the substrings before the start indice, between the indices and after the end indice
 	 * Blank string are ignored
@@ -199,7 +229,7 @@ public class ACPTokeniser implements ChemicalTaggerTokeniser {
 		}
 		return subTokens.toArray(new String[subTokens.size()]);
 	}
-	
+
 	/**
 	 * Return the indice of the round bracket that brings the
 	 * bracket nesting depth to 0
