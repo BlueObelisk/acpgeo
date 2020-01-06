@@ -11,6 +11,7 @@
 
  	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<antlr4.version>4.4</antlr4.version>
 		<chemicaltagger.version>1.4.0</chemicaltagger.version>
   	</properties>
 
@@ -38,18 +39,18 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.antlr</groupId>
-						<artifactId>antlr3-maven-plugin</artifactId>
-						<version>3.2wwmm</version>
+						<groupId>com.tunnelvisionlabs</groupId>
+						<artifactId>antlr4-maven-plugin</artifactId>
+						<version>${antlr4.version}</version>
 						<executions>
 							<execution>
 								<goals>
-									<goal>antlr</goal>
+									<goal>antlr4</goal>
 								</goals>
 								<configuration>
-									<sourceDirectory>src/main/antlr3/</sourceDirectory>
+									<sourceDirectory>src/main/antlr4/</sourceDirectory>
 									<conversionTimeout>10000</conversionTimeout>
-									<libDirectory>src/main/antlr3/</libDirectory>
+									<libDirectory>src/main/antlr4/</libDirectory>
 									<messageFormat>antlr</messageFormat>
 									<outputDirectory>src/main/java/</outputDirectory>
 									<verbose>true</verbose>
