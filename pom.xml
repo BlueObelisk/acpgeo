@@ -54,7 +54,7 @@
 									<messageFormat>antlr</messageFormat>
 									<outputDirectory>src/main/java/</outputDirectory>
 									<verbose>true</verbose>
-									<grammars>*.g</grammars>
+									<grammars>*.g4</grammars>
 								</configuration>
 							</execution>
 						</executions>
