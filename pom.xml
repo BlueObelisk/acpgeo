@@ -33,34 +33,30 @@
 		</dependency>
 	</dependencies>
 
-	<profiles>
-		<profile>
-			<id>rebuildGrammar</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>com.tunnelvisionlabs</groupId>
-						<artifactId>antlr4-maven-plugin</artifactId>
-						<version>${antlr4.version}</version>
-						<executions>
-							<execution>
-								<goals>
-									<goal>antlr4</goal>
-								</goals>
-								<configuration>
-									<sourceDirectory>src/main/antlr4/</sourceDirectory>
-									<conversionTimeout>10000</conversionTimeout>
-									<libDirectory>src/main/antlr4/</libDirectory>
-									<messageFormat>antlr</messageFormat>
-									<outputDirectory>src/main/java/</outputDirectory>
-									<verbose>true</verbose>
-									<grammars>*.g4</grammars>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+	<build>
+		<plugins>
+				<plugin>
+				<groupId>com.tunnelvisionlabs</groupId>
+				<artifactId>antlr4-maven-plugin</artifactId>
+				<version>${antlr4.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>antlr4</goal>
+						</goals>
+						<configuration>
+							<sourceDirectory>src/main/antlr4/</sourceDirectory>
+							<conversionTimeout>10000</conversionTimeout>
+							<libDirectory>src/main/antlr4/</libDirectory>
+							<messageFormat>antlr</messageFormat>
+							<outputDirectory>src/main/java/</outputDirectory>
+							<verbose>true</verbose>
+							<grammars>*.g4</grammars>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
