@@ -6,10 +6,10 @@ import java.util.HashMap;
 
 import nu.xom.Document;
 
-import org.antlr.runtime.ANTLRInputStream;
-import org.antlr.runtime.CommonTokenStream;
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.tree.Tree;
+import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.RecognitionException;
+import org.antlr.v4.runtime.tree.Tree;
 
 import uk.ac.cam.ch.wwmm.chemicaltagger.ASTtoXML;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
