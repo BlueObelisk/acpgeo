@@ -10,15 +10,16 @@
 	<version>0.0.2-SNAPSHOT</version>
 
  	<properties>
-    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<chemicaltagger.version>1.4.0</chemicaltagger.version>
   	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>uk.ac.cam.ch</groupId>
-			<artifactId>chemicalTagger</artifactId>
-			<version>1.4-SNAPSHOT</version>
-		</dependency>
+                <dependency>
+                        <groupId>uk.ac.cam.ch.wwmm</groupId>
+                        <artifactId>chemicalTagger</artifactId>
+                        <version>${chemicaltagger.version}</version>
+                </dependency>
 		<dependency>
 			<groupId>net.sf.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
