@@ -2,6 +2,7 @@ package uk.ac.cam.ch.wwmm.acpgeo;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 
 import nu.xom.Document;
@@ -9,7 +10,8 @@ import nu.xom.Document;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.RecognitionException;
-import org.antlr.v4.runtime.tree.Tree;
+import org.antlr.v4.runtime.atn.PredictionMode;
+import org.antlr.v4.runtime.tree.ParseTree;
 
 import uk.ac.cam.ch.wwmm.chemicaltagger.ASTtoXML;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
@@ -25,6 +27,7 @@ import uk.ac.cam.ch.wwmm.parserGrammar.ACPGrammarParser;
  *
  */
 public class ACPSentenceParser extends SentenceParser {
+	Document doc = null;
 
 	public ACPSentenceParser(InputStream taggedTokenInStream) {
 		super(taggedTokenInStream);
@@ -32,7 +35,6 @@ public class ACPSentenceParser extends SentenceParser {
 	}
 	public ACPSentenceParser(POSContainer posContainer) {
 		super(posContainer);
-
 
 	}
 	public ACPSentenceParser(String taggedSentence) {
@@ -46,7 +48,8 @@ public class ACPSentenceParser extends SentenceParser {
 		else {
 			ANTLRInputStream input;
 			try {
-				input = new ANTLRInputStream(getTaggedTokenInStream(), "UTF-8");
+				input = new ANTLRInputStream(new InputStreamReader(
+						getTaggedTokenInStream(), "UTF-8"));
 			} catch (IOException ioexception) {
 				throw new RuntimeException("Antlr input Stream Error: "
 						+ ioexception.getMessage());
@@ -54,17 +57,23 @@ public class ACPSentenceParser extends SentenceParser {
 
 			lexer = new ACPGrammarLexer(input);
 			CommonTokenStream tokens = new CommonTokenStream(lexer);
+
 			ACPGrammarParser parser = new ACPGrammarParser(tokens);
-			ACPGrammarParser.document_return result = null;
+			parser.getInterpreter().setPredictionMode(PredictionMode.SLL);
+
+			ParseTree documentContext = null;
+
 			try {
-				result = parser.document();
-
-			} catch (RecognitionException e) {
-				throw new RuntimeException("Antlr input Stream Error: "
-						+ e.getMessage());
-
+				documentContext = parser.document(); // STAGE 1
+			} catch (Exception ex) {
+				tokens.reset(); // rewind input stream
+				parser.reset();
+				parser.getInterpreter().setPredictionMode(PredictionMode.LL);
+				parser.document(); // STAGE 2
 			}
-			setParseTree((Tree) result.getTree());
+			doc = new ASTtoXML().convert(documentContext, false);
+
+			setParseTree(documentContext);
 		}
 	}
 
@@ -73,7 +82,7 @@ public class ACPSentenceParser extends SentenceParser {
 	 *  Creates the XML document from the parse tree.
 	 */
 	public Document makeXMLDocument() {
-		HashMap<String, String> actionMap = new HashMap<String, String>();
+		//HashMap<String, String> actionMap = new HashMap<String, String>();
 
 		/************************8
 		 * Commented out the actionphrase highlighting.
@@ -93,7 +102,10 @@ public class ACPSentenceParser extends SentenceParser {
 		//		actionMap.put("MASSVOLUME", "Concentration");
 		//		actionMap.put("MASSVOLUME", "Concentration");
 		//		actionMap.put("VB-INDICATE", "Indication");
-		return new ASTtoXML().convert(getParseTree(), false,actionMap);
+		//return new ASTtoXML().convert(getParseTree(), false,actionMap);
+		//
+
+		return doc;
 	}
 
 
