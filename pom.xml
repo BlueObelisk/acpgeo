@@ -56,6 +56,18 @@
 					</execution>
 				</executions>
 			</plugin>
+                        <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-javadoc-plugin</artifactId>
+                                <version>3.1.1</version>
+                                <configuration>
+                                        <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
+                                        <sourceFileExcludes>
+                                                <sourceFileExclude>**/parserGrammar/*.java</sourceFileExclude>
+                                        </sourceFileExcludes>
+                                        <source>8</source>
+                                </configuration>
+                        </plugin>
 		</plugins>
 	</build>
 
