@@ -9,11 +9,14 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.XMLReaderFactory;
+
 import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Nodes;
 import nu.xom.ParsingException;
-import nu.xom.ValidityException;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 /****************************************
  * 
@@ -81,9 +84,16 @@ public class AbstractReader {
 
 	public AbstractReader(InputStream xmlInputStream) {
 		try {
-			xmlDoc = new Builder().build(xmlInputStream);
-		} catch (ValidityException e) {
-			e.printStackTrace();
+			XMLReader xerces;
+			try {
+				//Don't load an external DTD as this may be a dead link!
+				//i.e. assume XML can be read without reference to entities defined in the DTD
+				xerces = XMLReaderFactory.createXMLReader("org.apache.xerces.parsers.SAXParser");
+				xerces.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+			} catch (SAXException e) {
+				throw new RuntimeException(e);
+			} 
+			xmlDoc = new Builder(xerces).build(xmlInputStream);
 		} catch (ParsingException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
