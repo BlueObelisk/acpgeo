@@ -3,29 +3,23 @@ package uk.ac.cam.ch.wwmm.acpgeo;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 
-import junit.framework.Assert;
-
 import org.junit.Test;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.XMLReaderFactory;
 
-import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
-import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
-
+import org.junit.Assert;
 import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Nodes;
 import nu.xom.ParsingException;
-import nu.xom.ValidityException;
 import uk.ac.cam.ch.wwmm.chemicaltagger.ExtractFromXML;
 
 public class XMLFilterTest {
@@ -43,16 +37,12 @@ public class XMLFilterTest {
 		
 		try {
 			new XMLFilter(in, fileName);
-		} catch (TransformerConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (TransformerException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		String fileLocation = "target/PostProcessed_testXML.xml";
 		File file = new File(fileLocation);
 		String expectedCampaign = " NorthAtlanticMarineBoundaryLayerExperiment(NAMBLEX)campaign";		
@@ -60,11 +50,11 @@ public class XMLFilterTest {
 		String expectedTIME = " August2002 mid-Pliocene Cenozoicand 2001 2001";		
 
 
-		String actualCampaign = getSimpleQuery(file, "//CAMPAIGN");		
+		String actualCampaign = getSimpleQuery(file, "//span[@class='CAMPAIGN']");	
 		System.out.println("CAMPAIGN: " + actualCampaign);		   
-		String actualAcronymPhrase = getSimpleQuery(file, "//SetAcronymPhrase");		
+		String actualAcronymPhrase = getSimpleQuery(file, "//span[@class='SetAcronymPhrase']");		
 		System.out.println("Set Acronym Phrase: " + actualAcronymPhrase);		   
-		String actualTIME = getSimpleQuery(file, "//TIME");		
+		String actualTIME = getSimpleQuery(file, "//span[@class='TIME']");		
 		System.out.println("TIME: " + actualTIME);		   
 		
         Assert.assertEquals("CAMPAIGN found: ", expectedCampaign, actualCampaign);
@@ -83,29 +73,27 @@ public class XMLFilterTest {
 				try {
 					in = new BufferedReader(new InputStreamReader(
 							new FileInputStream(file), "UTF-8"));
-				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
+				} catch (IOException e) {
 					e.printStackTrace();
 				}
 				try {
-					doc = new Builder().build(in, "UTF-8");
+					XMLReader xerces;
+					try {
+						xerces = XMLReaderFactory.createXMLReader("org.apache.xerces.parsers.SAXParser");
+						xerces.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+					} catch (SAXException e) {
+						throw new RuntimeException(e);
+					} 
+					doc = new Builder(xerces).build(in);
 
 					Nodes nodes = doc.query(query);
 					for (int i = 0; i < nodes.size(); i++) {
 						Element element = (Element) nodes.get(i);
 						actual = actual + " " + ExtractFromXML.getStringValue(element, "");
 					}
-				} catch (ValidityException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				} catch (ParsingException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
