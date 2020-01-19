@@ -6,7 +6,7 @@
                 <version>7</version>
         </parent>
 	<groupId>uk.ac.cam.ch.wwmm</groupId>
-	<artifactId>ACPGeo</artifactId>
+	<artifactId>acpgeo</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
 
  	<properties>
