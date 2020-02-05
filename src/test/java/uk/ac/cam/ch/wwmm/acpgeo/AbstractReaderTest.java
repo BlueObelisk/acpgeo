@@ -2,7 +2,7 @@ package uk.ac.cam.ch.wwmm.acpgeo;
 
 import java.io.InputStream;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.junit.Test;
 
@@ -15,8 +15,7 @@ public class AbstractReaderTest {
 	
 	@Test
 	public void AbstractTest(){
-		InputStream in = this.getClass().getClassLoader().getResourceAsStream("papers/acp-6-2711-2006.xml");
-		
+		InputStream in = AbstractReaderTest.class.getResourceAsStream("/papers/acp-6-2711-2006.xml");
         String expectedCitation = " Zachos et al., 2001 . ";
         String expectedAcronymPhrase = " North Atlantic Marine Boundary Layer Experiment (NAMBLEX) . Northern-Hemisphere Glaciation (NHG) . ";
 
@@ -46,7 +45,7 @@ public class AbstractReaderTest {
 	@Test
 	public void AbstractTestSentence(){
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		InputStream in = this.getClass().getClassLoader().getResourceAsStream("papers/acp-9-6453-2009.xml");
+		InputStream in = AbstractReaderTest.class.getResourceAsStream("/papers/acp-9-6453-2009.xml");
 		AbstractReader abstractReader = new AbstractReader(in);
         String sentence = abstractReader.getAbstractString();
         POSContainer posContainer = acpTagger.runTaggers(sentence);
@@ -58,7 +57,7 @@ public class AbstractReaderTest {
 	@Test
 	public void AbstractTestSentence1(){
 		ACPTagger acpTagger = ACPTagger.getInstance();
-		InputStream in = this.getClass().getClassLoader().getResourceAsStream("papers/acp-6-2711-2006.xml");
+		InputStream in = AbstractReaderTest.class.getResourceAsStream("/papers/acp-6-2711-2006.xml");
 		AbstractReader abstractReader = new AbstractReader(in);
         String sentence = abstractReader.getAbstractString();
         POSContainer posContainer = acpTagger.runTaggers(sentence);

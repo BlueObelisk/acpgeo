@@ -1,7 +1,6 @@
 package uk.ac.cam.ch.wwmm.acpgeo;
 
-import junit.framework.Assert;
-//import nu.xom.Document;
+import org.junit.Assert;
 
 import org.junit.Test;
 

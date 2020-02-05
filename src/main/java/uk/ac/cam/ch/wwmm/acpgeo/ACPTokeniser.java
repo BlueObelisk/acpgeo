@@ -50,7 +50,6 @@ public class ACPTokeniser implements ChemicalTaggerTokeniser {
 
 	/*****************************
 	 * Default constructor method.
-	 * @param citationString 
 	 ***************************/
 	public ACPTokeniser(){
 		//	boolean citationString = false;

@@ -1,95 +1,74 @@
  <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ACPGeo</groupId>
-	<artifactId>ACPGeo</artifactId>
+        <parent>
+                <groupId>uk.ac.cam.ch.wwmm</groupId>
+                <artifactId>wwmm-parent</artifactId>
+                <version>7</version>
+        </parent>
+	<groupId>uk.ac.cam.ch.wwmm</groupId>
+	<artifactId>acpgeo</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
-	<repositories>
-		<repository>
-			<id>ucc-repo</id>
-			<name>UCC Repository</name>
-			<url>https://maven.ch.cam.ac.uk/m2repo</url>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>ucc-repo</id>
-			<name>UCC Repository</name>
-			<url>https://maven.ch.cam.ac.uk/m2repo</url>
-		</pluginRepository>
-	</pluginRepositories>
 
  	<properties>
-    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<antlr4.version>4.5.3</antlr4.version>
+		<chemicaltagger.version>1.5.0</chemicaltagger.version>
   	</properties>
 
-	<build>
-		<plugins>
-			<plugin>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>2.3.2</version>
-            <configuration>
-               <source>1.5</source>
-               <target>1.5</target>
-            </configuration>
-         </plugin>
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>2.5</version>
-            <configuration>
-               <argLine>-Xms512m -Xmx1024m</argLine>
-            </configuration>
-         </plugin>
-      </plugins>
-	</build>
-
 	<dependencies>
-		<dependency>
-			<groupId>uk.ac.cam.ch</groupId>
-			<artifactId>chemicalTagger</artifactId>
-			<version>1.4-SNAPSHOT</version>
-		</dependency>
+                <dependency>
+                        <groupId>uk.ac.cam.ch.wwmm</groupId>
+                        <artifactId>chemicalTagger</artifactId>
+                        <version>${chemicaltagger.version}</version>
+                </dependency>
 		<dependency>
 			<groupId>net.sf.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
-			<version>2.1</version>
+			<version>2.3</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.8.2</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
-	<profiles>
-		<profile>
-			<id>rebuildGrammar</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.antlr</groupId>
-						<artifactId>antlr3-maven-plugin</artifactId>
-						<version>3.2wwmm</version>
-						<executions>
-							<execution>
-								<goals>
-									<goal>antlr</goal>
-								</goals>
-								<configuration>
-									<sourceDirectory>src/main/antlr3/</sourceDirectory>
-									<conversionTimeout>10000</conversionTimeout>
-									<libDirectory>src/main/antlr3/</libDirectory>
-									<messageFormat>antlr</messageFormat>
-									<outputDirectory>src/main/java/</outputDirectory>
-									<verbose>true</verbose>
-									<grammars>*.g</grammars>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+	<build>
+		<plugins>
+				<plugin>
+				<groupId>com.tunnelvisionlabs</groupId>
+				<artifactId>antlr4-maven-plugin</artifactId>
+				<version>${antlr4.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>antlr4</goal>
+						</goals>
+						<configuration>
+							<sourceDirectory>src/main/antlr4/</sourceDirectory>
+							<conversionTimeout>10000</conversionTimeout>
+							<libDirectory>src/main/antlr4/</libDirectory>
+							<messageFormat>antlr</messageFormat>
+							<outputDirectory>src/main/java/</outputDirectory>
+							<verbose>true</verbose>
+							<grammars>*.g4</grammars>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+                        <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-javadoc-plugin</artifactId>
+                                <version>3.1.1</version>
+                                <configuration>
+                                        <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
+                                        <sourceFileExcludes>
+                                                <sourceFileExclude>**/parserGrammar/*.java</sourceFileExclude>
+                                        </sourceFileExcludes>
+                                        <source>8</source>
+                                </configuration>
+                        </plugin>
+		</plugins>
+	</build>
+
 </project>

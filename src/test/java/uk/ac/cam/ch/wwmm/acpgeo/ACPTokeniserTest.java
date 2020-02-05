@@ -16,16 +16,12 @@
 
 package uk.ac.cam.ch.wwmm.acpgeo;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-//import junit.framework.Assert;
-
 import org.junit.Test;
 
-import uk.ac.cam.ch.wwmm.acpgeo.ACPTokeniser;
-//import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.Utils;
 import uk.ac.cam.ch.wwmm.oscar.document.Token;
 
