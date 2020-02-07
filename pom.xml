@@ -13,6 +13,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<antlr4.version>4.5.3</antlr4.version>
 		<chemicaltagger.version>1.5.0</chemicaltagger.version>
+		<opencsv.version>2.3</opencsv.version>
   	</properties>
 
 	<dependencies>
@@ -24,7 +25,7 @@
 		<dependency>
 			<groupId>net.sf.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
-			<version>2.3</version>
+			<version>${opencsv.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
