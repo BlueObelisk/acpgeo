@@ -13,8 +13,8 @@ import nu.xom.Document;
 import uk.ac.cam.ch.wwmm.chemicaltagger.ASTtoXML;
 import uk.ac.cam.ch.wwmm.chemicaltagger.POSContainer;
 import uk.ac.cam.ch.wwmm.chemicaltagger.SentenceParser;
-import uk.ac.cam.ch.wwmm.parserGrammar.ACPGrammarLexer;
-import uk.ac.cam.ch.wwmm.parserGrammar.ACPGrammarParser;
+import uk.ac.cam.ch.wwmm.acpgeo.parsergrammar.ACPGrammarLexer;
+import uk.ac.cam.ch.wwmm.acpgeo.parsergrammar.ACPGrammarParser;
 
 /***************************************
  * 
