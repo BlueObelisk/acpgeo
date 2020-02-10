@@ -139,7 +139,7 @@
 				<configuration>
 					<javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
 					<sourceFileExcludes>
-						<sourceFileExclude>**/parserGrammar/*.java</sourceFileExclude>
+						<sourceFileExclude>**/parsergrammar/*.java</sourceFileExclude>
 					</sourceFileExcludes>
 					<source>8</source>
 				</configuration>
